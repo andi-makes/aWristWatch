@@ -1,2 +1,8 @@
-# aWristWatch
-I am making a Wrist Watch!
+# andi makes a wrist watch!
+**This project is Work in Progress**
+
+## Hardware
+
+## Firmware
+
+## Software
