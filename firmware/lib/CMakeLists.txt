@@ -1,0 +1,9 @@
+add_library(
+    zol
+    INTERFACE
+)
+target_include_directories(
+    zol
+    INTERFACE
+    ${PROJECT_SOURCE_DIR}/api
+)
