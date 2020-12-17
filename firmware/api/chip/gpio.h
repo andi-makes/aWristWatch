@@ -24,6 +24,17 @@ struct GPIOx {
 		VERY_HIGH = 3
 	};
 
+	enum class AF : uint8_t {
+		AF0 = 0,
+		AF1 = 1,
+		AF2 = 2,
+		AF3 = 3,
+		AF4 = 4,
+		AF5 = 5,
+		AF6 = 6,
+		AF7 = 7
+	}
+
 	enum class PUPD : uint8_t { DISABLED = 0, PULLUP = 1, PULLDOWN = 2 };
 
 	using MODER	  = zol::reg<uint32_t, address + 0x0>;
@@ -85,7 +96,17 @@ struct GPIOx {
 		}
 	}
 
-	// TODO: Lock, alternate functions,
+	static void lock_pin(uint8_t pin) { LCKR::set_reg((1 << pin) | (1 << 16)); }
+
+	static void set_alternate_function(uint8_t pin, AF f) {
+		if (pin <= 7) {
+			AFRL::and_reg(~(0b1111 << (pin * 4)));
+			AFRL::or_reg(f << (pin * 4));
+		} else {
+			AFRH::and_reg(~(0b1111 << ((pin - 8) * 4)));
+			AFRH::or_reg(f << ((pin - 8) * 4));
+		}
+	}
 
 private:
 	GPIOx();
