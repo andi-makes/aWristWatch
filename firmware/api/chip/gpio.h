@@ -3,8 +3,7 @@
 #include <cinttypes>
 #include <register.h>
 
-template<uint64_t address>
-struct GPIOx {
+namespace gpio {
 	enum class MODE : uint8_t {
 		INPUT	  = 0,
 		OUTPUT	  = 1,
@@ -33,10 +32,13 @@ struct GPIOx {
 		AF5 = 5,
 		AF6 = 6,
 		AF7 = 7
-	}
+	};
 
 	enum class PUPD : uint8_t { DISABLED = 0, PULLUP = 1, PULLDOWN = 2 };
+};
 
+template<uint64_t address>
+struct GPIOx {
 	using MODER	  = zol::reg<uint32_t, address + 0x0>;
 	using OTYPER  = zol::reg<uint32_t, address + 0x4>;
 	using OSPEEDR = zol::reg<uint32_t, address + 0x8>;
@@ -49,27 +51,27 @@ struct GPIOx {
 	using AFRH	  = zol::reg<uint32_t, address + 0x24>;
 	using BRR	  = zol::reg<uint32_t, address + 0x28>;
 
-	static void set_mode(uint8_t pin, MODE m) {
+	static void set_mode(uint8_t pin, gpio::MODE m) {
 		MODER::and_reg(~(0b11 << (pin * 2)));
-		MODER::or_reg(m << (pin * 2));
+		MODER::or_reg(uint8_t(m) << (pin * 2));
 	}
 
-	static void set_output_type(uint8_t pin, OTYPE t) {
-		if (t == 1) {
+	static void set_output_type(uint8_t pin, gpio::OTYPE t) {
+		if (t == GPIOx::OTYPE::OPEN_DRAIN) {
 			OTYPER::set_bit(pin);
 		} else {
 			OTYPER::clear_bit(pin);
 		}
 	}
 
-	static void set_output_speed(uint8_t pin, OSPEED s) {
+	static void set_output_speed(uint8_t pin, gpio::OSPEED s) {
 		OSPEEDR::and_reg(~(0b11 << (pin * 2)));
-		OSPEEDR::or_reg(s << (pin * 2));
+		OSPEEDR::or_reg(uint8_t(s) << (pin * 2));
 	}
 
-	static void set_pullup(uint8_t pin, PUPD p) {
+	static void set_pullup(uint8_t pin, gpio::PUPD p) {
 		PUPDR::and_reg(~(0b11 << (pin * 2)));
-		PUPDR::or_reg(p << (pin * 2));
+		PUPDR::or_reg(uint8_t(p) << (pin * 2));
 	}
 
 	static bool get_input_data(uint8_t pin) { return IDR::get_bit(pin); }
@@ -80,6 +82,7 @@ struct GPIOx {
 	 * @brief Unless you have a good reason, use bit set / bit reset functions
 	 * @deprecated use bit set / reset functions
 	 */
+
 	static void set_output_data(uint8_t pin, bool level) {
 		if (level) {
 			ODR::set_bit(pin);
@@ -98,13 +101,13 @@ struct GPIOx {
 
 	static void lock_pin(uint8_t pin) { LCKR::set_reg((1 << pin) | (1 << 16)); }
 
-	static void set_alternate_function(uint8_t pin, AF f) {
+	static void set_alternate_function(uint8_t pin, gpio::AF f) {
 		if (pin <= 7) {
 			AFRL::and_reg(~(0b1111 << (pin * 4)));
-			AFRL::or_reg(f << (pin * 4));
+			AFRL::or_reg(uint8_t(f) << (pin * 4));
 		} else {
 			AFRH::and_reg(~(0b1111 << ((pin - 8) * 4)));
-			AFRH::or_reg(f << ((pin - 8) * 4));
+			AFRH::or_reg(uint8_t(f) << ((pin - 8) * 4));
 		}
 	}
 

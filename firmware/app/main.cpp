@@ -168,8 +168,8 @@ extern "C" void SPI1_IRQHandler() {
 			asm("nop");
 		}
 		SPI1::CR1::clear_bit(SPI1::SPE);	// Disable SPI
-		display::le::low();
-		display::le::high();
+		display::le::set_bit(low);
+		display::le::set_bit(high);
 	}
 	scnd = !scnd;
 }
@@ -249,16 +249,16 @@ int main(void) {
 	display::setup();
 
 	// Enable LED Driver
-	sw_time::set_mode(GPIO_MODE::INPUT);
-	sw_time::enable_pullup();
+	sw_time::set_mode(gpio::MODE::INPUT);
+	sw_time::set_pullup(gpio::PUPD::PULLUP);
 	EXTI::IMR::set_bit(0);
 	EXTI::FTSR::set_bit(0);
 	EXTI::RTSR::set_bit(0);
 	SYSCFG::EXTICR1::set_reg(0);
 	NVIC::ISER::set_bit(5);
 
-	sw_date::set_mode(GPIO_MODE::INPUT);
-	sw_date::enable_pullup();
+	sw_date::set_mode(gpio::MODE::INPUT);
+	sw_date::set_pullup(gpio::PUPD::PULLUP);
 	EXTI::IMR::set_bit(10);
 	EXTI::FTSR::set_bit(10);
 	EXTI::RTSR::set_bit(10);
@@ -267,9 +267,9 @@ int main(void) {
 
 	// SPI
 	// Pins: AF0, reset state
-	display::clk::set_mode(GPIO_MODE::ALTERNATE);
-	display::sdi::set_mode(GPIO_MODE::ALTERNATE);
-	display::mdi::set_mode(GPIO_MODE::ALTERNATE);
+	display::clk::set_mode(gpio::MODE::ALTERNATE);
+	display::sdi::set_mode(gpio::MODE::ALTERNATE);
+	display::mdi::set_mode(gpio::MODE::ALTERNATE);
 
 	SPI1::CR1::set_bit(SPI1::DFF);
 	SPI1::CR1::set_bit(SPI1::SSI);
