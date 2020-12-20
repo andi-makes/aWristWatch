@@ -35,13 +35,12 @@ void display::setup() {
 	// Enable LPTIM1
 	RCC::CCIPR::or_reg(3 << 18);	// LPTIM1 should use LSE Clock
 	RCC::APB1ENR::set_bit(31);		// Route Power to LPTIM1
-	LPTIM1::CFGR::set_reg(0);		// All the defaults
-	LPTIM1::CR::set_bit(0);			// Enable the LPTIM1
-	LPTIM1::ARR::set_reg(656);		// Set top limit of PWM (656 ~= 50Hz)
-	LPTIM1::CR::set_bit(2);			// Start the PWM in continous mode
 
-	oe::GPIO::AFRH::and_reg(~(0xF0));
-	oe::GPIO::AFRH::or_reg(2 << 4);
+	LPTIM1::set(lptim::cr::ENABLE, true);	 // Enable the LPTIM1
+	LPTIM1::ARR::set_reg(656);	  // Set top limit of PWM (656 ~= 50Hz)
+	LPTIM1::set(lptim::cr::CNTSTRT, true);	  // Start the PWM in continous mode
+
+	oe::set_alternate_function(gpio::AF::AF2);
 
 	oe::set_mode(gpio::MODE::ALTERNATE);
 	le::set_mode(gpio::MODE::OUTPUT);
