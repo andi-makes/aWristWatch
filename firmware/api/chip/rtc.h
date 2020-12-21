@@ -43,7 +43,7 @@ struct RTC {
 
 	static void enable() {
 		PWR::enable();
-		PWR::CR::set_bit(8);	// CR_DBP
+		PWR::set(pwr::cr::DBP);	   // Disable backup write protection
 
 		RCC::CSR::set_bit(8);				   // CSR_LSEON
 		while (RCC::CSR::get_bit(9) == 0) {	   // CSR_LSERDY
