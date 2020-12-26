@@ -59,7 +59,6 @@ void rtc_default_init() {
 }
 
 namespace {
-	uint32_t buffer	   = 0;
 	uint32_t last_time = 0;
 
 	bool first_time = true;
@@ -84,19 +83,26 @@ extern "C" void RTC_IRQHandler() {
 		last_time  = RTC::TR::get_reg() & (~0xFF);
 
 		if (toggle) {
-			buffer = display::bcd_to_raw((last_time & 0x300000) >> 20,
-										 (last_time & 0xF0000) >> 16,
-										 (last_time & 0x7000) >> 12,
-										 (last_time & 0xF00) >> 8) |
-					 DP2;
+			display::fill_buffer(
+				display::bcd_to_raw((last_time & 0x300000) >> 20,
+									(last_time & 0xF0000) >> 16,
+									(last_time & 0x7000) >> 12,
+									(last_time & 0xF00) >> 8) |
+				DP2);
+			// buffer = display::bcd_to_raw((last_time & 0x300000) >> 20,
+			// 							 (last_time & 0xF0000) >> 16,
+			// 							 (last_time & 0x7000) >> 12,
+			// 							 (last_time & 0xF00) >> 8) |
+			// 		 DP2;
 		} else {
 			if (state == STATE::RUNNING) {
-				buffer = display::bcd_to_raw((last_time & 0x300000) >> 20,
-											 (last_time & 0xF0000) >> 16,
-											 (last_time & 0x7000) >> 12,
-											 (last_time & 0xF00) >> 8);
+				display::fill_buffer(
+					display::bcd_to_raw((last_time & 0x300000) >> 20,
+										(last_time & 0xF0000) >> 16,
+										(last_time & 0x7000) >> 12,
+										(last_time & 0xF00) >> 8));
 			} else {
-				buffer = 0;
+				display::fill_buffer(0);
 			}
 		}
 
@@ -148,30 +154,11 @@ extern "C" void RTC_IRQHandler() {
 		}
 
 		toggle = !toggle;
-		SPI1::DR::set_reg((uint16_t)(buffer & 0xFFFF));
-		SPI1::CR1::set_bit(SPI1::SPE);	  // Enable SPI
+		display::send();
 
 		EXTI::PR::set_bit(20);
 		RTC::ISR::clear_bit(10);
 	}
-}
-
-// NVIC number 25
-extern "C" void SPI1_IRQHandler() {
-	static bool scnd = true;
-	SPI1::DR::get_reg();
-	SPI1::SR::get_reg();
-	if (scnd) {
-		SPI1::DR::set_reg((uint16_t)(buffer >> 16));
-	} else {
-		while (SPI1::SR::get_bit(SPI1::BSY)) {
-			asm("nop");
-		}
-		SPI1::CR1::clear_bit(SPI1::SPE);	// Disable SPI
-		display::le::set_bit(low);
-		display::le::set_bit(high);
-	}
-	scnd = !scnd;
 }
 
 // NVIC 5
@@ -264,25 +251,6 @@ int main(void) {
 	EXTI::RTSR::set_bit(10);
 	SYSCFG::EXTICR3::set_reg(0);
 	NVIC::ISER::set_bit(7);
-
-	// SPI
-	// Pins: AF0, reset state
-	display::clk::set_mode(gpio::MODE::ALTERNATE);
-	display::sdi::set_mode(gpio::MODE::ALTERNATE);
-	display::mdi::set_mode(gpio::MODE::ALTERNATE);
-
-	SPI1::CR1::set_bit(SPI1::DFF);
-	SPI1::CR1::set_bit(SPI1::SSI);
-	SPI1::CR1::set_bit(SPI1::SSM);
-	SPI1::CR1::set_bit(SPI1::LSBFIRST);
-	SPI1::CR1::and_reg(~SPI1::BR_MASK);	   // Fast SPI, smallest prescaler
-	SPI1::CR1::set_bit(SPI1::MSTR);
-	SPI1::CR1::clear_bit(SPI1::CPHA);
-	SPI1::CR1::clear_bit(SPI1::CPOL);
-
-	SPI1::CR2::set_bit(SPI1::TXEIE);
-
-	NVIC::ISER::set_bit(25);
 
 	asm("CPSIE I");
 	RTC::ISR::clear_bit(10);
