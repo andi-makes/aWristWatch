@@ -83,23 +83,6 @@ void display::setup() {
 
 	NVIC::ISER::set_bit(25);
 }
-// void display::send_bcd(uint8_t one, uint8_t two, uint8_t three, uint8_t four)
-// { 	send_raw(bcd_to_raw(one, two, three, four));
-// }
-// void display::send_raw(uint32_t raw) {
-// 	for (int i = 0; i < 32; ++i) {
-// 		if ((1 << i) & raw) {
-// 			sdi::set_bit(high);
-// 		} else {
-// 			sdi::set_bit(low);
-// 		}
-// 		clk::set_bit(high);
-// 		clk::set_bit(low);
-// 	}
-
-// 	le::set_bit(low);
-// 	le::set_bit(high);
-// }
 
 void display::send() {
 	SPI1::DR::set_reg((uint16_t)(buffer & 0xFFFF));

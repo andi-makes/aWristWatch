@@ -80,5 +80,4 @@ namespace zol {
 	private:
 		reg();
 	};
-
 }
