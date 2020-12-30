@@ -8,8 +8,6 @@
 // NVIC number 25
 extern "C" void SPI1_IRQHandler() {
 	static bool scnd = true;
-	SPI1::DR::get_reg();
-	SPI1::SR::get_reg();
 	if (scnd) {
 		SPI1::DR::set_reg((uint16_t)(display::buffer >> 16));
 	} else {
