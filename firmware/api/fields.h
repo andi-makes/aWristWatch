@@ -1,4 +1,6 @@
 #pragma once
+#include "register.h"
+
 #include <cinttypes>
 
 namespace zol {
@@ -7,7 +9,7 @@ namespace zol {
 	/// @tparam start ...  Start bit position of the field
 	/// @tparam width ... Width of the field. For Example, a field `XX` has a
 	/// width of 2.
-	template<typename reg, uint8_t start, uint8_t width>
+	template<zol::Register reg, uint8_t start, uint8_t width>
 	struct field {
 		/// @brief Sets the field to value.
 		/// @throws Compile time error if value does not fit into the field.

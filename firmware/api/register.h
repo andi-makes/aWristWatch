@@ -1,13 +1,42 @@
 #pragma once
 
+#include <concepts>
 #include <cstdint>
 
 namespace zol {
+	using addr_t = uint32_t;
+	template<typename T>
+	concept Register = requires {
+		typename T::type_t;
+		{ T::get_address() }
+		->std::same_as<addr_t>;
+		{ T::get_reg() }
+		->std::same_as<volatile typename T::type_t&>;
+		{ T::set_bit(0) }
+		->std::same_as<void>;
+		{ T::get_bit(0) }
+		->std::same_as<bool>;
+		{ T::clear_bit(0) }
+		->std::same_as<void>;
+		{ T::toggle_bit(0) }
+		->std::same_as<void>;
+		{ T::set_reg(0) }
+		->std::same_as<void>;
+		{ T::clear_reg() }
+		->std::same_as<void>;
+		{ T::or_reg(0) }
+		->std::same_as<void>;
+		{ T::and_reg(0) }
+		->std::same_as<void>;
+		{ T::toggle_reg(0) }
+		->std::same_as<void>;
+	};
+
 	/// @brief Static Register Wrapper class
 	/// @tparam type ... Representative type of the register, for example
 	/// uint8_t 	for 8 bit registers and uin16_t for 16 bit registers
 	/// @tparam address ... Address of the register
-	template<typename type, uint32_t address>
+	template<std::unsigned_integral type, addr_t address>
 	class reg {
 	public:
 		/// @brief Type of the register
@@ -15,11 +44,11 @@ namespace zol {
 
 		/// @brief Get the address of the register
 		/// @return The Address of the register
-		constexpr static int get_address() { return address; }
+		constexpr static addr_t get_address() { return address; }
 
 		/// @brief Get the register
 		/// @return The register
-		inline static volatile type& get_reg() {
+		inline static volatile type_t& get_reg() {
 			return *reinterpret_cast<volatile type_t*>(address);
 		}
 

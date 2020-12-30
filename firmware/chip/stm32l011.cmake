@@ -47,7 +47,7 @@ function(add_zol_executable EXECUTABLE_NAME)
 		#$<$<COMPILE_LANGUAGE:CXX>:-std=c++14>
 		#mcpu=cortex-m0plus
 		"-mcpu=cortex-m0plus" "--specs=nano.specs" "-mfloat-abi=soft" "-mthumb"
-		$<$<COMPILE_LANGUAGE:CXX>:-std=gnu++14;-g3;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-fstack-usage>
+		$<$<COMPILE_LANGUAGE:CXX>:-std=gnu++2a;-fconcepts;-g3;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-fstack-usage>
 	)
 
 	target_link_options(
