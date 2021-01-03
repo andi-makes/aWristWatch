@@ -1,6 +1,7 @@
 #include "display.h"
 
 #include <chip/exti.h>
+#include <chip/interrupts.h>
 #include <chip/lptim.h>
 #include <chip/nvic.h>
 #include <chip/pwr.h>
@@ -75,7 +76,7 @@ enum class STATE { SETUP_HRS, SETUP_MINS, RUNNING };
 
 STATE state = STATE::RUNNING;
 
-extern "C" void RTC_IRQHandler() {
+void RTC_IRQHandler() {
 	if (EXTI::PR::get_bit(20)) {
 		display::update_brightness();
 
@@ -89,11 +90,6 @@ extern "C" void RTC_IRQHandler() {
 									(last_time & 0x7000) >> 12,
 									(last_time & 0xF00) >> 8) |
 				DP2);
-			// buffer = display::bcd_to_raw((last_time & 0x300000) >> 20,
-			// 							 (last_time & 0xF0000) >> 16,
-			// 							 (last_time & 0x7000) >> 12,
-			// 							 (last_time & 0xF00) >> 8) |
-			// 		 DP2;
 		} else {
 			if (state == STATE::RUNNING) {
 				display::fill_buffer(
@@ -163,7 +159,7 @@ extern "C" void RTC_IRQHandler() {
 
 // NVIC 5
 // sw time
-extern "C" void EXTI0_1_IRQHandler() {
+void EXTI0_1_IRQHandler() {
 	EXTI::PR::set_bit(0);
 
 	if (sw_time::is_low()) {		// Falling Edge
@@ -182,7 +178,7 @@ extern "C" void EXTI0_1_IRQHandler() {
 
 // NVIC 7
 // sw date
-extern "C" void EXTI4_15_IRQHandler() {
+void EXTI4_15_IRQHandler() {
 	EXTI::PR::set_bit(10);
 
 	if (sw_date::is_low()) {	// Falling Edge
@@ -252,7 +248,7 @@ int main(void) {
 	SYSCFG::EXTICR3::set_reg(0);
 	NVIC::ISER::set_bit(7);
 
-	asm("CPSIE I");
+	zol::enable_interrupts();
 	RTC::ISR::clear_bit(10);
 
 	while (true) {
