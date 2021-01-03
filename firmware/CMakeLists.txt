@@ -4,6 +4,7 @@ include(cmake/arm.cmake)
 
 project(zol ASM C CXX)
 
+include(cmake/zol.cmake)
 include(chip/stm32l011.cmake)
 
 add_subdirectory(lib)
