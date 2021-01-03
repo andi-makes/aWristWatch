@@ -37,7 +37,7 @@ namespace gpio {
 	enum class PUPD : uint8_t { DISABLED = 0, PULLUP = 1, PULLDOWN = 2 };
 };
 
-template<uint64_t address>
+template<zol::addr_t address>
 struct GPIOx {
 	using MODER	  = zol::reg<uint32_t, address + 0x0>;
 	using OTYPER  = zol::reg<uint32_t, address + 0x4>;
@@ -50,6 +50,8 @@ struct GPIOx {
 	using AFRL	  = zol::reg<uint32_t, address + 0x20>;
 	using AFRH	  = zol::reg<uint32_t, address + 0x24>;
 	using BRR	  = zol::reg<uint32_t, address + 0x28>;
+
+	static void enable();
 
 	static void set_mode(uint8_t pin, gpio::MODE m) {
 		MODER::and_reg(~(0b11 << (pin * 2)));
@@ -114,6 +116,6 @@ struct GPIOx {
 private:
 	GPIOx();
 };
-constexpr uint64_t GPIOA_ADDR = 0x5000'0000;
+constexpr zol::addr_t GPIOA_ADDR = 0x5000'0000;
 
 using GPIOA = GPIOx<GPIOA_ADDR>;

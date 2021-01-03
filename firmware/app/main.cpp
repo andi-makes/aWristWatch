@@ -27,6 +27,7 @@ void set_rtc_time(int hrs, int min, int sec) {
 
 	RTC::enable_write_protect();
 }
+
 void set_rtc_date(int date, int month, int year) {
 	RTC::disable_write_protect();
 	RTC::ISR::set_bit(7);
@@ -200,6 +201,7 @@ int main(void) {
 	RCC::APB2ENR::set_bit(0);	 // Enable Syscfg
 	RTC::enable();
 	RCC::APB2ENR::set_bit(12);	  // Enable SPI1
+	GPIOA::enable();
 
 	if (RTC::ISR::get_bit(4) == 0) {
 		state = STATE::SETUP_HRS;
@@ -225,9 +227,6 @@ int main(void) {
 
 	RTC::CR::set_bit(14);	 // WUTIE
 	RTC::enable_write_protect();
-
-	// Enable GPIOA
-	RCC::IOPENR::set_bit(0);
 
 	display::setup();
 
