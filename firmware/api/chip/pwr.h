@@ -51,7 +51,7 @@ namespace pwr {
 };
 
 struct PWR {
-	static constexpr uint64_t address = 0X4000'7000;
+	static constexpr zol::addr_t address = 0X4000'7000;
 
 	using CR  = zol::reg<uint32_t, address + 0x0>;
 	using CSR = zol::reg<uint32_t, address + 0x4>;

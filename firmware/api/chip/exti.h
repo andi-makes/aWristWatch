@@ -4,7 +4,7 @@
 #include <register.h>
 
 struct EXTI {
-	constexpr static uint32_t address = 0X4001'0400;
+	constexpr static zol::addr_t address = 0X4001'0400;
 
 	using IMR	= zol::reg<uint32_t, address + 0x0>;
 	using EMR	= zol::reg<uint32_t, address + 0x4>;

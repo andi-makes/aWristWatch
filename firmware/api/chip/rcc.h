@@ -4,7 +4,7 @@
 #include <register.h>
 
 struct RCC {
-	static constexpr uint64_t address = 0x4002'1000;
+	static constexpr zol::addr_t address = 0x4002'1000;
 
 	using CR		= zol::reg<uint32_t, address + 0x0>;
 	using ICSCR		= zol::reg<uint32_t, address + 0x4>;

@@ -4,7 +4,7 @@
 #include <register.h>
 
 struct SYSCFG {
-	static constexpr uint32_t address = 0;
+	static constexpr zol::addr_t address = 0;
 
 	using CFGR1		 = zol::reg<uint32_t, address + 0x0>;
 	using CFGR2		 = zol::reg<uint32_t, address + 0x4>;
