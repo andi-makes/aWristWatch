@@ -99,10 +99,18 @@ namespace lptim {
 		SNGSTRT = 1,
 		CNTSTRT = 2
 	};
+
+	enum class clock : uint8_t {	//
+		APB	  = 0,
+		LS1	  = 1,
+		HSI16 = 2,
+		LSE	  = 3
+	};
 };
 
-template<uint64_t address>
-struct LPTIMx {
+struct LPTIM1 {
+	static constexpr zol::addr_t address = 0x4000'7C00;
+
 	using ISR  = zol::reg<uint32_t, address + 0x0>;
 	using ICR  = zol::reg<uint32_t, address + 0x4>;
 	using IER  = zol::reg<uint32_t, address + 0x8>;
@@ -111,6 +119,13 @@ struct LPTIMx {
 	using CMP  = zol::reg<uint32_t, address + 0x14>;
 	using ARR  = zol::reg<uint32_t, address + 0x18>;
 	using CNT  = zol::reg<uint32_t, address + 0x1C>;
+
+	static void enable() { RCC::APB1ENR::set_bit(31); }
+
+	static void set_clock_source(lptim::clock c) {
+		RCC::CCIPR::and_reg(~((0b11) << 18));
+		RCC::CCIPR::or_reg(int(c) << 18);
+	}
 
 	// TODO: implement get functions
 
@@ -186,7 +201,5 @@ struct LPTIMx {
 	}
 
 private:
-	LPTIMx();
+	LPTIM1();
 };
-
-using LPTIM1 = LPTIMx<0x4000'7C00>;
