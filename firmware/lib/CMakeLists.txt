@@ -1,9 +1,9 @@
 add_library(
     zol
-    gpio.cpp
+    INTERFACE
 )
 target_include_directories(
     zol
-    PUBLIC
+    INTERFACE
     ${PROJECT_SOURCE_DIR}/api
 )

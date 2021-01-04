@@ -15,4 +15,9 @@ struct SYSCFG {
 	using COMP1_CTRL = zol::reg<uint32_t, address + 0x18>;
 	using COMP2_CTRL = zol::reg<uint32_t, address + 0x1C>;
 	using CFGR3		 = zol::reg<uint32_t, address + 0x20>;
+
+	static void enable() { RCC::APB2ENR::set_bit(0); }
+
+private:
+	SYSCFG() {}
 };

@@ -66,7 +66,7 @@ namespace rtc {
 };
 
 struct RTC {
-	static constexpr uint64_t address = 0x4000'2800;
+	static constexpr zol::addr_t address = 0x4000'2800;
 
 	using TR	   = zol::reg<uint32_t, address + 0x0>;
 	using DR	   = zol::reg<uint32_t, address + 0x4>;
@@ -93,12 +93,14 @@ struct RTC {
 	using BKP3R	   = zol::reg<uint32_t, address + 0x5C>;
 	using BKP4R	   = zol::reg<uint32_t, address + 0x60>;
 
-	static inline void disable_write_protect() {
+	[[gnu::always_inline]] static inline void disable_write_protect() {
 		WPR::set_reg(0xCA);
 		WPR::set_reg(0x53);
 	}
 
-	static inline void enable_write_protect() { WPR::set_reg(0xFF); }
+	[[gnu::always_inline]] static inline void enable_write_protect() {
+		WPR::set_reg(0xFF);
+	}
 
 	static void enable() {
 		PWR::enable();
@@ -111,6 +113,72 @@ struct RTC {
 
 		RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
 		RCC::CSR::set_bit(18);	  // RTCEN
+	}
+
+	static void set_time(std::integral auto hrs,
+						 std::integral auto min,
+						 std::integral auto sec) {
+		disable_write_protect();
+		// Enter initialization mode
+		ISR::set_bit(7);
+		// Wait until registers can be updated
+		while (ISR::get_bit(6) == 0) {
+			asm("nop");
+		}
+
+		// Update time
+		TR::set_reg(sec | (min << 8) | (hrs << 16));
+
+		// Exit initialization mode
+		ISR::clear_bit(7);
+
+		enable_write_protect();
+	}
+
+	static void set_date(std::integral auto date,
+						 std::integral auto month,
+						 std::integral auto year) {
+		disable_write_protect();
+		// Enter initialization mode
+		ISR::set_bit(7);
+		// Wait until registers can be updated
+		while (ISR::get_bit(6) == 0) {
+			asm("nop");
+		}
+
+		// Update date
+		DR::set_reg(date | (month << 8) | (year << 16));
+
+		// Exit initialization mode
+		ISR::clear_bit(7);
+
+		enable_write_protect();
+	}
+
+	static void set_time_and_date(std::integral auto hrs,
+								  std::integral auto min,
+								  std::integral auto sec,
+								  std::integral auto date,
+								  std::integral auto month,
+								  std::integral auto year) {
+		disable_write_protect();
+		// Enter initialization mode
+		ISR::set_bit(7);
+		// Wait until registers can be updated
+		while (ISR::get_bit(6) == 0) {
+			asm("nop");
+		}
+
+		// Update time
+		TR::set_reg(sec | (min << 8) | (hrs << 16));
+
+		// Update date
+		DR::set_reg(date | (month << 8) | (year << 16));
+
+		// Exit initialization mode
+		ISR::clear_bit(7);
+
+		enable_write_protect();
 	}
 
 private:

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "rcc.h"
+
 #include <cinttypes>
 #include <register.h>
 
@@ -119,3 +121,12 @@ private:
 constexpr zol::addr_t GPIOA_ADDR = 0x5000'0000;
 
 using GPIOA = GPIOx<GPIOA_ADDR>;
+
+template<zol::addr_t a>
+void GPIOx<a>::enable() {
+	static_assert(a == GPIOA_ADDR,
+				  "There is no GPIO component at that address!");
+	if constexpr (a == GPIOA_ADDR) {
+		RCC::IOPENR::set_bit(0);
+	}
+}

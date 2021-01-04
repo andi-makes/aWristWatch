@@ -14,57 +14,7 @@
 using sw_time = pin<GPIOA, 0>;
 using sw_date = pin<GPIOA, 10>;
 
-void set_rtc_time(int hrs, int min, int sec) {
-	RTC::disable_write_protect();
-	RTC::ISR::set_bit(7);
-	while (RTC::ISR::get_bit(6) == 0) {
-		asm("nop");
-	}
-
-	RTC::TR::set_reg(sec | (min << 8) | (hrs << 16));
-
-	RTC::ISR::clear_bit(7);
-
-	RTC::enable_write_protect();
-}
-
-void set_rtc_date(int date, int month, int year) {
-	RTC::disable_write_protect();
-	RTC::ISR::set_bit(7);
-	while (RTC::ISR::get_bit(6) == 0) {
-		asm("nop");
-	}
-
-	RTC::DR::set_reg(date | (month << 8) | (year << 16));
-
-	RTC::ISR::clear_bit(7);
-
-	RTC::enable_write_protect();
-}
-
-void rtc_default_init() {
-	RTC::disable_write_protect();
-
-	RTC::ISR::set_bit(7);
-	while (RTC::ISR::get_bit(6) == 0) {
-		asm("nop");
-	}
-
-	RTC::TR::set_reg(0x00'00'00);
-	RTC::DR::set_reg(0x20'01'01);
-
-	RTC::CR::set_reg(0);
-
-	RTC::ISR::clear_bit(7);
-
-	RTC::enable_write_protect();
-}
-
 namespace {
-	uint32_t last_time = 0;
-
-	bool first_time = true;
-
 	constexpr uint32_t DP2 = 1 << 31;
 	bool toggle			   = false;
 
@@ -81,23 +31,17 @@ void RTC_IRQHandler() {
 	if (EXTI::PR::get_bit(20)) {
 		display::update_brightness();
 
-		first_time = false;
-		last_time  = RTC::TR::get_reg() & (~0xFF);
+		auto time	  = RTC::TR::get_reg();
+		auto raw_time = display::bcd_to_raw((time & 0x300000) >> 20,
+											(time & 0xF0000) >> 16,
+											(time & 0x7000) >> 12,
+											(time & 0xF00) >> 8);
 
 		if (toggle) {
-			display::fill_buffer(
-				display::bcd_to_raw((last_time & 0x300000) >> 20,
-									(last_time & 0xF0000) >> 16,
-									(last_time & 0x7000) >> 12,
-									(last_time & 0xF00) >> 8) |
-				DP2);
+			display::fill_buffer(raw_time | DP2);
 		} else {
 			if (state == STATE::RUNNING) {
-				display::fill_buffer(
-					display::bcd_to_raw((last_time & 0x300000) >> 20,
-										(last_time & 0xF0000) >> 16,
-										(last_time & 0x7000) >> 12,
-										(last_time & 0xF00) >> 8));
+				display::fill_buffer(raw_time);
 			} else {
 				display::fill_buffer(0);
 			}
@@ -114,9 +58,9 @@ void RTC_IRQHandler() {
 			}
 			if (up) {
 				up		 = false;
-				auto hrs = (RTC::TR::get_reg() >> 16) & 0x3F;
-				auto min = (RTC::TR::get_reg() >> 8) & 0x7F;
-				auto sec = (RTC::TR::get_reg()) & 0x7F;
+				auto hrs = (time >> 16) & 0x3F;
+				auto min = (time >> 8) & 0x7F;
+				auto sec = (time) &0x7F;
 				if (hrs == 0x23) {
 					hrs = 0;
 				} else {
@@ -128,15 +72,15 @@ void RTC_IRQHandler() {
 					}
 				}
 
-				set_rtc_time(hrs, min, sec);
+				RTC::set_time(hrs, min, sec);
 			}
 			if (down) {
 				down	 = false;
-				auto hrs = (RTC::TR::get_reg() >> 16) & 0x3F;
-				auto min = (RTC::TR::get_reg() >> 8) & 0x7F;
-				auto sec = (RTC::TR::get_reg()) & 0x7F;
+				auto hrs = (time >> 16) & 0x3F;
+				auto min = (time >> 8) & 0x7F;
+				auto sec = (time) &0x7F;
 				if (hrs == 0) {
-					hrs = 0x24;
+					hrs = 0x23;
 				} else {
 					if (((hrs - 1) & 0xF) >= 10) {
 						hrs -= 0b1'0000;
@@ -146,7 +90,7 @@ void RTC_IRQHandler() {
 					}
 				}
 
-				set_rtc_time(hrs, min, sec);
+				RTC::set_time(hrs, min, sec);
 			}
 		}
 
@@ -197,15 +141,19 @@ void EXTI4_15_IRQHandler() {
 	}
 }
 
-int main(void) {
-	RCC::APB2ENR::set_bit(0);	 // Enable Syscfg
+inline static void power() {
+	SYSCFG::enable();
 	RTC::enable();
-	RCC::APB2ENR::set_bit(12);	  // Enable SPI1
+	SPI1::enable();
 	GPIOA::enable();
+}
+
+int main() {
+	power();
 
 	if (RTC::ISR::get_bit(4) == 0) {
 		state = STATE::SETUP_HRS;
-		rtc_default_init();
+		RTC::set_time_and_date(0, 0, 0, 1, 1, 2021);
 	}
 
 	// RTC Wakup Timer configuration
@@ -230,7 +178,6 @@ int main(void) {
 
 	display::setup();
 
-	// Enable LED Driver
 	sw_time::set_mode(gpio::MODE::INPUT);
 	sw_time::set_pullup(gpio::PUPD::PULLUP);
 	EXTI::IMR::set_bit(0);

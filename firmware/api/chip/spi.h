@@ -1,9 +1,11 @@
 #pragma once
 
+#include "rcc.h"
+
 #include <cstdint>
 #include <register.h>
 
-template<uint32_t address>
+template<zol::addr_t address>
 struct SPIx {
 	constexpr static uint8_t BIDIMODE = 15;
 	constexpr static uint8_t BIDIOE	  = 14;
@@ -70,9 +72,25 @@ struct SPIx {
 
 	using I2SPR = zol::reg<uint16_t, address + 0x20>;
 
+	static void enable();
+
 private:
 	SPIx();
 };
 
-using SPI1 = SPIx<0x4001'3000>;	   // APB2
-using SPI2 = SPIx<0x4000'3800>;	   // APB1
+constexpr zol::addr_t SPI1_ADDR = 0x4001'3000;
+constexpr zol::addr_t SPI2_ADDR = 0x4001'3800;
+
+using SPI1 = SPIx<SPI1_ADDR>;	 // APB2
+using SPI2 = SPIx<SPI2_ADDR>;	 // APB1
+
+template<zol::addr_t a>
+void SPIx<a>::enable() {
+	static_assert(a == SPI1_ADDR || a == SPI2_ADDR,
+				  "There is no SPI component at that address!");
+	if constexpr (a == SPI1_ADDR) {
+		RCC::APB2ENR::set_bit(12);
+	} else {
+		RCC::APB1ENR::set_bit(14);
+	}
+}

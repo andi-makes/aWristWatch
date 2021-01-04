@@ -39,7 +39,7 @@ function(add_zol_executable EXECUTABLE_NAME)
 	add_custom_command(
 		OUTPUT ${BIN_FOLDER}.lss
 		COMMAND
-		${ARM_TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}objdump -h -S ${BIN_FOLDER}.elf > ${BIN_FOLDER}.lss
+		${ARM_TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}objdump -h -d ${BIN_FOLDER}.elf > ${BIN_FOLDER}.lss
 		DEPENDS ${EXECUTABLE_NAME}.elf
 	)
 

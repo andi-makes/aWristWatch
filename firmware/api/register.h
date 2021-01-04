@@ -83,26 +83,28 @@ namespace zol {
 
 		/// @brief Sets the register to `content`.
 		/// @param content ... The new value of the register.
-		inline static void set_reg(const type content) { get_reg() = content; }
+		inline static void set_reg(const type_t content) {
+			get_reg() = content;
+		}
 
 		/// @brief Sets the register to 0.
 		inline static void clear_reg() { get_reg() = 0; }
 
 		/// @brief Ors the register with `bitmask`.
 		/// @param bitmask ... It's a bitmask, duh.
-		inline static void or_reg(const type bitmask) {
+		inline static void or_reg(const type_t bitmask) {
 			get_reg() = get_reg() | bitmask;
 		}
 
 		/// @brief Ands the register with `bitmask`.
 		/// @param bitmask ... It's a bitmask, duh
-		inline static void and_reg(const type bitmask) {
+		inline static void and_reg(const type_t bitmask) {
 			get_reg() = get_reg() & bitmask;
 		}
 
 		/// @brief Toggles (XOrs) the register with `bitmask`.
 		/// @param bitmask ... It's a bitmask, duh
-		inline static void toggle_reg(const type bitmask) {
+		inline static void toggle_reg(const type_t bitmask) {
 			get_reg() = get_reg() ^ bitmask;
 		}
 
