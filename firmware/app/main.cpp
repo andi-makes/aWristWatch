@@ -151,29 +151,31 @@ inline static void power() {
 int main() {
 	power();
 
-	if (RTC::ISR::get_bit(4) == 0) {
+	// if (RTC::ISR::get_bit(4) == 0) {
+	if (RTC::isr::INITS::read() == 0) {
 		state = STATE::SETUP_HRS;
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 2021);
 	}
 
 	// RTC Wakup Timer configuration
 	RTC::disable_write_protect();
-	RTC::CR::clear_bit(10);				   // Clear WUTE
-	while (RTC::ISR::get_bit(2) != 1) {	   // WUTWF
+	RTC::cr::WUTE::write(off);
+	// while (RTC::ISR::get_bit(2) != 1) {	   // WUTWF
+	while (RTC::isr::WUTWF::read() == 0) {	  // WUTWF
 		asm("nop");
 	}
 	// 1023 ==> 0.5sec
 	// 511  ==> 0.25sec
 	// 255  ==> 0.125sec
 	RTC::WUTR::set_reg(1023);
-	RTC::CR::set_bit(10);	 // Set WUTE
+	RTC::cr::WUTE::write(on);
 
 	EXTI::IMR::set_bit(20);
 	EXTI::RTSR::set_bit(20);
 
 	NVIC::ISER::set_bit(2);
 
-	RTC::CR::set_bit(14);	 // WUTIE
+	RTC::cr::WUTIE::write(on);
 	RTC::enable_write_protect();
 
 	display::setup();
