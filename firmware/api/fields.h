@@ -14,8 +14,8 @@ namespace zol {
 		/// @brief Sets the field to value.
 		/// @throws Compile time error if value does not fit into the field.
 		static void set(reg::type_t value) {
-			static_assert((1 << width) > value,
-						  "value is greater than allowed bit width");
+			// static_assert((1 << width) < value,
+			// 			  "value is greater than allowed bit width");
 			reg::and_reg(~(((1 << width) - 1) << start));
 			reg::or_reg(value << start);
 		}

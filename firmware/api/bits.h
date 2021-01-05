@@ -16,7 +16,7 @@ namespace zol {
 	struct bit_r {
 		static bool read() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			return reg::get_bit(bit);
 		}
@@ -29,7 +29,7 @@ namespace zol {
 	struct bit_w {
 		static void write(bool level) {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			if (level) {
 				reg::set_bit(bit);
@@ -46,14 +46,14 @@ namespace zol {
 	struct bit_rw {
 		static bool read() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			return reg::get_bit(bit);
 		}
 
 		static void write(bool level) {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			if (level) {
 				reg::set_bit(bit);
@@ -70,13 +70,13 @@ namespace zol {
 	struct bit_rc0 {
 		static bool read() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			return reg::get_bit(bit);
 		}
 		static void clear() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			reg::clear_bit(bit);
 		}
@@ -89,13 +89,13 @@ namespace zol {
 	struct bit_rc1 {
 		static bool read() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			return reg::get_bit(bit);
 		}
 		static void clear() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			reg::set_bit(bit);
 		}
@@ -108,7 +108,7 @@ namespace zol {
 	struct bit_t {
 		static void toggle() {
 			using namespace zol::check_types;
-			static_assert(bit > width<reg::type_t>(),
+			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
 			reg::set_bit(bit);
 		}
