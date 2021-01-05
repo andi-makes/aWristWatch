@@ -113,4 +113,21 @@ namespace zol {
 			reg::set_bit(bit);
 		}
 	};
+
+	template<zol::Register reg, uint8_t bit>
+	struct bit_rs {
+		static void read() {
+			using namespace zol::check_types;
+			static_assert(bit < width<typename reg::type_t>(),
+						  "Bitnumber out of bounds");
+			return reg::get_bit(bit);
+		}
+
+		static void set() {
+			using namespace zol::check_types;
+			static_assert(bit < width<typename reg::type_t>(),
+						  "Bitnumber out of bounds");
+			return reg::set_bit(bit);
+		}
+	};
 }
