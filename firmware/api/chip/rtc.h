@@ -166,13 +166,16 @@ struct RTC {
 		PWR::enable();
 		PWR::set(pwr::cr::DBP);	   // Disable backup write protection
 
-		RCC::CSR::set_bit(8);				   // CSR_LSEON
-		while (RCC::CSR::get_bit(9) == 0) {	   // CSR_LSERDY
+		// RCC::CSR::set_bit(8);				   // CSR_LSEON
+		RCC::csr::LSEON::write(on);
+		while (RCC::csr::LSERDY::read() == 0) {	   // CSR_LSERDY
 			asm("nop");
 		}
 
-		RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
-		RCC::CSR::set_bit(18);	  // RTCEN
+		// RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
+		RCC::csr::RTCSEL::set(1);
+		// RCC::CSR::set_bit(18);	  // RTCEN
+		RCC::csr::RTCEN::write(on);
 	}
 
 	static void set_time(std::integral auto hrs,

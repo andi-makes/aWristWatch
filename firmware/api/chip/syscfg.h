@@ -1,5 +1,7 @@
 #pragma once
 
+#include "rcc.h"
+
 #include <cinttypes>
 #include <register.h>
 
@@ -16,7 +18,7 @@ struct SYSCFG {
 	using COMP2_CTRL = zol::reg<uint32_t, address + 0x1C>;
 	using CFGR3		 = zol::reg<uint32_t, address + 0x20>;
 
-	static void enable() { RCC::APB2ENR::set_bit(0); }
+	static void enable() { RCC::apb2enr::SYSCFGEN::write(on); }
 
 private:
 	SYSCFG() {}

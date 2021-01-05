@@ -56,7 +56,9 @@ struct PWR {
 	using CR  = zol::reg<uint32_t, address + 0x0>;
 	using CSR = zol::reg<uint32_t, address + 0x4>;
 
-	static void enable() { RCC::APB1ENR::set_bit(28); }
+	static void enable() {	  // RCC::APB1ENR::set_bit(28);
+		RCC::apb1enr::PWREN::write(on);
+	}
 
 	static void set(pwr::cr c) { CR::set_bit(uint8_t(c)); }
 	static void set(pwr::pls p) {

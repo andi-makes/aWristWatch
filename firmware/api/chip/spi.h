@@ -89,8 +89,10 @@ void SPIx<a>::enable() {
 	static_assert(a == SPI1_ADDR || a == SPI2_ADDR,
 				  "There is no SPI component at that address!");
 	if constexpr (a == SPI1_ADDR) {
-		RCC::APB2ENR::set_bit(12);
+		// RCC::APB2ENR::set_bit(12);
+		RCC::apb2enr::SPI1EN::write(on);
 	} else {
-		RCC::APB1ENR::set_bit(14);
+		// RCC::APB1ENR::set_bit(14);
+		RCC::apb1enr::SPI2EN::write(on);
 	}
 }

@@ -127,6 +127,7 @@ void GPIOx<a>::enable() {
 	static_assert(a == GPIOA_ADDR,
 				  "There is no GPIO component at that address!");
 	if constexpr (a == GPIOA_ADDR) {
-		RCC::IOPENR::set_bit(0);
+		// RCC::IOPENR::set_bit(0);
+		RCC::iopenr::IOPAEN::write(on);
 	}
 }

@@ -98,7 +98,6 @@ void RTC_IRQHandler() {
 		display::send();
 
 		EXTI::PR::set_bit(20);
-		// RTC::ISR::clear_bit(10);
 		RTC::isr::WUTF::clear();
 	}
 }
