@@ -98,7 +98,8 @@ void RTC_IRQHandler() {
 		display::send();
 
 		EXTI::PR::set_bit(20);
-		RTC::ISR::clear_bit(10);
+		// RTC::ISR::clear_bit(10);
+		RTC::isr::WUTF::clear();
 	}
 }
 
@@ -197,7 +198,8 @@ int main() {
 	NVIC::ISER::set_bit(7);
 
 	zol::enable_interrupts();
-	RTC::ISR::clear_bit(10);
+	// RTC::ISR::clear_bit(10);
+	RTC::isr::WUTF::clear();
 
 	while (true) {
 		asm("nop");

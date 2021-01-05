@@ -98,7 +98,7 @@ struct RTC {
 	// CR
 	struct cr {
 		using COE	  = zol::bit_rw<CR, 23>;
-		using OSEL	  = zol::field<CR, 21, 2>;
+		using OSEL	  = zol::field_rw<CR, 21, 2>;
 		using POL	  = zol::bit_rw<CR, 20>;
 		using COSEL	  = zol::bit_rw<CR, 19>;
 		using BKP	  = zol::bit_rw<CR, 18>;
@@ -116,7 +116,7 @@ struct RTC {
 		using BYPSHAD = zol::bit_rw<CR, 5>;
 		using REFCKON = zol::bit_rw<CR, 4>;
 		using TSEDGE  = zol::bit_rw<CR, 3>;
-		using WUCKSEL = zol::field<CR, 0, 3>;
+		using WUCKSEL = zol::field_rw<CR, 0, 3>;
 
 	private:
 		cr() {}
@@ -146,8 +146,8 @@ struct RTC {
 	};
 
 	struct prer {
-		using PREDIV_A = zol::field<PRER, 16, 7>;
-		using PREDIV_S = zol::field<PRER, 0, 15>;
+		using PREDIV_A = zol::field_rw<PRER, 16, 7>;
+		using PREDIV_S = zol::field_rw<PRER, 0, 15>;
 
 	private:
 		prer() {}
