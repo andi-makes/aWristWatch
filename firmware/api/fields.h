@@ -10,7 +10,7 @@ namespace zol {
 	/// @tparam width ... Width of the field. For Example, a field `XX` has a
 	/// width of 2.
 	template<zol::Register reg, uint8_t start, uint8_t width>
-	struct field {
+	struct field_rw {
 		/// @brief Sets the field to value.
 		/// @throws Compile time error if value does not fit into the field.
 		static void set(reg::type_t value) {
@@ -22,6 +22,13 @@ namespace zol {
 
 		/// @brief Get the value of the field
 		/// @returns the value of the field, duh
+		static reg::type_t get() {
+			return reg::get_reg() & (((1 << width) - 1) << start);
+		}
+	};
+
+	template<zol::Register reg, uint8_t start, uint8_t width>
+	struct field_r {
 		static reg::type_t get() {
 			return reg::get_reg() & (((1 << width) - 1) << start);
 		}
