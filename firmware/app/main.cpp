@@ -78,20 +78,18 @@ enum class STATE {
 	DISPLAY_DATE,
 	DISPLAY_YEAR,
 	DISPLAY_BAT,
-	DISPLAY_ACTIVE_BRIGHTNESS,
-	DISPLAY_INACTIVE_BRIGHTNESS,
+	DISPLAY_BRIGHTNESS,
 	DISPLAY_STNDBY_TIME,
-	DISPLAY_DIM_TIME,
-	EDIT_ACTIVE_BRIGHTNESS,
-	EDIT_INACTIVE_BRIGHTNESS,
-	EDIT_STNDBY_TIME,
-	EDIT_DIM_TIME
+	EDIT_BRIGHTNESS,
+	EDIT_STNDBY_TIME
 };
 
 STATE state = STATE::DISPLAY_TIME;
 
 void RTC_IRQHandler() {
 	if (EXTI::PR::get_bit(20)) {
+		static int c = 0;
+		c++;
 		display::update_brightness();
 
 		auto time	  = RTC::TR::get_reg();
@@ -108,9 +106,9 @@ void RTC_IRQHandler() {
 				display::fill_buffer(raw_time);
 			}
 			if (input::is_up()) {
-				// state = STATE::DISPLAY_DATE;
+				state = STATE::DISPLAY_DATE;
 			} else if (input::is_down()) {
-				// state = STATE::DISPLAY_BAT;
+				state = STATE::DISPLAY_BAT;
 			} else if (input::is_both_down()) {
 				state = STATE::EDIT_HRS;
 				fill_time_buffer();
@@ -171,57 +169,127 @@ void RTC_IRQHandler() {
 									num_to_bcd(min) & 0xF) |
 				DP3 | DP4);
 		} break;
+		case STATE::DISPLAY_DATE: {
+			auto date = RTC::DR::get_reg();
+			display::fill_buffer(display::bcd_to_raw((date & 0x30) >> 4,
+													 (date & 0xF),
+													 (date & 0x1000) >> 12,
+													 (date & 0xF00) >> 8) |
+								 DP2);
+			if (input::is_up()) {
+				state = STATE::DISPLAY_YEAR;
+			} else if (input::is_down()) {
+				state = STATE::DISPLAY_TIME;
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_DAY;
+				fill_date_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::EDIT_MONTH;
+				fill_date_buffer();
+			}
+		} break;
+		case STATE::EDIT_DAY: {
+			if (input::is_up()) {
+				day++;
+				if (day > 31) {
+					day = 1;
+				}
+			} else if (input::is_down()) {
+				if (day <= 1) {
+					day = 31;
+				} else {
+					day--;
+				}
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_MONTH;
+			} else if (input::is_both_up()) {
+				state = STATE::DISPLAY_DATE;
+				apply_date_buffer();
+			}
+
+			display::fill_buffer(
+				display::bcd_to_raw((num_to_bcd(day) & 0xF0) >> 4,
+									num_to_bcd(day) & 0xF,
+									(num_to_bcd(mon) & 0xF0) >> 4,
+									num_to_bcd(mon) & 0xF) |
+				DP1 | DP2);
+		} break;
+		case STATE::EDIT_MONTH: {
+			if (input::is_up()) {
+				mon++;
+				if (mon > 12) {
+					mon = 1;
+				}
+			} else if (input::is_down()) {
+				if (mon <= 1) {
+					mon = 12;
+				} else {
+					mon--;
+				}
+			} else if (input::is_both_down()) {
+				state = STATE::DISPLAY_DATE;
+				apply_date_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::EDIT_DAY;
+			}
+
+			display::fill_buffer(
+				display::bcd_to_raw((num_to_bcd(day) & 0xF0) >> 4,
+									num_to_bcd(day) & 0xF,
+									(num_to_bcd(mon) & 0xF0) >> 4,
+									num_to_bcd(mon) & 0xF) |
+				DP3 | DP4);
+		} break;
+		case STATE::DISPLAY_YEAR: {
+			auto date = RTC::DR::get_reg();
+			display::fill_buffer(display::bcd_to_raw(
+				2, 0, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
+
+			if (input::is_down()) {
+				state = STATE::DISPLAY_DATE;
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_YEAR;
+				fill_date_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::EDIT_YEAR;
+				fill_date_buffer();
+			}
+		} break;
+		case STATE::EDIT_YEAR: {
+			if (input::is_up()) {
+				year++;
+				if (year > 99) {
+					year = 0;
+				}
+			} else if (input::is_down()) {
+				if (year < 0) {
+					year = 99;
+				} else {
+					year--;
+				}
+			} else if (input::is_both_down()) {
+				state = STATE::DISPLAY_YEAR;
+				apply_date_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::DISPLAY_YEAR;
+				apply_date_buffer();
+			}
+
+			display::fill_buffer(
+				display::bcd_to_raw(2,
+									0,
+									(num_to_bcd(year) & 0xF0) >> 4,
+									(num_to_bcd(year) & 0xF)) |
+				DP3 | DP4);
+		} break;
+		default: state = STATE::DISPLAY_TIME;
 		}
 
-		// if (state == STATE::EDIT_HRS) {
-		// 	if (input::both_up) {
-		// 		input::both_up = false;
-		// 		state		   = STATE::RUNNING;
-		// 	}
-		// 	if (input::both_down) {
-		// 		input::both_down = false;
-		// 		state			 = STATE::EDIT_MINS;
-		// 	}
-		// 	if (input::up) {
-		// 		input::up = false;
-		// 		auto hrs  = (time >> 16) & 0x3F;
-		// 		auto min  = (time >> 8) & 0x7F;
-		// 		auto sec  = (time) &0x7F;
-		// 		if (hrs == 0x23) {
-		// 			hrs = 0;
-		// 		} else {
-		// 			if ((hrs & 0xF) == 0x9) {
-		// 				hrs += 0b1'0000;
-		// 				hrs &= ~0xF;
-		// 			} else {
-		// 				++hrs;
-		// 			}
-		// 		}
-
-		// 		RTC::set_time(hrs, min, sec);
-		// 	}
-		// 	if (input::down) {
-		// 		input::down = false;
-		// 		auto hrs	= (time >> 16) & 0x3F;
-		// 		auto min	= (time >> 8) & 0x7F;
-		// 		auto sec	= (time) &0x7F;
-		// 		if (hrs == 0) {
-		// 			hrs = 0x23;
-
-		// 		} else {
-		// 			if (((hrs - 1) & 0xF) >= 10) {
-		// 				hrs -= 0b1'0000;
-		// 				hrs += 0x9;
-		// 			} else {
-		// 				--hrs;
-		// 			}
-		// 		}
-
-		// 		RTC::set_time(hrs, min, sec);
-		// 	}
-		// }
-
-		half_second = !half_second;
+		// Half a second passed
+		if (c == 4) {
+			half_second = !half_second;
+			c			= 0;
+		}
 		display::send();
 
 		EXTI::PR::set_bit(20);
@@ -242,7 +310,7 @@ int main() {
 	// if (RTC::ISR::get_bit(4) == 0) {
 	if (RTC::isr::INITS::read() == 0) {
 		state = STATE::EDIT_HRS;
-		RTC::set_time_and_date(0, 0, 0, 1, 1, 2021);
+		RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
 	}
 
 	// RTC Wakup Timer configuration
@@ -254,7 +322,7 @@ int main() {
 	// 1023 ==> 0.5sec
 	// 511  ==> 0.25sec
 	// 255  ==> 0.125sec
-	RTC::WUTR::set_reg(1023);
+	RTC::WUTR::set_reg(255);
 	RTC::cr::WUTE::write(on);
 
 	EXTI::IMR::set_bit(20);
