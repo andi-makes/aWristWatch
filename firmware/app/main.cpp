@@ -1,4 +1,5 @@
 #include "display.h"
+#include "input.h"
 
 #include <chip/exti.h>
 #include <chip/interrupts.h>
@@ -11,21 +12,83 @@
 #include <chip/syscfg.h>
 #include <util/pin.h>
 
-using sw_time = pin<GPIOA, 0>;
-using sw_date = pin<GPIOA, 10>;
-
 namespace {
+	constexpr uint32_t DP1 = 1 << 26;
 	constexpr uint32_t DP2 = 1 << 31;
-	bool toggle			   = false;
+	constexpr uint32_t DP3 = 1 << 18;
+	constexpr uint32_t DP4 = 1 << 23;
 
-	bool both = false;
-	bool up = false, down = false;
-	bool both_up = false, both_down = false;
+	bool half_second = false;
+	int hrs, min, day, mon, year;
+
+	int bcd_to_num(int bcd) {
+		int num = bcd & 0xF;
+		int mul = 1;
+		while (bcd > 0) {
+			bcd >>= 4;
+			mul *= 10;
+			num += (bcd & 0xF) * mul;
+		}
+		return num;
+	}
+
+	int num_to_bcd(int num) {
+		int bcd = num % 10;
+		num /= 10;
+		int i = 1;
+		while (num > 0) {
+			bcd |= (num % 10) << (4 * i);
+			num /= 10;
+			++i;
+		}
+		return bcd;
+	}
+
+	void fill_time_buffer() {
+		const auto time = RTC::TR::get_reg();
+
+		hrs = bcd_to_num((time & 0x3F0000) >> 16);
+		min = bcd_to_num((time & 0x007F00) >> 8);
+	}
+
+	void apply_time_buffer() {
+		RTC::set_time(num_to_bcd(hrs), num_to_bcd(min), 0);
+	}
+
+	void fill_date_buffer() {
+		const auto date = RTC::DR::get_reg();
+
+		day	 = bcd_to_num((date & 0x00003F));
+		mon	 = bcd_to_num((date & 0x001F00) >> 8);
+		year = bcd_to_num((date & 0xFF0000) >> 16);
+	}
+
+	void apply_date_buffer() {
+		RTC::set_date(num_to_bcd(day), num_to_bcd(mon), num_to_bcd(year));
+	}
 }
 
-enum class STATE { SETUP_HRS, SETUP_MINS, RUNNING };
+enum class STATE {
+	EDIT_HRS,
+	EDIT_MINS,
+	EDIT_DAY,
+	EDIT_MONTH,
+	EDIT_YEAR,
+	DISPLAY_TIME,
+	DISPLAY_DATE,
+	DISPLAY_YEAR,
+	DISPLAY_BAT,
+	DISPLAY_ACTIVE_BRIGHTNESS,
+	DISPLAY_INACTIVE_BRIGHTNESS,
+	DISPLAY_STNDBY_TIME,
+	DISPLAY_DIM_TIME,
+	EDIT_ACTIVE_BRIGHTNESS,
+	EDIT_INACTIVE_BRIGHTNESS,
+	EDIT_STNDBY_TIME,
+	EDIT_DIM_TIME
+};
 
-STATE state = STATE::RUNNING;
+STATE state = STATE::DISPLAY_TIME;
 
 void RTC_IRQHandler() {
 	if (EXTI::PR::get_bit(20)) {
@@ -37,107 +100,132 @@ void RTC_IRQHandler() {
 											(time & 0x7000) >> 12,
 											(time & 0xF00) >> 8);
 
-		if (toggle) {
-			display::fill_buffer(raw_time | DP2);
-		} else {
-			if (state == STATE::RUNNING) {
-				display::fill_buffer(raw_time);
+		switch (state) {
+		case STATE::DISPLAY_TIME: {
+			if (half_second) {
+				display::fill_buffer(raw_time | DP2);
 			} else {
-				display::fill_buffer(0);
+				display::fill_buffer(raw_time);
 			}
-		}
-
-		if (state == STATE::SETUP_HRS) {
-			if (both_up) {
-				both_up = false;
-				state	= STATE::RUNNING;
+			if (input::is_up()) {
+				// state = STATE::DISPLAY_DATE;
+			} else if (input::is_down()) {
+				// state = STATE::DISPLAY_BAT;
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_HRS;
+				fill_time_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::EDIT_MINS;
+				fill_time_buffer();
 			}
-			if (both_down) {
-				both_down = false;
-				state	  = STATE::SETUP_MINS;
-			}
-			if (up) {
-				up		 = false;
-				auto hrs = (time >> 16) & 0x3F;
-				auto min = (time >> 8) & 0x7F;
-				auto sec = (time) &0x7F;
-				if (hrs == 0x23) {
+		} break;
+		case STATE::EDIT_HRS: {
+			if (input::is_up()) {
+				hrs++;
+				if (hrs > 23) {
 					hrs = 0;
-				} else {
-					if ((hrs & 0xF) == 0x9) {
-						hrs += 0b1'0000;
-						hrs &= ~0xF;
-					} else {
-						++hrs;
-					}
 				}
-
-				RTC::set_time(hrs, min, sec);
-			}
-			if (down) {
-				down	 = false;
-				auto hrs = (time >> 16) & 0x3F;
-				auto min = (time >> 8) & 0x7F;
-				auto sec = (time) &0x7F;
-				if (hrs == 0) {
-					hrs = 0x23;
+			} else if (input::is_down()) {
+				if (hrs <= 0) {
+					hrs = 23;
 				} else {
-					if (((hrs - 1) & 0xF) >= 10) {
-						hrs -= 0b1'0000;
-						hrs += 0x9;
-					} else {
-						--hrs;
-					}
+					hrs--;
 				}
-
-				RTC::set_time(hrs, min, sec);
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_MINS;
+			} else if (input::is_both_up()) {
+				state = STATE::DISPLAY_TIME;
+				apply_time_buffer();
 			}
+
+			display::fill_buffer(
+				display::bcd_to_raw((num_to_bcd(hrs) & 0xF0) >> 4,
+									num_to_bcd(hrs) & 0xF,
+									(num_to_bcd(min) & 0xF0) >> 4,
+									num_to_bcd(min) & 0xF) |
+				DP1 | DP2);
+		} break;
+		case STATE::EDIT_MINS: {
+			if (input::is_up()) {
+				min++;
+				if (min > 59) {
+					min = 0;
+				}
+			} else if (input::is_down()) {
+				if (min <= 0) {
+					min = 59;
+				} else {
+					min--;
+				}
+			} else if (input::is_both_down()) {
+				state = STATE::DISPLAY_TIME;
+				apply_time_buffer();
+			} else if (input::is_both_up()) {
+				state = STATE::EDIT_HRS;
+			}
+
+			display::fill_buffer(
+				display::bcd_to_raw((num_to_bcd(hrs) & 0xF0) >> 4,
+									num_to_bcd(hrs) & 0xF,
+									(num_to_bcd(min) & 0xF0) >> 4,
+									num_to_bcd(min) & 0xF) |
+				DP3 | DP4);
+		} break;
 		}
 
-		toggle = !toggle;
+		// if (state == STATE::EDIT_HRS) {
+		// 	if (input::both_up) {
+		// 		input::both_up = false;
+		// 		state		   = STATE::RUNNING;
+		// 	}
+		// 	if (input::both_down) {
+		// 		input::both_down = false;
+		// 		state			 = STATE::EDIT_MINS;
+		// 	}
+		// 	if (input::up) {
+		// 		input::up = false;
+		// 		auto hrs  = (time >> 16) & 0x3F;
+		// 		auto min  = (time >> 8) & 0x7F;
+		// 		auto sec  = (time) &0x7F;
+		// 		if (hrs == 0x23) {
+		// 			hrs = 0;
+		// 		} else {
+		// 			if ((hrs & 0xF) == 0x9) {
+		// 				hrs += 0b1'0000;
+		// 				hrs &= ~0xF;
+		// 			} else {
+		// 				++hrs;
+		// 			}
+		// 		}
+
+		// 		RTC::set_time(hrs, min, sec);
+		// 	}
+		// 	if (input::down) {
+		// 		input::down = false;
+		// 		auto hrs	= (time >> 16) & 0x3F;
+		// 		auto min	= (time >> 8) & 0x7F;
+		// 		auto sec	= (time) &0x7F;
+		// 		if (hrs == 0) {
+		// 			hrs = 0x23;
+
+		// 		} else {
+		// 			if (((hrs - 1) & 0xF) >= 10) {
+		// 				hrs -= 0b1'0000;
+		// 				hrs += 0x9;
+		// 			} else {
+		// 				--hrs;
+		// 			}
+		// 		}
+
+		// 		RTC::set_time(hrs, min, sec);
+		// 	}
+		// }
+
+		half_second = !half_second;
 		display::send();
 
 		EXTI::PR::set_bit(20);
 		RTC::isr::WUTF::clear();
-	}
-}
-
-// NVIC 5
-// sw time
-void EXTI0_1_IRQHandler() {
-	EXTI::PR::set_bit(0);
-
-	if (sw_time::is_low()) {		// Falling Edge
-		if (sw_date::is_low()) {	// other switch
-			both	  = true;
-			both_down = true;
-		}
-	} else {	// Rising Edge
-		if (!both) {
-			up = true;
-		} else {
-			if (sw_date::is_high()) both = false;
-		}
-	}
-}
-
-// NVIC 7
-// sw date
-void EXTI4_15_IRQHandler() {
-	EXTI::PR::set_bit(10);
-
-	if (sw_date::is_low()) {	// Falling Edge
-		if (sw_time::is_low()) {
-			both	= true;
-			both_up = true;
-		}
-	} else {	// Rising Edge
-		if (!both) {
-			down = true;
-		} else {
-			// if both are high
-			if (sw_time::is_high()) both = false;
-		}
 	}
 }
 
@@ -153,14 +241,13 @@ int main() {
 
 	// if (RTC::ISR::get_bit(4) == 0) {
 	if (RTC::isr::INITS::read() == 0) {
-		state = STATE::SETUP_HRS;
+		state = STATE::EDIT_HRS;
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 2021);
 	}
 
 	// RTC Wakup Timer configuration
 	RTC::disable_write_protect();
 	RTC::cr::WUTE::write(off);
-	// while (RTC::ISR::get_bit(2) != 1) {	   // WUTWF
 	while (RTC::isr::WUTWF::read() == 0) {	  // WUTWF
 		asm("nop");
 	}
@@ -179,24 +266,10 @@ int main() {
 	RTC::enable_write_protect();
 
 	display::setup();
+	input::setup();
 
-	sw_time::set_mode(gpio::MODE::INPUT);
-	sw_time::set_pullup(gpio::PUPD::PULLUP);
-	EXTI::IMR::set_bit(0);
-	EXTI::FTSR::set_bit(0);
-	EXTI::RTSR::set_bit(0);
-	SYSCFG::EXTICR1::set_reg(0);
-	NVIC::ISER::set_bit(5);
-
-	sw_date::set_mode(gpio::MODE::INPUT);
-	sw_date::set_pullup(gpio::PUPD::PULLUP);
-	EXTI::IMR::set_bit(10);
-	EXTI::FTSR::set_bit(10);
-	EXTI::RTSR::set_bit(10);
-	SYSCFG::EXTICR3::set_reg(0);
-	NVIC::ISER::set_bit(7);
-
-	zol::enable_interrupts();
+	// zol::enable_interrupts();
+	asm("CPSIE I");
 	// RTC::ISR::clear_bit(10);
 	RTC::isr::WUTF::clear();
 
