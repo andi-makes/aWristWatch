@@ -1,5 +1,7 @@
 #pragma once
 
+#include "rcc.h"
+
 #include <bits.h>
 #include <fields.h>
 #include <register.h>
@@ -153,6 +155,8 @@ struct ADC {
 	private:
 		ccr() {}
 	};
+
+	static void enable() { RCC::apb2enr::ADCEN::write(on); }
 
 private:
 	ADC() {}
