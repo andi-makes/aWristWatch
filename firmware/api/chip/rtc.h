@@ -8,65 +8,6 @@
 #include <fields.h>
 #include <register.h>
 
-namespace rtc {
-	enum class cr : uint8_t {
-		TSEDGE	= 3,
-		REFCKON = 4,
-		BYPSHAD = 5,
-		FMT		= 6,
-		ALRAE	= 8,
-		ALRBE	= 9,
-		WUTE	= 10,
-		TSE		= 11,
-		ALRAIE	= 12,
-		ALRBIE	= 13,
-		WUTIE	= 14,
-		TSIE	= 15,
-		ADD1H	= 16,
-		SUB1H	= 17,
-		BKP		= 18,
-		COSEL	= 19,
-		POL		= 20,
-		COE		= 23
-	};
-
-	enum class wucksel : uint8_t {
-		DIV_16		 = 0,
-		DIV_8		 = 1,
-		DIV_4		 = 2,
-		DIV_2		 = 3,
-		CK_SPRE		 = 4,
-		CK_SPRE_PLUS = 6
-	};
-
-	enum class osel : uint8_t {
-		DISABLED = 0,
-		ALARM_A	 = 1,
-		ALARM_B	 = 2,
-		WAKEUP	 = 3
-	};
-
-	enum class isr : uint8_t {
-		ALRAWF	= 0,	 // r
-		ALRBWF	= 1,	 // r
-		WUTWF	= 2,	 // r
-		SHPF	= 3,	 // r
-		INITS	= 4,	 // r
-		RSF		= 5,	 // rc_w0
-		INITF	= 6,	 // r
-		INIT	= 7,	 // rw
-		ALRAF	= 8,	 // rc_w0
-		ALRBF	= 9,	 // rc_w0
-		WUTF	= 10,	 // rc_w0
-		TSF		= 11,	 // rc_w0
-		TSOVF	= 12,	 // rc_w0
-		TAMP1F	= 13,	 // rc_w0
-		TAMP2F	= 14,	 // rc_w0
-		TAMP3F	= 15,	 // rc_w0
-		RECALPF = 16	 // r
-	};
-};
-
 struct RTC {
 	static constexpr zol::addr_t address = 0x4000'2800;
 
@@ -252,6 +193,8 @@ struct RTC {
 
 		enable_write_protect();
 	}
+
+	static bool is_initialized() { return isr::INITS::read(); }
 
 private:
 	RTC();

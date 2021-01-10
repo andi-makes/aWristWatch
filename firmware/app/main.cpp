@@ -307,8 +307,7 @@ inline static void power() {
 int main() {
 	power();
 
-	// if (RTC::ISR::get_bit(4) == 0) {
-	if (RTC::isr::INITS::read() == 0) {
+	if (RTC::is_initialized() == false) {
 		state = STATE::EDIT_HRS;
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
 	}
@@ -336,9 +335,7 @@ int main() {
 	display::setup();
 	input::setup();
 
-	// zol::enable_interrupts();
 	asm("CPSIE I");
-	// RTC::ISR::clear_bit(10);
 	RTC::isr::WUTF::clear();
 
 	while (true) {

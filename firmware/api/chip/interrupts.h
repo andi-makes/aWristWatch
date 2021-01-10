@@ -33,7 +33,3 @@ extern "C" void SPI2_IRQHandler();
 extern "C" void USART1_IRQHandler();
 extern "C" void USART2_IRQHandler();
 extern "C" void AES_RNG_LPUART1_IRQHandler();
-
-// namespace zol {
-// 	void enable_interrupts() { asm("CPSIE I"); }
-// }
