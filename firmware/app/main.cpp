@@ -1,6 +1,7 @@
 #include "display.h"
 #include "input.h"
 
+#include <chip/adc.h>
 #include <chip/exti.h>
 #include <chip/interrupts.h>
 #include <chip/lptim.h>
@@ -13,6 +14,8 @@
 #include <util/pin.h>
 
 namespace {
+	const uint8_t VREFINT_CAL = *reinterpret_cast<uint8_t*>(0x1FF8'0078);
+
 	constexpr uint32_t DP1 = 1 << 26;
 	constexpr uint32_t DP2 = 1 << 31;
 	constexpr uint32_t DP3 = 1 << 18;
@@ -65,6 +68,26 @@ namespace {
 
 	void apply_date_buffer() {
 		RTC::set_date(num_to_bcd(day), num_to_bcd(mon), num_to_bcd(year));
+	}
+
+	uint16_t read_bat_pin() {
+		ADC::CHSELR::set_reg(1 << 1);
+
+		ADC::cr::ADSTART::set();
+		while (ADC::isr::EOC::read() != 1) {
+			asm("nop");
+		}
+		return ADC::DR::get_reg();
+	}
+
+	uint16_t read_vrefint() {
+		ADC::CHSELR::set_reg(1 << 17);
+
+		ADC::cr::ADSTART::set();
+		while (ADC::isr::EOC::read() != 1) {
+			asm("nop");
+		}
+		return ADC::DR::get_reg();
 	}
 }
 
@@ -282,6 +305,28 @@ void RTC_IRQHandler() {
 									(num_to_bcd(year) & 0xF)) |
 				DP3 | DP4);
 		} break;
+		case STATE::DISPLAY_BAT: {
+			if (ADC::isr::ADRDY::read()) {
+				volatile auto vref = read_vrefint();
+				volatile auto bat  = read_bat_pin();
+
+				volatile int voltage = 122.4f * float((2 * bat) / float(vref));
+
+				int percentage = ((voltage - 330) * 100) / (82);
+
+				if (percentage >= 100) percentage = 99;
+
+				int first_digit	 = percentage % 10;
+				int second_digit = (percentage / 10) % 10;
+
+				display::fill_buffer_bcd(0, second_digit, first_digit, 0);
+			}
+
+			if (input::is_up()) {
+				state = STATE::DISPLAY_TIME;
+			}
+
+		} break;
 		default: state = STATE::DISPLAY_TIME;
 		}
 
@@ -302,6 +347,19 @@ inline static void power() {
 	RTC::enable();
 	SPI1::enable();
 	GPIOA::enable();
+	ADC::enable();
+}
+
+inline static void init_bat_adc() {
+	ADC::cfgr1::OVRMOD::write(1);
+	// ADC::cfgr1::RES::set(0);	   // 8 bit
+	ADC::cfgr2::CKMODE::set(2);	   // PCLK / 4
+	ADC::smpr::SMP::set(2);		   // 7.5 ADC clock cylces
+
+	ADC::ccr::LFMEN::write(1);	  // Low freq mode
+	ADC::ccr::VREFEN::write(1);
+
+	ADC::cr::ADEN::set();
 }
 
 int main() {
@@ -331,6 +389,8 @@ int main() {
 
 	RTC::cr::WUTIE::write(on);
 	RTC::enable_write_protect();
+
+	init_bat_adc();
 
 	display::setup();
 	input::setup();
