@@ -287,10 +287,10 @@ void RTC_IRQHandler() {
 				DP3 | DP4);
 		} break;
 		case STATE::DISPLAY_BAT: {
-			int percentage	 = battery::calc_level();
-			int first_digit	 = percentage % 10;
-			int second_digit = (percentage / 10) % 10;
-			display::fill_buffer_bcd(0, second_digit, first_digit, 0);
+			int percentage = battery::calc_level();
+
+			display::fill_buffer_bcd(
+				10, (percentage / 10) % 10, percentage % 10, 10);
 
 			if (input::is_up()) {
 				state = STATE::DISPLAY_TIME;

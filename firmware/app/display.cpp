@@ -22,20 +22,6 @@ extern "C" void SPI1_IRQHandler() {
 }
 uint32_t display::buffer = 0;
 
-namespace {
-
-	constexpr uint8_t seg1_3[] = { 0b01111011, 0b00101000, 0b10110011,
-								   0b10111010, 0b11101000, 0b11011010,
-								   0b11011011, 0b00111000, 0b11111011,
-								   0b11111010 };
-
-	constexpr uint8_t seg2_4[] = { 0b01111011, 0b01000001, 0b00110111,
-								   0b01010111, 0b01001101, 0b01011110,
-								   0b01111110, 0b01000011, 0b01111111,
-								   0b01011111 };
-
-}
-
 uint8_t display::brightness = 1;
 
 void display::update_brightness() {
@@ -85,21 +71,4 @@ void display::setup() {
 void display::send() {
 	SPI1::DR::set_reg((uint16_t)(buffer & 0xFFFF));
 	SPI1::CR1::set_bit(SPI1::SPE);	  // Enable SPI
-}
-
-uint32_t
-	display::bcd_to_raw(uint8_t one, uint8_t two, uint8_t three, uint8_t four) {
-	if (one > 9) one = 9;
-	if (two > 9) two = 9;
-	if (three > 9) three = 9;
-	if (four > 9) four = 9;
-
-	return (uint32_t(seg2_4[two] >> 4) << 28) |
-		   (uint32_t(seg1_3[one] & 0xF) << 24) |
-		   (uint32_t(seg2_4[four] >> 4) << 20) |
-		   (uint32_t(seg1_3[three] & 0xF) << 16) |
-		   (uint32_t(seg1_3[one] >> 4) << 12) |
-		   (uint32_t(seg2_4[two] & 0xF) << 8) |
-		   (uint32_t(seg1_3[three] >> 4) << 4) |
-		   (uint32_t(seg2_4[four] & 0xF) << 0);
 }
