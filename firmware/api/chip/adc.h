@@ -156,7 +156,40 @@ struct ADC {
 		ccr() {}
 	};
 
-	static void enable() { RCC::apb2enr::ADCEN::write(on); }
+	static void power_on() { RCC::apb2enr::ADCEN::write(on); }
+
+	static void calibrate() {
+		if (cr::ADEN::read() != 0) {
+			cr::ADDIS::set();
+		}
+		cr::ADCAL::set();
+		while (isr::EOCAL::read() == 0) {
+			asm("nop");
+		}
+	}
+
+	static void enable() {
+		isr::ADRDY::clear();
+		cr::ADEN::set();
+		if (cfgr1::AUTOFF::read() == 0) {
+			while (isr::ADRDY::read() == 0) {
+				asm("nop");
+			}
+		}
+	}
+
+	static void disable() {
+		if (cr::ADSTART::read() != 0) {
+			cr::ADSTP::set();
+		}
+		while (cr::ADSTP::read()) {
+			asm("nop");
+		}
+		cr::ADDIS::set();
+		while (cr::ADEN::read() != 0) {
+			asm("nop");
+		}
+	}
 
 private:
 	ADC() {}
