@@ -3,4 +3,5 @@ add_zol_executable(
     main.cpp
     display.cpp
     input.cpp
+    bat.cpp
 )
