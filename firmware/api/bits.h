@@ -116,7 +116,7 @@ namespace zol {
 
 	template<zol::Register reg, uint8_t bit>
 	struct bit_rs {
-		static void read() {
+		static bool read() {
 			using namespace zol::check_types;
 			static_assert(bit < width<typename reg::type_t>(),
 						  "Bitnumber out of bounds");
