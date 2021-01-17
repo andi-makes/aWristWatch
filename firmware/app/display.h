@@ -26,4 +26,7 @@ struct display {
 		bcd_to_raw(uint8_t one, uint8_t two, uint8_t three, uint8_t four);
 
 	static uint32_t buffer;
+
+private:
+	display() {}
 };
