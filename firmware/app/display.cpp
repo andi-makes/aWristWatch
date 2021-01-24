@@ -23,8 +23,22 @@ extern "C" void SPI1_IRQHandler() {
 uint32_t display::buffer = 0;
 
 uint8_t display::brightness = 1;
+bool display::ison			= true;
+
+void display::on() {
+	oe::set_mode(gpio::MODE::ALTERNATE);
+	LPTIM1::CMP::set_reg(brightness & 0xFF);
+	ison = true;
+}
+
+void display::off() {
+	oe::set_mode(gpio::MODE::OUTPUT);
+	oe::set_bit(high);
+	ison = false;
+}
 
 void display::update_brightness() {
+	if (!ison) return;
 	if (brightness == 0xFF) {
 		oe::set_mode(gpio::MODE::OUTPUT);
 		oe::set_bit(low);

@@ -24,7 +24,12 @@ struct display {
 	static constexpr uint32_t DP4 = 1 << 23;
 
 	static uint8_t brightness;
+	static void off();
+	static void on();
 	static void update_brightness();
+
+	static bool ison;
+	static bool is_on() { return ison; }
 
 	static void setup();
 	static void send();
@@ -51,6 +56,8 @@ struct display {
 			   (uint32_t(seg1_3[three] >> 4) << 4) |
 			   (uint32_t(seg2_4[four] & 0xF) << 0);
 	}
+
+	static void add_point(uint32_t p) { buffer |= p; }
 
 	static uint32_t buffer;
 

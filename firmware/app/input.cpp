@@ -1,13 +1,23 @@
 #include "input.h"
 
+#include "display.h"
+
 bool input::both	  = false;
 bool input::both_up	  = false;
 bool input::both_down = false, input::up = false, input::down = false;
+int input::counter = 0;
 
 // NVIC 5
 // sw time
 void EXTI0_1_IRQHandler() {
 	EXTI::PR::set_bit(0);
+
+	input::counter = 0;
+
+	if (!display::is_on()) {
+		display::on();
+		return;
+	}
 
 	if (sw_time::is_low()) {		// Falling Edge
 		if (sw_date::is_low()) {	// other switch
@@ -27,6 +37,13 @@ void EXTI0_1_IRQHandler() {
 // sw date
 void EXTI4_15_IRQHandler() {
 	EXTI::PR::set_bit(10);
+
+	input::counter = 0;
+
+	if (!display::is_on()) {
+		display::on();
+		return;
+	}
 
 	if (sw_date::is_low()) {	// Falling Edge
 		if (sw_time::is_low()) {

@@ -70,6 +70,8 @@ namespace {
 	void apply_date_buffer() {
 		RTC::set_date(num_to_bcd(day), num_to_bcd(mon), num_to_bcd(year));
 	}
+
+	constexpr int stdby = 80;
 }
 
 enum class STATE {
@@ -92,7 +94,13 @@ STATE state = STATE::DISPLAY_TIME;
 
 void RTC_IRQHandler() {
 	if (EXTI::PR::get_bit(20)) {
+		if (!display::is_on()) {
+			EXTI::PR::set_bit(20);
+			RTC::isr::WUTF::clear();
+			return;
+		}
 		static int c = 0;
+		input::counter++;
 		c++;
 		display::update_brightness();
 
@@ -294,8 +302,39 @@ void RTC_IRQHandler() {
 
 			if (input::is_up()) {
 				state = STATE::DISPLAY_TIME;
+			} else if (input::is_down()) {
+				state = STATE::DISPLAY_BRIGHTNESS;
 			}
 
+		} break;
+		case STATE::DISPLAY_BRIGHTNESS: {
+			display::fill_buffer_bcd(10,
+									 10,
+									 (display::brightness / 10) % 10,
+									 display::brightness % 10);
+
+			if (input::is_up()) {
+				state = STATE::DISPLAY_BAT;
+			} else if (input::is_both_down()) {
+				state = STATE::EDIT_BRIGHTNESS;
+			}
+		} break;
+		case STATE::EDIT_BRIGHTNESS: {
+			if (input::is_up()) {
+				if (display::brightness != 99) display::brightness++;
+			} else if (input::is_down()) {
+				if (display::brightness != 1) display::brightness--;
+			} else if (input::is_both_up() || input::is_both_down()) {
+				state = STATE::DISPLAY_BRIGHTNESS;
+			}
+			display::fill_buffer_bcd(10,
+									 10,
+									 (display::brightness / 10) % 10,
+									 display::brightness % 10);
+			display::add_point(display::DP3 | display::DP4);
+			display::update_brightness();
+		} break;
+		case STATE::DISPLAY_STNDBY_TIME: {
 		} break;
 		default: state = STATE::DISPLAY_TIME;
 		}
@@ -307,6 +346,13 @@ void RTC_IRQHandler() {
 			battery::sample();
 		}
 		display::send();
+
+		if (input::counter >= stdby &&
+			(state == STATE::DISPLAY_TIME || state == STATE::DISPLAY_DATE ||
+			 state == STATE::DISPLAY_YEAR)) {
+			input::counter = 0;
+			display::off();
+		}
 
 		EXTI::PR::set_bit(20);
 		RTC::isr::WUTF::clear();
