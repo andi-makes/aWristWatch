@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "Armbanduhr"
 Date "2020-09-20"
-Rev "1"
+Rev "2"
 Comp "Probieren geht über studieren. Immer."
 Comment1 "Andreas Kohler"
 Comment2 ""
@@ -710,7 +710,7 @@ U 1 1 5F5AA165
 P 2300 6050
 F 0 "BT1" H 2418 6146 50  0000 L CNN
 F 1 "Battery_Cell" H 2418 6055 50  0000 L CNN
-F 2 "watch:BAT_PAD" V 2300 6110 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" V 2300 6110 50  0001 C CNN
 F 3 "~" V 2300 6110 50  0001 C CNN
 F 4 "https://www.amazon.de/Turnigy-nano-tech-300mah-Solo-Pro-Modellbau/dp/B016339JKO/" H 2300 6050 50  0001 C CNN "Order"
 	1    2300 6050
@@ -1236,18 +1236,6 @@ F 3 "" H 4750 1200 50  0001 C CNN
 	1    4750 1200
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:Conn_01x04_Male J1
-U 1 1 5F717493
-P 4300 950
-F 0 "J1" H 4408 1231 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 4408 1140 50  0000 C CNN
-F 2 "watch:CONN_1x4_SMD" H 4300 950 50  0001 C CNN
-F 3 "~" H 4300 950 50  0001 C CNN
-F 4 "-" H 4300 950 50  0001 C CNN "Order"
-	1    4300 950 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4500 1150 4750 1150
 Wire Wire Line
@@ -1258,18 +1246,6 @@ Wire Wire Line
 	4500 950  4750 950 
 Wire Wire Line
 	4500 850  4750 850 
-$Comp
-L Connector:Conn_01x04_Male J2
-U 1 1 5F7BC566
-P 5400 1050
-F 0 "J2" H 5508 1331 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 5508 1240 50  0000 C CNN
-F 2 "watch:CONN_1x4_SMD" H 5400 1050 50  0001 C CNN
-F 3 "~" H 5400 1050 50  0001 C CNN
-F 4 "-" H 5400 1050 50  0001 C CNN "Order"
-	1    5400 1050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6000 1350 6000 1250
 Wire Wire Line
@@ -1688,7 +1664,7 @@ L power:PWR_FLAG #FLG0103
 U 1 1 5F7F71E5
 P 6000 1250
 F 0 "#FLG0103" H 6000 1325 50  0001 C CNN
-F 1 "PWR_FLAG" V 6000 1378 50  0000 L CNN
+F 1 "PWR_FLAG" V 6000 1378 50  0001 L CNN
 F 2 "" H 6000 1250 50  0001 C CNN
 F 3 "~" H 6000 1250 50  0001 C CNN
 	1    6000 1250
@@ -1711,10 +1687,85 @@ L power:PWR_FLAG #FLG0101
 U 1 1 5F72102E
 P 6000 950
 F 0 "#FLG0101" H 6000 1025 50  0001 C CNN
-F 1 "PWR_FLAG" H 6000 1123 50  0000 C CNN
+F 1 "PWR_FLAG" V 6000 1250 50  0001 C CNN
 F 2 "" H 6000 950 50  0001 C CNN
 F 3 "~" H 6000 950 50  0001 C CNN
 	1    6000 950 
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J5
+U 1 1 5F7EF34B
+P 5400 1250
+F 0 "J5" H 5350 1250 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 5508 1340 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 5400 1250 50  0001 C CNN
+F 3 "~" H 5400 1250 50  0001 C CNN
+	1    5400 1250
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:Conn_01x01_Male J3
+U 1 1 5F7FAF63
+P 4300 1150
+F 0 "J3" H 4250 1150 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 4408 1240 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4300 1150 50  0001 C CNN
+F 3 "~" H 4300 1150 50  0001 C CNN
+	1    4300 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J2
+U 1 1 5F80179E
+P 4300 950
+F 0 "J2" H 4250 1050 50  0000 C CNN
+F 1 "Conn_01x03_Male" H 4408 1140 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4300 950 50  0001 C CNN
+F 3 "~" H 4300 950 50  0001 C CNN
+	1    4300 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J4
+U 1 1 5F80247D
+P 5400 1050
+F 0 "J4" H 5350 1150 50  0000 C CNN
+F 1 "Conn_01x03_Male" H 5508 1240 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5400 1050 50  0001 C CNN
+F 3 "~" H 5400 1050 50  0001 C CNN
+	1    5400 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 5F812804
+P 2050 6850
+F 0 "J1" H 1950 6850 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 2158 6940 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2050 6850 50  0001 C CNN
+F 3 "~" H 2050 6850 50  0001 C CNN
+	1    2050 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0136
+U 1 1 5F8133F9
+P 2300 7000
+F 0 "#PWR0136" H 2300 6750 50  0001 C CNN
+F 1 "GND" H 2305 6827 50  0000 C CNN
+F 2 "" H 2300 7000 50  0001 C CNN
+F 3 "" H 2300 7000 50  0001 C CNN
+	1    2300 7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 7000 2300 6950
+Wire Wire Line
+	2300 6950 2250 6950
+Wire Wire Line
+	2250 6850 2300 6850
+Wire Wire Line
+	2300 6850 2300 6950
+Connection ~ 2300 6950
 $EndSCHEMATC
