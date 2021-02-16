@@ -38,6 +38,14 @@ namespace zol {
 	/// @tparam address ... Address of the register
 	template<std::unsigned_integral type, addr_t address>
 	class reg {
+        constexpr static type or_together(type n) {
+            return n;
+        }
+
+        template<std::integral ...T>
+        constexpr static type or_together(type n, T... m) {
+            return n | or_together(m...);
+        }
 	public:
 		/// @brief Type of the register
 		using type_t = type;
@@ -52,11 +60,20 @@ namespace zol {
 			return *reinterpret_cast<volatile type_t*>(address);
 		}
 
-		/// @brief Sets the `bit_number`th bit in the register.
-		/// @param bit_number ... Bit to set
-		inline static void set_bit(const int bit_number) {
-			get_reg() = get_reg() | (1 << bit_number);
+		// /// @brief Sets the `bit_number`th bit in the register.
+		// /// @param bit_number ... Bit to set
+		// inline static void set_bit(const int bit_number) {
+		// 	get_reg() = get_reg() | (1 << bit_number);
+		// }
+
+		/// @brief Set all of the bits in the register.
+		/// @param bits ... Bits to set
+        template<std::integral ...T>  
+		inline static void set_bit(const T ... bits) {
+            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
+            or_reg(or_together(bits...));
 		}
+
 
 		/// @brief Gets the `bit_number`th bit from the register.
 		/// @param bit_number ... Bit to get

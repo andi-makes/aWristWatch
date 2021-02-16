@@ -68,14 +68,17 @@ void display::setup() {
 	sdi::set_mode(gpio::MODE::ALTERNATE);
 	mdi::set_mode(gpio::MODE::ALTERNATE);
 
-	SPI1::CR1::set_bit(SPI1::DFF);
-	SPI1::CR1::set_bit(SPI1::SSI);
-	SPI1::CR1::set_bit(SPI1::SSM);
-	SPI1::CR1::set_bit(SPI1::LSBFIRST);
-	SPI1::CR1::and_reg(~SPI1::BR_MASK);	   // Fast SPI, smallest prescaler
-	SPI1::CR1::set_bit(SPI1::MSTR);
-	SPI1::CR1::clear_bit(SPI1::CPHA);
-	SPI1::CR1::clear_bit(SPI1::CPOL);
+	// SPI1::CR1::set_bit(SPI1::DFF);
+	// SPI1::CR1::set_bit(SPI1::SSI);
+	// SPI1::CR1::set_bit(SPI1::SSM);
+	// SPI1::CR1::set_bit(SPI1::LSBFIRST);
+	// SPI1::CR1::and_reg(~SPI1::BR_MASK);	   // Fast SPI, smallest prescaler
+	// SPI1::CR1::set_bit(SPI1::MSTR);
+	// SPI1::CR1::clear_bit(SPI1::CPHA);
+	// SPI1::CR1::clear_bit(SPI1::CPOL);
+
+    SPI1::CR1::clear_reg();
+    SPI1::CR1::set_bit(SPI1::DFF, SPI1::SSI, SPI1::SSM, SPI1::LSBFIRST, SPI1::MSTR);
 
 	SPI1::CR2::set_bit(SPI1::TXEIE);
 
