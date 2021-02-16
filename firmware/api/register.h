@@ -60,12 +60,6 @@ namespace zol {
 			return *reinterpret_cast<volatile type_t*>(address);
 		}
 
-		// /// @brief Sets the `bit_number`th bit in the register.
-		// /// @param bit_number ... Bit to set
-		// inline static void set_bit(const int bit_number) {
-		// 	get_reg() = get_reg() | (1 << bit_number);
-		// }
-
 		/// @brief Set all of the bits in the register.
 		/// @param bits ... Bits to set
         template<std::integral ...T>  
@@ -88,14 +82,18 @@ namespace zol {
 
 		/// @brief Clears the `bit_number`th bit in the register.
 		/// @param bit_number ... Bit to clear
-		inline static void clear_bit(const int bit_number) {
-			get_reg() = get_reg() & ~(1 << bit_number);
+        template<std::integral ...T>
+		inline static void clear_bit(const T ... bits) {
+            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
+            and_reg(~or_together(bits...));
 		}
 
 		/// @brief Toggles the `bit_number`th bit in the register.
 		/// @param bit_number ... Bit to toggle
-		inline static void toggle_bit(const int bit_number) {
-			get_reg() = get_reg() ^ (1 << bit_number);
+        template<std::integral ...T>
+		inline static void toggle_bit(const T ... bits) {
+            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
+            toggle_reg(or_together(bits...));
 		}
 
 		/// @brief Sets the register to `content`.
