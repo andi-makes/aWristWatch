@@ -9,7 +9,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mcpu=cortex-m0plus -T ${L
 
 add_compile_options(
 	"-mcpu=cortex-m0plus" "--specs=nano.specs" "-mfloat-abi=soft" "-mthumb"
-	"$<$<COMPILE_LANGUAGE:CXX>:-fconcepts;-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-fstack-usage>"
+	"$<$<COMPILE_LANGUAGE:CXX>:-fconcepts;-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-Wextra;-pedantic;-fstack-usage>"
 )
 
 function(add_zol_executable EXECUTABLE_NAME)

@@ -106,7 +106,7 @@ namespace lptim {
 		HSI16 = 2,
 		LSE	  = 3
 	};
-};
+}
 
 struct LPTIM1 {
 	static constexpr zol::addr_t address = 0x4000'7C00;

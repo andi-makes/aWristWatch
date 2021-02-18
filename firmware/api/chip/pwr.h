@@ -48,7 +48,7 @@ namespace pwr {
 		EWUP2		= 9,
 		EWUP3		= 10,
 	};
-};
+}
 
 struct PWR {
 	static constexpr zol::addr_t address = 0X4000'7000;

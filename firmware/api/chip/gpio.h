@@ -37,7 +37,7 @@ namespace gpio {
 	};
 
 	enum class PUPD : uint8_t { DISABLED = 0, PULLUP = 1, PULLDOWN = 2 };
-};
+}
 
 template<zol::addr_t address>
 struct GPIOx {
