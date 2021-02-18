@@ -78,9 +78,7 @@ enum class STATE {
 	DISPLAY_YEAR,
 	DISPLAY_BAT,
 	DISPLAY_BRIGHTNESS,
-	DISPLAY_STNDBY_TIME,
-	EDIT_BRIGHTNESS,
-	EDIT_STNDBY_TIME
+	EDIT_BRIGHTNESS
 };
 
 STATE state = STATE::DISPLAY_TIME;
@@ -327,9 +325,6 @@ void RTC_IRQHandler() {
 			display::add_point(display::DP3 | display::DP4);
 			display::update_brightness();
 		} break;
-		case STATE::DISPLAY_STNDBY_TIME: {
-		} break;
-		default: state = STATE::DISPLAY_TIME;
 		}
 
 		// Half a second passed
