@@ -15,13 +15,6 @@
 #include <util/pin.h>
 
 namespace {
-	const uint8_t VREFINT_CAL = *reinterpret_cast<uint8_t*>(0x1FF8'0078);
-
-	constexpr uint32_t DP1 = 1 << 26;
-	constexpr uint32_t DP2 = 1 << 31;
-	constexpr uint32_t DP3 = 1 << 18;
-	constexpr uint32_t DP4 = 1 << 23;
-
 	bool half_second = false;
 	int hrs, min, day, mon, year;
 
@@ -113,7 +106,7 @@ void RTC_IRQHandler() {
 		switch (state) {
 		case STATE::DISPLAY_TIME: {
 			if (half_second) {
-				display::fill_buffer(raw_time | DP2);
+				display::fill_buffer(raw_time | display::DP2);
 			} else {
 				display::fill_buffer(raw_time);
 			}
@@ -153,7 +146,7 @@ void RTC_IRQHandler() {
 									num_to_bcd(hrs) & 0xF,
 									(num_to_bcd(min) & 0xF0) >> 4,
 									num_to_bcd(min) & 0xF) |
-				DP1 | DP2);
+				display::DP1 | display::DP2);
 		} break;
 		case STATE::EDIT_MINS: {
 			if (input::is_up()) {
@@ -179,7 +172,7 @@ void RTC_IRQHandler() {
 									num_to_bcd(hrs) & 0xF,
 									(num_to_bcd(min) & 0xF0) >> 4,
 									num_to_bcd(min) & 0xF) |
-				DP3 | DP4);
+				display::DP3 | display::DP4);
 		} break;
 		case STATE::DISPLAY_DATE: {
 			auto date = RTC::DR::get_reg();
@@ -187,7 +180,7 @@ void RTC_IRQHandler() {
 													 (date & 0xF),
 													 (date & 0x1000) >> 12,
 													 (date & 0xF00) >> 8) |
-								 DP2);
+								 display::DP2);
 			if (input::is_up()) {
 				state = STATE::DISPLAY_YEAR;
 			} else if (input::is_down()) {
@@ -224,7 +217,7 @@ void RTC_IRQHandler() {
 									num_to_bcd(day) & 0xF,
 									(num_to_bcd(mon) & 0xF0) >> 4,
 									num_to_bcd(mon) & 0xF) |
-				DP1 | DP2);
+				display::DP1 | display::DP2);
 		} break;
 		case STATE::EDIT_MONTH: {
 			if (input::is_up()) {
@@ -250,7 +243,7 @@ void RTC_IRQHandler() {
 									num_to_bcd(day) & 0xF,
 									(num_to_bcd(mon) & 0xF0) >> 4,
 									num_to_bcd(mon) & 0xF) |
-				DP3 | DP4);
+				display::DP3 | display::DP4);
 		} break;
 		case STATE::DISPLAY_YEAR: {
 			auto date = RTC::DR::get_reg();
@@ -292,7 +285,7 @@ void RTC_IRQHandler() {
 									0,
 									(num_to_bcd(year) & 0xF0) >> 4,
 									(num_to_bcd(year) & 0xF)) |
-				DP3 | DP4);
+				display::DP3 | display::DP4);
 		} break;
 		case STATE::DISPLAY_BAT: {
 			int percentage = battery::calc_level();
