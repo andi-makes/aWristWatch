@@ -7,6 +7,10 @@ bool input::both_up	  = false;
 bool input::both_down = false, input::up = false, input::down = false;
 int input::counter = 0;
 
+namespace {
+	bool ignore_press = false;
+}
+
 // NVIC 5
 // sw time
 void EXTI0_1_IRQHandler() {
@@ -15,7 +19,13 @@ void EXTI0_1_IRQHandler() {
 	input::counter = 0;
 
 	if (!display::is_on()) {
+		ignore_press = true;
 		display::on();
+		return;
+	}
+
+	if (ignore_press) {
+		ignore_press = false;
 		return;
 	}
 
@@ -41,7 +51,13 @@ void EXTI4_15_IRQHandler() {
 	input::counter = 0;
 
 	if (!display::is_on()) {
+		ignore_press = true;
 		display::on();
+		return;
+	}
+
+	if (ignore_press) {
+		ignore_press = false;
 		return;
 	}
 
