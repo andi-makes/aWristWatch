@@ -1,12 +1,12 @@
 #pragma once
 
-#include "pwr.h"
-#include "rcc.h"
+#include "pwr.hpp"
+#include "rcc.hpp"
 
-#include <bits.h>
+#include <bits.hpp>
 #include <cinttypes>
-#include <fields.h>
-#include <register.h>
+#include <fields.hpp>
+#include <register.hpp>
 
 struct RTC {
 	static constexpr zol::addr_t address = 0x4000'2800;

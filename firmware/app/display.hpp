@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cinttypes>
-#include <util/pin.h>
+#include <util/pin.hpp>
 
 constexpr uint8_t seg1_3[] = { 0b01111011, 0b00101000, 0b10110011, 0b10111010,
 							   0b11101000, 0b11011010, 0b11011011, 0b00111000,
@@ -18,10 +18,10 @@ struct display {
 	using mdi = pin<GPIOA, 6>;
 	using sdi = pin<GPIOA, 7>;
 
-	static constexpr uint32_t DP1 = 1 << 26;
-	static constexpr uint32_t DP2 = 1 << 31;
-	static constexpr uint32_t DP3 = 1 << 18;
-	static constexpr uint32_t DP4 = 1 << 23;
+	static constexpr uint32_t DP1 = 1u << 26;
+	static constexpr uint32_t DP2 = 1u << 31;
+	static constexpr uint32_t DP3 = 1u << 18;
+	static constexpr uint32_t DP4 = 1u << 23;
 
 	static uint8_t brightness;
 	static void off();

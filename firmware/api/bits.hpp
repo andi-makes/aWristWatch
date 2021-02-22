@@ -1,9 +1,9 @@
 #pragma once
 
-#include "checktype.h"
+#include "checktype.hpp"
 
 #include <cinttypes>
-#include <register.h>
+#include <register.hpp>
 
 constexpr bool on  = true;
 constexpr bool off = false;

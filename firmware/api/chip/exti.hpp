@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <register.h>
+#include <register.hpp>
 
 struct EXTI {
 	constexpr static zol::addr_t address = 0X4001'0400;

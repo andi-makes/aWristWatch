@@ -1,0 +1,3 @@
+[submodule "firmware/arm-cmake-toolchains"]
+	path = firmware/arm-cmake-toolchains
+	url = https://github.com/vpetrigo/arm-cmake-toolchains.git

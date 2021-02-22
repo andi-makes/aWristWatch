@@ -1,10 +1,10 @@
 #pragma once
 
-#include <chip/exti.h>
-#include <chip/interrupts.h>
-#include <chip/nvic.h>
-#include <chip/syscfg.h>
-#include <util/pin.h>
+#include <chip/exti.hpp>
+#include <chip/interrupts.hpp>
+#include <chip/nvic.hpp>
+#include <chip/syscfg.hpp>
+#include <util/pin.hpp>
 
 using sw_time = pin<GPIOA, 0>;
 using sw_date = pin<GPIOA, 10>;

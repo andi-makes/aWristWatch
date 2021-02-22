@@ -1,9 +1,9 @@
 #pragma once
 
-#include <bits.h>
+#include <bits.hpp>
 #include <cinttypes>
-#include <fields.h>
-#include <register.h>
+#include <fields.hpp>
+#include <register.hpp>
 
 struct RCC {
 	static constexpr zol::addr_t address = 0x4002'1000;

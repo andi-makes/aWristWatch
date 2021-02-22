@@ -1,6 +1,6 @@
 #pragma once
 
-#include <chip/gpio.h>
+#include <chip/gpio.hpp>
 
 constexpr bool high = true;
 constexpr bool low	= false;

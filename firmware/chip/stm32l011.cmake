@@ -9,8 +9,37 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mcpu=cortex-m0plus -T ${L
 
 add_compile_options(
 	"-mcpu=cortex-m0plus" "--specs=nano.specs" "-mfloat-abi=soft" "-mthumb"
-	"$<$<COMPILE_LANGUAGE:CXX>:-fconcepts;-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-Wextra;-pedantic;-fstack-usage>"
+	"$<$<COMPILE_LANGUAGE:CXX>:-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-Wextra;-pedantic>"
 )
+
+set(EXTRA_INCLUDES "-I/home/andi/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include -I/home/andi/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1 -I/home/andi/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/arm-none-eabi")
+
+find_program(CPPCHECK cppcheck)
+if(CPPCHECK)
+	set(CMAKE_CXX_CPPCHECK
+		${CPPCHECK}
+		--suppress=missingInclude
+		--enable=all
+		--inline-suppr
+		"--template=[{file}:{line}] [{severity},{id}] {message}"
+		--inconclusive)
+else()
+	message(SEND_ERROR "cppcheck requested but executable not found")
+endif()
+
+find_program(CLANGTIDY clang-tidy)
+if(CLANGTIDY)
+	set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY} 
+	-extra-arg=-Wno-unknown-warning-option 
+	-format-style=file
+	--
+	--target=arm-none-eabi -mcpu=cortex-m0plus -mfloat-abi=soft -mthumb
+	${EXTRA_INCLUDES})
+else()
+	message(SEND_ERROR "clang-tidy requested but executable not found")
+endif()
+
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 function(add_zol_executable EXECUTABLE_NAME)
     set(BIN_FOLDER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXECUTABLE_NAME})
@@ -48,6 +77,16 @@ function(add_zol_executable EXECUTABLE_NAME)
 		ALL
 		DEPENDS ${BIN_FOLDER}.bin ${BIN_FOLDER}.lss
 	)
+
+	find_program(iwyu_tool_path NAMES iwyu_tool)
+	if (iwyu_tool_path)
+		add_custom_target(iwyu
+			ALL      # Remove ALL if you don't iwyu to be run by default.
+			COMMAND "${iwyu_tool_path}" -p "${CMAKE_BINARY_DIR}" -- --target=arm-none-eabi -mcpu=cortex-m0plus -mfloat-abi=soft -mthumb ${EXTRA_INCLUDES}
+			COMMENT "Running include-what-you-use tool"
+			VERBATIM
+		)
+	endif()
 
 	get_directory_property(clean_files ADDITIONAL_MAKE_CLEAN_FILES)
 	set_directory_properties(

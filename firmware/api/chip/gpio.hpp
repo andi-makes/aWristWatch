@@ -1,9 +1,9 @@
 #pragma once
 
-#include "rcc.h"
+#include "rcc.hpp"
 
 #include <cinttypes>
-#include <register.h>
+#include <register.hpp>
 
 namespace gpio {
 	enum class MODE : uint8_t {
@@ -61,7 +61,7 @@ struct GPIOx {
 	}
 
 	static void set_output_type(uint8_t pin, gpio::OTYPE t) {
-		if (t == GPIOx::OTYPE::OPEN_DRAIN) {
+		if (t == gpio::OTYPE::OPEN_DRAIN) {
 			OTYPER::set_bit(pin);
 		} else {
 			OTYPER::clear_bit(pin);

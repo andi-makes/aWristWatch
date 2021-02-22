@@ -1,18 +1,18 @@
-#include "bat.h"
-#include "display.h"
-#include "input.h"
+#include "bat.hpp"
+#include "display.hpp"
+#include "input.hpp"
 
-#include <chip/adc.h>
-#include <chip/exti.h>
-#include <chip/interrupts.h>
-#include <chip/lptim.h>
-#include <chip/nvic.h>
-#include <chip/pwr.h>
-#include <chip/rcc.h>
-#include <chip/rtc.h>
-#include <chip/spi.h>
-#include <chip/syscfg.h>
-#include <util/pin.h>
+#include <chip/adc.hpp>
+#include <chip/exti.hpp>
+#include <chip/interrupts.hpp>
+#include <chip/lptim.hpp>
+#include <chip/nvic.hpp>
+#include <chip/pwr.hpp>
+#include <chip/rcc.hpp>
+#include <chip/rtc.hpp>
+#include <chip/spi.hpp>
+#include <chip/syscfg.hpp>
+#include <util/pin.hpp>
 
 namespace {
 	bool half_second = false;

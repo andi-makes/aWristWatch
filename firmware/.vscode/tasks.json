@@ -7,14 +7,14 @@
             "label": "build",
             "group": "build",
             "type": "shell",
-            "command": "cmake --build build",
+            "command": "cmake --build build-gcc-minsize",
             "problemMatcher": []
         },
         {
             "label": "clean",
             "group": "build",
             "type": "shell",
-            "command": "cd build && ninja clean",
+            "command": "cd build-gcc-minsize && ninja clean",
             "problemMatcher": []
         }
     ]

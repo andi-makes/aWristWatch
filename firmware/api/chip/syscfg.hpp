@@ -1,9 +1,9 @@
 #pragma once
 
-#include "rcc.h"
+#include "rcc.hpp"
 
 #include <cinttypes>
-#include <register.h>
+#include <register.hpp>
 
 struct SYSCFG {
 	static constexpr zol::addr_t address = 0;
