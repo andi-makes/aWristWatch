@@ -1,7 +1,11 @@
 add_zol_executable(
     watch
     main.cpp
-    display.cpp
-    input.cpp
-    bat.cpp
+    modules/display.cpp
+    modules/input.cpp
+    modules/bat.cpp
+    sm.cpp
+    util/time.cpp
+    util/bcd.cpp
+    util/stby.cpp
 )

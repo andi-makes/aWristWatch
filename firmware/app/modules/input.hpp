@@ -12,8 +12,6 @@ using sw_date = pin<GPIOA, 10>;
 struct input {
 	static bool both, both_up, both_down, up, down;
 
-	static int counter;
-
 	static bool is_both_up() {
 		if (both_up) {
 			both_up = false;

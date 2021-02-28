@@ -1,11 +1,10 @@
 #include "input.hpp"
 
-#include "display.hpp"
+#include "../util/stby.hpp"
 
 bool input::both	  = false;
 bool input::both_up	  = false;
 bool input::both_down = false, input::up = false, input::down = false;
-int input::counter = 0;
 
 namespace {
 	bool ignore_press = false;
@@ -16,11 +15,11 @@ namespace {
 void EXTI0_1_IRQHandler() {
 	EXTI::PR::set_bit(0);
 
-	input::counter = 0;
+	aww::stby::kick();
 
-	if (!display::is_on()) {
+	if (aww::stby::in_stby()) {
 		ignore_press = true;
-		display::on();
+		aww::stby::exit_stby();
 		return;
 	}
 
@@ -48,11 +47,11 @@ void EXTI0_1_IRQHandler() {
 void EXTI4_15_IRQHandler() {
 	EXTI::PR::set_bit(10);
 
-	input::counter = 0;
+	aww::stby::kick();
 
-	if (!display::is_on()) {
+	if (aww::stby::in_stby()) {
 		ignore_press = true;
-		display::on();
+		aww::stby::exit_stby();
 		return;
 	}
 

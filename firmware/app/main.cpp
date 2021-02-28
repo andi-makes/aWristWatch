@@ -1,353 +1,73 @@
-#include "bat.hpp"
-#include "display.hpp"
-#include "input.hpp"
+#include "modules/bat.hpp"
+#include "modules/display.hpp"
+#include "modules/input.hpp"
+#include "sm.hpp"
+#include "util/stby.hpp"
 
-#include <chip/adc.hpp>
 #include <chip/exti.hpp>
 #include <chip/interrupts.hpp>
-#include <chip/lptim.hpp>
 #include <chip/nvic.hpp>
-#include <chip/pwr.hpp>
 #include <chip/rcc.hpp>
 #include <chip/rtc.hpp>
 #include <chip/spi.hpp>
 #include <chip/syscfg.hpp>
 #include <util/pin.hpp>
 
-namespace {
-	bool half_second = false;
-	int hrs, min, day, mon, year;
-
-	int bcd_to_num(int bcd) {
-		int num = bcd & 0xF;
-		int mul = 1;
-		while (bcd > 0) {
-			bcd >>= 4;
-			mul *= 10;
-			num += (bcd & 0xF) * mul;
-		}
-		return num;
-	}
-
-	int num_to_bcd(int num) {
-		int bcd = num % 10;
-		num /= 10;
-		int i = 1;
-		while (num > 0) {
-			bcd |= (num % 10) << (4 * i);
-			num /= 10;
-			++i;
-		}
-		return bcd;
-	}
-
-	void fill_time_buffer() {
-		const auto time = RTC::TR::get_reg();
-
-		hrs = bcd_to_num((time & 0x3F0000) >> 16);
-		min = bcd_to_num((time & 0x007F00) >> 8);
-	}
-
-	void apply_time_buffer() {
-		RTC::set_time(num_to_bcd(hrs), num_to_bcd(min), 0);
-	}
-
-	void fill_date_buffer() {
-		const auto date = RTC::DR::get_reg();
-
-		day	 = bcd_to_num((date & 0x00003F));
-		mon	 = bcd_to_num((date & 0x001F00) >> 8);
-		year = bcd_to_num((date & 0xFF0000) >> 16);
-	}
-
-	void apply_date_buffer() {
-		RTC::set_date(num_to_bcd(day), num_to_bcd(mon), num_to_bcd(year));
-	}
-
-	constexpr int stdby = 80;
-}
-
-enum class STATE {
-	EDIT_HRS,
-	EDIT_MINS,
-	EDIT_DAY,
-	EDIT_MONTH,
-	EDIT_YEAR,
-	DISPLAY_TIME,
-	DISPLAY_DATE,
-	DISPLAY_YEAR,
-	DISPLAY_BAT,
-	DISPLAY_BRIGHTNESS,
-	EDIT_BRIGHTNESS
-};
-
-STATE state = STATE::DISPLAY_TIME;
-
 void RTC_IRQHandler() {
+	/// Time, after which the device will enter a standby-mode in seconds
+	static constexpr int stdby{ 10 };
+	/// Toggles every 500ms. Used to let text blink
+	static bool half_second{ false };
+	/// Counter which is used to create the bool `half_second`
+	static int half_second_counter = 0;
+	/// Clears any flags assotiated with the RTC wakeup timer interrupt
+	auto clear_irq = []() {
+		EXTI::PR::set_bit(20);
+		RTC::isr::WUTF::clear();
+	};
+
+	// Is it the RTC wakeup timer interrupt?
 	if (EXTI::PR::get_bit(20)) {
-		if (!display::is_on()) {
-			EXTI::PR::set_bit(20);
-			RTC::isr::WUTF::clear();
+		// If the display is off, we are in standby mode. Do nothing and return.
+		if (aww::stby::in_stby()) {
+			clear_irq();
 			return;
 		}
-		static int c = 0;
-		input::counter++;
-		c++;
-		display::update_brightness();
+		// If not in standby mode, increment standby counter
+		aww::stby::tick();
 
-		auto time	  = RTC::TR::get_reg();
-		auto raw_time = display::bcd_to_raw((time & 0x300000) >> 20,
-											(time & 0xF0000) >> 16,
-											(time & 0x7000) >> 12,
-											(time & 0xF00) >> 8);
+		half_second_counter++;
 
-		switch (state) {
-		case STATE::DISPLAY_TIME: {
-			if (half_second) {
-				display::fill_buffer(raw_time | display::DP2);
-			} else {
-				display::fill_buffer(raw_time);
-			}
-			if (input::is_up()) {
-				state = STATE::DISPLAY_DATE;
-			} else if (input::is_down()) {
-				state = STATE::DISPLAY_BAT;
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_HRS;
-				fill_time_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::EDIT_MINS;
-				fill_time_buffer();
-			}
-		} break;
-		case STATE::EDIT_HRS: {
-			if (input::is_up()) {
-				hrs++;
-				if (hrs > 23) {
-					hrs = 0;
-				}
-			} else if (input::is_down()) {
-				if (hrs <= 0) {
-					hrs = 23;
-				} else {
-					hrs--;
-				}
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_MINS;
-			} else if (input::is_both_up()) {
-				state = STATE::DISPLAY_TIME;
-				apply_time_buffer();
-			}
+		// Execute the statemachine.
+		aww::sm::exec(half_second);
 
-			display::fill_buffer(
-				display::bcd_to_raw((num_to_bcd(hrs) & 0xF0) >> 4,
-									num_to_bcd(hrs) & 0xF,
-									(num_to_bcd(min) & 0xF0) >> 4,
-									num_to_bcd(min) & 0xF) |
-				display::DP1 | display::DP2);
-		} break;
-		case STATE::EDIT_MINS: {
-			if (input::is_up()) {
-				min++;
-				if (min > 59) {
-					min = 0;
-				}
-			} else if (input::is_down()) {
-				if (min <= 0) {
-					min = 59;
-				} else {
-					min--;
-				}
-			} else if (input::is_both_down()) {
-				state = STATE::DISPLAY_TIME;
-				apply_time_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::EDIT_HRS;
-			}
-
-			display::fill_buffer(
-				display::bcd_to_raw((num_to_bcd(hrs) & 0xF0) >> 4,
-									num_to_bcd(hrs) & 0xF,
-									(num_to_bcd(min) & 0xF0) >> 4,
-									num_to_bcd(min) & 0xF) |
-				display::DP3 | display::DP4);
-		} break;
-		case STATE::DISPLAY_DATE: {
-			auto date = RTC::DR::get_reg();
-			display::fill_buffer(display::bcd_to_raw((date & 0x30) >> 4,
-													 (date & 0xF),
-													 (date & 0x1000) >> 12,
-													 (date & 0xF00) >> 8) |
-								 display::DP2);
-			if (input::is_up()) {
-				state = STATE::DISPLAY_YEAR;
-			} else if (input::is_down()) {
-				state = STATE::DISPLAY_TIME;
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_DAY;
-				fill_date_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::EDIT_MONTH;
-				fill_date_buffer();
-			}
-		} break;
-		case STATE::EDIT_DAY: {
-			if (input::is_up()) {
-				day++;
-				if (day > 31) {
-					day = 1;
-				}
-			} else if (input::is_down()) {
-				if (day <= 1) {
-					day = 31;
-				} else {
-					day--;
-				}
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_MONTH;
-			} else if (input::is_both_up()) {
-				state = STATE::DISPLAY_DATE;
-				apply_date_buffer();
-			}
-
-			display::fill_buffer(
-				display::bcd_to_raw((num_to_bcd(day) & 0xF0) >> 4,
-									num_to_bcd(day) & 0xF,
-									(num_to_bcd(mon) & 0xF0) >> 4,
-									num_to_bcd(mon) & 0xF) |
-				display::DP1 | display::DP2);
-		} break;
-		case STATE::EDIT_MONTH: {
-			if (input::is_up()) {
-				mon++;
-				if (mon > 12) {
-					mon = 1;
-				}
-			} else if (input::is_down()) {
-				if (mon <= 1) {
-					mon = 12;
-				} else {
-					mon--;
-				}
-			} else if (input::is_both_down()) {
-				state = STATE::DISPLAY_DATE;
-				apply_date_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::EDIT_DAY;
-			}
-
-			display::fill_buffer(
-				display::bcd_to_raw((num_to_bcd(day) & 0xF0) >> 4,
-									num_to_bcd(day) & 0xF,
-									(num_to_bcd(mon) & 0xF0) >> 4,
-									num_to_bcd(mon) & 0xF) |
-				display::DP3 | display::DP4);
-		} break;
-		case STATE::DISPLAY_YEAR: {
-			auto date = RTC::DR::get_reg();
-			display::fill_buffer(display::bcd_to_raw(
-				2, 0, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
-
-			if (input::is_down()) {
-				state = STATE::DISPLAY_DATE;
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_YEAR;
-				fill_date_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::EDIT_YEAR;
-				fill_date_buffer();
-			}
-		} break;
-		case STATE::EDIT_YEAR: {
-			if (input::is_up()) {
-				year++;
-				if (year > 99) {
-					year = 0;
-				}
-			} else if (input::is_down()) {
-				if (year < 0) {
-					year = 99;
-				} else {
-					year--;
-				}
-			} else if (input::is_both_down()) {
-				state = STATE::DISPLAY_YEAR;
-				apply_date_buffer();
-			} else if (input::is_both_up()) {
-				state = STATE::DISPLAY_YEAR;
-				apply_date_buffer();
-			}
-
-			display::fill_buffer(
-				display::bcd_to_raw(2,
-									0,
-									(num_to_bcd(year) & 0xF0) >> 4,
-									(num_to_bcd(year) & 0xF)) |
-				display::DP3 | display::DP4);
-		} break;
-		case STATE::DISPLAY_BAT: {
-			int percentage = battery::calc_level();
-
-			display::fill_buffer_bcd(
-				10, (percentage / 10) % 10, percentage % 10, 10);
-
-			if (input::is_up()) {
-				state = STATE::DISPLAY_TIME;
-			} else if (input::is_down()) {
-				state = STATE::DISPLAY_BRIGHTNESS;
-			}
-
-		} break;
-		case STATE::DISPLAY_BRIGHTNESS: {
-			display::fill_buffer_bcd(10,
-									 10,
-									 (display::brightness / 10) % 10,
-									 display::brightness % 10);
-
-			if (input::is_up()) {
-				state = STATE::DISPLAY_BAT;
-			} else if (input::is_both_down()) {
-				state = STATE::EDIT_BRIGHTNESS;
-			}
-		} break;
-		case STATE::EDIT_BRIGHTNESS: {
-			if (input::is_up()) {
-				if (display::brightness != 99) display::brightness++;
-			} else if (input::is_down()) {
-				if (display::brightness != 1) display::brightness--;
-			} else if (input::is_both_up() || input::is_both_down()) {
-				state = STATE::DISPLAY_BRIGHTNESS;
-			}
-			display::fill_buffer_bcd(10,
-									 10,
-									 (display::brightness / 10) % 10,
-									 display::brightness % 10);
-			display::add_point(display::DP3 | display::DP4);
-			display::update_brightness();
-		} break;
-		}
-
+		const auto state = aww::sm::get_state();
 		// Half a second passed
-		if (c == 4) {
-			half_second = !half_second;
-			c			= 0;
-			battery::sample();
+		if (half_second_counter == 4) {
+			half_second			= !half_second;
+			half_second_counter = 0;
+			// If we are in adjacent states of DISPLAY_BAT, read the bat voltage
+			if (state == aww::sm::STATE::DISPLAY_BAT ||
+				state == aww::sm::STATE::DISPLAY_TIME ||
+				state == aww::sm::STATE::DISPLAY_BRIGHTNESS) {
+				battery::sample();
+			}
 		}
 		display::send();
 
-		if (input::counter >= stdby &&
-			(state == STATE::DISPLAY_TIME || state == STATE::DISPLAY_DATE ||
-			 state == STATE::DISPLAY_YEAR)) {
-			input::counter = 0;
-			display::off();
+		if (aww::stby::get_counter() >= (stdby * 8) &&
+			(state == aww::sm::STATE::DISPLAY_TIME ||
+			 state == aww::sm::STATE::DISPLAY_DATE ||
+			 state == aww::sm::STATE::DISPLAY_YEAR)) {
+			aww::stby::kick();
+			aww::stby::enter_stby();
 		}
 
-		EXTI::PR::set_bit(20);
-		RTC::isr::WUTF::clear();
+		clear_irq();
 	}
 }
 
-inline static void power() {
+extern "C" void SystemInit() {
 	SYSCFG::enable();
 	RTC::enable();
 	SPI1::enable();
@@ -355,10 +75,8 @@ inline static void power() {
 }
 
 int main() {
-	power();
-
 	if (!RTC::is_initialized()) {
-		state = STATE::EDIT_HRS;
+		aww::sm::set_state(aww::sm::STATE::EDIT_HRS);
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
 	}
 
