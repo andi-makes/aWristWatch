@@ -1,9 +1,9 @@
 #pragma once
 
-#include "rcc.h"
+#include "rcc.hpp"
 
 #include <cstdint>
-#include <register.h>
+#include <register.hpp>
 
 template<zol::addr_t address>
 struct SPIx {

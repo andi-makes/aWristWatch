@@ -1,8 +1,9 @@
 #pragma once
 
-#include <chip/adc.h>
-#include <chip/dma.h>
-#include <util/pin.h>
+#include <chip/adc.hpp>
+#include <chip/dma.hpp>
+#include <chip/pwr.hpp>
+#include <util/pin.hpp>
 
 struct battery {
 	static int16_t adc_buffer[1];
@@ -12,7 +13,10 @@ struct battery {
 		ADC::power_on();
 
 		DMA::CPARx<1>::set_reg(ADC::DR::get_address());
+// NOLINTNEXTLINE(clang-diagnostic-error): Address size is 32 bits
+#ifndef __clang_analyzer__
 		DMA::CMARx<1>::set_reg(uint32_t(adc_buffer));
+#endif
 		DMA::CNDTRx<1>::set_reg(1);
 		DMA::CCRx<1>::set_reg((3 << 12) | (1 << 10) | (1 << 8) | (1 << 5));
 		DMA::CCRx<1>::set_bit(0);

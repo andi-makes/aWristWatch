@@ -1,9 +1,9 @@
-#include "display.h"
+#include "display.hpp"
 
-#include <chip/lptim.h>
-#include <chip/nvic.h>
-#include <chip/rcc.h>
-#include <chip/spi.h>
+#include <chip/lptim.hpp>
+#include <chip/nvic.hpp>
+#include <chip/rcc.hpp>
+#include <chip/spi.hpp>
 
 // NVIC number 25
 extern "C" void SPI1_IRQHandler() {
@@ -77,8 +77,9 @@ void display::setup() {
 	// SPI1::CR1::clear_bit(SPI1::CPHA);
 	// SPI1::CR1::clear_bit(SPI1::CPOL);
 
-    SPI1::CR1::clear_reg();
-    SPI1::CR1::set_bit(SPI1::DFF, SPI1::SSI, SPI1::SSM, SPI1::LSBFIRST, SPI1::MSTR);
+	SPI1::CR1::clear_reg();
+	SPI1::CR1::set_bit(
+		SPI1::DFF, SPI1::SSI, SPI1::SSM, SPI1::LSBFIRST, SPI1::MSTR);
 
 	SPI1::CR2::set_bit(SPI1::TXEIE);
 

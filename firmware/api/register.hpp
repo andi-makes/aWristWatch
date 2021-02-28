@@ -38,14 +38,13 @@ namespace zol {
 	/// @tparam address ... Address of the register
 	template<std::unsigned_integral type, addr_t address>
 	class reg {
-        constexpr static type or_together(type n) {
-            return n;
-        }
+		constexpr static type or_together(type n) { return n; }
 
-        template<std::integral ...T>
-        constexpr static type or_together(type n, T... m) {
-            return n | or_together(m...);
-        }
+		template<std::integral... T>
+		constexpr static type or_together(type n, T... m) {
+			return n | or_together(m...);
+		}
+
 	public:
 		/// @brief Type of the register
 		using type_t = type;
@@ -62,18 +61,18 @@ namespace zol {
 
 		/// @brief Set all of the bits in the register.
 		/// @param bits ... Bits to set
-        template<std::integral ...T>  
-		inline static void set_bit(const T ... bits) {
-            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
-            or_reg(or_together(bits...));
+		template<std::integral... T>
+		inline static void set_bit(const T... bits) {
+			static_assert(sizeof...(bits) != 0,
+						  "Need to give some parameters to set_bit");
+			or_reg(or_together(bits...));
 		}
-
 
 		/// @brief Gets the `bit_number`th bit from the register.
 		/// @param bit_number ... Bit to get
 		/// @return true if bit is set, otherwise false
 		inline static bool get_bit(const int bit_number) {
-			if ((get_reg() & (1 << bit_number)) == 0) {
+			if ((get_reg() & (1U << bit_number)) == 0) {
 				return false;
 			} else {
 				return true;
@@ -82,18 +81,20 @@ namespace zol {
 
 		/// @brief Clears the `bit_number`th bit in the register.
 		/// @param bit_number ... Bit to clear
-        template<std::integral ...T>
-		inline static void clear_bit(const T ... bits) {
-            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
-            and_reg(~or_together(bits...));
+		template<std::integral... T>
+		inline static void clear_bit(const T... bits) {
+			static_assert(sizeof...(bits) != 0,
+						  "Need to give some parameters to set_bit");
+			and_reg(~or_together(bits...));
 		}
 
 		/// @brief Toggles the `bit_number`th bit in the register.
 		/// @param bit_number ... Bit to toggle
-        template<std::integral ...T>
-		inline static void toggle_bit(const T ... bits) {
-            static_assert(sizeof...(bits) != 0, "Need to give some parameters to set_bit");
-            toggle_reg(or_together(bits...));
+		template<std::integral... T>
+		inline static void toggle_bit(const T... bits) {
+			static_assert(sizeof...(bits) != 0,
+						  "Need to give some parameters to set_bit");
+			toggle_reg(or_together(bits...));
 		}
 
 		/// @brief Sets the register to `content`.

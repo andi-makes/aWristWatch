@@ -1,10 +1,10 @@
 #pragma once
 
-#include "rcc.h"
+#include "rcc.hpp"
 
-#include <bits.h>
-#include <fields.h>
-#include <register.h>
+#include <bits.hpp>
+#include <fields.hpp>
+#include <register.hpp>
 
 struct DMA {
 	static constexpr zol::addr_t address = 0X4002'0000;

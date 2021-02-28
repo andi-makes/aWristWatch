@@ -1,9 +1,9 @@
 #pragma once
 
-#include "rcc.h"
+#include "rcc.hpp"
 
 #include <cinttypes>
-#include <register.h>
+#include <register.hpp>
 
 namespace pwr {
 	enum class cr : uint8_t {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cinttypes>
-#include <register.h>
+#include <register.hpp>
 
 struct NVIC {
 	constexpr static uint32_t ISER_ADDR = 0xE000'E100;	  // Set Enable

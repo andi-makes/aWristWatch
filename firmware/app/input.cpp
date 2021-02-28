@@ -1,6 +1,6 @@
-#include "input.h"
+#include "input.hpp"
 
-#include "display.h"
+#include "display.hpp"
 
 bool input::both	  = false;
 bool input::both_up	  = false;
