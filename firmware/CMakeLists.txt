@@ -7,5 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include(chip/stm32l011.cmake)
 
-add_subdirectory(lib)
+add_subdirectory(api)
 add_subdirectory(app)

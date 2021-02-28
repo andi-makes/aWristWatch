@@ -5,5 +5,5 @@ add_library(
 target_include_directories(
     zol
     INTERFACE
-    ${PROJECT_SOURCE_DIR}/api
+    .
 )
