@@ -4,17 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build docker",
             "group": "build",
             "type": "shell",
-            "command": "cmake --build build-gcc-minsize",
-            "problemMatcher": []
-        },
-        {
-            "label": "clean",
-            "group": "build",
-            "type": "shell",
-            "command": "cd build-gcc-minsize && ninja clean",
+            "command": "docker build -t arm-none-eabi .",
             "problemMatcher": []
         }
     ]
