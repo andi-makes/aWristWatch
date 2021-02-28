@@ -357,7 +357,7 @@ inline static void power() {
 int main() {
 	power();
 
-	if (RTC::is_initialized() == false) {
+	if (!RTC::is_initialized()) {
 		state = STATE::EDIT_HRS;
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
 	}
