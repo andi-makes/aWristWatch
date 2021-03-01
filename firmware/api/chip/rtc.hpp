@@ -1,5 +1,7 @@
 #pragma once
 
+#include "exti.hpp"
+#include "nvic.hpp"
 #include "pwr.hpp"
 #include "rcc.hpp"
 
@@ -195,6 +197,28 @@ struct RTC {
 	}
 
 	static bool is_initialized() { return isr::INITS::read(); }
+
+	static void setup_wakeup_timer(int wut, int wucksel) {
+		disable_write_protect();
+		cr::WUTE::write(off);
+		while (isr::WUTWF::read() == 0) {	 // WUTWF
+			asm("nop");
+		}
+		// 1023 ==> 0.5sec
+		// 511  ==> 0.25sec
+		// 255  ==> 0.125sec
+		WUTR::set_reg(wut);
+		cr::WUCKSEL::set(wucksel);
+		cr::WUTE::write(on);
+
+		EXTI::IMR::set_bit(20);
+		EXTI::RTSR::set_bit(20);
+
+		NVIC::ISER::set_bit(2);
+
+		cr::WUTIE::write(on);
+		enable_write_protect();
+	}
 
 private:
 	RTC();

@@ -6,7 +6,6 @@
 
 #include <chip/exti.hpp>
 #include <chip/interrupts.hpp>
-#include <chip/nvic.hpp>
 #include <chip/rcc.hpp>
 #include <chip/rtc.hpp>
 #include <chip/spi.hpp>
@@ -16,10 +15,6 @@
 void RTC_IRQHandler() {
 	/// Time, after which the device will enter a standby-mode in seconds
 	static constexpr int stdby{ 10 };
-	/// Toggles every 500ms. Used to let text blink
-	static bool half_second{ false };
-	/// Counter which is used to create the bool `half_second`
-	static int half_second_counter = 0;
 	/// Clears any flags assotiated with the RTC wakeup timer interrupt
 	auto clear_irq = []() {
 		EXTI::PR::set_bit(20);
@@ -28,6 +23,10 @@ void RTC_IRQHandler() {
 
 	// Is it the RTC wakeup timer interrupt?
 	if (EXTI::PR::get_bit(20)) {
+		/// Toggles every 500ms. Used to let text blink
+		static bool half_second{ false };
+		/// Counter which is used to create the bool `half_second`
+		static int half_second_counter{ 0 };
 		// If the display is off, we are in standby mode. Do nothing and return.
 		if (aww::stby::in_stby()) {
 			clear_irq();
@@ -80,28 +79,10 @@ int main() {
 		RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
 	}
 
-	// RTC Wakup Timer configuration
-	RTC::disable_write_protect();
-	RTC::cr::WUTE::write(off);
-	while (RTC::isr::WUTWF::read() == 0) {	  // WUTWF
-		asm("nop");
-	}
-	// 1023 ==> 0.5sec
-	// 511  ==> 0.25sec
-	// 255  ==> 0.125sec
-	RTC::WUTR::set_reg(255);
-	RTC::cr::WUTE::write(on);
-
-	EXTI::IMR::set_bit(20);
-	EXTI::RTSR::set_bit(20);
-
-	NVIC::ISER::set_bit(2);
-
-	RTC::cr::WUTIE::write(on);
-	RTC::enable_write_protect();
+	// RTC Wakup Timer, 0.125sec
+	RTC::setup_wakeup_timer(255, 0);
 
 	battery::setup();
-
 	display::setup();
 	input::setup();
 
