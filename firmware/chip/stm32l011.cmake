@@ -12,29 +12,22 @@ add_compile_options(
 	"$<$<COMPILE_LANGUAGE:CXX>:-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-Wextra;-pedantic>"
 )
 
-find_program(CPPCHECK cppcheck)
-if(CPPCHECK)
-	set(CMAKE_CXX_CPPCHECK
-		${CPPCHECK}
-		--suppress=missingInclude
-		--enable=all
-		--inline-suppr
-		"--template=[{file}:{line}] [{severity},{id}] {message}"
-		--inconclusive)
-else()
-	message(SEND_ERROR "cppcheck requested but executable not found")
-endif()
-
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 function(add_zol_executable EXECUTABLE_NAME)
     set(BIN_FOLDER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXECUTABLE_NAME})
+	set(CLANG_TIDY_SOURCES ${ARGN})
 
     add_executable(
         ${EXECUTABLE_NAME}.elf
         "${STARTUP_SCRIPT}"
 		${ARGN}
 	)
+
+	target_link_libraries(
+		${EXECUTABLE_NAME}.elf
+		zol
+    )
 
 	target_link_options(
 		${EXECUTABLE_NAME}.elf
@@ -46,9 +39,14 @@ function(add_zol_executable EXECUTABLE_NAME)
 		OUTPUT ${BIN_FOLDER}.bin
 		COMMAND
 		${ARM_TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}objcopy -O binary ${BIN_FOLDER}.elf ${BIN_FOLDER}.bin
-		COMMAND
-		${ARM_TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}size -t -d ${BIN_FOLDER}.elf
 		DEPENDS ${EXECUTABLE_NAME}.elf
+	)
+
+	add_custom_command(
+		OUTPUT ${BIN_FOLDER}.size
+		DEPENDS ${BIN_FOLDER}.bin
+		COMMAND
+		${ARM_TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}size -t -d ${BIN_FOLDER}.elf >> ${BIN_FOLDER}.size
 	)
 
 	add_custom_command(
@@ -61,17 +59,12 @@ function(add_zol_executable EXECUTABLE_NAME)
 	add_custom_target(
 		${EXECUTABLE_NAME}
 		ALL
-		DEPENDS ${BIN_FOLDER}.bin ${BIN_FOLDER}.lss
+		DEPENDS ${BIN_FOLDER}.bin ${BIN_FOLDER}.lss ${BIN_FOLDER}.size
 	)
 
-	get_directory_property(clean_files ADDITIONAL_MAKE_CLEAN_FILES)
+	get_directory_property(clean_files ADDITIONAL_CLEAN_FILES)
 	set_directory_properties(
 		PROPERTIES
-		ADDITIONAL_MAKE_CLEAN_FILES "${clean_files};${BIN_FOLDER}.map;${BIN_FOLDER}.bin;${BIN_FOLDER}.lss"
-    )
-    
-    target_link_libraries(
-		${EXECUTABLE_NAME}.elf
-		zol
+		ADDITIONAL_CLEAN_FILES "${clean_files};${BIN_FOLDER}.map;${BIN_FOLDER}.bin;${BIN_FOLDER}.lss;${BIN_FOLDER}.size"
     )
 endfunction(add_zol_executable)

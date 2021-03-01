@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include(chip/stm32l011.cmake)
+include(cmake/analyzers.cmake)
 
 add_subdirectory(api)
 add_subdirectory(app)
+
