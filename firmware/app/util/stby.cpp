@@ -1,6 +1,6 @@
 #include "stby.hpp"
 
-#include "../modules/display.hpp"
+#include "../driver/display.hpp"
 
 namespace aww::stby {
 	int counter{ 0 };

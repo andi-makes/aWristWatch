@@ -1,6 +1,6 @@
-#include "modules/bat.hpp"
-#include "modules/display.hpp"
-#include "modules/input.hpp"
+#include "driver/bat.hpp"
+#include "driver/display.hpp"
+#include "driver/input.hpp"
 #include "sm.hpp"
 #include "util/stby.hpp"
 
@@ -13,8 +13,6 @@
 #include <util/pin.hpp>
 
 void RTC_IRQHandler() {
-	/// Time, after which the device will enter a standby-mode in seconds
-	static constexpr int stdby{ 10 };
 	/// Clears any flags assotiated with the RTC wakeup timer interrupt
 	auto clear_irq = []() {
 		EXTI::PR::set_bit(20);
@@ -23,11 +21,14 @@ void RTC_IRQHandler() {
 
 	// Is it the RTC wakeup timer interrupt?
 	if (EXTI::PR::get_bit(20)) {
+		/// Time, after which the device will enter a standby-mode in seconds
+		static constexpr int stdby{ 10 };
 		/// Toggles every 500ms. Used to let text blink
 		static bool half_second{ false };
 		/// Counter which is used to create the bool `half_second`
 		static int half_second_counter{ 0 };
-		// If the display is off, we are in standby mode. Do nothing and return.
+
+		// If in standby, do nothing.
 		if (aww::stby::in_stby()) {
 			clear_irq();
 			return;
@@ -54,11 +55,11 @@ void RTC_IRQHandler() {
 		}
 		display::send();
 
+		// If it's time to enter standby
 		if (aww::stby::get_counter() >= (stdby * 8) &&
 			(state == aww::sm::STATE::DISPLAY_TIME ||
 			 state == aww::sm::STATE::DISPLAY_DATE ||
 			 state == aww::sm::STATE::DISPLAY_YEAR)) {
-			aww::stby::kick();
 			aww::stby::enter_stby();
 		}
 

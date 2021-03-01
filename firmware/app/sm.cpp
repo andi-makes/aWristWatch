@@ -1,8 +1,8 @@
 #include "sm.hpp"
 
-#include "modules/bat.hpp"
-#include "modules/display.hpp"
-#include "modules/input.hpp"
+#include "driver/bat.hpp"
+#include "driver/display.hpp"
+#include "driver/input.hpp"
 #include "util/bcd.hpp"
 #include "util/time.hpp"
 
