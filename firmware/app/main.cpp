@@ -66,7 +66,7 @@ void RTC_IRQHandler() {
 	}
 }
 
-extern "C" void SystemInit() {
+void SystemInit() {
 	SYSCFG::enable();
 	RTC::enable();
 	SPI1::enable();

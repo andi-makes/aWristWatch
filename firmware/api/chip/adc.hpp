@@ -30,8 +30,7 @@ struct ADC {
 		using EOSMP = zol::bit_rc1<ISR, 1>;
 		using ADRDY = zol::bit_rc1<ISR, 0>;
 
-	private:
-		isr() {}
+		isr() = delete;
 	};
 
 	struct ier {
@@ -43,8 +42,7 @@ struct ADC {
 		using EOSMPIE = zol::bit_rw<IER, 1>;
 		using ADRDYIE = zol::bit_rw<IER, 0>;
 
-	private:
-		ier() {}
+		ier() = delete;
 	};
 
 	struct cr {
@@ -55,8 +53,7 @@ struct ADC {
 		using ADDIS	   = zol::bit_rs<CR, 1>;
 		using ADEN	   = zol::bit_rs<CR, 0>;
 
-	private:
-		cr() {}
+		cr() = delete;
 	};
 
 	struct cfgr1 {
@@ -76,8 +73,7 @@ struct ADC {
 		using DMACFG  = zol::bit_rw<CFGR1, 1>;
 		using DMAEN	  = zol::bit_rw<CFGR1, 0>;
 
-	private:
-		cfgr1() {}
+		cfgr1() = delete;
 	};
 
 	struct cfgr2 {
@@ -87,23 +83,20 @@ struct ADC {
 		using OVSR	 = zol::field_rw<CFGR2, 2, 3>;
 		using OVSE	 = zol::bit_rw<CFGR2, 0>;
 
-	private:
-		cfgr2() {}
+		cfgr2() = delete;
 	};
 
 	struct smpr {
 		using SMP = zol::field_rw<SMPR, 0, 3>;
 
-	private:
-		smpr() {}
+		smpr() = delete;
 	};
 
 	struct tr {
 		using HT = zol::field_rw<TR, 16, 12>;
 		using LT = zol::field_rw<TR, 0, 12>;
 
-	private:
-		tr() {}
+		tr() = delete;
 	};
 
 	struct chselr {
@@ -127,22 +120,19 @@ struct ADC {
 		using CHSEL1  = zol::bit_rw<CHSELR, 1>;
 		using CHSEL0  = zol::bit_rw<CHSELR, 0>;
 
-	private:
-		chselr() {}
+		chselr() = delete;
 	};
 
 	struct dr {
 		using DATA = zol::field_r<DR, 0, 16>;
 
-	private:
-		dr() {}
+		dr() = delete;
 	};
 
 	struct calfact {
 		using CALIFACT = zol::field_rw<CALFACT, 0, 7>;
 
-	private:
-		calfact() {}
+		calfact() = delete;
 	};
 
 	struct ccr {
@@ -152,8 +142,7 @@ struct ADC {
 		using VREFEN = zol::bit_rw<CCR, 22>;
 		using PRESC	 = zol::field_rw<CCR, 18, 4>;
 
-	private:
-		ccr() {}
+		ccr() = delete;
 	};
 
 	static void power_on() { RCC::apb2enr::ADCEN::write(on); }
@@ -191,6 +180,5 @@ struct ADC {
 		}
 	}
 
-private:
-	ADC() {}
+	ADC() = delete;
 };

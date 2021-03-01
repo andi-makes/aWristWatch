@@ -20,6 +20,8 @@ namespace zol {
 						  "Bitnumber out of bounds");
 			return reg::get_bit(bit);
 		}
+
+		bit_r() = delete;
 	};
 
 	/// @brief Write-Only Bit in register
@@ -37,6 +39,8 @@ namespace zol {
 				reg::clear_bit(bit);
 			}
 		}
+
+		bit_w() = delete;
 	};
 
 	/// @brief Read-Write Bit in register
@@ -61,6 +65,8 @@ namespace zol {
 				reg::clear_bit(bit);
 			}
 		}
+
+		bit_rw() = delete;
 	};
 
 	/// @brief Bit which can be read from. It gets cleared by writing a 0 to it.
@@ -80,6 +86,8 @@ namespace zol {
 						  "Bitnumber out of bounds");
 			reg::clear_bit(bit);
 		}
+
+		bit_rc0() = delete;
 	};
 
 	/// @brief Bit which can be read from. It gets cleared by writing a 1 to it.
@@ -99,6 +107,8 @@ namespace zol {
 						  "Bitnumber out of bounds");
 			reg::set_bit(bit);
 		}
+
+		bit_rc1() = delete;
 	};
 
 	/// @brief Bit which gets toggled by writing a 1 to it.
@@ -112,6 +122,8 @@ namespace zol {
 						  "Bitnumber out of bounds");
 			reg::set_bit(bit);
 		}
+
+		bit_t() = delete;
 	};
 
 	template<zol::Register reg, uint8_t bit>
@@ -129,5 +141,7 @@ namespace zol {
 						  "Bitnumber out of bounds");
 			return reg::set_bit(bit);
 		}
+
+		bit_rs() = delete;
 	};
 }

@@ -69,4 +69,6 @@ struct input {
 		SYSCFG::EXTICR3::set_reg(0);
 		NVIC::ISER::set_bit(7);
 	}
+
+	input() = delete;
 };

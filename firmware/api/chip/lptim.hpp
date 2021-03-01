@@ -200,6 +200,5 @@ struct LPTIM1 {
 		CFGR::or_reg(uint8_t(c) << 1);
 	}
 
-private:
-	LPTIM1();
+	LPTIM1() = delete;
 };

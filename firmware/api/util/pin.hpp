@@ -41,4 +41,6 @@ struct pin {
 	}
 	static void set_bit(bool level) { GPIO::set_bit(check_pin(), level); }
 	static void lock_pin() { GPIO::lock_pin(check_pin()); }
+
+	pin() = delete;
 };

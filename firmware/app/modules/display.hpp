@@ -61,6 +61,7 @@ struct display {
 
 	static uint32_t buffer;
 
+	display() = delete;
+
 private:
-	display() {}
 };

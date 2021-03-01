@@ -71,6 +71,5 @@ struct PWR {
 	}
 	static void set(pwr::csr c) { CSR::set_bit(uint8_t(c)); }
 
-private:
-	PWR();
+	PWR() = delete;
 };

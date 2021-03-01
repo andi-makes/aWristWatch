@@ -61,8 +61,7 @@ struct RTC {
 		using TSEDGE  = zol::bit_rw<CR, 3>;
 		using WUCKSEL = zol::field_rw<CR, 0, 3>;
 
-	private:
-		cr() {}
+		cr() = delete;
 	};
 
 	struct isr {
@@ -84,16 +83,14 @@ struct RTC {
 		using ALRBWF  = zol::bit_r<ISR, 1>;
 		using ALRAWF  = zol::bit_r<ISR, 0>;
 
-	private:
-		isr() {}
+		isr() = delete;
 	};
 
 	struct prer {
 		using PREDIV_A = zol::field_rw<PRER, 16, 7>;
 		using PREDIV_S = zol::field_rw<PRER, 0, 15>;
 
-	private:
-		prer() {}
+		prer() = delete;
 	};
 
 	[[gnu::always_inline]] static inline void disable_write_protect() {
@@ -220,6 +217,5 @@ struct RTC {
 		enable_write_protect();
 	}
 
-private:
-	RTC();
+	RTC() = delete;
 };

@@ -8,4 +8,6 @@ struct time {
 
 	static void store_time();
 	static void store_date();
+
+	time() = delete;
 };

@@ -115,9 +115,9 @@ struct GPIOx {
 		}
 	}
 
-private:
-	GPIOx();
+	GPIOx() = delete;
 };
+
 constexpr zol::addr_t GPIOA_ADDR = 0x5000'0000;
 
 using GPIOA = GPIOx<GPIOA_ADDR>;

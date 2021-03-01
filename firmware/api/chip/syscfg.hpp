@@ -20,6 +20,5 @@ struct SYSCFG {
 
 	static void enable() { RCC::apb2enr::SYSCFGEN::write(on); }
 
-private:
-	SYSCFG() {}
+	SYSCFG() = delete;
 };

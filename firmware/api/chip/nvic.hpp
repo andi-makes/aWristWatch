@@ -26,6 +26,5 @@ struct NVIC {
 	using IPR6 = zol::reg<uint32_t, IPR_ADDR + 0x4 * 6>;
 	using IPR7 = zol::reg<uint32_t, IPR_ADDR + 0x4 * 7>;
 
-private:
-	NVIC();
+	NVIC() = delete;
 };
