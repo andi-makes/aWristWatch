@@ -39,7 +39,7 @@ struct battery {
 	}
 
 	static int calc_level() {
-		auto adc = *adc_buffer;
+		auto adc{ *adc_buffer };
 		adc -= 2048;
 		if (adc < 0) return 0;
 		adc = (adc * 100) / 558;

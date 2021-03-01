@@ -3,13 +3,13 @@
 #include <cinttypes>
 #include <util/pin.hpp>
 
-constexpr uint8_t seg1_3[] = { 0b01111011, 0b00101000, 0b10110011, 0b10111010,
-							   0b11101000, 0b11011010, 0b11011011, 0b00111000,
-							   0b11111011, 0b11111010, 0 };
+constexpr uint8_t seg1_3[]{ 0b01111011, 0b00101000, 0b10110011, 0b10111010,
+							0b11101000, 0b11011010, 0b11011011, 0b00111000,
+							0b11111011, 0b11111010, 0 };
 
-constexpr uint8_t seg2_4[] = { 0b01111011, 0b01000001, 0b00110111, 0b01010111,
-							   0b01001101, 0b01011110, 0b01111110, 0b01000011,
-							   0b01111111, 0b01011111, 0 };
+constexpr uint8_t seg2_4[]{ 0b01111011, 0b01000001, 0b00110111, 0b01010111,
+							0b01001101, 0b01011110, 0b01111110, 0b01000011,
+							0b01111111, 0b01011111, 0 };
 
 struct display {
 	using oe  = pin<GPIOA, 9>;
@@ -18,10 +18,10 @@ struct display {
 	using mdi = pin<GPIOA, 6>;
 	using sdi = pin<GPIOA, 7>;
 
-	static constexpr uint32_t DP1 = 1u << 26;
-	static constexpr uint32_t DP2 = 1u << 31;
-	static constexpr uint32_t DP3 = 1u << 18;
-	static constexpr uint32_t DP4 = 1u << 23;
+	static constexpr uint32_t DP1{ 1u << 26 };
+	static constexpr uint32_t DP2{ 1u << 31 };
+	static constexpr uint32_t DP3{ 1u << 18 };
+	static constexpr uint32_t DP4{ 1u << 23 };
 
 	static uint8_t brightness;
 	static void off();

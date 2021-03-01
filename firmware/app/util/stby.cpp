@@ -3,8 +3,8 @@
 #include "../modules/display.hpp"
 
 namespace aww::stby {
-	int counter = 0;
-	bool stby	= false;
+	int counter{ 0 };
+	bool stby{ false };
 	/// Resets standby counter
 	void kick() { counter = 0; }
 	/// Increments standby counter

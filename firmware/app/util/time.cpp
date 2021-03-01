@@ -9,7 +9,7 @@ int time::hrs{ 0 }, time::min{ 0 }, time::day{ 1 }, time::mon{ 1 },
 
 void time::load_time() {
 	using namespace aww::bcd;
-	const auto time = RTC::TR::get_reg();
+	const auto time{ RTC::TR::get_reg() };
 
 	hrs = bcd_to_num((time & 0x3F0000) >> 16);
 	min = bcd_to_num((time & 0x007F00) >> 8);
@@ -17,7 +17,7 @@ void time::load_time() {
 
 void time::load_date() {
 	using namespace aww::bcd;
-	const auto date = RTC::DR::get_reg();
+	const auto date{ RTC::DR::get_reg() };
 
 	day	 = bcd_to_num((date & 0x00003F));
 	mon	 = bcd_to_num((date & 0x001F00) >> 8);

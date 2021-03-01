@@ -9,16 +9,16 @@
 #include <chip/rtc.hpp>
 
 namespace aww::sm {
-	STATE state = STATE::DISPLAY_TIME;
+	STATE state{ STATE::DISPLAY_TIME };
 	void set_state(const STATE s) { state = s; }
 	STATE get_state() { return state; }
 
 	void exec(const bool half_second) {
-		auto time	  = RTC::TR::get_reg();
-		auto raw_time = display::bcd_to_raw((time & 0x300000) >> 20,
-											(time & 0xF0000) >> 16,
-											(time & 0x7000) >> 12,
-											(time & 0xF00) >> 8);
+		auto time{ RTC::TR::get_reg() };
+		auto raw_time{ display::bcd_to_raw((time & 0x300000) >> 20,
+										   (time & 0xF0000) >> 16,
+										   (time & 0x7000) >> 12,
+										   (time & 0xF00) >> 8) };
 
 		switch (state) {
 		case STATE::DISPLAY_TIME: {
@@ -167,7 +167,7 @@ namespace aww::sm {
 				display::DP3 | display::DP4);
 		} break;
 		case STATE::DISPLAY_YEAR: {
-			auto date = RTC::DR::get_reg();
+			auto date{ RTC::DR::get_reg() };
 			display::fill_buffer(display::bcd_to_raw(
 				2, 0, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
 

@@ -2,12 +2,12 @@
 
 #include "../util/stby.hpp"
 
-bool input::both	  = false;
-bool input::both_up	  = false;
-bool input::both_down = false, input::up = false, input::down = false;
+bool input::both{ false };
+bool input::both_up{ false };
+bool input::both_down{ false }, input::up{ false }, input::down{ false };
 
 namespace {
-	bool ignore_press = false;
+	bool ignore_press{ false };
 }
 
 // NVIC 5
