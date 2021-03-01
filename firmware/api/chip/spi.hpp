@@ -74,8 +74,7 @@ struct SPIx {
 
 	static void enable();
 
-private:
-	SPIx();
+	SPIx() = delete;
 };
 
 constexpr zol::addr_t SPI1_ADDR = 0x4001'3000;

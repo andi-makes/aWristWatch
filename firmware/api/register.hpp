@@ -124,7 +124,6 @@ namespace zol {
 			get_reg() = get_reg() ^ bitmask;
 		}
 
-	private:
-		reg();
+		reg() = delete;
 	};
 }

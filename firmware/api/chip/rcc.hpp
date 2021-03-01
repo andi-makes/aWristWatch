@@ -46,8 +46,7 @@ struct RCC {
 		using HSI16KERON = zol::bit_rw<CR, 1>;
 		using HSI16ON	 = zol::bit_rw<CR, 0>;
 
-	private:
-		cr() {}
+		cr() = delete;
 	};
 
 	struct icscr {
@@ -57,8 +56,7 @@ struct RCC {
 		using HSI16TRIM = zol::field_rw<ICSCR, 8, 5>;
 		using HSI16CAL	= zol::field_r<ICSCR, 0, 8>;
 
-	private:
-		icscr() {}
+		icscr() = delete;
 	};
 
 	struct cfgr {
@@ -74,8 +72,7 @@ struct RCC {
 		using SWS	   = zol::field_r<CFGR, 2, 2>;
 		using SW	   = zol::field_rw<CFGR, 0, 2>;
 
-	private:
-		cfgr() {}
+		cfgr() = delete;
 	};
 
 	struct cier {
@@ -90,8 +87,7 @@ struct RCC {
 		using LSERDYIE	 = zol::bit_rw<CIER, 1>;
 		using LSIRDYIE	 = zol::bit_rw<CIER, 0>;
 
-	private:
-		cier() {}
+		cier() = delete;
 	};
 
 	struct cifr {
@@ -104,8 +100,7 @@ struct RCC {
 		using LSERDYF	= zol::bit_r<CIFR, 1>;
 		using LSIRDYF	= zol::bit_r<CIFR, 0>;
 
-	private:
-		cifr() {}
+		cifr() = delete;
 	};
 
 	struct cicr {
@@ -118,8 +113,7 @@ struct RCC {
 		using LSERDYC	= zol::bit_w<CICR, 1>;
 		using LSIRDYC	= zol::bit_w<CICR, 0>;
 
-	private:
-		cicr() {}
+		cicr() = delete;
 	};
 
 	struct ioprstr {
@@ -130,8 +124,7 @@ struct RCC {
 		using IOPBRST = zol::bit_rw<IOPRSTR, 1>;
 		using IOPARST = zol::bit_rw<IOPRSTR, 0>;
 
-	private:
-		ioprstr() {}
+		ioprstr() = delete;
 	};
 
 	struct ahbrstr {
@@ -140,8 +133,7 @@ struct RCC {
 		using MIFRST  = zol::bit_rw<AHBRSTR, 8>;
 		using DMARST  = zol::bit_rw<AHBRSTR, 0>;
 
-	private:
-		ahbrstr() {}
+		ahbrstr() = delete;
 	};
 
 	struct apb2rstr {
@@ -153,8 +145,7 @@ struct RCC {
 		using TIM21RST	= zol::bit_rw<APB2RSTR, 2>;
 		using SYSCFGRST = zol::bit_rw<APB2RSTR, 0>;
 
-	private:
-		apb2rstr() {}
+		apb2rstr() = delete;
 	};
 
 	struct apb1rstr {
@@ -174,8 +165,7 @@ struct RCC {
 		using TIM3RST	= zol::bit_rw<APB1RSTR, 1>;
 		using TIM2RST	= zol::bit_rw<APB1RSTR, 0>;
 
-	private:
-		apb1rstr() {}
+		apb1rstr() = delete;
 	};
 
 	struct iopenr {
@@ -186,8 +176,7 @@ struct RCC {
 		using IOPBEN = zol::bit_rw<IOPENR, 1>;
 		using IOPAEN = zol::bit_rw<IOPENR, 0>;
 
-	private:
-		iopenr() {}
+		iopenr() = delete;
 	};
 
 	struct ahbenr {
@@ -196,8 +185,7 @@ struct RCC {
 		using MIFEN	 = zol::bit_rw<AHBENR, 8>;
 		using DMAEN	 = zol::bit_rw<AHBENR, 0>;
 
-	private:
-		ahbenr() {}
+		ahbenr() = delete;
 	};
 
 	struct apb2enr {
@@ -210,8 +198,7 @@ struct RCC {
 		using TIM21EN  = zol::bit_rw<APB2ENR, 2>;
 		using SYSCFGEN = zol::bit_rw<APB2ENR, 0>;
 
-	private:
-		apb2enr() {}
+		apb2enr() = delete;
 	};
 
 	struct apb1enr {
@@ -231,8 +218,7 @@ struct RCC {
 		using TIM3EN   = zol::bit_rw<APB1ENR, 1>;
 		using TIM2EN   = zol::bit_rw<APB1ENR, 0>;
 
-	private:
-		apb1enr() {}
+		apb1enr() = delete;
 	};
 
 	struct iopsmenr {
@@ -243,8 +229,7 @@ struct RCC {
 		using IOPBSMEN = zol::bit_rw<IOPSMENR, 1>;
 		using IOPASMEN = zol::bit_rw<IOPSMENR, 0>;
 
-	private:
-		iopsmenr() {}
+		iopsmenr() = delete;
 	};
 
 	struct ahbsmenr {
@@ -254,8 +239,7 @@ struct RCC {
 		using MIFSMEN  = zol::bit_rw<AHBSMENR, 8>;
 		using DMASMEN  = zol::bit_rw<AHBSMENR, 0>;
 
-	private:
-		ahbsmenr() {}
+		ahbsmenr() = delete;
 	};
 
 	struct apb2smenr {
@@ -267,8 +251,7 @@ struct RCC {
 		using TIM21SMEN	 = zol::bit_rw<APB2SMENR, 2>;
 		using SYSCFGSMEN = zol::bit_rw<APB2SMENR, 0>;
 
-	private:
-		apb2smenr() {}
+		apb2smenr() = delete;
 	};
 
 	struct apb1smenr {
@@ -288,8 +271,7 @@ struct RCC {
 		using TIM3SMEN	 = zol::bit_rw<APB1SMENR, 1>;
 		using TIM2SMEN	 = zol::bit_rw<APB1SMENR, 0>;
 
-	private:
-		apb1smenr() {}
+		apb1smenr() = delete;
 	};
 
 	struct ccipr {
@@ -300,8 +282,7 @@ struct RCC {
 		using USART2SEL	 = zol::field_rw<CCIPR, 2, 2>;
 		using USART1SEL	 = zol::field_rw<CCIPR, 0, 2>;
 
-	private:
-		ccipr() {}
+		ccipr() = delete;
 	};
 
 	struct csr {
@@ -326,10 +307,8 @@ struct RCC {
 		using LSIRDY   = zol::bit_r<CSR, 1>;
 		using LSION	   = zol::bit_rw<CSR, 0>;
 
-	private:
-		csr() {}
+		csr() = delete;
 	};
 
-private:
-	RCC();
+	RCC() = delete;
 };

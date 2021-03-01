@@ -7,7 +7,7 @@
 
 // NVIC number 25
 extern "C" void SPI1_IRQHandler() {
-	static bool scnd = true;
+	static bool scnd{ true };
 	if (scnd) {
 		SPI1::DR::set_reg((uint16_t)(display::buffer >> 16));
 	} else {
@@ -20,10 +20,10 @@ extern "C" void SPI1_IRQHandler() {
 	}
 	scnd = !scnd;
 }
-uint32_t display::buffer = 0;
+uint32_t display::buffer{ 0 };
 
-uint8_t display::brightness = 1;
-bool display::ison			= true;
+uint8_t display::brightness{ 1 };
+bool display::ison{ true };
 
 void display::on() {
 	oe::set_mode(gpio::MODE::ALTERNATE);

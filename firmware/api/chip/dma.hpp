@@ -28,6 +28,5 @@ struct DMA {
 
 	static void power_on() { RCC::ahbenr::DMAEN::write(on); }
 
-private:
-	DMA() {}
+	DMA() = delete;
 };

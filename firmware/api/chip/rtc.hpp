@@ -1,5 +1,7 @@
 #pragma once
 
+#include "exti.hpp"
+#include "nvic.hpp"
 #include "pwr.hpp"
 #include "rcc.hpp"
 
@@ -59,8 +61,7 @@ struct RTC {
 		using TSEDGE  = zol::bit_rw<CR, 3>;
 		using WUCKSEL = zol::field_rw<CR, 0, 3>;
 
-	private:
-		cr() {}
+		cr() = delete;
 	};
 
 	struct isr {
@@ -82,16 +83,14 @@ struct RTC {
 		using ALRBWF  = zol::bit_r<ISR, 1>;
 		using ALRAWF  = zol::bit_r<ISR, 0>;
 
-	private:
-		isr() {}
+		isr() = delete;
 	};
 
 	struct prer {
 		using PREDIV_A = zol::field_rw<PRER, 16, 7>;
 		using PREDIV_S = zol::field_rw<PRER, 0, 15>;
 
-	private:
-		prer() {}
+		prer() = delete;
 	};
 
 	[[gnu::always_inline]] static inline void disable_write_protect() {
@@ -196,6 +195,27 @@ struct RTC {
 
 	static bool is_initialized() { return isr::INITS::read(); }
 
-private:
-	RTC();
+	static void setup_wakeup_timer(int wut, int wucksel) {
+		disable_write_protect();
+		cr::WUTE::write(off);
+		while (isr::WUTWF::read() == 0) {	 // WUTWF
+			asm("nop");
+		}
+		// 1023 ==> 0.5sec
+		// 511  ==> 0.25sec
+		// 255  ==> 0.125sec
+		WUTR::set_reg(wut);
+		cr::WUCKSEL::set(wucksel);
+		cr::WUTE::write(on);
+
+		EXTI::IMR::set_bit(20);
+		EXTI::RTSR::set_bit(20);
+
+		NVIC::ISER::set_bit(2);
+
+		cr::WUTIE::write(on);
+		enable_write_protect();
+	}
+
+	RTC() = delete;
 };

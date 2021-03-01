@@ -6,8 +6,6 @@
 #include <util/pin.hpp>
 
 struct battery {
-	static int16_t adc_buffer[1];
-
 	static void setup() {
 		DMA::power_on();
 		ADC::power_on();
@@ -39,7 +37,7 @@ struct battery {
 	}
 
 	static int calc_level() {
-		auto adc = *adc_buffer;
+		auto adc{ *adc_buffer };
 		adc -= 2048;
 		if (adc < 0) return 0;
 		adc = (adc * 100) / 558;
@@ -49,6 +47,8 @@ struct battery {
 
 	static void sample() { ADC::cr::ADSTART::set(); }
 
+	battery() = delete;
+
 private:
-	battery() {}
+	static int16_t adc_buffer[1];
 };

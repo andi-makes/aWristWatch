@@ -13,6 +13,5 @@ struct EXTI {
 	using SWIER = zol::reg<uint32_t, address + 0x10>;
 	using PR	= zol::reg<uint32_t, address + 0x14>;
 
-private:
-	EXTI();
+	EXTI() = delete;
 };
