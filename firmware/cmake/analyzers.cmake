@@ -1,12 +1,13 @@
 option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" OFF)
 option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" OFF)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
 if(ENABLE_CPPCHECK)
     find_program(CPPCHECK cppcheck)
     if(CPPCHECK)
         add_custom_target(
             "cppcheck"
-            ALL
             COMMAND
             ${CPPCHECK}
             --quiet
@@ -26,18 +27,17 @@ if(ENABLE_CPPCHECK)
     endif()
 endif()
 
-execute_process(
-    COMMAND python3 ${CMAKE_SOURCE_DIR}/cmake/compile_commands.py ${CMAKE_BINARY_DIR}/compile_commands.json
-    OUTPUT_VARIABLE CLANG_TIDY_SOURCES
-)
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/scripts/clang-tidy.py")
 
 if(ENABLE_CLANG_TIDY)
     find_program(CLANG_TIDY clang-tidy)
     if(CLANG_TIDY)
         add_custom_target(
             "clang-tidy"
-            ALL
             COMMAND
+            "${CMAKE_SOURCE_DIR}/scripts/clang-tidy.py"
+            ${CMAKE_BINARY_DIR}
+            ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clang-tidy.yml
             ${CLANG_TIDY} 
             --quiet
             --extra-arg=--sysroot=${CMAKE_SYSROOT}
@@ -45,10 +45,6 @@ if(ENABLE_CLANG_TIDY)
             --extra-arg=-I${CMAKE_SYSROOT}/include
             --extra-arg=-I${CMAKE_SYSROOT}/include/c++/10.2.1
             --extra-arg=-I${CMAKE_SYSROOT}/include/c++/10.2.1/arm-none-eabi/thumb/v6-m/nofp/
-            -p ${CMAKE_BINARY_DIR}
-            --export-fixes=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clang-tidy.yml
-            ${CLANG_TIDY_SOURCES}
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/app
         )
     else()
         message(SEND_ERROR "Could not find clang-tidy!")
