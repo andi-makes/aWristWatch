@@ -29,4 +29,7 @@ COMMAND: list = [EXECUTABLE, "-p", BINARY_DIR, "--export-fixes=" + OUTPUT_FILE] 
     filenames_from_cl_json(BINARY_DIR + "/compile_commands.json")
 
 process = subprocess.Popen(COMMAND, stdout=subprocess.PIPE)
+
+process.communicate()
+
 exit(process.wait())
