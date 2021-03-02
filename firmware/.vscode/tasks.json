@@ -6,9 +6,57 @@
         {
             "label": "build docker",
             "group": "build",
-            "type": "shell",
-            "command": "docker build -t arm-none-eabi .",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "build",
+                "-t",
+                "arm-none-eabi",
+                "."
+            ],
             "problemMatcher": []
+        },
+        {
+            "label": "configure local build folder",
+            "group": "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/configure.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clean re-configure local build folder",
+            "group": "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/reconfigure.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "remove build and bin",
+            "group": "build",
+            "type": "shell",
+            "command": "rm -rf ${workspaceFolder}/build ${workspaceFolder}/bin",
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "group": "build",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
