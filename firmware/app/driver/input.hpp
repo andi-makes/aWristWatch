@@ -55,19 +55,19 @@ struct input {
     static void setup() {
         sw_time::set_mode(gpio::MODE::INPUT);
         sw_time::set_pullup(gpio::PUPD::PULLUP);
-        EXTI::IMR::set_bit(0);
-        EXTI::FTSR::set_bit(0);
-        EXTI::RTSR::set_bit(0);
+        EXTI::IMR::set_bit(0u);
+        EXTI::FTSR::set_bit(0u);
+        EXTI::RTSR::set_bit(0u);
         SYSCFG::EXTICR1::set_reg(0);
-        NVIC::ISER::set_bit(5);
+        NVIC::ISER::set_bit(5u);
 
         sw_date::set_mode(gpio::MODE::INPUT);
         sw_date::set_pullup(gpio::PUPD::PULLUP);
-        EXTI::IMR::set_bit(10);
-        EXTI::FTSR::set_bit(10);
-        EXTI::RTSR::set_bit(10);
+        EXTI::IMR::set_bit(10u);
+        EXTI::FTSR::set_bit(10u);
+        EXTI::RTSR::set_bit(10u);
         SYSCFG::EXTICR3::set_reg(0);
-        NVIC::ISER::set_bit(7);
+        NVIC::ISER::set_bit(7u);
     }
 
     input() = delete;

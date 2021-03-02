@@ -12,13 +12,13 @@ namespace zol {
         ->std::same_as<addr_t>;
         { T::get_reg() }
         ->std::same_as<volatile typename T::type_t&>;
-        { T::set_bit(0) }
+        { T::set_bit(0u) }
         ->std::same_as<void>;
         { T::get_bit(0) }
         ->std::same_as<bool>;
-        { T::clear_bit(0) }
+        { T::clear_bit(0u) }
         ->std::same_as<void>;
-        { T::toggle_bit(0) }
+        { T::toggle_bit(0u) }
         ->std::same_as<void>;
         { T::set_reg(0) }
         ->std::same_as<void>;
@@ -40,7 +40,7 @@ namespace zol {
     class reg {
         constexpr static type or_together(type n) { return n; }
 
-        template<std::integral... T>
+        template<std::unsigned_integral... T>
         constexpr static type or_together(type n, T... m) {
             return n | or_together(m...);
         }
@@ -61,7 +61,7 @@ namespace zol {
 
         /// @brief Set all of the bits in the register.
         /// @param bits ... Bits to set
-        template<std::integral... T>
+        template<std::unsigned_integral... T>
         inline static void set_bit(const T... bits) {
             static_assert(sizeof...(bits) != 0,
                           "Need to give some parameters to set_bit");
@@ -72,7 +72,7 @@ namespace zol {
         /// @param bit_number ... Bit to get
         /// @return true if bit is set, otherwise false
         inline static bool get_bit(const int bit_number) {
-            if ((get_reg() & (1U << bit_number)) == 0) {
+            if ((get_reg() & (1u << bit_number)) == 0) {
                 return false;
             } else {
                 return true;
@@ -81,7 +81,7 @@ namespace zol {
 
         /// @brief Clears the `bit_number`th bit in the register.
         /// @param bit_number ... Bit to clear
-        template<std::integral... T>
+        template<std::unsigned_integral... T>
         inline static void clear_bit(const T... bits) {
             static_assert(sizeof...(bits) != 0,
                           "Need to give some parameters to set_bit");
@@ -90,7 +90,7 @@ namespace zol {
 
         /// @brief Toggles the `bit_number`th bit in the register.
         /// @param bit_number ... Bit to toggle
-        template<std::integral... T>
+        template<std::unsigned_integral... T>
         inline static void toggle_bit(const T... bits) {
             static_assert(sizeof...(bits) != 0,
                           "Need to give some parameters to set_bit");
@@ -99,7 +99,8 @@ namespace zol {
 
         /// @brief Sets the register to `content`.
         /// @param content ... The new value of the register.
-        inline static void set_reg(const type_t& content) {
+        // cppcheck-suppress passedByValue // Constant references make it bigger
+        inline static void set_reg(const type_t content) {
             get_reg() = content;
         }
 
@@ -108,19 +109,22 @@ namespace zol {
 
         /// @brief Ors the register with `bitmask`.
         /// @param bitmask ... It's a bitmask, duh.
-        inline static void or_reg(const type_t& bitmask) {
+        // cppcheck-suppress passedByValue // Constant references make it bigger
+        inline static void or_reg(const type_t bitmask) {
             get_reg() = get_reg() | bitmask;
         }
 
         /// @brief Ands the register with `bitmask`.
         /// @param bitmask ... It's a bitmask, duh
-        inline static void and_reg(const type_t& bitmask) {
+        // cppcheck-suppress passedByValue // Constant references make it bigger
+        inline static void and_reg(const type_t bitmask) {
             get_reg() = get_reg() & bitmask;
         }
 
         /// @brief Toggles (XOrs) the register with `bitmask`.
         /// @param bitmask ... It's a bitmask, duh
-        inline static void toggle_reg(const type_t& bitmask) {
+        // cppcheck-suppress passedByValue // Constant references make it bigger
+        inline static void toggle_reg(const type_t bitmask) {
             get_reg() = get_reg() ^ bitmask;
         }
 

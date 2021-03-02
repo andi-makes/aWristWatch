@@ -11,7 +11,7 @@
 void SPI1_IRQHandler() {
     static bool scnd{ true };
     if (scnd) {
-        SPI1::DR::set_reg((uint16_t)(display::buffer >> 16));
+        SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(display::buffer >> 16));
     } else {
         while (SPI1::SR::get_bit(SPI1::BSY)) {
             asm("nop");
@@ -85,10 +85,10 @@ void display::setup() {
 
     SPI1::CR2::set_bit(SPI1::TXEIE);
 
-    NVIC::ISER::set_bit(25);
+    NVIC::ISER::set_bit(25u);
 }
 
 void display::send() {
-    SPI1::DR::set_reg((uint16_t)(buffer & 0xFFFF));
+    SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(buffer & 0xFFFF));
     SPI1::CR1::set_bit(SPI1::SPE);    // Enable SPI
 }

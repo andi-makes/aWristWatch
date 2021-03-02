@@ -35,13 +35,17 @@ struct display {
     static void send();
 
     static void fill_buffer(uint32_t b) { buffer = b; }
-    static void
-        fill_buffer_bcd(uint8_t one, uint8_t two, uint8_t three, uint8_t four) {
+    static void fill_buffer_bcd(std::unsigned_integral auto one,
+                                std::unsigned_integral auto two,
+                                std::unsigned_integral auto three,
+                                std::unsigned_integral auto four) {
         fill_buffer(bcd_to_raw(one, two, three, four));
     }
 
-    static uint32_t
-        bcd_to_raw(uint8_t one, uint8_t two, uint8_t three, uint8_t four) {
+    static uint32_t bcd_to_raw(std::unsigned_integral auto one,
+                               std::unsigned_integral auto two,
+                               std::unsigned_integral auto three,
+                               std::unsigned_integral auto four) {
         if (one > 10) one = 10;
         if (two > 10) two = 10;
         if (three > 10) three = 10;

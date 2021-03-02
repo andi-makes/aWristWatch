@@ -6,6 +6,5 @@ add_zol_executable(
     driver/bat.cpp
     sm.cpp
     util/time.cpp
-    util/bcd.cpp
     util/stby.cpp
 )

@@ -14,7 +14,7 @@ namespace {
 // sw time
 // cppcheck-suppress unusedFunction
 void EXTI0_1_IRQHandler() {
-    EXTI::PR::set_bit(0);
+    EXTI::PR::set_bit(0u);
 
     aww::stby::kick();
 
@@ -47,7 +47,7 @@ void EXTI0_1_IRQHandler() {
 // sw date
 // cppcheck-suppress unusedFunction
 void EXTI4_15_IRQHandler() {
-    EXTI::PR::set_bit(10);
+    EXTI::PR::set_bit(10u);
 
     aww::stby::kick();
 

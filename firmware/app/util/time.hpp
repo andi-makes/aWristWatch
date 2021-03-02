@@ -1,7 +1,7 @@
 #pragma once
 
 struct time {
-    static int hrs, min, day, mon, year;
+    static unsigned int hrs, min, day, mon, year;
 
     static void load_time();
     static void load_date();

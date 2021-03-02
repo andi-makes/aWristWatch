@@ -16,14 +16,14 @@ namespace zol {
         static void set(typename reg::type_t value) {
             // static_assert((1 << width) < value,
             // 			  "value is greater than allowed bit width");
-            reg::and_reg(~(((1 << width) - 1) << start));
+            reg::and_reg(~(((1u << width) - 1) << start));
             reg::or_reg(value << start);
         }
 
         /// @brief Get the value of the field
         /// @returns the value of the field, duh
         static typename reg::type_t get() {
-            return reg::get_reg() & (((1 << width) - 1) << start);
+            return reg::get_reg() & (((1u << width) - 1) << start);
         }
 
         field_rw() = delete;
@@ -32,7 +32,7 @@ namespace zol {
     template<zol::Register reg, uint8_t start, uint8_t width>
     struct field_r {
         static typename reg::type_t get() {
-            return reg::get_reg() & (((1 << width) - 1) << start);
+            return reg::get_reg() & (((1u << width) - 1) << start);
         }
 
         field_r() = delete;

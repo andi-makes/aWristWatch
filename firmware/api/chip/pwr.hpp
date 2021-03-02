@@ -62,14 +62,14 @@ struct PWR {
 
     static void set(pwr::cr c) { CR::set_bit(uint8_t(c)); }
     static void set(pwr::pls p) {
-        CR::and_reg(~(0b111 << 5));
-        CR::or_reg(uint8_t(p) << 5);
+        CR::and_reg(~(0b111u << 5));
+        CR::or_reg(static_cast<CR::type_t>(p) << 5);
     }
     static void set(pwr::vos v) {
-        CR::and_reg(~(0b11 << 11));
-        CR::or_reg(uint8_t(v) << 11);
+        CR::and_reg(~(0b11u << 11));
+        CR::or_reg(static_cast<CR::type_t>(v) << 11);
     }
-    static void set(pwr::csr c) { CSR::set_bit(uint8_t(c)); }
+    static void set(pwr::csr c) { CSR::set_bit(static_cast<unsigned int>(c)); }
 
     PWR() = delete;
 };

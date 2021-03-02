@@ -120,54 +120,62 @@ struct LPTIM1 {
     using ARR  = zol::reg<uint32_t, address + 0x18>;
     using CNT  = zol::reg<uint32_t, address + 0x1C>;
 
-    static void enable() { RCC::APB1ENR::set_bit(31); }
+    static void enable() { RCC::APB1ENR::set_bit(31u); }
 
     static void set_clock_source(lptim::clock c) {
-        RCC::CCIPR::and_reg(~((0b11) << 18));
-        RCC::CCIPR::or_reg(int(c) << 18);
+        RCC::CCIPR::and_reg(~((0b11u) << 18));
+        RCC::CCIPR::or_reg(static_cast<RCC::CCIPR::type_t>(c) << 18);
     }
 
     // TODO: implement get functions
 
-    static bool get(lptim::isr i) { return ISR::get_bit(uint8_t(i)); }
+    static bool get(lptim::isr i) {
+        return ISR::get_bit(static_cast<unsigned int>(i));
+    }
 
     static void clear_interrupt_pending(lptim::icr i) {
-        ICR::set_bit(uint8_t(i));
+        ICR::set_bit(static_cast<unsigned int>(i));
     }
 
     static void set(lptim::ier i, bool b) {
         if (b) {
-            IER::set_bit(uint8_t(i));
+            IER::set_bit(static_cast<unsigned int>(i));
         } else {
-            IER::clear_bit(uint8_t(i));
+            IER::clear_bit(static_cast<unsigned int>(i));
         }
     }
 
-    static bool get(lptim::ier i) { return IER::get_bit(uint8_t(i)); }
+    static bool get(lptim::ier i) {
+        return IER::get_bit(static_cast<unsigned int>(i));
+    }
 
     static void set(lptim::cfgr bit, bool level) {
         if (level) {
-            CFGR::set_bit(uint8_t(bit));
+            CFGR::set_bit(static_cast<unsigned int>(bit));
         } else {
-            CFGR::clear_bit(uint8_t(bit));
+            CFGR::clear_bit(static_cast<unsigned int>(bit));
         }
     }
 
-    static bool get(lptim::cfgr bit) { return CFGR::get_bit(uint8_t(bit)); }
+    static bool get(lptim::cfgr bit) {
+        return CFGR::get_bit(static_cast<unsigned int>(bit));
+    }
 
     static void set(lptim::cr bit, bool level) {
         if (level) {
-            CR::set_bit(uint8_t(bit));
+            CR::set_bit(static_cast<unsigned int>(bit));
         } else {
-            CR::clear_bit(uint8_t(bit));
+            CR::clear_bit(static_cast<unsigned int>(bit));
         }
     }
 
-    static bool get(lptim::cr bit) { return CR::get_bit(uint8_t(bit)); }
+    static bool get(lptim::cr bit) {
+        return CR::get_bit(static_cast<unsigned int>(bit));
+    }
 
     static void set(lptim::trigen t) {
-        CFGR::and_reg(~(0b11 << 17));
-        CFGR::or_reg(uint8_t(t) << 17);
+        CFGR::and_reg(~(0b11u << 17));
+        CFGR::or_reg(static_cast<unsigned int>(t) << 17);
     }
 
     // TODO: If I ever need to read it, implement the function.
@@ -176,28 +184,28 @@ struct LPTIM1 {
     // }
 
     static void set(lptim::trigsel t) {
-        CFGR::and_reg(~(0b111 << 13));
-        CFGR::or_reg(uint8_t(t) << 13);
+        CFGR::and_reg(~(0b111u << 13));
+        CFGR::or_reg(static_cast<unsigned int>(t) << 13);
     }
 
     static void set(lptim::presc p) {
-        CFGR::and_reg(~(0b111 << 9));
-        CFGR::or_reg(uint8_t(p) << 9);
+        CFGR::and_reg(~(0b111u << 9));
+        CFGR::or_reg(static_cast<unsigned int>(p) << 9);
     }
 
     static void set(lptim::trgflt t) {
-        CFGR::and_reg(~(0b11 << 6));
-        CFGR::or_reg(uint8_t(t) << 6);
+        CFGR::and_reg(~(0b11u << 6));
+        CFGR::or_reg(static_cast<unsigned int>(t) << 6);
     }
 
     static void set(lptim::ckflt c) {
-        CFGR::and_reg(~(0b11 << 3));
-        CFGR::or_reg(uint8_t(c) << 3);
+        CFGR::and_reg(~(0b11u << 3));
+        CFGR::or_reg(static_cast<unsigned int>(c) << 3);
     }
 
     static void set(lptim::ckpol c) {
-        CFGR::and_reg(~(0b11 << 1));
-        CFGR::or_reg(uint8_t(c) << 1);
+        CFGR::and_reg(~(0b11u << 1));
+        CFGR::or_reg(static_cast<unsigned int>(c) << 1);
     }
 
     LPTIM1() = delete;

@@ -56,7 +56,7 @@ struct GPIOx {
     static void enable();
 
     static void set_mode(uint8_t pin, gpio::MODE m) {
-        MODER::and_reg(~(0b11 << (pin * 2)));
+        MODER::and_reg(~(0b11u << (pin * 2)));
         MODER::or_reg(uint8_t(m) << (pin * 2));
     }
 
@@ -69,12 +69,12 @@ struct GPIOx {
     }
 
     static void set_output_speed(uint8_t pin, gpio::OSPEED s) {
-        OSPEEDR::and_reg(~(0b11 << (pin * 2)));
+        OSPEEDR::and_reg(~(0b11u << (pin * 2)));
         OSPEEDR::or_reg(uint8_t(s) << (pin * 2));
     }
 
     static void set_pullup(uint8_t pin, gpio::PUPD p) {
-        PUPDR::and_reg(~(0b11 << (pin * 2)));
+        PUPDR::and_reg(~(0b11u << (pin * 2)));
         PUPDR::or_reg(uint8_t(p) << (pin * 2));
     }
 
@@ -107,10 +107,10 @@ struct GPIOx {
 
     static void set_alternate_function(uint8_t pin, gpio::AF f) {
         if (pin <= 7) {
-            AFRL::and_reg(~(0b1111 << (pin * 4)));
+            AFRL::and_reg(~(0b1111u << (pin * 4)));
             AFRL::or_reg(uint8_t(f) << (pin * 4));
         } else {
-            AFRH::and_reg(~(0b1111 << ((pin - 8) * 4)));
+            AFRH::and_reg(~(0b1111u << ((pin - 8) * 4)));
             AFRH::or_reg(uint8_t(f) << ((pin - 8) * 4));
         }
     }
@@ -118,7 +118,7 @@ struct GPIOx {
     GPIOx() = delete;
 };
 
-constexpr zol::addr_t GPIOA_ADDR = 0x5000'0000;
+constexpr zol::addr_t GPIOA_ADDR{ 0x5000'0000 };
 
 using GPIOA = GPIOx<GPIOA_ADDR>;
 

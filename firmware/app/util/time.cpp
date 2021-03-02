@@ -9,7 +9,7 @@
 #include <chip/interrupts.hpp>
 #include <chip/rtc.hpp>
 
-int time::hrs{ 0 }, time::min{ 0 }, time::day{ 1 }, time::mon{ 1 },
+unsigned int time::hrs{ 0 }, time::min{ 0 }, time::day{ 1 }, time::mon{ 1 },
     time::year{ 21 };
 
 void time::load_time() {
@@ -85,11 +85,11 @@ void RTC_Wakeup_Timer() {
 // cppcheck-suppress unusedFunction
 void RTC_IRQHandler() {
     // Is it the RTC wakeup timer interrupt?
-    if (EXTI::PR::get_bit(20)) {
+    if (EXTI::PR::get_bit(20u)) {
         RTC_Wakeup_Timer();
         // Clear any flags assotiated with the interrupt.
         // This ensures that the interrupt isn't executed
-        EXTI::PR::set_bit(20);
+        EXTI::PR::set_bit(20u);
         RTC::isr::WUTF::clear();
     }
 }

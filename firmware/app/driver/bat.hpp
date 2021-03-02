@@ -17,7 +17,7 @@ struct battery {
 #endif
         DMA::CNDTRx<1>::set_reg(1);
         DMA::CCRx<1>::set_reg((3 << 12) | (1 << 10) | (1 << 8) | (1 << 5));
-        DMA::CCRx<1>::set_bit(0);
+        DMA::CCRx<1>::set_bit(0u);
 
         ADC::cfgr1::AUTOFF::write(1);
         ADC::cfgr1::OVRMOD::write(1);
@@ -27,7 +27,7 @@ struct battery {
         ADC::cfgr2::CKMODE::set(2);    // PCLK / 4
         ADC::SMPR::set_reg(3);         // 12.5 ADC CLK Cycles for sampling time
 
-        ADC::CHSELR::set_bit(1);    // PA1
+        ADC::CHSELR::set_bit(1u);    // PA1
 
         ADC::ccr::LFMEN::write(1);
         ADC::calibrate();    // also affected by dma, first element in
@@ -36,13 +36,21 @@ struct battery {
         ADC::enable();
     }
 
-    static int calc_level() {
+    static uint8_t calc_level() {
         auto adc{ *adc_buffer };
         adc -= 2048;
         if (adc < 0) return 0;
-        adc = (adc * 100) / 558;
+        // The Question: Could it overflow?
+        // The maximum value for `adc` is `2^12 = 4096`.
+        // Multiply this by 100 and you get 409600.
+        // A signed integer with 16 bits can store 32768 max.
+        // adc gets promoted to the next higher integer by `(adc*100)`
+        // Divide the maximum value by 558, so `409600 / 558 = 743`
+        // This value is easly representable by int16_t, so it is save to cast
+        // here. It won't produce an overflow / cutoff.
+        adc = static_cast<int16_t>((adc * 100) / 558);
         if (adc > 99) return 99;
-        return adc;
+        return static_cast<uint8_t>(adc);
     }
 
     static void sample() { ADC::cr::ADSTART::set(); }

@@ -94,12 +94,12 @@ struct RTC {
     };
 
     [[gnu::always_inline]] static inline void disable_write_protect() {
-        WPR::set_reg(0xCA);
-        WPR::set_reg(0x53);
+        WPR::set_reg(0xCAu);
+        WPR::set_reg(0x53u);
     }
 
     [[gnu::always_inline]] static inline void enable_write_protect() {
-        WPR::set_reg(0xFF);
+        WPR::set_reg(0xFFu);
     }
 
     static void enable() {
@@ -113,21 +113,19 @@ struct RTC {
         }
 
         // RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
-        RCC::csr::RTCSEL::set(1);
+        RCC::csr::RTCSEL::set(1u);
         // RCC::CSR::set_bit(18);	  // RTCEN
         RCC::csr::RTCEN::write(on);
     }
 
-    static void set_time(std::integral auto hrs,
-                         std::integral auto min,
-                         std::integral auto sec) {
+    static void set_time(TR::type_t hrs, TR::type_t min, TR::type_t sec) {
         disable_write_protect();
         // Enter initialization mode
         // ISR::set_bit(7);
         isr::INIT::write(on);
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
-        while (isr::INITF::read() == 0) {
+        while (isr::INITF::read() == false) {
             asm("nop");
         }
 
@@ -141,16 +139,14 @@ struct RTC {
         enable_write_protect();
     }
 
-    static void set_date(std::integral auto date,
-                         std::integral auto month,
-                         std::integral auto year) {
+    static void set_date(DR::type_t date, DR::type_t month, DR::type_t year) {
         disable_write_protect();
         // Enter initialization mode
         // ISR::set_bit(7);
         isr::INIT::write(on);
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
-        while (isr::INITF::read() == 0) {
+        while (isr::INITF::read() == false) {
             asm("nop");
         }
 
@@ -164,19 +160,19 @@ struct RTC {
         enable_write_protect();
     }
 
-    static void set_time_and_date(std::integral auto hrs,
-                                  std::integral auto min,
-                                  std::integral auto sec,
-                                  std::integral auto date,
-                                  std::integral auto month,
-                                  std::integral auto year) {
+    static void set_time_and_date(TR::type_t hrs,
+                                  TR::type_t min,
+                                  TR::type_t sec,
+                                  DR::type_t date,
+                                  DR::type_t month,
+                                  DR::type_t year) {
         disable_write_protect();
         // Enter initialization mode
         // ISR::set_bit(7);
         isr::INIT::write(on);
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
-        while (isr::INITF::read() == 0) {
+        while (isr::INITF::read() == false) {
             asm("nop");
         }
 
@@ -195,7 +191,7 @@ struct RTC {
 
     static bool is_initialized() { return isr::INITS::read(); }
 
-    static void setup_wakeup_timer(int wut, int wucksel) {
+    static void setup_wakeup_timer(WUTR::type_t wut, CR::type_t wucksel) {
         disable_write_protect();
         cr::WUTE::write(off);
         while (isr::WUTWF::read() == 0) {    // WUTWF
@@ -208,10 +204,10 @@ struct RTC {
         cr::WUCKSEL::set(wucksel);
         cr::WUTE::write(on);
 
-        EXTI::IMR::set_bit(20);
-        EXTI::RTSR::set_bit(20);
+        EXTI::IMR::set_bit(20u);
+        EXTI::RTSR::set_bit(20u);
 
-        NVIC::ISER::set_bit(2);
+        NVIC::ISER::set_bit(2u);
 
         cr::WUTIE::write(on);
         enable_write_protect();

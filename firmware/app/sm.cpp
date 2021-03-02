@@ -169,7 +169,7 @@ namespace aww::sm {
         case STATE::DISPLAY_YEAR: {
             auto date{ RTC::DR::get_reg() };
             display::fill_buffer(display::bcd_to_raw(
-                2, 0, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
+                2u, 0u, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
 
             if (input::is_down()) {
                 state = STATE::DISPLAY_DATE;
@@ -185,7 +185,7 @@ namespace aww::sm {
                     time::year = 0;
                 }
             } else if (input::is_down()) {
-                if (time::year < 0) {
+                if (time::year == 0) {
                     time::year = 99;
                 } else {
                     time::year--;
@@ -196,18 +196,18 @@ namespace aww::sm {
             }
 
             display::fill_buffer(
-                display::bcd_to_raw(2,
-                                    0,
+                display::bcd_to_raw(2u,
+                                    0u,
                                     (aww::bcd::num_to_bcd(time::year) & 0xF0) >>
                                         4,
                                     (aww::bcd::num_to_bcd(time::year) & 0xF)) |
                 display::DP3 | display::DP4);
         } break;
         case STATE::DISPLAY_BAT: {
-            int percentage = battery::calc_level();
+            auto percentage = battery::calc_level();
 
             display::fill_buffer_bcd(
-                10, (percentage / 10) % 10, percentage % 10, 10);
+                10u, (percentage / 10u) % 10u, percentage % 10u, 10u);
 
             if (input::is_up()) {
                 state = STATE::DISPLAY_TIME;
@@ -217,10 +217,10 @@ namespace aww::sm {
 
         } break;
         case STATE::DISPLAY_BRIGHTNESS: {
-            display::fill_buffer_bcd(10,
-                                     10,
-                                     (display::brightness / 10) % 10,
-                                     display::brightness % 10);
+            display::fill_buffer_bcd(10u,
+                                     10u,
+                                     (display::brightness / 10u) % 10u,
+                                     display::brightness % 10u);
 
             if (input::is_up()) {
                 state = STATE::DISPLAY_BAT;
@@ -236,10 +236,10 @@ namespace aww::sm {
             } else if (input::is_both_up() || input::is_both_down()) {
                 state = STATE::DISPLAY_BRIGHTNESS;
             }
-            display::fill_buffer_bcd(10,
-                                     10,
-                                     (display::brightness / 10) % 10,
-                                     display::brightness % 10);
+            display::fill_buffer_bcd(10u,
+                                     10u,
+                                     (display::brightness / 10u) % 10u,
+                                     display::brightness % 10u);
             display::add_point(display::DP3 | display::DP4);
             display::update_brightness();
         } break;
