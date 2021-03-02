@@ -31,6 +31,17 @@
             "label": "clean re-configure local build folder",
             "group": "build",
             "type": "shell",
+            "command": "${workspaceFolder}/scripts/reconfigure-clean.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "re-configure local build folder",
+            "group": "build",
+            "type": "shell",
             "command": "${workspaceFolder}/scripts/reconfigure.sh",
             "args": [
                 "${workspaceFolder}/build",
@@ -57,6 +68,19 @@
             "problemMatcher": [
                 "$gcc"
             ]
-        }
+        },
+        {
+            "label": "clean",
+            "group": "build",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "clean"
+            ],
+            "problemMatcher": []
+        },
     ]
 }
