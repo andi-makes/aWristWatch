@@ -9,20 +9,22 @@ if(ENABLE_ANALYZERS)
     if(ENABLE_CPPCHECK)
         find_program(CPPCHECK cppcheck)
         if(CPPCHECK)
+            set(CPPCHECK_PY "${CMAKE_SOURCE_DIR}/scripts/cppcheck.py")
             add_custom_target("cppcheck"
                 COMMAND
+                ${CPPCHECK_PY}
+                ${CMAKE_BINARY_DIR}
+                ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/cppcheck.txt
                 ${CPPCHECK}
                 --quiet
+                --inline-suppr
                 --suppress=missingInclude
                 -I ${PROJECT_SOURCE_DIR}/api
                 -I ${PROJECT_SOURCE_DIR}/app
                 --enable=all
-                --inline-suppr
                 "--template=[{file}:{line}] [{severity},{id}] {message}"
                 --inconclusive
-                --output-file=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/cppcheck.txt
-                --project=${CMAKE_BINARY_DIR}/compile_commands.json
-                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/app
+                # WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/app
                 BYPRODUCTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/cppcheck.txt
                 COMMENT "Checking project with cppcheck..."
             )

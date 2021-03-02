@@ -9,6 +9,7 @@
 #include <chip/spi.hpp>
 #include <chip/syscfg.hpp>
 
+// cppcheck-suppress unusedFunction
 void SystemInit() {
     SYSCFG::enable();
     RTC::enable();

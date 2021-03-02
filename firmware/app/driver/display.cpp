@@ -1,12 +1,14 @@
 #include "display.hpp"
 
+#include <chip/interrupts.hpp>
 #include <chip/lptim.hpp>
 #include <chip/nvic.hpp>
 #include <chip/rcc.hpp>
 #include <chip/spi.hpp>
 
 // NVIC number 25
-extern "C" void SPI1_IRQHandler() {
+// cppcheck-suppress unusedFunction
+void SPI1_IRQHandler() {
     static bool scnd{ true };
     if (scnd) {
         SPI1::DR::set_reg((uint16_t)(display::buffer >> 16));

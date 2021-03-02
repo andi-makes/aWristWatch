@@ -12,6 +12,7 @@ namespace {
 
 // NVIC 5
 // sw time
+// cppcheck-suppress unusedFunction
 void EXTI0_1_IRQHandler() {
     EXTI::PR::set_bit(0);
 
@@ -44,6 +45,7 @@ void EXTI0_1_IRQHandler() {
 
 // NVIC 7
 // sw date
+// cppcheck-suppress unusedFunction
 void EXTI4_15_IRQHandler() {
     EXTI::PR::set_bit(10);
 

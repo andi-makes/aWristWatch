@@ -82,6 +82,7 @@ void RTC_Wakeup_Timer() {
     }
 }
 
+// cppcheck-suppress unusedFunction
 void RTC_IRQHandler() {
     // Is it the RTC wakeup timer interrupt?
     if (EXTI::PR::get_bit(20)) {
