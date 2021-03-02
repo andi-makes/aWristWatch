@@ -1,22 +1,18 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
 
-
 set(LINKER_SCRIPT "${PROJECT_SOURCE_DIR}/chip/STM32L011F4Px_FLASH.ld")
 set(STARTUP_SCRIPT "${PROJECT_SOURCE_DIR}/chip/startup_stm32l011xx.s")
 
-set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -x assembler-with-cpp")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mcpu=cortex-m0plus -T ${LINKER_SCRIPT} --specs=nosys.specs -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb") # works
+set(MICROCONTROLLER_FLAGS "-mcpu=cortex-m0plus" "--specs=nano.specs" "-mfloat-abi=soft" "-mthumb")
+string(REPLACE ";" " " MICROCONTROLLER_FLAGS_STR "${MICROCONTROLLER_FLAGS}")
 
-add_compile_options(
-	"-mcpu=cortex-m0plus" "--specs=nano.specs" "-mfloat-abi=soft" "-mthumb"
-	"$<$<COMPILE_LANGUAGE:CXX>:-g;-DSTM32;-DSTM32L011F4Px;-DSTM32L0;-Os;-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit;-Wall;-Wextra;-pedantic>"
-)
+set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -x assembler-with-cpp")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LINKER_SCRIPT} -Wl,--gc-sections -static ${MICROCONTROLLER_FLAGS_STR}") # works
 
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 function(add_zol_executable EXECUTABLE_NAME)
     set(BIN_FOLDER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${EXECUTABLE_NAME})
-	set(CLANG_TIDY_SOURCES ${ARGN})
 
     add_executable(
         ${EXECUTABLE_NAME}.elf
@@ -28,6 +24,21 @@ function(add_zol_executable EXECUTABLE_NAME)
 		${EXECUTABLE_NAME}.elf
 		zol
     )
+
+	target_compile_definitions(
+		${EXECUTABLE_NAME}.elf PRIVATE 
+		"STM32" 
+		"STM32L011F4Px" 
+		"STM32L0"
+	)
+
+	target_compile_options(
+		${EXECUTABLE_NAME}.elf PRIVATE 
+		${MICROCONTROLLER_FLAGS}
+		"$<$<COMPILE_LANGUAGE:CXX>:-ffunction-sections;-fdata-sections;-fno-exceptions;-fno-rtti;-fno-threadsafe-statics;-fno-use-cxa-atexit>"
+	)
+
+	add_warnings(${EXECUTABLE_NAME}.elf)
 
 	target_link_options(
 		${EXECUTABLE_NAME}.elf
