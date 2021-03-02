@@ -4,59 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build docker",
-            "group": "build",
-            "type": "process",
-            "command": "docker",
-            "args": [
-                "build",
-                "-t",
-                "arm-none-eabi",
-                "."
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "configure local build folder",
-            "group": "build",
-            "type": "shell",
-            "command": "${workspaceFolder}/scripts/configure.sh",
-            "args": [
-                "${workspaceFolder}/build",
-                "${workspaceFolder}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "clean re-configure local build folder",
-            "group": "build",
-            "type": "shell",
-            "command": "${workspaceFolder}/scripts/reconfigure-clean.sh",
-            "args": [
-                "${workspaceFolder}/build",
-                "${workspaceFolder}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "re-configure local build folder",
-            "group": "build",
-            "type": "shell",
-            "command": "${workspaceFolder}/scripts/reconfigure.sh",
-            "args": [
-                "${workspaceFolder}/build",
-                "${workspaceFolder}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "remove build and bin",
-            "group": "build",
-            "type": "shell",
-            "command": "rm -rf ${workspaceFolder}/build ${workspaceFolder}/bin",
-            "problemMatcher": []
-        },
-        {
             "label": "build",
             "group": "build",
             "type": "process",
@@ -79,6 +26,98 @@
                 "${workspaceFolder}/build",
                 "--target",
                 "clean"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build docker",
+            "group": "build",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "build",
+                "-t",
+                "arm-none-eabi",
+                "."
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "configure local build folder",
+            "group": "none",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/configure.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clean re-configure local build folder",
+            "group": "none",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/reconfigure-clean.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "re-configure local build folder",
+            "group": "none",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/reconfigure.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "remove build and bin",
+            "group": "none",
+            "type": "shell",
+            "command": "rm -rf ${workspaceFolder}/build ${workspaceFolder}/bin",
+            "problemMatcher": []
+        },
+        {
+            "label": "cppcheck",
+            "group": "test",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "cppcheck"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clang-tidy",
+            "group": "test",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "clang-tidy"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "analyze",
+            "group": "test",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "analyze"
             ],
             "problemMatcher": []
         },
