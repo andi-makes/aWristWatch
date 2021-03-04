@@ -11,10 +11,10 @@
 void SPI1_IRQHandler() {
     static bool scnd{ true };
     if (scnd) {
-        SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(display::buffer >> 16));
+        SPI1::DR::set_reg(
+            static_cast<SPI1::DR::type_t>(display::buffer >> 16U));
     } else {
         while (SPI1::SR::get_bit(SPI1::BSY)) {
-            asm("nop");
         }
         SPI1::CR1::clear_bit(SPI1::SPE);    // Disable SPI
         display::le::set_bit(low);
@@ -29,7 +29,7 @@ bool display::ison{ true };
 
 void display::on() {
     oe::set_mode(gpio::MODE::ALTERNATE);
-    LPTIM1::CMP::set_reg(brightness & 0xFF);
+    LPTIM1::CMP::set_reg(brightness & 0xFFU);
     ison = true;
 }
 
@@ -40,7 +40,9 @@ void display::off() {
 }
 
 void display::update_brightness() {
-    if (!ison) return;
+    if (!ison) {
+        return;
+    }
     if (brightness == 0xFF) {
         oe::set_mode(gpio::MODE::OUTPUT);
         oe::set_bit(low);
@@ -49,7 +51,7 @@ void display::update_brightness() {
         oe::set_bit(high);
     } else {
         oe::set_mode(gpio::MODE::ALTERNATE);
-        LPTIM1::CMP::set_reg(brightness & 0xFF);
+        LPTIM1::CMP::set_reg(brightness & 0xFFU);
     }
 }
 
@@ -59,7 +61,7 @@ void display::setup() {
     LPTIM1::enable();
 
     LPTIM1::set(lptim::cr::ENABLE, true);    // Enable the LPTIM1
-    LPTIM1::ARR::set_reg(656);    // Set top limit of PWM (656 ~= 50Hz)
+    LPTIM1::ARR::set_reg(656U);    // Set top limit of PWM (656 ~= 50Hz)
     LPTIM1::set(lptim::cr::CNTSTRT, true);    // Start the PWM in continous mode
 
     oe::set_alternate_function(gpio::AF::AF2);
@@ -85,10 +87,10 @@ void display::setup() {
 
     SPI1::CR2::set_bit(SPI1::TXEIE);
 
-    NVIC::ISER::set_bit(25u);
+    NVIC::ISER::set_bit(25U);
 }
 
 void display::send() {
-    SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(buffer & 0xFFFF));
+    SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(buffer & 0xFFFFU));
     SPI1::CR1::set_bit(SPI1::SPE);    // Enable SPI
 }

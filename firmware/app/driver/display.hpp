@@ -18,10 +18,10 @@ struct display {
     using mdi = pin<GPIOA, 6>;
     using sdi = pin<GPIOA, 7>;
 
-    static constexpr uint32_t DP1{ 1u << 26 };
-    static constexpr uint32_t DP2{ 1u << 31 };
-    static constexpr uint32_t DP3{ 1u << 18 };
-    static constexpr uint32_t DP4{ 1u << 23 };
+    static constexpr uint32_t DP1{ 1U << 26 };
+    static constexpr uint32_t DP2{ 1U << 31 };
+    static constexpr uint32_t DP3{ 1U << 18 };
+    static constexpr uint32_t DP4{ 1U << 23 };
 
     static uint8_t brightness;
     static void off();

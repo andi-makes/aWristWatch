@@ -12,13 +12,13 @@ namespace zol {
         ->std::same_as<addr_t>;
         { T::get_reg() }
         ->std::same_as<volatile typename T::type_t&>;
-        { T::set_bit(0u) }
+        { T::set_bit(0U) }
         ->std::same_as<void>;
         { T::get_bit(0) }
         ->std::same_as<bool>;
-        { T::clear_bit(0u) }
+        { T::clear_bit(0U) }
         ->std::same_as<void>;
-        { T::toggle_bit(0u) }
+        { T::toggle_bit(0U) }
         ->std::same_as<void>;
         { T::set_reg(0) }
         ->std::same_as<void>;
@@ -72,7 +72,7 @@ namespace zol {
         /// @param bit_number ... Bit to get
         /// @return true if bit is set, otherwise false
         inline static bool get_bit(const int bit_number) {
-            if ((get_reg() & (1u << bit_number)) == 0) {
+            if ((get_reg() & (1U << bit_number)) == 0) {
                 return false;
             } else {
                 return true;

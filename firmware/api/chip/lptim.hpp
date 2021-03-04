@@ -120,10 +120,10 @@ struct LPTIM1 {
     using ARR  = zol::reg<uint32_t, address + 0x18>;
     using CNT  = zol::reg<uint32_t, address + 0x1C>;
 
-    static void enable() { RCC::APB1ENR::set_bit(31u); }
+    static void enable() { RCC::APB1ENR::set_bit(31U); }
 
     static void set_clock_source(lptim::clock c) {
-        RCC::CCIPR::and_reg(~((0b11u) << 18));
+        RCC::CCIPR::and_reg(~((0b11U) << 18));
         RCC::CCIPR::or_reg(static_cast<RCC::CCIPR::type_t>(c) << 18);
     }
 
@@ -174,7 +174,7 @@ struct LPTIM1 {
     }
 
     static void set(lptim::trigen t) {
-        CFGR::and_reg(~(0b11u << 17));
+        CFGR::and_reg(~(0b11U << 17));
         CFGR::or_reg(static_cast<unsigned int>(t) << 17);
     }
 
@@ -184,27 +184,27 @@ struct LPTIM1 {
     // }
 
     static void set(lptim::trigsel t) {
-        CFGR::and_reg(~(0b111u << 13));
+        CFGR::and_reg(~(0b111U << 13));
         CFGR::or_reg(static_cast<unsigned int>(t) << 13);
     }
 
     static void set(lptim::presc p) {
-        CFGR::and_reg(~(0b111u << 9));
+        CFGR::and_reg(~(0b111U << 9));
         CFGR::or_reg(static_cast<unsigned int>(p) << 9);
     }
 
     static void set(lptim::trgflt t) {
-        CFGR::and_reg(~(0b11u << 6));
+        CFGR::and_reg(~(0b11U << 6));
         CFGR::or_reg(static_cast<unsigned int>(t) << 6);
     }
 
     static void set(lptim::ckflt c) {
-        CFGR::and_reg(~(0b11u << 3));
+        CFGR::and_reg(~(0b11U << 3));
         CFGR::or_reg(static_cast<unsigned int>(c) << 3);
     }
 
     static void set(lptim::ckpol c) {
-        CFGR::and_reg(~(0b11u << 1));
+        CFGR::and_reg(~(0b11U << 1));
         CFGR::or_reg(static_cast<unsigned int>(c) << 1);
     }
 

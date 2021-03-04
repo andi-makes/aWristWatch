@@ -55,12 +55,13 @@ struct GPIOx {
 
     static void enable();
 
-    static void set_mode(uint8_t pin, gpio::MODE m) {
-        MODER::and_reg(~(0b11u << (pin * 2)));
-        MODER::or_reg(uint8_t(m) << (pin * 2));
+    static void set_mode(std::unsigned_integral auto pin, gpio::MODE m) {
+        MODER::and_reg(~(0b11U << (pin * 2)));
+        MODER::or_reg(static_cast<typename MODER::type_t>(m) << (pin * 2));
     }
 
-    static void set_output_type(uint8_t pin, gpio::OTYPE t) {
+    static void set_output_type(std::unsigned_integral auto pin,
+                                gpio::OTYPE t) {
         if (t == gpio::OTYPE::OPEN_DRAIN) {
             OTYPER::set_bit(pin);
         } else {
@@ -68,26 +69,30 @@ struct GPIOx {
         }
     }
 
-    static void set_output_speed(uint8_t pin, gpio::OSPEED s) {
-        OSPEEDR::and_reg(~(0b11u << (pin * 2)));
-        OSPEEDR::or_reg(uint8_t(s) << (pin * 2));
+    static void set_output_speed(std::unsigned_integral auto pin,
+                                 gpio::OSPEED s) {
+        OSPEEDR::and_reg(~(0b11U << (pin * 2)));
+        OSPEEDR::or_reg(static_cast<typename OSPEEDR::type_t>(s) << (pin * 2));
     }
 
-    static void set_pullup(uint8_t pin, gpio::PUPD p) {
-        PUPDR::and_reg(~(0b11u << (pin * 2)));
-        PUPDR::or_reg(uint8_t(p) << (pin * 2));
+    static void set_pullup(std::unsigned_integral auto pin, gpio::PUPD p) {
+        PUPDR::and_reg(~(0b11U << (pin * 2)));
+        PUPDR::or_reg(static_cast<typename PUPDR::type_t>(p) << (pin * 2));
     }
 
-    static bool get_input_data(uint8_t pin) { return IDR::get_bit(pin); }
+    static bool get_input_data(std::unsigned_integral auto pin) {
+        return IDR::get_bit(pin);
+    }
 
-    static bool get_output_data(uint8_t pin) { return ODR::get_bit(pin); }
+    static bool get_output_data(std::unsigned_integral auto pin) {
+        return ODR::get_bit(pin);
+    }
 
     /**
      * @brief Unless you have a good reason, use bit set / bit reset functions
      * @deprecated use bit set / reset functions
      */
-
-    static void set_output_data(uint8_t pin, bool level) {
+    static void set_output_data(std::unsigned_integral auto pin, bool level) {
         if (level) {
             ODR::set_bit(pin);
         } else {
@@ -95,7 +100,7 @@ struct GPIOx {
         }
     }
 
-    static void set_bit(uint8_t pin, bool level) {
+    static void set_bit(std::unsigned_integral auto pin, bool level) {
         if (level) {
             BSRR::set_bit(pin);
         } else {
@@ -103,15 +108,19 @@ struct GPIOx {
         }
     }
 
-    static void lock_pin(uint8_t pin) { LCKR::set_reg((1 << pin) | (1 << 16)); }
+    static void lock_pin(std::unsigned_integral auto pin) {
+        LCKR::set_reg((1U << pin) | (1U << 16));
+    }
 
-    static void set_alternate_function(uint8_t pin, gpio::AF f) {
+    static void set_alternate_function(std::unsigned_integral auto pin,
+                                       gpio::AF f) {
         if (pin <= 7) {
-            AFRL::and_reg(~(0b1111u << (pin * 4)));
-            AFRL::or_reg(uint8_t(f) << (pin * 4));
+            AFRL::and_reg(~(0b1111U << (pin * 4)));
+            AFRL::or_reg(static_cast<typename AFRL::type_t>(f) << (pin * 4));
         } else {
-            AFRH::and_reg(~(0b1111u << ((pin - 8) * 4)));
-            AFRH::or_reg(uint8_t(f) << ((pin - 8) * 4));
+            AFRH::and_reg(~(0b1111U << ((pin - 8) * 4)));
+            AFRH::or_reg(static_cast<typename AFRH::type_t>(f)
+                         << ((pin - 8) * 4));
         }
     }
 

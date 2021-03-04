@@ -95,7 +95,7 @@ struct RTC {
 
     [[gnu::always_inline]] static inline void disable_write_protect() {
         WPR::set_reg(0xCAu);
-        WPR::set_reg(0x53u);
+        WPR::set_reg(0x53U);
     }
 
     [[gnu::always_inline]] static inline void enable_write_protect() {
@@ -109,11 +109,10 @@ struct RTC {
         // RCC::CSR::set_bit(8);				   // CSR_LSEON
         RCC::csr::LSEON::write(on);
         while (RCC::csr::LSERDY::read() == 0) {    // CSR_LSERDY
-            asm("nop");
         }
 
         // RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
-        RCC::csr::RTCSEL::set(1u);
+        RCC::csr::RTCSEL::set(1U);
         // RCC::CSR::set_bit(18);	  // RTCEN
         RCC::csr::RTCEN::write(on);
     }
@@ -126,7 +125,6 @@ struct RTC {
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
         while (isr::INITF::read() == false) {
-            asm("nop");
         }
 
         // Update time
@@ -147,7 +145,6 @@ struct RTC {
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
         while (isr::INITF::read() == false) {
-            asm("nop");
         }
 
         // Update date
@@ -173,7 +170,6 @@ struct RTC {
         // Wait until registers can be updated
         // while (ISR::get_bit(6) == 0) {
         while (isr::INITF::read() == false) {
-            asm("nop");
         }
 
         // Update time
@@ -195,7 +191,6 @@ struct RTC {
         disable_write_protect();
         cr::WUTE::write(off);
         while (isr::WUTWF::read() == 0) {    // WUTWF
-            asm("nop");
         }
         // 1023 ==> 0.5sec
         // 511  ==> 0.25sec
@@ -204,10 +199,10 @@ struct RTC {
         cr::WUCKSEL::set(wucksel);
         cr::WUTE::write(on);
 
-        EXTI::IMR::set_bit(20u);
-        EXTI::RTSR::set_bit(20u);
+        EXTI::IMR::set_bit(20U);
+        EXTI::RTSR::set_bit(20U);
 
-        NVIC::ISER::set_bit(2u);
+        NVIC::ISER::set_bit(2U);
 
         cr::WUTIE::write(on);
         enable_write_protect();

@@ -30,10 +30,11 @@ int main() {
     display::setup();
     input::setup();
 
+    // TODO: Create enable/disable interrupts functions
+    // NOLINTNEXTLINE(hicpp-no-assembler): Enables interrupts
     asm("CPSIE I");
     RTC::isr::WUTF::clear();
 
     while (true) {
-        asm("nop");
     }
 }

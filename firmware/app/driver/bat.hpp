@@ -17,7 +17,7 @@ struct battery {
 #endif
         DMA::CNDTRx<1>::set_reg(1);
         DMA::CCRx<1>::set_reg((3 << 12) | (1 << 10) | (1 << 8) | (1 << 5));
-        DMA::CCRx<1>::set_bit(0u);
+        DMA::CCRx<1>::set_bit(0U);
 
         ADC::cfgr1::AUTOFF::write(1);
         ADC::cfgr1::OVRMOD::write(1);
@@ -27,7 +27,7 @@ struct battery {
         ADC::cfgr2::CKMODE::set(2);    // PCLK / 4
         ADC::SMPR::set_reg(3);         // 12.5 ADC CLK Cycles for sampling time
 
-        ADC::CHSELR::set_bit(1u);    // PA1
+        ADC::CHSELR::set_bit(1U);    // PA1
 
         ADC::ccr::LFMEN::write(1);
         ADC::calibrate();    // also affected by dma, first element in
@@ -37,7 +37,7 @@ struct battery {
     }
 
     static uint8_t calc_level() {
-        auto adc{ *adc_buffer };
+        auto adc{ adc_buffer };
         adc -= 2048;
         if (adc < 0) return 0;
         // The Question: Could it overflow?
@@ -58,5 +58,5 @@ struct battery {
     battery() = delete;
 
 private:
-    static int16_t adc_buffer[1];
+    static int16_t adc_buffer;
 };

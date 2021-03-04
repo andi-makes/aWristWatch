@@ -14,7 +14,7 @@ namespace {
 // sw time
 // cppcheck-suppress unusedFunction
 void EXTI0_1_IRQHandler() {
-    EXTI::PR::set_bit(0u);
+    EXTI::PR::set_bit(0U);
 
     aww::stby::kick();
 
@@ -38,7 +38,9 @@ void EXTI0_1_IRQHandler() {
         if (!input::both) {
             input::up = true;
         } else {
-            if (sw_date::is_high()) input::both = false;
+            if (sw_date::is_high()) {
+                input::both = false;
+            }
         }
     }
 }
@@ -47,7 +49,7 @@ void EXTI0_1_IRQHandler() {
 // sw date
 // cppcheck-suppress unusedFunction
 void EXTI4_15_IRQHandler() {
-    EXTI::PR::set_bit(10u);
+    EXTI::PR::set_bit(10U);
 
     aww::stby::kick();
 
@@ -72,7 +74,9 @@ void EXTI4_15_IRQHandler() {
             input::down = true;
         } else {
             // if both are high
-            if (sw_time::is_high()) input::both = false;
+            if (sw_time::is_high()) {
+                input::both = false;
+            }
         }
     }
 }

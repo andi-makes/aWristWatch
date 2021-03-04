@@ -153,7 +153,6 @@ struct ADC {
         }
         cr::ADCAL::set();
         while (isr::EOCAL::read() == 0) {
-            asm("nop");
         }
     }
 
@@ -162,7 +161,6 @@ struct ADC {
         cr::ADEN::set();
         if (cfgr1::AUTOFF::read() == 0) {
             while (isr::ADRDY::read() == 0) {
-                asm("nop");
             }
         }
     }
@@ -172,11 +170,9 @@ struct ADC {
             cr::ADSTP::set();
         }
         while (cr::ADSTP::read()) {
-            asm("nop");
         }
         cr::ADDIS::set();
         while (cr::ADEN::read() != 0) {
-            asm("nop");
         }
     }
 

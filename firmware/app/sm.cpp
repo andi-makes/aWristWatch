@@ -15,10 +15,10 @@ namespace aww::sm {
 
     void exec(const bool half_second) {
         auto time{ RTC::TR::get_reg() };
-        auto raw_time{ display::bcd_to_raw((time & 0x300000) >> 20,
-                                           (time & 0xF0000) >> 16,
-                                           (time & 0x7000) >> 12,
-                                           (time & 0xF00) >> 8) };
+        auto raw_time{ display::bcd_to_raw((time & 0x300000U) >> 20U,
+                                           (time & 0xF0000U) >> 16U,
+                                           (time & 0x7000U) >> 12U,
+                                           (time & 0xF00U) >> 8U) };
 
         switch (state) {
         case STATE::DISPLAY_TIME: {
@@ -60,10 +60,10 @@ namespace aww::sm {
 
             display::fill_buffer(
                 display::bcd_to_raw(
-                    (aww::bcd::num_to_bcd(time::hrs) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::hrs) & 0xF,
-                    (aww::bcd::num_to_bcd(time::min) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::min) & 0xF) |
+                    (aww::bcd::num_to_bcd(time::hrs) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::hrs) & 0xFU,
+                    (aww::bcd::num_to_bcd(time::min) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::min) & 0xFU) |
                 display::DP1 | display::DP2);
         } break;
         case STATE::EDIT_MINS: {
@@ -87,18 +87,18 @@ namespace aww::sm {
 
             display::fill_buffer(
                 display::bcd_to_raw(
-                    (aww::bcd::num_to_bcd(time::hrs) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::hrs) & 0xF,
-                    (aww::bcd::num_to_bcd(time::min) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::min) & 0xF) |
+                    (aww::bcd::num_to_bcd(time::hrs) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::hrs) & 0xFU,
+                    (aww::bcd::num_to_bcd(time::min) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::min) & 0xFU) |
                 display::DP3 | display::DP4);
         } break;
         case STATE::DISPLAY_DATE: {
             auto date = RTC::DR::get_reg();
-            display::fill_buffer(display::bcd_to_raw((date & 0x30) >> 4,
-                                                     (date & 0xF),
-                                                     (date & 0x1000) >> 12,
-                                                     (date & 0xF00) >> 8) |
+            display::fill_buffer(display::bcd_to_raw((date & 0x30U) >> 4U,
+                                                     (date & 0xFU),
+                                                     (date & 0x1000U) >> 12U,
+                                                     (date & 0xF00U) >> 8U) |
                                  display::DP2);
             if (input::is_up()) {
                 state = STATE::DISPLAY_YEAR;
@@ -133,10 +133,10 @@ namespace aww::sm {
 
             display::fill_buffer(
                 display::bcd_to_raw(
-                    (aww::bcd::num_to_bcd(time::day) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::day) & 0xF,
-                    (aww::bcd::num_to_bcd(time::mon) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::mon) & 0xF) |
+                    (aww::bcd::num_to_bcd(time::day) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::day) & 0xFU,
+                    (aww::bcd::num_to_bcd(time::mon) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::mon) & 0xFU) |
                 display::DP1 | display::DP2);
         } break;
         case STATE::EDIT_MONTH: {
@@ -160,16 +160,16 @@ namespace aww::sm {
 
             display::fill_buffer(
                 display::bcd_to_raw(
-                    (aww::bcd::num_to_bcd(time::day) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::day) & 0xF,
-                    (aww::bcd::num_to_bcd(time::mon) & 0xF0) >> 4,
-                    aww::bcd::num_to_bcd(time::mon) & 0xF) |
+                    (aww::bcd::num_to_bcd(time::day) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::day) & 0xFU,
+                    (aww::bcd::num_to_bcd(time::mon) & 0xF0U) >> 4U,
+                    aww::bcd::num_to_bcd(time::mon) & 0xFU) |
                 display::DP3 | display::DP4);
         } break;
         case STATE::DISPLAY_YEAR: {
             auto date{ RTC::DR::get_reg() };
             display::fill_buffer(display::bcd_to_raw(
-                2u, 0u, (date & 0xF00000) >> 20, (date & 0xF0000) >> 16));
+                2U, 0U, (date & 0xF00000U) >> 20U, (date & 0xF0000U) >> 16U));
 
             if (input::is_down()) {
                 state = STATE::DISPLAY_DATE;
@@ -196,18 +196,18 @@ namespace aww::sm {
             }
 
             display::fill_buffer(
-                display::bcd_to_raw(2u,
-                                    0u,
-                                    (aww::bcd::num_to_bcd(time::year) & 0xF0) >>
-                                        4,
-                                    (aww::bcd::num_to_bcd(time::year) & 0xF)) |
+                display::bcd_to_raw(
+                    2U,
+                    0U,
+                    (aww::bcd::num_to_bcd(time::year) & 0xF0U) >> 4U,
+                    (aww::bcd::num_to_bcd(time::year) & 0xFU)) |
                 display::DP3 | display::DP4);
         } break;
         case STATE::DISPLAY_BAT: {
             auto percentage = battery::calc_level();
 
             display::fill_buffer_bcd(
-                10u, (percentage / 10u) % 10u, percentage % 10u, 10u);
+                10U, (percentage / 10U) % 10U, percentage % 10U, 10U);
 
             if (input::is_up()) {
                 state = STATE::DISPLAY_TIME;
@@ -217,10 +217,10 @@ namespace aww::sm {
 
         } break;
         case STATE::DISPLAY_BRIGHTNESS: {
-            display::fill_buffer_bcd(10u,
-                                     10u,
-                                     (display::brightness / 10u) % 10u,
-                                     display::brightness % 10u);
+            display::fill_buffer_bcd(10U,
+                                     10U,
+                                     (display::brightness / 10U) % 10U,
+                                     display::brightness % 10U);
 
             if (input::is_up()) {
                 state = STATE::DISPLAY_BAT;
@@ -230,16 +230,20 @@ namespace aww::sm {
         } break;
         case STATE::EDIT_BRIGHTNESS: {
             if (input::is_up()) {
-                if (display::brightness != 99) display::brightness++;
+                if (display::brightness != 99) {
+                    display::brightness++;
+                }
             } else if (input::is_down()) {
-                if (display::brightness != 1) display::brightness--;
+                if (display::brightness != 1) {
+                    display::brightness--;
+                }
             } else if (input::is_both_up() || input::is_both_down()) {
                 state = STATE::DISPLAY_BRIGHTNESS;
             }
-            display::fill_buffer_bcd(10u,
-                                     10u,
-                                     (display::brightness / 10u) % 10u,
-                                     display::brightness % 10u);
+            display::fill_buffer_bcd(10U,
+                                     10U,
+                                     (display::brightness / 10U) % 10U,
+                                     display::brightness % 10U);
             display::add_point(display::DP3 | display::DP4);
             display::update_brightness();
         } break;

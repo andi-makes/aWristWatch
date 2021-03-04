@@ -16,17 +16,17 @@ void time::load_time() {
     using namespace aww::bcd;
     const auto time{ RTC::TR::get_reg() };
 
-    hrs = bcd_to_num((time & 0x3F0000) >> 16);
-    min = bcd_to_num((time & 0x007F00) >> 8);
+    hrs = bcd_to_num((time & 0x3F0000U) >> 16U);
+    min = bcd_to_num((time & 0x007F00U) >> 8U);
 }
 
 void time::load_date() {
     using namespace aww::bcd;
     const auto date{ RTC::DR::get_reg() };
 
-    day  = bcd_to_num((date & 0x00003F));
-    mon  = bcd_to_num((date & 0x001F00) >> 8);
-    year = bcd_to_num((date & 0xFF0000) >> 16);
+    day  = bcd_to_num((date & 0x00003FU));
+    mon  = bcd_to_num((date & 0x001F00U) >> 8U);
+    year = bcd_to_num((date & 0xFF0000U) >> 16U);
 }
 
 void time::store_time() {
@@ -85,11 +85,11 @@ void RTC_Wakeup_Timer() {
 // cppcheck-suppress unusedFunction
 void RTC_IRQHandler() {
     // Is it the RTC wakeup timer interrupt?
-    if (EXTI::PR::get_bit(20u)) {
+    if (EXTI::PR::get_bit(20U)) {
         RTC_Wakeup_Timer();
         // Clear any flags assotiated with the interrupt.
         // This ensures that the interrupt isn't executed
-        EXTI::PR::set_bit(20u);
+        EXTI::PR::set_bit(20U);
         RTC::isr::WUTF::clear();
     }
 }
