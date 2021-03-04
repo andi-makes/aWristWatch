@@ -3,6 +3,17 @@
 import json
 import sys
 import subprocess
+import os
+import re
+
+
+def parse_clang_output(file: str) -> int:
+    if not os.path.exists(file):
+        return 0
+    with open(file) as f:
+        input_data: str = "\n".join(f.readlines())
+    pattern = re.compile("  - DiagnosticName:")
+    return len(pattern.findall(input_data))
 
 
 def filenames_from_cl_json(command_lists_file: str) -> list:
@@ -28,8 +39,17 @@ COMMAND: list = [EXECUTABLE, "-p", BINARY_DIR, "--export-fixes=" + OUTPUT_FILE] 
     sys.argv[4:] + \
     filenames_from_cl_json(BINARY_DIR + "/compile_commands.json")
 
-process = subprocess.Popen(COMMAND, stdout=subprocess.PIPE)
+if os.path.exists(OUTPUT_FILE):
+    os.remove(OUTPUT_FILE)
 
-process.communicate()
+process = subprocess.Popen(
+    COMMAND, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-exit(process.wait())
+output = process.communicate()
+
+exit_code = process.returncode
+
+print("clang-tidy found " + str(parse_clang_output(OUTPUT_FILE)) +
+      " possible problems in your code.")
+
+exit(exit_code)
