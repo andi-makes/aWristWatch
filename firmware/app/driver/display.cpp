@@ -58,7 +58,7 @@ void display::update_brightness() {
 void display::setup() {
     // Enable LPTIM1
     LPTIM1::set_clock_source(lptim::clock::LSE);
-    LPTIM1::enable();
+    LPTIM1::power_on();
 
     LPTIM1::set(lptim::cr::ENABLE, true);    // Enable the LPTIM1
     LPTIM1::ARR::set_reg(656U);    // Set top limit of PWM (656 ~= 50Hz)

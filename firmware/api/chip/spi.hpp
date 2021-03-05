@@ -72,7 +72,7 @@ struct SPIx {
 
     using I2SPR = zol::reg<uint16_t, address + 0x20>;
 
-    static void enable();
+    static void power_on();
 
     SPIx() = delete;
 };
@@ -84,7 +84,7 @@ using SPI1 = SPIx<SPI1_ADDR>;    // APB2
 using SPI2 = SPIx<SPI2_ADDR>;    // APB1
 
 template<zol::addr_t a>
-void SPIx<a>::enable() {
+void SPIx<a>::power_on() {
     static_assert(a == SPI1_ADDR || a == SPI2_ADDR,
                   "There is no SPI component at that address!");
     if constexpr (a == SPI1_ADDR) {

@@ -35,3 +35,15 @@ extern "C" void USART2_IRQHandler();
 extern "C" void AES_RNG_LPUART1_IRQHandler();
 
 extern "C" void SystemInit();
+
+struct interrupt {
+    static inline void enable() {
+        // NOLINTNEXTLINE(hicpp-no-assembler): Enables interrupts
+        asm("CPSIE i");
+    }
+
+    static inline void disable() {
+        // NOLINTNEXTLINE(hicpp-no-assembler): Enables interrupts
+        asm("CPSID i");
+    }
+};

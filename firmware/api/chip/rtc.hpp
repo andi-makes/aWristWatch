@@ -102,9 +102,9 @@ struct RTC {
         WPR::set_reg(0xFFu);
     }
 
-    static void enable() {
-        PWR::enable();
-        PWR::set(pwr::cr::DBP);    // Disable backup write protection
+    static void power_on() {
+        PWR::power_on();
+        PWR::set(PWR::cr::DBP);    // Disable backup write protection
 
         // RCC::CSR::set_bit(8);				   // CSR_LSEON
         RCC::csr::LSEON::write(on);
@@ -113,9 +113,9 @@ struct RTC {
 
         // RCC::CSR::set_bit(16);	  // RTCSEL (select LSE clock)
         RCC::csr::RTCSEL::set(1U);
-        // RCC::CSR::set_bit(18);	  // RTCEN
-        RCC::csr::RTCEN::write(on);
     }
+
+    static void enable() { RCC::csr::RTCEN::write(on); }
 
     static void set_time(TR::type_t hrs, TR::type_t min, TR::type_t sec) {
         disable_write_protect();

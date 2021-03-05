@@ -120,7 +120,7 @@ struct LPTIM1 {
     using ARR  = zol::reg<uint32_t, address + 0x18>;
     using CNT  = zol::reg<uint32_t, address + 0x1C>;
 
-    static void enable() { RCC::APB1ENR::set_bit(31U); }
+    static void power_on() { RCC::APB1ENR::set_bit(31U); }
 
     static void set_clock_source(lptim::clock c) {
         RCC::CCIPR::and_reg(~((0b11U) << 18));

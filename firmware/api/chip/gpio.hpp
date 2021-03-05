@@ -53,7 +53,7 @@ struct GPIOx {
     using AFRH    = zol::reg<uint32_t, address + 0x24>;
     using BRR     = zol::reg<uint32_t, address + 0x28>;
 
-    static void enable();
+    static void power_on();
 
     static void set_mode(std::unsigned_integral auto pin, gpio::MODE m) {
         MODER::and_reg(~(0b11U << (pin * 2)));
@@ -132,7 +132,7 @@ constexpr zol::addr_t GPIOA_ADDR{ 0x5000'0000 };
 using GPIOA = GPIOx<GPIOA_ADDR>;
 
 template<zol::addr_t a>
-void GPIOx<a>::enable() {
+void GPIOx<a>::power_on() {
     static_assert(a == GPIOA_ADDR,
                   "There is no GPIO component at that address!");
     if constexpr (a == GPIOA_ADDR) {

@@ -11,10 +11,10 @@
 
 // cppcheck-suppress unusedFunction
 void SystemInit() {
-    SYSCFG::enable();
-    RTC::enable();
-    SPI1::enable();
-    GPIOA::enable();
+    SYSCFG::power_on();
+    RTC::power_on();
+    SPI1::power_on();
+    GPIOA::power_on();
 }
 
 int main() {
@@ -30,10 +30,8 @@ int main() {
     display::setup();
     input::setup();
 
-    // TODO: Create enable/disable interrupts functions
-    // NOLINTNEXTLINE(hicpp-no-assembler): Enables interrupts
-    asm("CPSIE I");
-    RTC::isr::WUTF::clear();
+    interrupt::enable();
+    RTC::enable();
 
     while (true) {
     }

@@ -18,7 +18,7 @@ struct SYSCFG {
     using COMP2_CTRL = zol::reg<uint32_t, address + 0x1C>;
     using CFGR3      = zol::reg<uint32_t, address + 0x20>;
 
-    static void enable() { RCC::apb2enr::SYSCFGEN::write(on); }
+    static void power_on() { RCC::apb2enr::SYSCFGEN::write(on); }
 
     SYSCFG() = delete;
 };
