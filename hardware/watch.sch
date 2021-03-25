@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 4
 Title "Armbanduhr"
 Date "2020-09-20"
 Rev "3"
@@ -384,204 +384,14 @@ Wire Notes Line
 	4050 500  4050 1550
 Wire Notes Line
 	5150 500  5150 1550
-$Comp
-L Device:Battery_Cell BT1
-U 1 1 5F5AA165
-P 2300 6050
-F 0 "BT1" H 2418 6146 50  0000 L CNN
-F 1 "Battery_Cell" H 2418 6055 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" V 2300 6110 50  0001 C CNN
-F 3 "~" V 2300 6110 50  0001 C CNN
-F 4 "https://www.amazon.de/Turnigy-nano-tech-300mah-Solo-Pro-Modellbau/dp/B016339JKO/" H 2300 6050 50  0001 C CNN "Order"
-	1    2300 6050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR015
-U 1 1 5F5AE82F
-P 800 6350
-F 0 "#PWR015" H 800 6100 50  0001 C CNN
-F 1 "GND" H 805 6177 50  0000 C CNN
-F 2 "" H 800 6350 50  0001 C CNN
-F 3 "" H 800 6350 50  0001 C CNN
-	1    800  6350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R3
-U 1 1 5F5B507D
-P 800 6150
-F 0 "R3" H 859 6196 50  0000 L CNN
-F 1 "3k9" H 859 6105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 800 6150 50  0001 C CNN
-F 3 "~" H 800 6150 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/te-connectivity-passive-product/CRGP0603F3K9/A130423CT-ND/8578255" H 800 6150 50  0001 C CNN "Order"
-	1    800  6150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Battery_Management:MCP73831-2-OT U7
-U 1 1 5F5A8B40
-P 1300 5900
-F 0 "U7" H 1050 6150 50  0000 C CNN
-F 1 "MCP73831-2-OT" H 1700 6150 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1350 5650 50  0001 L CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 1150 5850 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/microchip-technology/MCP73831T-2ACI-OT/MCP73831T-2ACI-OTCT-ND/1979802" H 1300 5900 50  0001 C CNN "Order"
-	1    1300 5900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C3
-U 1 1 5F639B42
-P 1950 5950
-F 0 "C3" H 2042 5996 50  0000 L CNN
-F 1 "10uF" H 2042 5905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1950 5950 50  0001 C CNN
-F 3 "~" H 1950 5950 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B106MQ8NRNC/1276-1948-1-ND/3890034" H 1950 5950 50  0001 C CNN "Order"
-	1    1950 5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C14
-U 1 1 5F642F89
-P 700 5650
-F 0 "C14" H 792 5696 50  0000 L CNN
-F 1 "10uF" H 792 5605 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 700 5650 50  0001 C CNN
-F 3 "~" H 700 5650 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B106MQ8NRNC/1276-1948-1-ND/3890034" H 700 5650 50  0001 C CNN "Order"
-	1    700  5650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0105
-U 1 1 5F647BEF
-P 700 5750
-F 0 "#PWR0105" H 700 5500 50  0001 C CNN
-F 1 "GND" H 705 5577 50  0000 C CNN
-F 2 "" H 700 5750 50  0001 C CNN
-F 3 "" H 700 5750 50  0001 C CNN
-	1    700  5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2300 5850 2300 5800
-Wire Wire Line
-	1950 5850 1950 5800
-Connection ~ 1950 5800
-Wire Wire Line
-	1950 5800 1700 5800
-Wire Wire Line
-	1950 6050 1950 6300
-Wire Wire Line
-	800  6300 800  6350
-Wire Wire Line
-	800  6300 800  6250
-Connection ~ 800  6300
-Wire Wire Line
-	2300 6150 2300 6300
-Wire Wire Line
-	2300 6300 1950 6300
-Connection ~ 1950 6300
-Wire Wire Line
-	1300 6200 1300 6300
-Connection ~ 1300 6300
-Wire Wire Line
-	1300 6300 800  6300
-Wire Wire Line
-	900  6000 800  6000
-Wire Wire Line
-	800  6000 800  6050
-$Comp
-L power:+5V #PWR0113
-U 1 1 5F61C370
-P 1300 5600
-F 0 "#PWR0113" H 1300 5450 50  0001 C CNN
-F 1 "+5V" H 1315 5773 50  0000 C CNN
-F 2 "" H 1300 5600 50  0001 C CNN
-F 3 "" H 1300 5600 50  0001 C CNN
-	1    1300 5600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+BATT #PWR0114
-U 1 1 5F61DE5F
-P 2300 5750
-F 0 "#PWR0114" H 2300 5600 50  0001 C CNN
-F 1 "+BATT" H 2315 5923 50  0000 C CNN
-F 2 "" H 2300 5750 50  0001 C CNN
-F 3 "" H 2300 5750 50  0001 C CNN
-	1    2300 5750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2300 5750 2300 5800
-Connection ~ 2300 5800
-$Comp
-L power:+5V #PWR0115
-U 1 1 5F6267EF
-P 700 5550
-F 0 "#PWR0115" H 700 5400 50  0001 C CNN
-F 1 "+5V" H 715 5723 50  0000 C CNN
-F 2 "" H 700 5550 50  0001 C CNN
-F 3 "" H 700 5550 50  0001 C CNN
-	1    700  5550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4750 1050 4500 1050
 Wire Wire Line
 	4500 950  4750 950 
 Wire Wire Line
 	4500 850  4750 850 
-$Comp
-L power:+BATT #PWR0134
-U 1 1 5F7D40D9
-P 3050 5750
-F 0 "#PWR0134" H 3050 5600 50  0001 C CNN
-F 1 "+BATT" H 3065 5923 50  0000 C CNN
-F 2 "" H 3050 5750 50  0001 C CNN
-F 3 "" H 3050 5750 50  0001 C CNN
-	1    3050 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R6
-U 1 1 5F7D4A41
-P 3050 5850
-F 0 "R6" H 3109 5896 50  0000 L CNN
-F 1 "47k" H 3109 5805 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3050 5850 50  0001 C CNN
-F 3 "~" H 3050 5850 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/te-connectivity-passive-product/CRGP0603F47K/A130436CT-ND/8578268" H 3050 5850 50  0001 C CNN "Order"
-	1    3050 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R7
-U 1 1 5F7D4EEE
-P 3050 6150
-F 0 "R7" H 3109 6196 50  0000 L CNN
-F 1 "47k" H 3109 6105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3050 6150 50  0001 C CNN
-F 3 "~" H 3050 6150 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/te-connectivity-passive-product/CRGP0603F47K/A130436CT-ND/8578268" H 3050 6150 50  0001 C CNN "Order"
-	1    3050 6150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3050 5950 3050 6000
 Text Label 1750 1250 0    50   ~ 0
 ADC
-Text Label 3150 6000 0    50   ~ 0
-ADC
-Wire Wire Line
-	3150 6000 3050 6000
-Connection ~ 3050 6000
-Wire Wire Line
-	3050 6000 3050 6050
 NoConn ~ 850  2150
 $Comp
 L power:GND #PWR0106
@@ -622,137 +432,94 @@ Wire Notes Line
 	550  2700 6500 2700
 Wire Notes Line
 	2600 1650 6500 1650
-Wire Notes Line
-	3450 5200 6300 5200
-Wire Notes Line
-	6300 5200 6300 6950
-Wire Notes Line
-	6300 6950 3450 6950
-Wire Notes Line
-	3450 6950 3450 5200
-Wire Notes Line
-	3450 5300 6300 5300
-Text Notes 3450 5300 0    50   ~ 0
-Input Power Selection
 Wire Wire Line
-	1950 5800 2300 5800
-Wire Wire Line
-	1300 6300 1950 6300
-Wire Notes Line
-	550  5200 3350 5200
-Wire Notes Line
-	3350 5200 3350 6600
-Wire Notes Line
-	3350 6600 550  6600
-Wire Notes Line
-	550  6600 550  5200
-Wire Notes Line
-	550  5300 3350 5300
-Text Notes 550  5300 0    50   ~ 0
-Battery Charger
-Wire Notes Line
-	2900 6600 2900 5200
-Text Notes 2900 5300 0    50   ~ 0
-Bat LVL
-Wire Wire Line
-	4850 5750 4850 5850
+	5950 3050 5950 3150
 $Comp
 L power:VCC #PWR0109
 U 1 1 5F6E369C
-P 4850 5750
-F 0 "#PWR0109" H 4850 5600 50  0001 C CNN
-F 1 "VCC" H 4865 5923 50  0000 C CNN
-F 2 "" H 4850 5750 50  0001 C CNN
-F 3 "" H 4850 5750 50  0001 C CNN
-	1    4850 5750
+P 5950 3050
+F 0 "#PWR0109" H 5950 2900 50  0001 C CNN
+F 1 "VCC" H 5965 3223 50  0000 C CNN
+F 2 "" H 5950 3050 50  0001 C CNN
+F 3 "" H 5950 3050 50  0001 C CNN
+	1    5950 3050
 	1    0    0    -1  
 $EndComp
-Connection ~ 4850 5850
+Connection ~ 5950 3150
 Wire Wire Line
-	4850 5850 5050 5850
+	5950 3150 6150 3150
 Wire Wire Line
-	4850 5950 4850 5850
+	5950 3250 5950 3150
 $Comp
 L Device:C_Small C15
 U 1 1 5F64DC52
-P 4850 6050
-F 0 "C15" H 4942 6096 50  0000 L CNN
-F 1 "1uF" H 4942 6005 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4850 6050 50  0001 C CNN
-F 3 "~" H 4850 6050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383" H 4850 6050 50  0001 C CNN "Order"
-	1    4850 6050
+P 5950 3350
+F 0 "C15" H 6042 3396 50  0000 L CNN
+F 1 "1uF" H 6042 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5950 3350 50  0001 C CNN
+F 3 "~" H 5950 3350 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383" H 5950 3350 50  0001 C CNN "Order"
+	1    5950 3350
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0111
 U 1 1 5F647F72
-P 5450 6300
-F 0 "#PWR0111" H 5450 6050 50  0001 C CNN
-F 1 "GND" H 5455 6127 50  0000 C CNN
-F 2 "" H 5450 6300 50  0001 C CNN
-F 3 "" H 5450 6300 50  0001 C CNN
-	1    5450 6300
+P 6550 3600
+F 0 "#PWR0111" H 6550 3350 50  0001 C CNN
+F 1 "GND" H 6555 3427 50  0000 C CNN
+F 2 "" H 6550 3600 50  0001 C CNN
+F 3 "" H 6550 3600 50  0001 C CNN
+	1    6550 3600
 	1    0    0    -1  
 $EndComp
-Connection ~ 5050 5850
+Connection ~ 6150 3150
 Wire Wire Line
-	6000 5850 6000 5950
-Connection ~ 6000 5850
+	7100 3150 7100 3250
+Connection ~ 7100 3150
 Wire Wire Line
-	5750 5850 6000 5850
+	6850 3150 7100 3150
 Wire Wire Line
-	6000 5800 6000 5850
+	7100 3100 7100 3150
 $Comp
 L power:+3.3V #PWR03
 U 1 1 5F5B06DC
-P 6000 5800
-F 0 "#PWR03" H 6000 5650 50  0001 C CNN
-F 1 "+3.3V" H 6015 5973 50  0000 C CNN
-F 2 "" H 6000 5800 50  0001 C CNN
-F 3 "" H 6000 5800 50  0001 C CNN
-	1    6000 5800
+P 7100 3100
+F 0 "#PWR03" H 7100 2950 50  0001 C CNN
+F 1 "+3.3V" H 7115 3273 50  0000 C CNN
+F 2 "" H 7100 3100 50  0001 C CNN
+F 3 "" H 7100 3100 50  0001 C CNN
+	1    7100 3100
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C_Small C4
 U 1 1 5F5AAA85
-P 6000 6050
-F 0 "C4" H 6092 6096 50  0000 L CNN
-F 1 "1uF" H 6092 6005 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6000 6050 50  0001 C CNN
-F 3 "~" H 6000 6050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383" H 6000 6050 50  0001 C CNN "Order"
-	1    6000 6050
+P 7100 3350
+F 0 "C4" H 7192 3396 50  0000 L CNN
+F 1 "1uF" H 7192 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7100 3350 50  0001 C CNN
+F 3 "~" H 7100 3350 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383" H 7100 3350 50  0001 C CNN "Order"
+	1    7100 3350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5050 5950 5050 5850
+	6150 3250 6150 3150
 Wire Wire Line
-	5150 5950 5050 5950
+	6250 3250 6150 3250
 Wire Wire Line
-	5150 5850 5050 5850
+	6250 3150 6150 3150
 $Comp
 L Regulator_Linear:TLV70033_SOT23-5 U6
 U 1 1 5F585D5D
-P 5450 5950
-F 0 "U6" H 5450 6292 50  0000 C CNN
-F 1 "TLV70033_SOT23-5" H 5450 6201 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 5450 6275 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/symlink/tlv700.pdf" H 5450 6000 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/TLV70033DDCR/296-27937-1-ND/2440840/?itemSeq=337666037" H 5450 5950 50  0001 C CNN "Order"
-	1    5450 5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:USB_C_Receptacle_USB2.0 J1
-U 1 1 6062777E
-P 1150 3700
-F 0 "J1" H 1257 4567 50  0000 C CNN
-F 1 "USB_C_Receptacle_USB2.0" H 1257 4476 50  0000 C CNN
-F 2 "Connector_USB:USB_C_Receptacle_Palconn_UTC16-G" H 1300 3700 50  0001 C CNN
-F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 1300 3700 50  0001 C CNN
-	1    1150 3700
+P 6550 3250
+F 0 "U6" H 6550 3592 50  0000 C CNN
+F 1 "TLV70033_SOT23-5" H 6550 3501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 6550 3575 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/tlv700.pdf" H 6550 3300 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/TLV70033DDCR/296-27937-1-ND/2440840/?itemSeq=337666037" H 6550 3250 50  0001 C CNN "Order"
+	1    6550 3250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -784,171 +551,68 @@ Wire Wire Line
 $Comp
 L watch:TPS2115A-Q1 U3
 U 1 1 606892B3
-P 4150 6050
-F 0 "U3" H 4150 6525 50  0000 C CNN
-F 1 "TPS2115A-Q1" H 4150 6434 50  0000 C CNN
-F 2 "watch:TSSOP-8_3x6.4_P0.65mm" H 5050 6900 50  0001 C CNN
-F 3 "" H 5050 6900 50  0001 C CNN
-	1    4150 6050
+P 5100 3350
+F 0 "U3" H 5100 3825 50  0000 C CNN
+F 1 "TPS2115A-Q1" H 5100 3734 50  0000 C CNN
+F 2 "watch:TSSOP-8_3x6.4_P0.65mm" H 6000 4200 50  0001 C CNN
+F 3 "" H 6000 4200 50  0001 C CNN
+	1    5100 3350
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R2
 U 1 1 6068A662
-P 3750 6450
-F 0 "R2" H 3809 6496 50  0000 L CNN
-F 1 "10k" H 3809 6405 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3750 6450 50  0001 C CNN
-F 3 "~" H 3750 6450 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/te-connectivity-passive-product/CRGP0603F47K/A130436CT-ND/8578268" H 3750 6450 50  0001 C CNN "Order"
-	1    3750 6450
+P 4700 3750
+F 0 "R2" H 4759 3796 50  0000 L CNN
+F 1 "10k" H 4759 3705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4700 3750 50  0001 C CNN
+F 3 "~" H 4700 3750 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/te-connectivity-passive-product/CRGP0603F47K/A130436CT-ND/8578268" H 4700 3750 50  0001 C CNN "Order"
+	1    4700 3750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3750 6350 3750 6300
+	4700 3650 4700 3600
 Wire Wire Line
-	3750 6300 3800 6300
-$Comp
-L power:GND #PWR0135
-U 1 1 5F7D4518
-P 3050 6250
-F 0 "#PWR0135" H 3050 6000 50  0001 C CNN
-F 1 "GND" H 3055 6077 50  0000 C CNN
-F 2 "" H 3050 6250 50  0001 C CNN
-F 3 "" H 3050 6250 50  0001 C CNN
-	1    3050 6250
-	1    0    0    -1  
-$EndComp
+	4700 3600 4750 3600
 $Comp
 L power:GND #PWR0104
 U 1 1 60691B04
-P 3750 6550
-F 0 "#PWR0104" H 3750 6300 50  0001 C CNN
-F 1 "GND" H 3755 6377 50  0000 C CNN
-F 2 "" H 3750 6550 50  0001 C CNN
-F 3 "" H 3750 6550 50  0001 C CNN
-	1    3750 6550
+P 4700 3850
+F 0 "#PWR0104" H 4700 3600 50  0001 C CNN
+F 1 "GND" H 4705 3677 50  0000 C CNN
+F 2 "" H 4700 3850 50  0001 C CNN
+F 3 "" H 4700 3850 50  0001 C CNN
+	1    4700 3850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3800 6200 3600 6200
+	4750 3500 4550 3500
 Wire Wire Line
-	3600 6200 3600 6550
+	4550 3500 4550 3850
 $Comp
 L power:GND #PWR0110
 U 1 1 60696017
-P 3600 6550
-F 0 "#PWR0110" H 3600 6300 50  0001 C CNN
-F 1 "GND" H 3605 6377 50  0000 C CNN
-F 2 "" H 3600 6550 50  0001 C CNN
-F 3 "" H 3600 6550 50  0001 C CNN
-	1    3600 6550
+P 4550 3850
+F 0 "#PWR0110" H 4550 3600 50  0001 C CNN
+F 1 "GND" H 4555 3677 50  0000 C CNN
+F 2 "" H 4550 3850 50  0001 C CNN
+F 3 "" H 4550 3850 50  0001 C CNN
+	1    4550 3850
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3800 6100
-$Comp
-L power:+BATT #PWR0112
-U 1 1 60699AA7
-P 3550 5700
-F 0 "#PWR0112" H 3550 5550 50  0001 C CNN
-F 1 "+BATT" H 3565 5873 50  0000 C CNN
-F 2 "" H 3550 5700 50  0001 C CNN
-F 3 "" H 3550 5700 50  0001 C CNN
-	1    3550 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR0116
-U 1 1 6069A41C
-P 3750 5700
-F 0 "#PWR0116" H 3750 5550 50  0001 C CNN
-F 1 "+5V" H 3765 5873 50  0000 C CNN
-F 2 "" H 3750 5700 50  0001 C CNN
-F 3 "" H 3750 5700 50  0001 C CNN
-	1    3750 5700
-	1    0    0    -1  
-$EndComp
+NoConn ~ 4750 3400
 Wire Wire Line
-	3750 5700 3750 5800
+	5950 3450 5950 3600
 Wire Wire Line
-	3750 5800 3800 5800
+	5950 3600 6550 3600
 Wire Wire Line
-	3550 5700 3550 5900
+	6550 3600 7100 3600
 Wire Wire Line
-	3550 5900 3800 5900
+	7100 3450 7100 3600
+Connection ~ 6550 3600
 Wire Wire Line
-	4500 5850 4850 5850
-Wire Wire Line
-	4850 6300 4500 6300
-Wire Wire Line
-	4850 6150 4850 6300
-Wire Wire Line
-	4850 6300 5450 6300
-Connection ~ 4850 6300
-Wire Wire Line
-	5450 6300 6000 6300
-Wire Wire Line
-	6000 6150 6000 6300
-Connection ~ 5450 6300
-Wire Wire Line
-	5450 6250 5450 6300
-Text Notes 3850 6700 0    50   ~ 0
-TODO:\nChange me!
-$Sheet
-S 2150 2950 1200 550 
-U 6071FFAF
-F0 "USB Protection Circuits" 50
-F1 "USB_Protection.sch" 50
-F2 "VBUS" I L 2150 3100 50 
-F3 "CC1" I L 2150 3300 50 
-F4 "CC2" I L 2150 3400 50 
-F5 "5V@500mA" O R 3350 3100 50 
-$EndSheet
-Wire Wire Line
-	2150 3100 1750 3100
-Wire Wire Line
-	1750 3300 2150 3300
-Wire Wire Line
-	1750 3400 2150 3400
-NoConn ~ 1750 4200
-NoConn ~ 1750 4300
-$Comp
-L power:GND #PWR0127
-U 1 1 605FD7F9
-P 850 4600
-F 0 "#PWR0127" H 850 4350 50  0001 C CNN
-F 1 "GND" H 855 4427 50  0000 C CNN
-F 2 "" H 850 4600 50  0001 C CNN
-F 3 "" H 850 4600 50  0001 C CNN
-	1    850  4600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0128
-U 1 1 605FDCA4
-P 1150 4600
-F 0 "#PWR0128" H 1150 4350 50  0001 C CNN
-F 1 "GND" H 1155 4427 50  0000 C CNN
-F 2 "" H 1150 4600 50  0001 C CNN
-F 3 "" H 1150 4600 50  0001 C CNN
-	1    1150 4600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 6062E1FA
-P 3450 3050
-F 0 "#PWR?" H 3450 2900 50  0001 C CNN
-F 1 "+5V" H 3465 3223 50  0000 C CNN
-F 2 "" H 3450 3050 50  0001 C CNN
-F 3 "" H 3450 3050 50  0001 C CNN
-	1    3450 3050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3450 3050 3450 3100
-Wire Wire Line
-	3450 3100 3350 3100
+	6550 3550 6550 3600
 $Sheet
 S 8650 5000 1700 1000
 U 60633D5C
@@ -967,4 +631,159 @@ Wire Notes Line
 	550  600  6500 600 
 Wire Notes Line
 	6500 500  6500 2700
+$Comp
+L power:GND #PWR0128
+U 1 1 605FDCA4
+P 1150 4600
+F 0 "#PWR0128" H 1150 4350 50  0001 C CNN
+F 1 "GND" H 1155 4427 50  0000 C CNN
+F 2 "" H 1150 4600 50  0001 C CNN
+F 3 "" H 1150 4600 50  0001 C CNN
+	1    1150 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0127
+U 1 1 605FD7F9
+P 850 4600
+F 0 "#PWR0127" H 850 4350 50  0001 C CNN
+F 1 "GND" H 855 4427 50  0000 C CNN
+F 2 "" H 850 4600 50  0001 C CNN
+F 3 "" H 850 4600 50  0001 C CNN
+	1    850  4600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1750 3900
+NoConn ~ 1750 3800
+NoConn ~ 1750 3700
+NoConn ~ 1750 3600
+NoConn ~ 1750 4300
+NoConn ~ 1750 4200
+Wire Wire Line
+	1750 3400 2150 3400
+Wire Wire Line
+	1750 3300 2150 3300
+Wire Wire Line
+	2150 3100 1750 3100
+$Sheet
+S 2150 2950 1200 550 
+U 6071FFAF
+F0 "USB Protection Circuits" 50
+F1 "USB_Protection.sch" 50
+F2 "VBUS" I L 2150 3100 50 
+F3 "CC1" I L 2150 3300 50 
+F4 "CC2" I L 2150 3400 50 
+F5 "5V@500mA" O R 3350 3100 50 
+$EndSheet
+$Comp
+L Connector:USB_C_Receptacle_USB2.0 J1
+U 1 1 6062777E
+P 1150 3700
+F 0 "J1" H 1257 4567 50  0000 C CNN
+F 1 "USB_C_Receptacle_USB2.0" H 1257 4476 50  0000 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_Palconn_UTC16-G" H 1300 3700 50  0001 C CNN
+F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 1300 3700 50  0001 C CNN
+	1    1150 3700
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 2150 3850 1200 850 
+U 6063DAC2
+F0 "Battery Charger" 50
+F1 "Battery.sch" 50
+F2 "VIN" I L 2150 4050 50 
+F3 "VBAT" O R 3350 4050 50 
+$EndSheet
+Wire Wire Line
+	3350 3100 3450 3100
+Wire Wire Line
+	3450 3100 3450 3650
+Wire Wire Line
+	3450 3650 2050 3650
+Wire Wire Line
+	2050 3650 2050 4050
+Wire Wire Line
+	2050 4050 2150 4050
+Wire Wire Line
+	3350 4050 3550 4050
+Wire Wire Line
+	3550 4050 3550 3200
+$Comp
+L power:GND #PWR?
+U 1 1 606AED65
+P 5500 3850
+F 0 "#PWR?" H 5500 3600 50  0001 C CNN
+F 1 "GND" H 5505 3677 50  0000 C CNN
+F 2 "" H 5500 3850 50  0001 C CNN
+F 3 "" H 5500 3850 50  0001 C CNN
+	1    5500 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3850 5500 3600
+Wire Wire Line
+	5500 3600 5450 3600
+$Comp
+L Device:C_Small C?
+U 1 1 606D1942
+P 3700 3400
+F 0 "C?" H 3792 3446 50  0000 L CNN
+F 1 "100nF" H 3792 3355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3700 3400 50  0001 C CNN
+F 3 "~" H 3700 3400 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 3700 3400 50  0001 C CNN "Order"
+	1    3700 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 606DB2B4
+P 4150 3400
+F 0 "C?" H 4242 3446 50  0000 L CNN
+F 1 "100nF" H 4242 3355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4150 3400 50  0001 C CNN
+F 3 "~" H 4150 3400 50  0001 C CNN
+F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 4150 3400 50  0001 C CNN "Order"
+	1    4150 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 3200 4150 3200
+Wire Wire Line
+	3450 3100 3700 3100
+Connection ~ 3450 3100
+Wire Wire Line
+	3700 3300 3700 3100
+Wire Wire Line
+	4150 3300 4150 3200
+$Comp
+L power:GND #PWR?
+U 1 1 606E7157
+P 3700 3500
+F 0 "#PWR?" H 3700 3250 50  0001 C CNN
+F 1 "GND" H 3705 3327 50  0000 C CNN
+F 2 "" H 3700 3500 50  0001 C CNN
+F 3 "" H 3700 3500 50  0001 C CNN
+	1    3700 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 606E9A17
+P 4150 3500
+F 0 "#PWR?" H 4150 3250 50  0001 C CNN
+F 1 "GND" H 4155 3327 50  0000 C CNN
+F 2 "" H 4150 3500 50  0001 C CNN
+F 3 "" H 4150 3500 50  0001 C CNN
+	1    4150 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 3100 3700 3100
+Connection ~ 3700 3100
+Wire Wire Line
+	4150 3200 4750 3200
+Connection ~ 4150 3200
+Wire Wire Line
+	5450 3150 5950 3150
 $EndSCHEMATC
