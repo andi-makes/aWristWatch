@@ -57,12 +57,7 @@ F 3 "" H 5550 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5550 3100 5500 3100
-Wire Wire Line
-	5550 3100 5550 3200
-Wire Wire Line
 	5500 3500 5550 3500
-Connection ~ 5550 3500
 Wire Wire Line
 	5550 3500 5550 3600
 Wire Wire Line
@@ -200,13 +195,6 @@ Text Label 4000 2950 0    50   ~ 0
 V_BUS_CTRL
 Wire Wire Line
 	4000 2950 4500 2950
-Wire Wire Line
-	3650 2750 4300 2750
-Wire Wire Line
-	5500 3200 5550 3200
-Connection ~ 5550 3200
-Wire Wire Line
-	5550 3200 5550 3500
 $Comp
 L Transistor_FET:DMN6140L Q1
 U 1 1 605D3F9F
@@ -219,13 +207,6 @@ F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 5000 2300 50  0001 
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4800 2200 4300 2200
-Wire Wire Line
-	4300 2200 4300 2750
-Connection ~ 4300 2750
-Wire Wire Line
-	4300 2750 4500 2750
-Wire Wire Line
 	5200 2200 5600 2200
 Wire Wire Line
 	5600 2200 5600 2750
@@ -236,4 +217,49 @@ Text HLabel 5700 2750 2    50   Output ~ 0
 Wire Wire Line
 	5700 2750 5600 2750
 Connection ~ 5600 2750
+Wire Wire Line
+	3650 2750 4500 2750
+Wire Wire Line
+	3000 2200 3000 2750
+Wire Wire Line
+	3000 2200 4800 2200
+$Comp
+L Device:R_Small R?
+U 1 1 605C8234
+P 5700 3350
+F 0 "R?" H 5759 3396 50  0000 L CNN
+F 1 "5k1" H 5759 3305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5700 3350 50  0001 C CNN
+F 3 "~" H 5700 3350 50  0001 C CNN
+	1    5700 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 605C8525
+P 6000 3350
+F 0 "R?" H 6059 3396 50  0000 L CNN
+F 1 "5k1" H 6059 3305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6000 3350 50  0001 C CNN
+F 3 "~" H 6000 3350 50  0001 C CNN
+	1    6000 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 3200 5700 3250
+Wire Wire Line
+	5500 3200 5700 3200
+Wire Wire Line
+	6000 3100 6000 3250
+Wire Wire Line
+	5500 3100 6000 3100
+Wire Wire Line
+	5700 3450 5700 3600
+Wire Wire Line
+	5700 3600 5550 3600
+Wire Wire Line
+	6000 3450 6000 3600
+Wire Wire Line
+	6000 3600 5700 3600
+Connection ~ 5700 3600
 $EndSCHEMATC
