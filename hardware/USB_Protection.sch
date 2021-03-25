@@ -212,10 +212,8 @@ Wire Wire Line
 	5600 2200 5600 2750
 Wire Wire Line
 	5600 2750 5500 2750
-Text HLabel 5700 2750 2    50   Output ~ 0
+Text HLabel 7550 2750 2    50   Output ~ 0
 5V@500mA
-Wire Wire Line
-	5700 2750 5600 2750
 Connection ~ 5600 2750
 Wire Wire Line
 	3650 2750 4500 2750
@@ -262,4 +260,41 @@ Wire Wire Line
 Wire Wire Line
 	6000 3600 5700 3600
 Connection ~ 5700 3600
+Wire Wire Line
+	5600 2750 6350 2750
+Wire Wire Line
+	6350 2950 6250 2950
+Wire Wire Line
+	6250 2950 6250 3600
+Wire Wire Line
+	6250 3600 6000 3600
+Connection ~ 6000 3600
+Wire Wire Line
+	7100 3600 6250 3600
+Connection ~ 6250 3600
+$Comp
+L watch:LM66100-Variant2 U?
+U 1 1 605D85BE
+P 6700 2850
+F 0 "U?" H 6700 3175 50  0000 C CNN
+F 1 "LM66100" H 6700 3084 50  0000 C CNN
+F 2 "lm66100:LM66100DCKT" H 7050 3100 50  0001 C CNN
+F 3 "" H 7050 3100 50  0001 C CNN
+	1    6700 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 2750 7100 2750
+Wire Wire Line
+	6350 2850 6250 2850
+Wire Wire Line
+	6250 2850 6250 2950
+Connection ~ 6250 2950
+Wire Wire Line
+	7050 2850 7100 2850
+Wire Wire Line
+	7100 2850 7100 2750
+Connection ~ 7100 2750
+Wire Wire Line
+	7100 2750 7550 2750
 $EndSCHEMATC
