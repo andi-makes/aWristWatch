@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -18,12 +18,13 @@ L Display_Character:KCSA02-105 U?
 U 1 1 6063AE08
 P 2650 3150
 AR Path="/6063AE08" Ref="U?"  Part="1" 
-AR Path="/60633D5C/6063AE08" Ref="U?"  Part="1" 
-F 0 "U?" H 2650 3817 50  0000 C CNN
+AR Path="/60633D5C/6063AE08" Ref="U201"  Part="1" 
+F 0 "U201" H 2650 3817 50  0000 C CNN
 F 1 "KCSA02-105" H 2650 3726 50  0000 C CNN
 F 2 "Display_7Segment:KCSC02-105" H 2650 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 2150 3625 50  0001 L CNN
-F 4 "https://www.digikey.at/product-detail/de/XZFMDK05A/1497-1096-1-ND/4745605/?itemSeq=337314769" H 2650 3150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 2650 3150 50  0001 C CNN "Order"
+F 5 "Kingbright" H 2650 3150 50  0001 C CNN "Manufacturer"
 	1    2650 3150
 	1    0    0    -1  
 $EndComp
@@ -32,30 +33,16 @@ L Display_Character:KCSA02-105 U?
 U 1 1 6063AE0F
 P 4100 3150
 AR Path="/6063AE0F" Ref="U?"  Part="1" 
-AR Path="/60633D5C/6063AE0F" Ref="U?"  Part="1" 
-F 0 "U?" H 4100 3817 50  0000 C CNN
+AR Path="/60633D5C/6063AE0F" Ref="U203"  Part="1" 
+F 0 "U203" H 4100 3817 50  0000 C CNN
 F 1 "KCSA02-105" H 4100 3726 50  0000 C CNN
 F 2 "Display_7Segment:KCSC02-105" H 4100 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 3600 3625 50  0001 L CNN
-F 4 "https://www.digikey.at/product-detail/de/XZFMDK05A/1497-1096-1-ND/4745605/?itemSeq=337314769" H 4100 3150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 4100 3150 50  0001 C CNN "Order"
+F 5 "Kingbright" H 4100 3150 50  0001 C CNN "Manufacturer"
 	1    4100 3150
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:VCC #PWR?
-U 1 1 6063AE15
-P 3050 3350
-AR Path="/6063AE15" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/6063AE15" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3050 3200 50  0001 C CNN
-F 1 "VCC" H 3065 3523 50  0000 C CNN
-F 2 "" H 3050 3350 50  0001 C CNN
-F 3 "" H 3050 3350 50  0001 C CNN
-	1    3050 3350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3050 3350 3050 3450
 Wire Wire Line
 	3050 3450 2950 3450
 Wire Wire Line
@@ -63,21 +50,6 @@ Wire Wire Line
 Wire Wire Line
 	3050 3550 2950 3550
 Connection ~ 3050 3450
-$Comp
-L power:VCC #PWR?
-U 1 1 6063AE20
-P 4500 3350
-AR Path="/6063AE20" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/6063AE20" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4500 3200 50  0001 C CNN
-F 1 "VCC" H 4515 3523 50  0000 C CNN
-F 2 "" H 4500 3350 50  0001 C CNN
-F 3 "" H 4500 3350 50  0001 C CNN
-	1    4500 3350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4500 3350 4500 3450
 Wire Wire Line
 	4500 3450 4400 3450
 Wire Wire Line
@@ -101,21 +73,6 @@ Text Label 3550 3150 0    50   ~ 0
 S2_D
 Text Label 3550 3250 0    50   ~ 0
 S2_E
-$Comp
-L power:VCC #PWR?
-U 1 1 6063AE33
-P 5950 3350
-AR Path="/6063AE33" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/6063AE33" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5950 3200 50  0001 C CNN
-F 1 "VCC" H 5965 3523 50  0000 C CNN
-F 2 "" H 5950 3350 50  0001 C CNN
-F 3 "" H 5950 3350 50  0001 C CNN
-	1    5950 3350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5950 3350 5950 3450
 Wire Wire Line
 	5950 3450 5850 3450
 Wire Wire Line
@@ -128,30 +85,16 @@ L Display_Character:KCSA02-105 U?
 U 1 1 6063AE3F
 P 7000 3150
 AR Path="/6063AE3F" Ref="U?"  Part="1" 
-AR Path="/60633D5C/6063AE3F" Ref="U?"  Part="1" 
-F 0 "U?" H 7000 3817 50  0000 C CNN
+AR Path="/60633D5C/6063AE3F" Ref="U207"  Part="1" 
+F 0 "U207" H 7000 3817 50  0000 C CNN
 F 1 "KCSA02-105" H 7000 3726 50  0000 C CNN
 F 2 "Display_7Segment:KCSC02-105" H 7000 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 6500 3625 50  0001 L CNN
-F 4 "https://www.digikey.at/product-detail/de/XZFMDK05A/1497-1096-1-ND/4745605/?itemSeq=337314769" H 7000 3150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 7000 3150 50  0001 C CNN "Order"
+F 5 "Kingbright" H 7000 3150 50  0001 C CNN "Manufacturer"
 	1    7000 3150
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:VCC #PWR?
-U 1 1 6063AE45
-P 7400 3350
-AR Path="/6063AE45" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/6063AE45" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7400 3200 50  0001 C CNN
-F 1 "VCC" H 7415 3523 50  0000 C CNN
-F 2 "" H 7400 3350 50  0001 C CNN
-F 3 "" H 7400 3350 50  0001 C CNN
-	1    7400 3350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7400 3350 7400 3450
 Wire Wire Line
 	7400 3450 7300 3450
 Wire Wire Line
@@ -180,12 +123,13 @@ L Display_Character:KCSA02-105 U?
 U 1 1 6063AE59
 P 5550 3150
 AR Path="/6063AE59" Ref="U?"  Part="1" 
-AR Path="/60633D5C/6063AE59" Ref="U?"  Part="1" 
-F 0 "U?" H 5550 3817 50  0000 C CNN
+AR Path="/60633D5C/6063AE59" Ref="U205"  Part="1" 
+F 0 "U205" H 5550 3817 50  0000 C CNN
 F 1 "KCSA02-105" H 5550 3726 50  0000 C CNN
 F 2 "Display_7Segment:KCSC02-105" H 5550 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 5050 3625 50  0001 L CNN
-F 4 "https://www.digikey.at/product-detail/de/XZFMDK05A/1497-1096-1-ND/4745605/?itemSeq=337314769" H 5550 3150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 5550 3150 50  0001 C CNN "Order"
+F 5 "Kingbright" H 5550 3150 50  0001 C CNN "Manufacturer"
 	1    5550 3150
 	1    0    0    -1  
 $EndComp
@@ -226,12 +170,13 @@ L Device:R_Small R?
 U 1 1 60642EB2
 P 2100 5100
 AR Path="/60642EB2" Ref="R?"  Part="1" 
-AR Path="/60633D5C/60642EB2" Ref="R?"  Part="1" 
-F 0 "R?" H 2159 5146 50  0000 L CNN
+AR Path="/60633D5C/60642EB2" Ref="R201"  Part="1" 
+F 0 "R201" H 2159 5146 50  0000 L CNN
 F 1 "2k" H 2159 5055 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2100 5100 50  0001 C CNN
-F 3 "~" H 2100 5100 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/panasonic-electronic-components/ERJ-PA3F2001V/P2-00KBYCT-ND/5036150" H 2100 5100 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 2100 5100 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "Order"
+F 5 "Panasonic" H 2100 5100 50  0001 C CNN "Manufacturer"
 	1    2100 5100
 	1    0    0    -1  
 $EndComp
@@ -240,12 +185,13 @@ L Device:C_Small C?
 U 1 1 60642EBD
 P 1900 4200
 AR Path="/60642EBD" Ref="C?"  Part="1" 
-AR Path="/60633D5C/60642EBD" Ref="C?"  Part="1" 
-F 0 "C?" H 1992 4246 50  0000 L CNN
-F 1 "100nF" H 1992 4155 50  0000 L CNN
+AR Path="/60633D5C/60642EBD" Ref="C201"  Part="1" 
+F 0 "C201" H 1992 4246 50  0000 L CNN
+F 1 "100n" H 1992 4155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1900 4200 50  0001 C CNN
-F 3 "~" H 1900 4200 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 1900 4200 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1900 4200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1900 4200 50  0001 C CNN "Order"
+F 5 "KEMET" H 1900 4200 50  0001 C CNN "Manufacturer"
 	1    1900 4200
 	1    0    0    -1  
 $EndComp
@@ -254,8 +200,8 @@ L power:GND #PWR?
 U 1 1 60642EC3
 P 1900 4300
 AR Path="/60642EC3" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EC3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1900 4050 50  0001 C CNN
+AR Path="/60633D5C/60642EC3" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 1900 4050 50  0001 C CNN
 F 1 "GND" H 1905 4127 50  0000 C CNN
 F 2 "" H 1900 4300 50  0001 C CNN
 F 3 "" H 1900 4300 50  0001 C CNN
@@ -267,8 +213,8 @@ L power:GND #PWR?
 U 1 1 60642EC9
 P 2650 5750
 AR Path="/60642EC9" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EC9" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2650 5500 50  0001 C CNN
+AR Path="/60633D5C/60642EC9" Ref="#PWR0103"  Part="1" 
+F 0 "#PWR0103" H 2650 5500 50  0001 C CNN
 F 1 "GND" H 2655 5577 50  0000 C CNN
 F 2 "" H 2650 5750 50  0001 C CNN
 F 3 "" H 2650 5750 50  0001 C CNN
@@ -280,8 +226,8 @@ L power:GND #PWR?
 U 1 1 60642ECF
 P 2100 5200
 AR Path="/60642ECF" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642ECF" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2100 4950 50  0001 C CNN
+AR Path="/60633D5C/60642ECF" Ref="#PWR0104"  Part="1" 
+F 0 "#PWR0104" H 2100 4950 50  0001 C CNN
 F 1 "GND" H 2105 5027 50  0000 C CNN
 F 2 "" H 2100 5200 50  0001 C CNN
 F 3 "" H 2100 5200 50  0001 C CNN
@@ -297,9 +243,9 @@ L power:+3.3V #PWR?
 U 1 1 60642ED7
 P 2650 4350
 AR Path="/60642ED7" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642ED7" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2650 4200 50  0001 C CNN
-F 1 "+3.3V" H 2665 4523 50  0000 C CNN
+AR Path="/60633D5C/60642ED7" Ref="#PWR0105"  Part="1" 
+F 0 "#PWR0105" H 2650 4200 50  0001 C CNN
+F 1 "+3.3V" H 2650 4500 50  0000 C CNN
 F 2 "" H 2650 4350 50  0001 C CNN
 F 3 "" H 2650 4350 50  0001 C CNN
 	1    2650 4350
@@ -310,9 +256,9 @@ L power:+3.3V #PWR?
 U 1 1 60642EDD
 P 1900 4100
 AR Path="/60642EDD" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EDD" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1900 3950 50  0001 C CNN
-F 1 "+3.3V" H 1915 4273 50  0000 C CNN
+AR Path="/60633D5C/60642EDD" Ref="#PWR0106"  Part="1" 
+F 0 "#PWR0106" H 1900 3950 50  0001 C CNN
+F 1 "+3.3V" H 1900 4250 50  0000 C CNN
 F 2 "" H 1900 4100 50  0001 C CNN
 F 3 "" H 1900 4100 50  0001 C CNN
 	1    1900 4100
@@ -331,12 +277,14 @@ L Driver_LED:STP08CP05 U?
 U 1 1 60642EEC
 P 2650 5050
 AR Path="/60642EEC" Ref="U?"  Part="1" 
-AR Path="/60633D5C/60642EEC" Ref="U?"  Part="1" 
-F 0 "U?" H 2400 5700 50  0000 C CNN
+AR Path="/60633D5C/60642EEC" Ref="U202"  Part="1" 
+F 0 "U202" H 2400 5700 50  0000 C CNN
 F 1 "STP08DP05" H 2950 5700 50  0000 C CNN
 F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 2650 5050 50  0001 C CNN
 F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 2650 5050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/STP08DP05TTR/497-6029-1-ND/1632058/?itemSeq=337319735" H 2650 5050 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 2650 5050 50  0001 C CNN "Order"
+F 5 "STMicroelectornics" H 2650 5050 50  0001 C CNN "Manufacturer"
+F 6 "STP08DP05TTR" H 2650 5050 50  0001 C CNN "Part Number"
 	1    2650 5050
 	1    0    0    -1  
 $EndComp
@@ -345,12 +293,14 @@ L Driver_LED:STP08CP05 U?
 U 1 1 60642EF3
 P 4100 5050
 AR Path="/60642EF3" Ref="U?"  Part="1" 
-AR Path="/60633D5C/60642EF3" Ref="U?"  Part="1" 
-F 0 "U?" H 3850 5700 50  0000 C CNN
+AR Path="/60633D5C/60642EF3" Ref="U204"  Part="1" 
+F 0 "U204" H 3850 5700 50  0000 C CNN
 F 1 "STP08DP05" H 4400 5700 50  0000 C CNN
 F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 4100 5050 50  0001 C CNN
 F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 4100 5050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/STP08DP05TTR/497-6029-1-ND/1632058/?itemSeq=337319735" H 4100 5050 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 4100 5050 50  0001 C CNN "Order"
+F 5 "STMicroelectornics" H 4100 5050 50  0001 C CNN "Manufacturer"
+F 6 "STP08DP05TTR" H 4100 5050 50  0001 C CNN "Part Number"
 	1    4100 5050
 	1    0    0    -1  
 $EndComp
@@ -359,9 +309,9 @@ L power:+3.3V #PWR?
 U 1 1 60642EF9
 P 4100 4350
 AR Path="/60642EF9" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EF9" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4100 4200 50  0001 C CNN
-F 1 "+3.3V" H 4115 4523 50  0000 C CNN
+AR Path="/60633D5C/60642EF9" Ref="#PWR0107"  Part="1" 
+F 0 "#PWR0107" H 4100 4200 50  0001 C CNN
+F 1 "+3.3V" H 4100 4500 50  0000 C CNN
 F 2 "" H 4100 4350 50  0001 C CNN
 F 3 "" H 4100 4350 50  0001 C CNN
 	1    4100 4350
@@ -372,8 +322,8 @@ L power:GND #PWR?
 U 1 1 60642EFF
 P 4100 5750
 AR Path="/60642EFF" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EFF" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4100 5500 50  0001 C CNN
+AR Path="/60633D5C/60642EFF" Ref="#PWR0108"  Part="1" 
+F 0 "#PWR0108" H 4100 5500 50  0001 C CNN
 F 1 "GND" H 4105 5577 50  0000 C CNN
 F 2 "" H 4100 5750 50  0001 C CNN
 F 3 "" H 4100 5750 50  0001 C CNN
@@ -395,12 +345,13 @@ L Device:R_Small R?
 U 1 1 60642F0C
 P 3550 5150
 AR Path="/60642F0C" Ref="R?"  Part="1" 
-AR Path="/60633D5C/60642F0C" Ref="R?"  Part="1" 
-F 0 "R?" H 3609 5196 50  0000 L CNN
+AR Path="/60633D5C/60642F0C" Ref="R202"  Part="1" 
+F 0 "R202" H 3609 5196 50  0000 L CNN
 F 1 "2k" H 3609 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3550 5150 50  0001 C CNN
-F 3 "~" H 3550 5150 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/panasonic-electronic-components/ERJ-PA3F2001V/P2-00KBYCT-ND/5036150" H 3550 5150 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 3550 5150 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "Order"
+F 5 "Panasonic" H 3550 5150 50  0001 C CNN "Manufacturer"
 	1    3550 5150
 	1    0    0    -1  
 $EndComp
@@ -413,8 +364,8 @@ L power:GND #PWR?
 U 1 1 60642F14
 P 3550 5250
 AR Path="/60642F14" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F14" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3550 5000 50  0001 C CNN
+AR Path="/60633D5C/60642F14" Ref="#PWR0109"  Part="1" 
+F 0 "#PWR0109" H 3550 5000 50  0001 C CNN
 F 1 "GND" H 3555 5077 50  0000 C CNN
 F 2 "" H 3550 5250 50  0001 C CNN
 F 3 "" H 3550 5250 50  0001 C CNN
@@ -426,12 +377,14 @@ L Driver_LED:STP08CP05 U?
 U 1 1 60642F1B
 P 5550 5050
 AR Path="/60642F1B" Ref="U?"  Part="1" 
-AR Path="/60633D5C/60642F1B" Ref="U?"  Part="1" 
-F 0 "U?" H 5300 5700 50  0000 C CNN
+AR Path="/60633D5C/60642F1B" Ref="U206"  Part="1" 
+F 0 "U206" H 5300 5700 50  0000 C CNN
 F 1 "STP08DP05" H 5850 5700 50  0000 C CNN
 F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 5550 5050 50  0001 C CNN
 F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 5550 5050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/STP08DP05TTR/497-6029-1-ND/1632058/?itemSeq=337319735" H 5550 5050 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 5550 5050 50  0001 C CNN "Order"
+F 5 "STMicroelectornics" H 5550 5050 50  0001 C CNN "Manufacturer"
+F 6 "STP08DP05TTR" H 5550 5050 50  0001 C CNN "Part Number"
 	1    5550 5050
 	1    0    0    -1  
 $EndComp
@@ -440,9 +393,9 @@ L power:+3.3V #PWR?
 U 1 1 60642F21
 P 5550 4350
 AR Path="/60642F21" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F21" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 4200 50  0001 C CNN
-F 1 "+3.3V" H 5565 4523 50  0000 C CNN
+AR Path="/60633D5C/60642F21" Ref="#PWR0110"  Part="1" 
+F 0 "#PWR0110" H 5550 4200 50  0001 C CNN
+F 1 "+3.3V" H 5550 4500 50  0000 C CNN
 F 2 "" H 5550 4350 50  0001 C CNN
 F 3 "" H 5550 4350 50  0001 C CNN
 	1    5550 4350
@@ -453,8 +406,8 @@ L power:GND #PWR?
 U 1 1 60642F27
 P 5550 5750
 AR Path="/60642F27" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F27" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 5500 50  0001 C CNN
+AR Path="/60633D5C/60642F27" Ref="#PWR0111"  Part="1" 
+F 0 "#PWR0111" H 5550 5500 50  0001 C CNN
 F 1 "GND" H 5555 5577 50  0000 C CNN
 F 2 "" H 5550 5750 50  0001 C CNN
 F 3 "" H 5550 5750 50  0001 C CNN
@@ -478,12 +431,13 @@ L Device:R_Small R?
 U 1 1 60642F34
 P 5000 5150
 AR Path="/60642F34" Ref="R?"  Part="1" 
-AR Path="/60633D5C/60642F34" Ref="R?"  Part="1" 
-F 0 "R?" H 5059 5196 50  0000 L CNN
+AR Path="/60633D5C/60642F34" Ref="R203"  Part="1" 
+F 0 "R203" H 5059 5196 50  0000 L CNN
 F 1 "2k" H 5059 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5000 5150 50  0001 C CNN
-F 3 "~" H 5000 5150 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/panasonic-electronic-components/ERJ-PA3F2001V/P2-00KBYCT-ND/5036150" H 5000 5150 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 5000 5150 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "Order"
+F 5 "Panasonic" H 5000 5150 50  0001 C CNN "Manufacturer"
 	1    5000 5150
 	1    0    0    -1  
 $EndComp
@@ -496,8 +450,8 @@ L power:GND #PWR?
 U 1 1 60642F3C
 P 5000 5250
 AR Path="/60642F3C" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F3C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5000 5000 50  0001 C CNN
+AR Path="/60633D5C/60642F3C" Ref="#PWR0112"  Part="1" 
+F 0 "#PWR0112" H 5000 5000 50  0001 C CNN
 F 1 "GND" H 5005 5077 50  0000 C CNN
 F 2 "" H 5000 5250 50  0001 C CNN
 F 3 "" H 5000 5250 50  0001 C CNN
@@ -509,12 +463,14 @@ L Driver_LED:STP08CP05 U?
 U 1 1 60642F43
 P 7000 5050
 AR Path="/60642F43" Ref="U?"  Part="1" 
-AR Path="/60633D5C/60642F43" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 5700 50  0000 C CNN
+AR Path="/60633D5C/60642F43" Ref="U208"  Part="1" 
+F 0 "U208" H 6750 5700 50  0000 C CNN
 F 1 "STP08DP05" H 7300 5700 50  0000 C CNN
 F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7000 5050 50  0001 C CNN
 F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 7000 5050 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/STP08DP05TTR/497-6029-1-ND/1632058/?itemSeq=337319735" H 7000 5050 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 7000 5050 50  0001 C CNN "Order"
+F 5 "STMicroelectornics" H 7000 5050 50  0001 C CNN "Manufacturer"
+F 6 "STP08DP05TTR" H 7000 5050 50  0001 C CNN "Part Number"
 	1    7000 5050
 	1    0    0    -1  
 $EndComp
@@ -523,9 +479,9 @@ L power:+3.3V #PWR?
 U 1 1 60642F49
 P 7000 4350
 AR Path="/60642F49" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F49" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7000 4200 50  0001 C CNN
-F 1 "+3.3V" H 7015 4523 50  0000 C CNN
+AR Path="/60633D5C/60642F49" Ref="#PWR0113"  Part="1" 
+F 0 "#PWR0113" H 7000 4200 50  0001 C CNN
+F 1 "+3.3V" H 7000 4500 50  0000 C CNN
 F 2 "" H 7000 4350 50  0001 C CNN
 F 3 "" H 7000 4350 50  0001 C CNN
 	1    7000 4350
@@ -536,8 +492,8 @@ L power:GND #PWR?
 U 1 1 60642F4F
 P 7000 5750
 AR Path="/60642F4F" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F4F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7000 5500 50  0001 C CNN
+AR Path="/60633D5C/60642F4F" Ref="#PWR0114"  Part="1" 
+F 0 "#PWR0114" H 7000 5500 50  0001 C CNN
 F 1 "GND" H 7005 5577 50  0000 C CNN
 F 2 "" H 7000 5750 50  0001 C CNN
 F 3 "" H 7000 5750 50  0001 C CNN
@@ -561,12 +517,13 @@ L Device:R_Small R?
 U 1 1 60642F5C
 P 6450 5150
 AR Path="/60642F5C" Ref="R?"  Part="1" 
-AR Path="/60633D5C/60642F5C" Ref="R?"  Part="1" 
-F 0 "R?" H 6509 5196 50  0000 L CNN
+AR Path="/60633D5C/60642F5C" Ref="R204"  Part="1" 
+F 0 "R204" H 6509 5196 50  0000 L CNN
 F 1 "2k" H 6509 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6450 5150 50  0001 C CNN
-F 3 "~" H 6450 5150 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/panasonic-electronic-components/ERJ-PA3F2001V/P2-00KBYCT-ND/5036150" H 6450 5150 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 6450 5150 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "Order"
+F 5 "Panasonic" H 6450 5150 50  0001 C CNN "Manufacturer"
 	1    6450 5150
 	1    0    0    -1  
 $EndComp
@@ -579,8 +536,8 @@ L power:GND #PWR?
 U 1 1 60642F64
 P 6450 5250
 AR Path="/60642F64" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F64" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6450 5000 50  0001 C CNN
+AR Path="/60633D5C/60642F64" Ref="#PWR0115"  Part="1" 
+F 0 "#PWR0115" H 6450 5000 50  0001 C CNN
 F 1 "GND" H 6455 5077 50  0000 C CNN
 F 2 "" H 6450 5250 50  0001 C CNN
 F 3 "" H 6450 5250 50  0001 C CNN
@@ -592,12 +549,13 @@ L Device:C_Small C?
 U 1 1 606457A3
 P 3400 4200
 AR Path="/606457A3" Ref="C?"  Part="1" 
-AR Path="/60633D5C/606457A3" Ref="C?"  Part="1" 
-F 0 "C?" H 3492 4246 50  0000 L CNN
-F 1 "100nF" H 3492 4155 50  0000 L CNN
+AR Path="/60633D5C/606457A3" Ref="C202"  Part="1" 
+F 0 "C202" H 3492 4246 50  0000 L CNN
+F 1 "100n" H 3492 4155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3400 4200 50  0001 C CNN
-F 3 "~" H 3400 4200 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 3400 4200 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 3400 4200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 3400 4200 50  0001 C CNN "Order"
+F 5 "KEMET" H 3400 4200 50  0001 C CNN "Manufacturer"
 	1    3400 4200
 	1    0    0    -1  
 $EndComp
@@ -606,8 +564,8 @@ L power:GND #PWR?
 U 1 1 606457A9
 P 3400 4300
 AR Path="/606457A9" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/606457A9" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3400 4050 50  0001 C CNN
+AR Path="/60633D5C/606457A9" Ref="#PWR0116"  Part="1" 
+F 0 "#PWR0116" H 3400 4050 50  0001 C CNN
 F 1 "GND" H 3405 4127 50  0000 C CNN
 F 2 "" H 3400 4300 50  0001 C CNN
 F 3 "" H 3400 4300 50  0001 C CNN
@@ -619,9 +577,9 @@ L power:+3.3V #PWR?
 U 1 1 606457AF
 P 3400 4100
 AR Path="/606457AF" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/606457AF" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3400 3950 50  0001 C CNN
-F 1 "+3.3V" H 3415 4273 50  0000 C CNN
+AR Path="/60633D5C/606457AF" Ref="#PWR0117"  Part="1" 
+F 0 "#PWR0117" H 3400 3950 50  0001 C CNN
+F 1 "+3.3V" H 3400 4250 50  0000 C CNN
 F 2 "" H 3400 4100 50  0001 C CNN
 F 3 "" H 3400 4100 50  0001 C CNN
 	1    3400 4100
@@ -632,12 +590,13 @@ L Device:C_Small C?
 U 1 1 60646EB1
 P 4850 4200
 AR Path="/60646EB1" Ref="C?"  Part="1" 
-AR Path="/60633D5C/60646EB1" Ref="C?"  Part="1" 
-F 0 "C?" H 4942 4246 50  0000 L CNN
-F 1 "100nF" H 4942 4155 50  0000 L CNN
+AR Path="/60633D5C/60646EB1" Ref="C203"  Part="1" 
+F 0 "C203" H 4942 4246 50  0000 L CNN
+F 1 "100n" H 4942 4155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4850 4200 50  0001 C CNN
-F 3 "~" H 4850 4200 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 4850 4200 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4850 4200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4850 4200 50  0001 C CNN "Order"
+F 5 "KEMET" H 4850 4200 50  0001 C CNN "Manufacturer"
 	1    4850 4200
 	1    0    0    -1  
 $EndComp
@@ -646,8 +605,8 @@ L power:GND #PWR?
 U 1 1 60646EB7
 P 4850 4300
 AR Path="/60646EB7" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60646EB7" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4850 4050 50  0001 C CNN
+AR Path="/60633D5C/60646EB7" Ref="#PWR0118"  Part="1" 
+F 0 "#PWR0118" H 4850 4050 50  0001 C CNN
 F 1 "GND" H 4855 4127 50  0000 C CNN
 F 2 "" H 4850 4300 50  0001 C CNN
 F 3 "" H 4850 4300 50  0001 C CNN
@@ -659,9 +618,9 @@ L power:+3.3V #PWR?
 U 1 1 60646EBD
 P 4850 4100
 AR Path="/60646EBD" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60646EBD" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4850 3950 50  0001 C CNN
-F 1 "+3.3V" H 4865 4273 50  0000 C CNN
+AR Path="/60633D5C/60646EBD" Ref="#PWR0119"  Part="1" 
+F 0 "#PWR0119" H 4850 3950 50  0001 C CNN
+F 1 "+3.3V" H 4850 4250 50  0000 C CNN
 F 2 "" H 4850 4100 50  0001 C CNN
 F 3 "" H 4850 4100 50  0001 C CNN
 	1    4850 4100
@@ -672,12 +631,13 @@ L Device:C_Small C?
 U 1 1 60647DAF
 P 6300 4200
 AR Path="/60647DAF" Ref="C?"  Part="1" 
-AR Path="/60633D5C/60647DAF" Ref="C?"  Part="1" 
-F 0 "C?" H 6392 4246 50  0000 L CNN
-F 1 "100nF" H 6392 4155 50  0000 L CNN
+AR Path="/60633D5C/60647DAF" Ref="C204"  Part="1" 
+F 0 "C204" H 6392 4246 50  0000 L CNN
+F 1 "100n" H 6392 4155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6300 4200 50  0001 C CNN
-F 3 "~" H 6300 4200 50  0001 C CNN
-F 4 "https://www.digikey.at/product-detail/de/kemet/C0603C104M4RACTU/399-1099-1-ND/411374" H 6300 4200 50  0001 C CNN "Order"
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 6300 4200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 6300 4200 50  0001 C CNN "Order"
+F 5 "KEMET" H 6300 4200 50  0001 C CNN "Manufacturer"
 	1    6300 4200
 	1    0    0    -1  
 $EndComp
@@ -686,8 +646,8 @@ L power:GND #PWR?
 U 1 1 60647DB5
 P 6300 4300
 AR Path="/60647DB5" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60647DB5" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6300 4050 50  0001 C CNN
+AR Path="/60633D5C/60647DB5" Ref="#PWR0120"  Part="1" 
+F 0 "#PWR0120" H 6300 4050 50  0001 C CNN
 F 1 "GND" H 6305 4127 50  0000 C CNN
 F 2 "" H 6300 4300 50  0001 C CNN
 F 3 "" H 6300 4300 50  0001 C CNN
@@ -699,9 +659,9 @@ L power:+3.3V #PWR?
 U 1 1 60647DBB
 P 6300 4100
 AR Path="/60647DBB" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60647DBB" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6300 3950 50  0001 C CNN
-F 1 "+3.3V" H 6315 4273 50  0000 C CNN
+AR Path="/60633D5C/60647DBB" Ref="#PWR0121"  Part="1" 
+F 0 "#PWR0121" H 6300 3950 50  0001 C CNN
+F 1 "+3.3V" H 6300 4250 50  0000 C CNN
 F 2 "" H 6300 4100 50  0001 C CNN
 F 3 "" H 6300 4100 50  0001 C CNN
 	1    6300 4100
@@ -935,4 +895,25 @@ Wire Wire Line
 	2350 3450 2100 3450
 Wire Wire Line
 	2100 3550 2350 3550
+Text HLabel 2100 2400 0    50   Input ~ 0
+V_DISP
+Wire Wire Line
+	2100 2400 3050 2400
+Wire Wire Line
+	7400 2400 7400 3450
+Wire Wire Line
+	3050 2400 3050 3450
+Connection ~ 3050 2400
+Wire Wire Line
+	3050 2400 4500 2400
+Wire Wire Line
+	4500 2400 4500 3450
+Connection ~ 4500 2400
+Wire Wire Line
+	4500 2400 5950 2400
+Wire Wire Line
+	5950 2400 5950 3450
+Connection ~ 5950 2400
+Wire Wire Line
+	5950 2400 7400 2400
 $EndSCHEMATC
