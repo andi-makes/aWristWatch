@@ -57,7 +57,7 @@ AR Path="/60645BA0" Ref="C?"  Part="1"
 AR Path="/6063DAC2/60645BA0" Ref="C401"  Part="1" 
 F 0 "C401" H 3042 1896 50  0000 L CNN
 F 1 "10u" H 3042 1805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2950 1850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 2950 1850 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 2950 1850 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 2950 1850 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 2950 1850 50  0001 C CNN "Manufacturer"
@@ -72,7 +72,7 @@ AR Path="/60645BA7" Ref="C?"  Part="1"
 AR Path="/6063DAC2/60645BA7" Ref="C402"  Part="1" 
 F 0 "C402" H 4492 1996 50  0000 L CNN
 F 1 "10u" H 4492 1905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4400 1950 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4400 1950 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 4400 1950 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 4400 1950 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 4400 1950 50  0001 C CNN "Manufacturer"
@@ -102,7 +102,7 @@ AR Path="/60645BB5" Ref="R?"  Part="1"
 AR Path="/6063DAC2/60645BB5" Ref="R403"  Part="1" 
 F 0 "R403" H 3309 2196 50  0000 L CNN
 F 1 "R" H 3309 2105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3250 2150 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3250 2150 50  0001 C CNN
 F 3 "~" H 3250 2150 50  0001 C CNN
 F 4 "" H 3250 2150 50  0001 C CNN "Order"
 	1    3250 2150
@@ -152,7 +152,7 @@ U 1 1 60686379
 P 6200 1900
 F 0 "Q401" V 6542 1900 50  0000 C CNN
 F 1 "DMP2110UW-7" V 6451 1900 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-323_SC-70_Handsoldering" H 6400 2000 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6400 2000 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6200 1900 50  0001 C CNN
 F 4 "Diodes Incorporated" H 6200 1900 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6200 1900 50  0001 C CNN "Order"
@@ -166,7 +166,7 @@ U 1 1 6068D817
 P 5750 2250
 F 0 "U403" H 5750 2525 50  0000 C CNN
 F 1 "TLV810E" H 5750 2434 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 6150 2950 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6150 2950 50  0001 C CNN
 F 3 "" H 6150 2950 50  0001 C CNN
 	1    5750 2250
 	1    0    0    -1  
@@ -213,7 +213,7 @@ AR Path="/606C505F" Ref="R?"  Part="1"
 AR Path="/6063DAC2/606C505F" Ref="R405"  Part="1" 
 F 0 "R405" H 6859 2346 50  0000 L CNN
 F 1 "47k" H 6859 2255 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6800 2300 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2300 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2300 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2300 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 6800 2300 50  0001 C CNN "Manufacturer"
@@ -228,7 +228,7 @@ AR Path="/606C5066" Ref="R?"  Part="1"
 AR Path="/6063DAC2/606C5066" Ref="R404"  Part="1" 
 F 0 "R404" H 6859 2046 50  0000 L CNN
 F 1 "47k" H 6859 1955 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6800 2000 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2000 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2000 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2000 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 6800 2000 50  0001 C CNN "Manufacturer"
@@ -257,7 +257,7 @@ AR Path="/60604F0C/6060934C/60703CE9" Ref="U?"  Part="1"
 AR Path="/6063DAC2/60703CE9" Ref="U401"  Part="1" 
 F 0 "U401" H 1950 1925 50  0000 C CNN
 F 1 "LM66100" H 1950 1834 50  0000 C CNN
-F 2 "lm66100:LM66100DCKT" H 2300 1850 50  0001 C CNN
+F 2 "watch:Sc70-6" H 2300 1850 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/lm66100.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.it%2F&distId=26" H 2300 1850 50  0001 C CNN
 F 4 "Texas Instruments" H 1950 1600 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/595-LM66100DCKR" H 1950 1600 50  0001 C CNN "Order"
@@ -295,7 +295,7 @@ U 1 1 606121DC
 P 2650 2850
 F 0 "D401" V 2696 2780 50  0000 R CNN
 F 1 "RED" V 2605 2780 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2650 2850 50  0001 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 2650 2850 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/216/AA1608SURSK-1951973.pdf" V 2650 2850 50  0001 C CNN
 F 4 "AA1608SURSK" V 2650 2850 50  0001 C CNN "Part Number"
 F 5 "Kingbright" V 2650 2850 50  0001 C CNN "Manufacturer"
@@ -309,7 +309,7 @@ U 1 1 606121E3
 P 2650 2600
 F 0 "R401" H 2709 2646 50  0000 L CNN
 F 1 "10k" H 2709 2555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2650 2600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 2600 50  0001 C CNN
 F 3 "~" H 2650 2600 50  0001 C CNN
 F 4 "" H 2650 2600 50  0001 C CNN "Order"
 	1    2650 2600
@@ -318,27 +318,27 @@ $EndComp
 $Comp
 L Device:R_Small R402
 U 1 1 606121EB
-P 2650 3150
-F 0 "R402" H 2709 3196 50  0000 L CNN
-F 1 "10k" H 2709 3105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2650 3150 50  0001 C CNN
-F 3 "~" H 2650 3150 50  0001 C CNN
-F 4 "" H 2650 3150 50  0001 C CNN "Order"
-	1    2650 3150
+P 2650 3400
+F 0 "R402" H 2709 3446 50  0000 L CNN
+F 1 "10k" H 2709 3355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 3400 50  0001 C CNN
+F 3 "~" H 2650 3400 50  0001 C CNN
+F 4 "" H 2650 3400 50  0001 C CNN "Order"
+	1    2650 3400
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:LED_Small D402
 U 1 1 606121F3
-P 2650 3400
-F 0 "D402" V 2696 3330 50  0000 R CNN
-F 1 "GREEN" V 2605 3330 50  0000 R CNN
-F 2 "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2650 3400 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/216/AA1608CGSK-1951957.pdf" V 2650 3400 50  0001 C CNN
-F 4 "Kingbright" H 2650 3400 50  0001 C CNN "Manufacturer"
-F 5 "AA1608CGSK" H 2650 3400 50  0001 C CNN "Part Number"
-F 6 "https://www.mouser.at/ProductDetail/Kingbright/AA1608CGSK?qs=%2Fha2pyFadujroVvVMWEuOp8b2ZvB17TZCtvrJxnHY68n8r1EECXbcw%3D%3D" H 2650 3400 50  0001 C CNN "Order"
-	1    2650 3400
+P 2650 3150
+F 0 "D402" V 2696 3080 50  0000 R CNN
+F 1 "GREEN" V 2605 3080 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 2650 3150 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/216/AA1608CGSK-1951957.pdf" V 2650 3150 50  0001 C CNN
+F 4 "Kingbright" H 2650 3150 50  0001 C CNN "Manufacturer"
+F 5 "AA1608CGSK" H 2650 3150 50  0001 C CNN "Part Number"
+F 6 "https://www.mouser.at/ProductDetail/Kingbright/AA1608CGSK?qs=%2Fha2pyFadujroVvVMWEuOp8b2ZvB17TZCtvrJxnHY68n8r1EECXbcw%3D%3D" H 2650 3150 50  0001 C CNN "Order"
+	1    2650 3150
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line

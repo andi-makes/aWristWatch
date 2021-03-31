@@ -173,7 +173,7 @@ AR Path="/60642EB2" Ref="R?"  Part="1"
 AR Path="/60633D5C/60642EB2" Ref="R201"  Part="1" 
 F 0 "R201" H 2159 5146 50  0000 L CNN
 F 1 "2k" H 2159 5055 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2100 5100 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 2100 5100 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 2100 5100 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "Order"
 F 5 "Panasonic" H 2100 5100 50  0001 C CNN "Manufacturer"
@@ -188,7 +188,7 @@ AR Path="/60642EBD" Ref="C?"  Part="1"
 AR Path="/60633D5C/60642EBD" Ref="C201"  Part="1" 
 F 0 "C201" H 1992 4246 50  0000 L CNN
 F 1 "100n" H 1992 4155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1900 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1900 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1900 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1900 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 1900 4200 50  0001 C CNN "Manufacturer"
@@ -348,7 +348,7 @@ AR Path="/60642F0C" Ref="R?"  Part="1"
 AR Path="/60633D5C/60642F0C" Ref="R202"  Part="1" 
 F 0 "R202" H 3609 5196 50  0000 L CNN
 F 1 "2k" H 3609 5105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3550 5150 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3550 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 3550 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 3550 5150 50  0001 C CNN "Manufacturer"
@@ -434,7 +434,7 @@ AR Path="/60642F34" Ref="R?"  Part="1"
 AR Path="/60633D5C/60642F34" Ref="R203"  Part="1" 
 F 0 "R203" H 5059 5196 50  0000 L CNN
 F 1 "2k" H 5059 5105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5000 5150 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5000 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 5000 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 5000 5150 50  0001 C CNN "Manufacturer"
@@ -520,7 +520,7 @@ AR Path="/60642F5C" Ref="R?"  Part="1"
 AR Path="/60633D5C/60642F5C" Ref="R204"  Part="1" 
 F 0 "R204" H 6509 5196 50  0000 L CNN
 F 1 "2k" H 6509 5105 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6450 5150 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 6450 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 6450 5150 50  0001 C CNN "Manufacturer"
@@ -552,7 +552,7 @@ AR Path="/606457A3" Ref="C?"  Part="1"
 AR Path="/60633D5C/606457A3" Ref="C202"  Part="1" 
 F 0 "C202" H 3492 4246 50  0000 L CNN
 F 1 "100n" H 3492 4155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3400 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3400 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 3400 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 3400 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 3400 4200 50  0001 C CNN "Manufacturer"
@@ -593,7 +593,7 @@ AR Path="/60646EB1" Ref="C?"  Part="1"
 AR Path="/60633D5C/60646EB1" Ref="C203"  Part="1" 
 F 0 "C203" H 4942 4246 50  0000 L CNN
 F 1 "100n" H 4942 4155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4850 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4850 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4850 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4850 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 4850 4200 50  0001 C CNN "Manufacturer"
@@ -634,7 +634,7 @@ AR Path="/60647DAF" Ref="C?"  Part="1"
 AR Path="/60633D5C/60647DAF" Ref="C204"  Part="1" 
 F 0 "C204" H 6392 4246 50  0000 L CNN
 F 1 "100n" H 6392 4155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6300 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6300 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 6300 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 6300 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 6300 4200 50  0001 C CNN "Manufacturer"

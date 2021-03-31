@@ -26,7 +26,7 @@ AR Path="/605D36A9" Ref="C?"  Part="1"
 AR Path="/605CEFBE/605D36A9" Ref="C503"  Part="1" 
 F 0 "C503" H 3342 2246 50  0000 L CNN
 F 1 "1u" H 3342 2155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3250 2200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3250 2200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 3250 2200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B105MO8NNWC" H 3250 2200 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 3250 2200 50  0001 C CNN "Manufacturer"
@@ -60,7 +60,7 @@ AR Path="/605D36C1" Ref="C?"  Part="1"
 AR Path="/605CEFBE/605D36C1" Ref="C504"  Part="1" 
 F 0 "C504" H 4492 2246 50  0000 L CNN
 F 1 "1u" H 4492 2155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4400 2200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4400 2200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 4400 2200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B105MO8NNWC" H 4400 2200 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 4400 2200 50  0001 C CNN "Manufacturer"
@@ -109,7 +109,7 @@ AR Path="/605D36D8" Ref="R?"  Part="1"
 AR Path="/605CEFBE/605D36D8" Ref="R501"  Part="1" 
 F 0 "R501" H 2059 2646 50  0000 L CNN
 F 1 "10k" H 2059 2555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2000 2600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 2000 2600 50  0001 C CNN
 F 3 "~" H 2000 2600 50  0001 C CNN
 F 4 "" H 2000 2600 50  0001 C CNN "Order"
 	1    2000 2600
@@ -186,7 +186,7 @@ AR Path="/605D36FE" Ref="C?"  Part="1"
 AR Path="/605CEFBE/605D36FE" Ref="C501"  Part="1" 
 F 0 "C501" H 1092 2296 50  0000 L CNN
 F 1 "100n" H 1092 2205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1000 2250 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1000 2250 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1000 2250 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1000 2250 50  0001 C CNN "Order"
 F 5 "KEMET" H 1000 2250 50  0001 C CNN "Manufacturer"
@@ -201,7 +201,7 @@ AR Path="/605D3705" Ref="C?"  Part="1"
 AR Path="/605CEFBE/605D3705" Ref="C502"  Part="1" 
 F 0 "C502" H 1542 2296 50  0000 L CNN
 F 1 "100n" H 1542 2205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 1450 2250 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1450 2250 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1450 2250 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1450 2250 50  0001 C CNN "Order"
 F 5 "KEMET" H 1450 2250 50  0001 C CNN "Manufacturer"
