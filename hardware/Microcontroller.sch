@@ -260,7 +260,7 @@ Wire Wire Line
 	2400 4500 2400 4450
 Wire Wire Line
 	2150 4450 2400 4450
-Text Label 2850 3950 2    50   ~ 0
+Text Label 1650 3950 2    50   ~ 0
 SW2
 Wire Wire Line
 	2650 3950 2650 4100
@@ -426,7 +426,7 @@ F 3 "~" H 1200 3950 50  0001 C CNN
 	1    1200 3950
 	0    1    1    0   
 $EndComp
-Text Label 1650 3950 2    50   ~ 0
+Text Label 2850 3950 2    50   ~ 0
 SW1
 Wire Wire Line
 	1100 3950 950  3950
