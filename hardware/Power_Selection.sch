@@ -108,7 +108,7 @@ P 2000 2600
 AR Path="/605D36D8" Ref="R?"  Part="1" 
 AR Path="/605CEFBE/605D36D8" Ref="R501"  Part="1" 
 F 0 "R501" H 2059 2646 50  0000 L CNN
-F 1 "10k" H 2059 2555 50  0000 L CNN
+F 1 "1k" H 2059 2555 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2000 2600 50  0001 C CNN
 F 3 "~" H 2000 2600 50  0001 C CNN
 F 4 "" H 2000 2600 50  0001 C CNN "Order"
@@ -132,10 +132,6 @@ F 3 "" H 2000 2700 50  0001 C CNN
 	1    2000 2700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2050 2350 1850 2350
-Wire Wire Line
-	1850 2350 1850 2700
 $Comp
 L power:GND #PWR?
 U 1 1 605D36E8
@@ -149,7 +145,6 @@ F 3 "" H 1850 2700 50  0001 C CNN
 	1    1850 2700
 	1    0    0    -1  
 $EndComp
-NoConn ~ 2050 2250
 Wire Wire Line
 	3250 2300 3250 2450
 Wire Wire Line
@@ -264,4 +259,9 @@ Wire Wire Line
 	3250 1600 3250 2000
 Wire Wire Line
 	3350 1600 3250 1600
+NoConn ~ 2050 2350
+Wire Wire Line
+	1850 2250 2050 2250
+Wire Wire Line
+	1850 2250 1850 2700
 $EndSCHEMATC

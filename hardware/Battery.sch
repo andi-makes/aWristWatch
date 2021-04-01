@@ -308,7 +308,7 @@ L Device:R_Small R401
 U 1 1 606121E3
 P 2650 2600
 F 0 "R401" H 2709 2646 50  0000 L CNN
-F 1 "10k" H 2709 2555 50  0000 L CNN
+F 1 "2k7" H 2709 2555 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 2600 50  0001 C CNN
 F 3 "~" H 2650 2600 50  0001 C CNN
 F 4 "" H 2650 2600 50  0001 C CNN "Order"
@@ -320,7 +320,7 @@ L Device:R_Small R402
 U 1 1 606121EB
 P 2650 3400
 F 0 "R402" H 2709 3446 50  0000 L CNN
-F 1 "10k" H 2709 3355 50  0000 L CNN
+F 1 "2k7" H 2709 3355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 3400 50  0001 C CNN
 F 3 "~" H 2650 3400 50  0001 C CNN
 F 4 "" H 2650 3400 50  0001 C CNN "Order"
@@ -374,4 +374,12 @@ Wire Wire Line
 Connection ~ 2650 1500
 Wire Wire Line
 	2650 1500 2950 1500
+Text Notes 3150 2850 0    50   ~ 0
+V_red = 1.95V\nVcc = 5V\nR_red = (5V - 1.95V) / 1mA\nR_red = 3050 Ohm\n
+Text Notes 3150 3300 0    50   ~ 0
+V_green = 2.1V\nVcc = 5V\nR_green = (5V - 2.1V) / 1mA\nR_green = 2900 Ohm
+Text Notes 4450 2600 0    50   ~ 0
+I_real_red = (5V - 1.95V) / 2k7 = 1.13 mA
+Text Notes 4400 3050 0    50   ~ 0
+I_real_green = (5V - 2.1V) / 2k7 = 1,07mA
 $EndSCHEMATC
