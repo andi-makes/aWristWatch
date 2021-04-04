@@ -236,7 +236,7 @@ Connection ~ 5550 3200
 Wire Wire Line
 	5550 3200 5550 3100
 Text Notes 4500 3950 0    50   ~ 0
-Don't need Rd, handled inside the chip\nPulling protected CC pins is save, see datasheet for further information
+Don't need Rd, handled inside the chip\nPulling protected CC pins low is save, see datasheet for further information
 $Comp
 L Device:Polyfuse_Small F301
 U 1 1 6064BF52
@@ -361,4 +361,6 @@ $EndComp
 Connection ~ 7100 2750
 Wire Wire Line
 	7100 2750 6650 2750
+Text Notes 3350 3250 0    50   ~ 0
+C1: 50V X7R
 $EndSCHEMATC
