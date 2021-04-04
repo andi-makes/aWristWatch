@@ -326,7 +326,7 @@ PWERN#
 Text HLabel 7650 1250 2    50   Output ~ 0
 5V
 Wire Wire Line
-	7650 1250 7300 1250
+	7650 1250 7500 1250
 Connection ~ 7300 1250
 Text HLabel 6050 1850 2    50   Output ~ 0
 TX
@@ -347,4 +347,21 @@ Wire Wire Line
 Wire Wire Line
 	3700 3000 5250 3000
 Connection ~ 5250 3000
+NoConn ~ 6050 2350
+NoConn ~ 6050 2450
+NoConn ~ 6050 2550
+$Comp
+L power:PWR_FLAG #FLG0103
+U 1 1 606AA058
+P 7500 1250
+F 0 "#FLG0103" H 7500 1325 50  0001 C CNN
+F 1 "PWR_FLAG" H 7500 1423 50  0000 C CNN
+F 2 "" H 7500 1250 50  0001 C CNN
+F 3 "~" H 7500 1250 50  0001 C CNN
+	1    7500 1250
+	1    0    0    -1  
+$EndComp
+Connection ~ 7500 1250
+Wire Wire Line
+	7500 1250 7300 1250
 $EndSCHEMATC

@@ -240,7 +240,7 @@ Wire Wire Line
 Wire Wire Line
 	6800 1800 6800 1900
 Wire Wire Line
-	6800 1800 7150 1800
+	6800 1800 6950 1800
 Connection ~ 6800 1800
 Text HLabel 7150 2150 2    50   Output ~ 0
 VBAT_HALF
@@ -382,4 +382,18 @@ Text Notes 4450 2600 0    50   ~ 0
 I_real_red = (5V - 1.95V) / 2k7 = 1.13 mA
 Text Notes 4400 3050 0    50   ~ 0
 I_real_green = (5V - 2.1V) / 2k7 = 1,07mA
+$Comp
+L power:PWR_FLAG #FLG0105
+U 1 1 606AB429
+P 6950 1800
+F 0 "#FLG0105" H 6950 1875 50  0001 C CNN
+F 1 "PWR_FLAG" H 6950 1973 50  0000 C CNN
+F 2 "" H 6950 1800 50  0001 C CNN
+F 3 "~" H 6950 1800 50  0001 C CNN
+	1    6950 1800
+	1    0    0    -1  
+$EndComp
+Connection ~ 6950 1800
+Wire Wire Line
+	6950 1800 7150 1800
 $EndSCHEMATC

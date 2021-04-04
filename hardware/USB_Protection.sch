@@ -236,7 +236,7 @@ Connection ~ 5550 3200
 Wire Wire Line
 	5550 3200 5550 3100
 Text Notes 4500 3950 0    50   ~ 0
-Don't need Rd, handled inside the chip
+Don't need Rd, handled inside the chip\nPulling protected CC pins is save, see datasheet for further information
 $Comp
 L Device:Polyfuse_Small F301
 U 1 1 6064BF52
@@ -282,7 +282,7 @@ F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 6850 3550 50  0001
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7350 2750 6650 2750
+	7350 2750 7100 2750
 Wire Wire Line
 	6650 2750 6650 2800
 Wire Wire Line
@@ -347,4 +347,18 @@ Text HLabel 7050 3300 2    50   Input ~ 0
 IN_D+
 Text HLabel 6250 3300 0    50   Input ~ 0
 IN_D-
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 606A9573
+P 7100 2750
+F 0 "#FLG0102" H 7100 2825 50  0001 C CNN
+F 1 "PWR_FLAG" H 7100 2923 50  0000 C CNN
+F 2 "" H 7100 2750 50  0001 C CNN
+F 3 "~" H 7100 2750 50  0001 C CNN
+	1    7100 2750
+	1    0    0    -1  
+$EndComp
+Connection ~ 7100 2750
+Wire Wire Line
+	7100 2750 6650 2750
 $EndSCHEMATC
