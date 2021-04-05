@@ -4,11 +4,11 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 7
-Title "Armbanduhr"
-Date "2020-09-20"
+Title "aWristWatch"
+Date "2021-04-05"
 Rev "3"
-Comp "Probieren geht über studieren. Immer."
-Comment1 "Andreas Kohler"
+Comp "Andreas Kohler"
+Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""

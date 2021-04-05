@@ -4,10 +4,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 7
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "aWristWatch"
+Date "2021-04-05"
+Rev "3"
+Comp "Andreas Kohler"
 Comment1 ""
 Comment2 ""
 Comment3 ""
