@@ -24,6 +24,8 @@ F 0 "U12" H 4650 3750 50  0000 C CNN
 F 1 "TCPP01-M12" H 5300 3750 50  0000 C CNN
 F 2 "Package_DFN_QFN:QFN-12-1EP_3x3mm_P0.51mm_EP1.45x1.45mm" H 6200 4150 50  0001 C CNN
 F 3 "" H 6200 4150 50  0001 C CNN
+F 4 "STMicroelectornics" H 5000 3150 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/STMicroelectronics/TCPP01-M12?qs=%252B6g0mu59x7KCafIwapwG2A%3D%3D" H 5000 3150 50  0001 C CNN "Order"
 	1    5000 3150
 	1    0    0    -1  
 $EndComp
@@ -38,6 +40,8 @@ F 0 "D1" V 2054 2470 50  0000 L CNN
 F 1 "ESDA25P35-1U1M" V 2145 2470 50  0000 L CNN
 F 2 "Diode_SMD:D_0603_1608Metric" V 2100 2400 50  0001 C CNN
 F 3 "~" V 2100 2400 50  0001 C CNN
+F 4 "STMicroelectornics" H 2100 2400 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/STMicroelectronics/ESDA25P35-1U1M?qs=%2Fha2pyFadujUszDsZav4Fdl71EEjkmI2eQjtkMFuQaA97IC29zSS8w%3D%3D" H 2100 2400 50  0001 C CNN "Order"
 	1    2100 2400
 	0    1    1    0   
 $EndComp
@@ -108,6 +112,8 @@ F 0 "R10" H 3059 2446 50  0000 L CNN
 F 1 "10k" H 3059 2355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 3000 2400 50  0001 C CNN
 F 3 "~" H 3000 2400 50  0001 C CNN
+F 4 "TE Connectivity / Holsworthy" H 3000 2400 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F10K?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8smNyg8wE1EWk%3D" H 3000 2400 50  0001 C CNN "Order"
 	1    3000 2400
 	1    0    0    -1  
 $EndComp
@@ -121,6 +127,8 @@ F 0 "R11" H 3059 2746 50  0000 L CNN
 F 1 "2k7" H 3059 2655 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 3000 2700 50  0001 C CNN
 F 3 "~" H 3000 2700 50  0001 C CNN
+F 4 "TE Connectivity / Holsworthy" H 3000 2700 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F2K7?qs=wUXugUrL1qwUN23XEDlhqg%3D%3D" H 3000 2700 50  0001 C CNN "Order"
 	1    3000 2700
 	1    0    0    -1  
 $EndComp
@@ -134,6 +142,8 @@ F 0 "D2" V 3750 2400 50  0000 C CNN
 F 1 "NSR20F30NXT5G" V 3550 2150 50  0000 C CNN
 F 2 "Diode_SMD:D_0603_1608Metric" V 3650 2500 50  0001 C CNN
 F 3 "~" V 3650 2500 50  0001 C CNN
+F 4 "ON Semiconductor" H 3650 2500 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/ON-Semiconductor/NSR20F30NXT5G?qs=%2Fha2pyFaduiT4QgHJMtCRYYTP822FXVVx%2F52TlFmV4oVU2Zly4FJHw%3D%3D" H 3650 2500 50  0001 C CNN "Order"
 	1    3650 2500
 	0    -1   -1   0   
 $EndComp
@@ -147,8 +157,8 @@ F 0 "C1" H 3742 2896 50  0000 L CNN
 F 1 "100n" H 3742 2805 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 3650 2850 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 3650 2850 50  0001 C CNN
-F 4 "KEMET" H 3650 2850 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 3650 2850 50  0001 C CNN "Order"
+F 4 "Samsung Electro-Mechanics" H 3650 2850 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Samsung-Electro-Mechanics/CL10B104JB8NNNC?qs=349EhDEZ59oLEw5wc1qvGw%3D%3D" H 3650 2850 50  0001 C CNN "Order"
 	1    3650 2850
 	1    0    0    -1  
 $EndComp
@@ -245,6 +255,8 @@ F 0 "F301" V 1155 2200 50  0000 C CNN
 F 1 "1812L050/60MR" V 1064 2200 50  0000 C CNN
 F 2 "Fuse:Fuse_1812_4532Metric" H 1000 2000 50  0001 L CNN
 F 3 "~" H 950 2200 50  0001 C CNN
+F 4 "Littelfuse" H 950 2200 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Littelfuse/1812L050-60MR?qs=lM4gFlnEeEOTL6GzziLnSw%3D%3D" H 950 2200 50  0001 C CNN "Order"
 	1    950  2200
 	0    -1   -1   0   
 $EndComp
@@ -278,6 +290,8 @@ F 0 "U301" H 6400 3550 50  0000 C CNN
 F 1 "USBLC6-2SC6" H 7000 3550 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23-6" H 6650 2700 50  0001 C CNN
 F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 6850 3550 50  0001 C CNN
+F 4 "STMicroelectornics" H 6650 3200 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/STMicroelectronics/USBLC6-2SC6?qs=po45yt2pPpu%2FhNIlwQdTlg%3D%3D" H 6650 3200 50  0001 C CNN "Order"
 	1    6650 3200
 	1    0    0    -1  
 $EndComp
@@ -297,7 +311,9 @@ P 1850 2200
 F 0 "FB301" V 1613 2200 50  0000 C CNN
 F 1 "600R@100MHz" V 1704 2200 50  0000 C CNN
 F 2 "Inductor_SMD:L_0603_1608Metric" V 1780 2200 50  0001 C CNN
-F 3 "MI0603J601R-10" H 1850 2200 50  0001 C CNN
+F 3 "~" H 1850 2200 50  0001 C CNN
+F 4 "Murata Electronics" H 1850 2200 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Murata-Electronics/BLM18SP601SH1D?qs=W%2FMpXkg%252BdQ5h2YDxhlPgmw%3D%3D" H 1850 2200 50  0001 C CNN "Order"
 	1    1850 2200
 	0    1    1    0   
 $EndComp
@@ -316,6 +332,8 @@ F 0 "C301" H 1442 2396 50  0000 L CNN
 F 1 "10n" H 1442 2305 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 1350 2350 50  0001 C CNN
 F 3 "~" H 1350 2350 50  0001 C CNN
+F 4 "KEMET" H 1350 2350 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/KEMET/C0603C103J5RACTU?qs=BimOss5pjlFJEfKhlb7g1g%3D%3D" H 1350 2350 50  0001 C CNN "Order"
 	1    1350 2350
 	1    0    0    -1  
 $EndComp

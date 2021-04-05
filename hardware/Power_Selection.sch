@@ -98,6 +98,8 @@ F 0 "U501" H 2400 2675 50  0000 C CNN
 F 1 "TPS2115A-Q1" H 2400 2584 50  0000 C CNN
 F 2 "watch:TSSOP-8_3x6.4_P0.65mm" H 3300 3050 50  0001 C CNN
 F 3 "" H 3300 3050 50  0001 C CNN
+F 4 "Texas Instruments" H 2400 2200 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Texas-Instruments/TPS2115AIPWRQ1?qs=%2Fha2pyFadugZrMbQPJQt%252BSVlkr%252BjGGlgJkJQJe24P%252BubSh98JtzVLQ%3D%3D" H 2400 2200 50  0001 C CNN "Order"
 	1    2400 2200
 	1    0    0    -1  
 $EndComp
@@ -111,7 +113,8 @@ F 0 "R501" H 2059 2646 50  0000 L CNN
 F 1 "1k" H 2059 2555 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2000 2600 50  0001 C CNN
 F 3 "~" H 2000 2600 50  0001 C CNN
-F 4 "" H 2000 2600 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 2000 2600 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 2000 2600 50  0001 C CNN "Manufacturer"
 	1    2000 2600
 	1    0    0    -1  
 $EndComp

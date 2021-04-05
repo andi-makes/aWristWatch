@@ -423,6 +423,8 @@ F 0 "R601" V 1004 3950 50  0000 C CNN
 F 1 "1k" V 1095 3950 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 1200 3950 50  0001 C CNN
 F 3 "~" H 1200 3950 50  0001 C CNN
+F 4 "TE Connectivity / Holsworthy" H 1200 3950 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 1200 3950 50  0001 C CNN "Order"
 	1    1200 3950
 	0    1    1    0   
 $EndComp
@@ -440,6 +442,8 @@ F 0 "R603" V 2204 3950 50  0000 C CNN
 F 1 "1k" V 2295 3950 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2400 3950 50  0001 C CNN
 F 3 "~" H 2400 3950 50  0001 C CNN
+F 4 "TE Connectivity / Holsworthy" H 2400 3950 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 2400 3950 50  0001 C CNN "Order"
 	1    2400 3950
 	0    1    1    0   
 $EndComp
@@ -485,6 +489,8 @@ F 0 "J601" H 4250 3117 50  0000 C CNN
 F 1 "SWD" H 4250 3026 50  0000 C CNN
 F 2 "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" H 4200 2800 50  0001 C CNN
 F 3 "~" H 4200 2800 50  0001 C CNN
+F 4 "Mill-Max" H 4200 2800 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Mill-Max/855-22-006-10-001101?qs=mPCt1EmoOdSJhsMqOzcHKA%3D%3D" H 4200 2800 50  0001 C CNN "Order"
 	1    4200 2800
 	1    0    0    -1  
 $EndComp

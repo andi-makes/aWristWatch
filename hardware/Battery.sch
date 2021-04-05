@@ -104,7 +104,8 @@ F 0 "R403" H 3309 2196 50  0000 L CNN
 F 1 "3k9" H 3309 2105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 3250 2150 50  0001 C CNN
 F 3 "~" H 3250 2150 50  0001 C CNN
-F 4 "" H 3250 2150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F3K9?qs=%2Fha2pyFaduj8qGn91HGzk%2F8kvmOrHSLEzveCoZJh19NXlgDLdxx7mg%3D%3D" H 3250 2150 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 3250 2150 50  0001 C CNN "Manufacturer"
 	1    3250 2150
 	1    0    0    -1  
 $EndComp
@@ -168,6 +169,8 @@ F 0 "U403" H 5750 2525 50  0000 C CNN
 F 1 "TLV810E" H 5750 2434 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6150 2950 50  0001 C CNN
 F 3 "" H 6150 2950 50  0001 C CNN
+F 4 "Texas Instruments" H 5750 2250 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Texas-Instruments/TLV810EA29DBZR?qs=OlC7AqGiEDn%2F4%252BrWzJaHww%3D%3D" H 5750 2250 50  0001 C CNN "Order"
 	1    5750 2250
 	1    0    0    -1  
 $EndComp
@@ -311,7 +314,8 @@ F 0 "R401" H 2709 2646 50  0000 L CNN
 F 1 "2k7" H 2709 2555 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 2600 50  0001 C CNN
 F 3 "~" H 2650 2600 50  0001 C CNN
-F 4 "" H 2650 2600 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F2K7?qs=wUXugUrL1qwUN23XEDlhqg%3D%3D" H 2650 2600 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 2650 2600 50  0001 C CNN "Manufacturer"
 	1    2650 2600
 	1    0    0    -1  
 $EndComp
@@ -323,7 +327,8 @@ F 0 "R402" H 2709 3446 50  0000 L CNN
 F 1 "2k7" H 2709 3355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 3400 50  0001 C CNN
 F 3 "~" H 2650 3400 50  0001 C CNN
-F 4 "" H 2650 3400 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F2K7?qs=wUXugUrL1qwUN23XEDlhqg%3D%3D" H 2650 3400 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 2650 3400 50  0001 C CNN "Manufacturer"
 	1    2650 3400
 	1    0    0    -1  
 $EndComp
