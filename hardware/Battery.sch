@@ -61,6 +61,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric" H 2950 1850 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 2950 1850 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 2950 1850 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 2950 1850 50  0001 C CNN "Manufacturer"
+F 6 "CL10B106MQ8NRNC" H 2950 1850 50  0001 C CNN "MNR"
 	1    2950 1850
 	1    0    0    -1  
 $EndComp
@@ -76,6 +77,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric" H 4400 1950 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 4400 1950 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 4400 1950 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 4400 1950 50  0001 C CNN "Manufacturer"
+F 6 "CL10B106MQ8NRNC" H 4400 1950 50  0001 C CNN "MNR"
 	1    4400 1950
 	1    0    0    -1  
 $EndComp
@@ -91,6 +93,7 @@ F 2 "Package_TO_SOT_SMD:SOT-23-5" H 3800 1650 50  0001 L CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 3600 1850 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/579-MCP73831T-2ACIOT" H 3750 1900 50  0001 C CNN "Order"
 F 5 "Microchip Technology" H 3750 1900 50  0001 C CNN "Manufacturer"
+F 6 "MCP73831T-2ACI/OT" H 3750 1900 50  0001 C CNN "MNR"
 	1    3750 1900
 	1    0    0    -1  
 $EndComp
@@ -106,6 +109,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 3250 2150 50  0001 C CNN
 F 3 "~" H 3250 2150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F3K9?qs=%2Fha2pyFaduj8qGn91HGzk%2F8kvmOrHSLEzveCoZJh19NXlgDLdxx7mg%3D%3D" H 3250 2150 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 3250 2150 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F3K9" H 3250 2150 50  0001 C CNN "MNR"
 	1    3250 2150
 	1    0    0    -1  
 $EndComp
@@ -129,7 +133,7 @@ P 4750 2050
 AR Path="/60645BC2" Ref="BT?"  Part="1" 
 AR Path="/6063DAC2/60645BC2" Ref="BT401"  Part="1" 
 F 0 "BT401" H 4868 2146 50  0000 L CNN
-F 1 "Battery_Cell" H 4868 2055 50  0000 L CNN
+F 1 "LIPO" H 4868 2055 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" V 4750 2110 50  0001 C CNN
 F 3 "~" V 4750 2110 50  0001 C CNN
 F 4 "https://www.amazon.de/YUNIQUE-Deutschland-Quadrocopter-Ersatzteil-Batterie/dp/B07BB62M5C/ref=pd_sim_1?pd_rd_w=grvwY&pf_rd_p=9a7fe8f3-0fa4-47a4-8b98-93a5088bcc79&pf_rd_r=9ZV7KNMHJY2EC7A02PM1&pd_rd_r=bac63601-7990-4842-bd78-0305b9f2aef1&pd_rd_wg=wa44J&pd_rd_i=B07BB62M5C&psc=1" H 4750 2050 50  0001 C CNN "Order"
@@ -157,6 +161,7 @@ F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6400 2000 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6200 1900 50  0001 C CNN
 F 4 "Diodes Incorporated" H 6200 1900 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6200 1900 50  0001 C CNN "Order"
+F 6 "DMP2110UW-7" H 6200 1900 50  0001 C CNN "MNR"
 	1    6200 1900
 	0    1    -1   0   
 $EndComp
@@ -171,6 +176,7 @@ F 2 "Package_TO_SOT_SMD:SOT-23" H 6150 2950 50  0001 C CNN
 F 3 "" H 6150 2950 50  0001 C CNN
 F 4 "Texas Instruments" H 5750 2250 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Texas-Instruments/TLV810EA29DBZR?qs=OlC7AqGiEDn%2F4%252BrWzJaHww%3D%3D" H 5750 2250 50  0001 C CNN "Order"
+F 6 "TLV810EA29DBZR" H 5750 2250 50  0001 C CNN "MNR"
 	1    5750 2250
 	1    0    0    -1  
 $EndComp
@@ -220,6 +226,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2300 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2300 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2300 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 6800 2300 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F47K" H 6800 2300 50  0001 C CNN "MNR"
 	1    6800 2300
 	1    0    0    -1  
 $EndComp
@@ -235,6 +242,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2000 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2000 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2000 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 6800 2000 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F47K" H 6800 2000 50  0001 C CNN "MNR"
 	1    6800 2000
 	1    0    0    -1  
 $EndComp
@@ -264,6 +272,7 @@ F 2 "watch:Sc70-6" H 2300 1850 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/lm66100.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.it%2F&distId=26" H 2300 1850 50  0001 C CNN
 F 4 "Texas Instruments" H 1950 1600 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/595-LM66100DCKR" H 1950 1600 50  0001 C CNN "Order"
+F 6 "LM66100DCKR" H 1950 1600 50  0001 C CNN "MNR"
 	1    1950 1600
 	1    0    0    -1  
 $EndComp
@@ -303,6 +312,7 @@ F 3 "https://www.mouser.at/datasheet/2/216/AA1608SURSK-1951973.pdf" V 2650 2850 
 F 4 "AA1608SURSK" V 2650 2850 50  0001 C CNN "Part Number"
 F 5 "Kingbright" V 2650 2850 50  0001 C CNN "Manufacturer"
 F 6 "https://www.mouser.at/ProductDetail/Kingbright/AA1608SURSK?qs=eP2BKZSCXI6pqonvuMmTFg%3D%3D" H 2650 2850 50  0001 C CNN "Order"
+F 7 "AA1608SURSK" H 2650 2850 50  0001 C CNN "MNR"
 	1    2650 2850
 	0    -1   -1   0   
 $EndComp
@@ -316,6 +326,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 2600 50  0001 C CNN
 F 3 "~" H 2650 2600 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F2K7?qs=wUXugUrL1qwUN23XEDlhqg%3D%3D" H 2650 2600 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 2650 2600 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F2K7" H 2650 2600 50  0001 C CNN "MNR"
 	1    2650 2600
 	1    0    0    -1  
 $EndComp
@@ -329,6 +340,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 2650 3400 50  0001 C CNN
 F 3 "~" H 2650 3400 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F2K7?qs=wUXugUrL1qwUN23XEDlhqg%3D%3D" H 2650 3400 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 2650 3400 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F2K7" H 2650 3400 50  0001 C CNN "MNR"
 	1    2650 3400
 	1    0    0    -1  
 $EndComp
@@ -343,6 +355,7 @@ F 3 "https://www.mouser.at/datasheet/2/216/AA1608CGSK-1951957.pdf" V 2650 3150 5
 F 4 "Kingbright" H 2650 3150 50  0001 C CNN "Manufacturer"
 F 5 "AA1608CGSK" H 2650 3150 50  0001 C CNN "Part Number"
 F 6 "https://www.mouser.at/ProductDetail/Kingbright/AA1608CGSK?qs=%2Fha2pyFadujroVvVMWEuOp8b2ZvB17TZCtvrJxnHY68n8r1EECXbcw%3D%3D" H 2650 3150 50  0001 C CNN "Order"
+F 7 "AA1608CGSK" H 2650 3150 50  0001 C CNN "MNR"
 	1    2650 3150
 	0    -1   -1   0   
 $EndComp

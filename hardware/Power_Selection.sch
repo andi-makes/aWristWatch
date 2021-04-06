@@ -30,6 +30,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 3250 2200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 3250 2200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B105MO8NNWC" H 3250 2200 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 3250 2200 50  0001 C CNN "Manufacturer"
+F 6 "CL10B105MO8NNWC" H 3250 2200 50  0001 C CNN "MNR"
 	1    3250 2200
 	1    0    0    -1  
 $EndComp
@@ -64,6 +65,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 4400 2200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 4400 2200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B105MO8NNWC" H 4400 2200 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 4400 2200 50  0001 C CNN "Manufacturer"
+F 6 "CL10B105MO8NNWC" H 4400 2200 50  0001 C CNN "MNR"
 	1    4400 2200
 	1    0    0    -1  
 $EndComp
@@ -85,6 +87,7 @@ F 2 "Package_TO_SOT_SMD:SOT-23-5" H 3850 2425 50  0001 C CIN
 F 3 "http://www.ti.com/lit/ds/symlink/tlv700.pdf" H 3850 2150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/595-TLV70033DDCR" H 3850 2100 50  0001 C CNN "Order"
 F 5 "Texas Instruments" H 3850 2100 50  0001 C CNN "Manufacturer"
+F 6 "TLV70033DDCR" H 3850 2100 50  0001 C CNN "MNR"
 	1    3850 2100
 	1    0    0    -1  
 $EndComp
@@ -100,6 +103,7 @@ F 2 "watch:TSSOP-8_3x6.4_P0.65mm" H 3300 3050 50  0001 C CNN
 F 3 "" H 3300 3050 50  0001 C CNN
 F 4 "Texas Instruments" H 2400 2200 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Texas-Instruments/TPS2115AIPWRQ1?qs=%2Fha2pyFadugZrMbQPJQt%252BSVlkr%252BjGGlgJkJQJe24P%252BubSh98JtzVLQ%3D%3D" H 2400 2200 50  0001 C CNN "Order"
+F 6 "TPS2115AIPWRQ1" H 2400 2200 50  0001 C CNN "MNR"
 	1    2400 2200
 	1    0    0    -1  
 $EndComp
@@ -115,6 +119,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 2000 2600 50  0001 C CNN
 F 3 "~" H 2000 2600 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 2000 2600 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 2000 2600 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F1K0" H 2000 2600 50  0001 C CNN "MNR"
 	1    2000 2600
 	1    0    0    -1  
 $EndComp
@@ -188,6 +193,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 1000 2250 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1000 2250 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1000 2250 50  0001 C CNN "Order"
 F 5 "KEMET" H 1000 2250 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 1000 2250 50  0001 C CNN "MNR"
 	1    1000 2250
 	1    0    0    -1  
 $EndComp
@@ -203,6 +209,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 1450 2250 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1450 2250 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1450 2250 50  0001 C CNN "Order"
 F 5 "KEMET" H 1450 2250 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 1450 2250 50  0001 C CNN "MNR"
 	1    1450 2250
 	1    0    0    -1  
 $EndComp

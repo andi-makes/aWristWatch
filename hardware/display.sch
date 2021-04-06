@@ -25,6 +25,7 @@ F 2 "Display_7Segment:KCSC02-105" H 2650 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 2150 3625 50  0001 L CNN
 F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 2650 3150 50  0001 C CNN "Order"
 F 5 "Kingbright" H 2650 3150 50  0001 C CNN "Manufacturer"
+F 6 "KCSA02-105" H 2650 3150 50  0001 C CNN "MNR"
 	1    2650 3150
 	1    0    0    -1  
 $EndComp
@@ -40,6 +41,7 @@ F 2 "Display_7Segment:KCSC02-105" H 4100 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 3600 3625 50  0001 L CNN
 F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 4100 3150 50  0001 C CNN "Order"
 F 5 "Kingbright" H 4100 3150 50  0001 C CNN "Manufacturer"
+F 6 "KCSA02-105" H 4100 3150 50  0001 C CNN "MNR"
 	1    4100 3150
 	1    0    0    -1  
 $EndComp
@@ -92,6 +94,7 @@ F 2 "Display_7Segment:KCSC02-105" H 7000 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 6500 3625 50  0001 L CNN
 F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 7000 3150 50  0001 C CNN "Order"
 F 5 "Kingbright" H 7000 3150 50  0001 C CNN "Manufacturer"
+F 6 "KCSA02-105" H 7000 3150 50  0001 C CNN "MNR"
 	1    7000 3150
 	1    0    0    -1  
 $EndComp
@@ -130,6 +133,7 @@ F 2 "Display_7Segment:KCSC02-105" H 5550 2550 50  0001 C CNN
 F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/KCSA02-105(Ver.10A).pdf" H 5050 3625 50  0001 L CNN
 F 4 "https://www.mouser.at/ProductDetail/604-ACSA02-41SURKWA" H 5550 3150 50  0001 C CNN "Order"
 F 5 "Kingbright" H 5550 3150 50  0001 C CNN "Manufacturer"
+F 6 "KCSA02-105" H 5550 3150 50  0001 C CNN "MNR"
 	1    5550 3150
 	1    0    0    -1  
 $EndComp
@@ -177,6 +181,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 2100 5100 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 2100 5100 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "Order"
 F 5 "Panasonic" H 2100 5100 50  0001 C CNN "Manufacturer"
+F 6 "ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "MNR"
 	1    2100 5100
 	1    0    0    -1  
 $EndComp
@@ -192,6 +197,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 1900 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1900 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1900 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 1900 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 1900 4200 50  0001 C CNN "MNR"
 	1    1900 4200
 	1    0    0    -1  
 $EndComp
@@ -285,6 +291,7 @@ F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 2650 5050 50  000
 F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 2650 5050 50  0001 C CNN "Order"
 F 5 "STMicroelectornics" H 2650 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 2650 5050 50  0001 C CNN "Part Number"
+F 7 "STP08DP05TTR" H 2650 5050 50  0001 C CNN "MNR"
 	1    2650 5050
 	1    0    0    -1  
 $EndComp
@@ -301,6 +308,7 @@ F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 4100 5050 50  000
 F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 4100 5050 50  0001 C CNN "Order"
 F 5 "STMicroelectornics" H 4100 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 4100 5050 50  0001 C CNN "Part Number"
+F 7 "STP08DP05TTR" H 4100 5050 50  0001 C CNN "MNR"
 	1    4100 5050
 	1    0    0    -1  
 $EndComp
@@ -352,6 +360,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 3550 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 3550 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 3550 5150 50  0001 C CNN "Manufacturer"
+F 6 "ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "MNR"
 	1    3550 5150
 	1    0    0    -1  
 $EndComp
@@ -385,6 +394,7 @@ F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 5550 5050 50  000
 F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 5550 5050 50  0001 C CNN "Order"
 F 5 "STMicroelectornics" H 5550 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 5550 5050 50  0001 C CNN "Part Number"
+F 7 "STP08DP05TTR" H 5550 5050 50  0001 C CNN "MNR"
 	1    5550 5050
 	1    0    0    -1  
 $EndComp
@@ -438,6 +448,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 5000 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 5000 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 5000 5150 50  0001 C CNN "Manufacturer"
+F 6 "ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "MNR"
 	1    5000 5150
 	1    0    0    -1  
 $EndComp
@@ -471,6 +482,7 @@ F 3 "https://www.st.com/resource/en/datasheet/stp08cp05.pdf" H 7000 5050 50  000
 F 4 "https://www.mouser.at/ProductDetail/511-STP08DP05TTR" H 7000 5050 50  0001 C CNN "Order"
 F 5 "STMicroelectornics" H 7000 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 7000 5050 50  0001 C CNN "Part Number"
+F 7 "STP08DP05TTR" H 7000 5050 50  0001 C CNN "MNR"
 	1    7000 5050
 	1    0    0    -1  
 $EndComp
@@ -524,6 +536,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 6450 5150 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 6450 5150 50  0001 C CNN "Manufacturer"
+F 6 "ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "MNR"
 	1    6450 5150
 	1    0    0    -1  
 $EndComp
@@ -556,6 +569,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 3400 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 3400 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 3400 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 3400 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 3400 4200 50  0001 C CNN "MNR"
 	1    3400 4200
 	1    0    0    -1  
 $EndComp
@@ -597,6 +611,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 4850 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4850 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4850 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 4850 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 4850 4200 50  0001 C CNN "MNR"
 	1    4850 4200
 	1    0    0    -1  
 $EndComp
@@ -638,6 +653,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 6300 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 6300 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 6300 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 6300 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 6300 4200 50  0001 C CNN "MNR"
 	1    6300 4200
 	1    0    0    -1  
 $EndComp

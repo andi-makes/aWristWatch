@@ -25,6 +25,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric" H 3700 1600 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 3700 1600 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 3700 1600 50  0001 C CNN "Order"
 F 5 "Samsung Electro-Mechanics" H 3700 1600 50  0001 C CNN "Manufacturer"
+F 6 "CL10B106MQ8NRNC" H 3700 1600 50  0001 C CNN "MNR"
 	1    3700 1600
 	1    0    0    -1  
 $EndComp
@@ -40,6 +41,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 4150 1600 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4150 1600 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4150 1600 50  0001 C CNN "Order"
 F 5 "KEMET" H 4150 1600 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 4150 1600 50  0001 C CNN "MNR"
 	1    4150 1600
 	1    0    0    -1  
 $EndComp
@@ -81,6 +83,7 @@ F 2 "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm" H 950 2300 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/3/ABS07-166-32.768kHz-T-1359238.pdf" H 950 2300 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/815-ABS0716632.768KT" H 950 2300 50  0001 C CNN "Order"
 F 5 "ABRACON" H 950 2300 50  0001 C CNN "Manufacturer"
+F 6 "ABS07-166-32.768KHZ-T" H 950 2300 50  0001 C CNN "MNR"
 	1    950  2300
 	1    0    0    -1  
 $EndComp
@@ -96,6 +99,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 600 2450 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1007_X8R_ULTRA_150C_SMD-1102703.pdf" H 600 2450 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C120K5HACTU" H 600 2450 50  0001 C CNN "Order"
 F 5 "KEMET" H 600 2450 50  0001 C CNN "Manufacturer"
+F 6 "C0603C120K5HACTU" H 600 2450 50  0001 C CNN "MNR"
 	1    600  2450
 	1    0    0    -1  
 $EndComp
@@ -111,6 +115,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 1300 2450 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1007_X8R_ULTRA_150C_SMD-1102703.pdf" H 1300 2450 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C120K5HACTU" H 1300 2450 50  0001 C CNN "Order"
 F 5 "KEMET" H 1300 2450 50  0001 C CNN "Manufacturer"
+F 6 "C0603C120K5HACTU" H 1300 2450 50  0001 C CNN "MNR"
 	1    1300 2450
 	1    0    0    -1  
 $EndComp
@@ -143,6 +148,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 4600 1600 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4600 1600 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4600 1600 50  0001 C CNN "Order"
 F 5 "KEMET" H 4600 1600 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 4600 1600 50  0001 C CNN "MNR"
 	1    4600 1600
 	1    0    0    -1  
 $EndComp
@@ -186,6 +192,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 1450 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 1450 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 1450 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 1450 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 1450 4200 50  0001 C CNN "MNR"
 	1    1450 4200
 	1    0    0    -1  
 $EndComp
@@ -201,6 +208,7 @@ F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2" H 950 4400 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/60/kmr2-1841878.pdf" H 950 4400 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/611-KMR211G-LFS" V 950 4200 50  0001 C CNN "Order"
 F 5 "C&K" H 950 4200 50  0001 C CNN "Manufacturer"
+F 6 "KMR211GLFS" H 950 4200 50  0001 C CNN "MNR"
 	1    950  4200
 	0    -1   -1   0   
 $EndComp
@@ -282,6 +290,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 2650 4200 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 2650 4200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 2650 4200 50  0001 C CNN "Order"
 F 5 "KEMET" H 2650 4200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 2650 4200 50  0001 C CNN "MNR"
 	1    2650 4200
 	1    0    0    -1  
 $EndComp
@@ -310,6 +319,7 @@ F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2" H 2150 4400 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/60/kmr2-1841878.pdf" H 2150 4400 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/611-KMR211G-LFS" V 2150 4200 50  0001 C CNN "Order"
 F 5 "C&K" H 2150 4200 50  0001 C CNN "Manufacturer"
+F 6 "KMR211GLFS" H 2150 4200 50  0001 C CNN "MNR"
 	1    2150 4200
 	0    -1   -1   0   
 $EndComp
@@ -342,6 +352,7 @@ F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 1900 1500 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00206508.pdf" H 2300 2200 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/511-STM32L011F4P6TR" H 2300 2200 50  0001 C CNN "Order"
 F 5 "STMicroelectornics" H 2300 2200 50  0001 C CNN "Manufacturer"
+F 6 "STM32L011F4P6TR" H 2300 2200 50  0001 C CNN "MNR"
 	1    2300 2200
 	1    0    0    -1  
 $EndComp
@@ -412,6 +423,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 1550 3000 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 1550 3000 50  0001 C CNN
 F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F100K" H 1550 3000 50  0001 C CNN "Order"
 F 5 "TE Connectivity / Holsworthy" H 1550 3000 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F100K" H 1550 3000 50  0001 C CNN "MNR"
 	1    1550 3000
 	1    0    0    -1  
 $EndComp
@@ -425,6 +437,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 1200 3950 50  0001 C CNN
 F 3 "~" H 1200 3950 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 1200 3950 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 1200 3950 50  0001 C CNN "Order"
+F 6 "CRGP0603F1K0" H 1200 3950 50  0001 C CNN "MNR"
 	1    1200 3950
 	0    1    1    0   
 $EndComp
@@ -444,6 +457,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 2400 3950 50  0001 C CNN
 F 3 "~" H 2400 3950 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 2400 3950 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 2400 3950 50  0001 C CNN "Order"
+F 6 "CRGP0603F1K0" H 2400 3950 50  0001 C CNN "MNR"
 	1    2400 3950
 	0    1    1    0   
 $EndComp
@@ -491,6 +505,7 @@ F 2 "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" H 4200 2800 50  
 F 3 "~" H 4200 2800 50  0001 C CNN
 F 4 "Mill-Max" H 4200 2800 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Mill-Max/855-22-006-10-001101?qs=mPCt1EmoOdSJhsMqOzcHKA%3D%3D" H 4200 2800 50  0001 C CNN "Order"
+F 6 "855-22-006-10-001101" H 4200 2800 50  0001 C CNN "MNR"
 	1    4200 2800
 	1    0    0    -1  
 $EndComp

@@ -29,6 +29,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 3150 2300 50  0001 C CNN
 F 3 "~" H 3150 2300 50  0001 C CNN
 F 4 "KEMET" H 3150 2300 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/KEMET/C0603C470J5RACTU?qs=Mv1qlCsH0%252BFrXcCYJrgV0A%3D%3D" H 3150 2300 50  0001 C CNN "Order"
+F 6 "C0603C470J5RACTU" H 3150 2300 50  0001 C CNN "MNR"
 	1    3150 2300
 	1    0    0    -1  
 $EndComp
@@ -42,6 +43,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 3700 2400 50  0001 C CNN
 F 3 "~" H 3700 2400 50  0001 C CNN
 F 4 "KEMET" H 3700 2400 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/KEMET/C0603C470J5RACTU?qs=Mv1qlCsH0%252BFrXcCYJrgV0A%3D%3D" H 3700 2400 50  0001 C CNN "Order"
+F 6 "C0603C470J5RACTU" H 3700 2400 50  0001 C CNN "MNR"
 	1    3700 2400
 	1    0    0    -1  
 $EndComp
@@ -63,6 +65,7 @@ F 2 "Package_DFN_QFN:QFN-16-1EP_4x4mm_P0.65mm_EP2.1x2.1mm" H 6700 1650 50  0001 
 F 3 "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT230X.pdf" H 5350 2250 50  0001 C CNN
 F 4 "FTDI" H 5350 2250 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/FTDI/FT230XQ-R?qs=Gp1Yz1mis3VvmXwyDmIHOg%3D%3D" H 5350 2250 50  0001 C CNN "Order"
+F 6 "FT230XQ-R" H 5350 2250 50  0001 C CNN "MNR"
 	1    5350 2250
 	1    0    0    -1  
 $EndComp
@@ -76,6 +79,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 4050 2150 50  0001 C CNN
 F 3 "~" H 4050 2150 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 4050 2150 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F27R?qs=wUXugUrL1qwrkVmXivS5zA%3D%3D" H 4050 2150 50  0001 C CNN "Order"
+F 6 "CRGP0603F27R" H 4050 2150 50  0001 C CNN "MNR"
 	1    4050 2150
 	0    -1   -1   0   
 $EndComp
@@ -89,6 +93,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 4050 2250 50  0001 C CNN
 F 3 "~" H 4050 2250 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 4050 2250 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F27R?qs=wUXugUrL1qwrkVmXivS5zA%3D%3D" H 4050 2250 50  0001 C CNN "Order"
+F 6 "CRGP0603F27R" H 4050 2250 50  0001 C CNN "MNR"
 	1    4050 2250
 	0    -1   -1   0   
 $EndComp
@@ -139,6 +144,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 2850 2850 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 2850 2850 50  0001 C CNN
 F 4 "KEMET" H 2850 2850 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 2850 2850 50  0001 C CNN "Order"
+F 6 "C0603C104M4RACTU" H 2850 2850 50  0001 C CNN "MNR"
 	1    2850 2850
 	1    0    0    -1  
 $EndComp
@@ -177,6 +183,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 4200 1400 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4200 1400 50  0001 C CNN
 F 4 "KEMET" H 4200 1400 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4200 1400 50  0001 C CNN "Order"
+F 6 "C0603C104M4RACTU" H 4200 1400 50  0001 C CNN "MNR"
 	1    4200 1400
 	1    0    0    -1  
 $EndComp
@@ -190,6 +197,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric" H 3850 1400 50  0001 C CNN
 F 3 "~" H 3850 1400 50  0001 C CNN
 F 4 "KEMET" H 3850 1400 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/KEMET/C0805C475J4RACAUTO7210?qs=HXFqYaX1Q2wFM9xlsa%252BZZw%3D%3D" H 3850 1400 50  0001 C CNN "Order"
+F 6 "C0805C475J4RACAUTO7210" H 3850 1400 50  0001 C CNN "MNR"
 	1    3850 1400
 	1    0    0    -1  
 $EndComp
@@ -241,6 +249,7 @@ F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6650 1450 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6450 1350 50  0001 C CNN
 F 4 "Diodes Incorporated" H 6450 1350 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6450 1350 50  0001 C CNN "Order"
+F 6 "DMP2110UW-7" H 6450 1350 50  0001 C CNN "MNR"
 	1    6450 1350
 	0    1    -1   0   
 $EndComp
@@ -257,6 +266,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 2050 50  0001 C CNN
 F 3 "~" H 6450 2050 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 6450 2050 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 6450 2050 50  0001 C CNN "Order"
+F 6 "CRGP0603F1K0" H 6450 2050 50  0001 C CNN "MNR"
 	1    6450 2050
 	1    0    0    -1  
 $EndComp
@@ -270,6 +280,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric" H 6050 1450 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6050 1450 50  0001 C CNN
 F 4 "TE Connectivity / Holsworthy" H 6050 1450 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/279-CRGP0603F100K" H 6050 1450 50  0001 C CNN "Order"
+F 6 "CRGP0603F100K" H 6050 1450 50  0001 C CNN "MNR"
 	1    6050 1450
 	1    0    0    -1  
 $EndComp
@@ -301,6 +312,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 6800 1400 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 6800 1400 50  0001 C CNN
 F 4 "KEMET" H 6800 1400 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 6800 1400 50  0001 C CNN "Order"
+F 6 "C0603C104M4RACTU" H 6800 1400 50  0001 C CNN "MNR"
 	1    6800 1400
 	1    0    0    -1  
 $EndComp
@@ -322,6 +334,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric" H 7300 1400 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 7300 1400 50  0001 C CNN
 F 4 "KEMET" H 7300 1400 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 7300 1400 50  0001 C CNN "Order"
+F 6 "C0603C104M4RACTU" H 7300 1400 50  0001 C CNN "MNR"
 	1    7300 1400
 	1    0    0    -1  
 $EndComp

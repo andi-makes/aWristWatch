@@ -112,6 +112,7 @@ F 2 "watch:DX07S016JA1R1500" H 3350 3750 50  0001 C CNN
 F 3 "https://www.jae.com/en/connectors/series/detail/product/id=91780" H 3350 3750 50  0001 C CNN
 F 4 "JAE Electronics" H 3200 3750 50  0001 C CNN "Manufacturer"
 F 5 "https://www.mouser.at/ProductDetail/JAE-Electronics/DX07S016JA1R1500?qs=%2Fha2pyFaduhIxG%252BJ4XjlZeX%2FOvIg0QPAOjcqMfE5RQ7WfL0OkHc3Zw%3D%3D" H 3200 3750 50  0001 C CNN "Order"
+F 6 "DX07S016JA1R1500" H 3200 3750 50  0001 C CNN "MNR"
 	1    3200 3750
 	1    0    0    -1  
 $EndComp
