@@ -179,9 +179,9 @@ F 0 "R201" H 2159 5146 50  0000 L CNN
 F 1 "6k8" H 2159 5055 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 2100 5100 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 2100 5100 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/Panasonic/ERJ-PA3F6801V?qs=BzJM0faLVqWJZPQb%2FyZvrw%3D%3D" H 2100 5100 50  0001 C CNN "Order"
 F 5 "Panasonic" H 2100 5100 50  0001 C CNN "Manufacturer"
-F 6 "ERJ-PA3F2001V" H 2100 5100 50  0001 C CNN "MNR"
+F 6 "ERJ-PA3F6801V" H 2100 5100 50  0001 C CNN "MNR"
 	1    2100 5100
 	1    0    0    -1  
 $EndComp
@@ -358,9 +358,9 @@ F 0 "R202" H 3609 5196 50  0000 L CNN
 F 1 "6k8" H 3609 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 3550 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 3550 5150 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/Panasonic/ERJ-PA3F6801V?qs=BzJM0faLVqWJZPQb%2FyZvrw%3D%3D" H 3550 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 3550 5150 50  0001 C CNN "Manufacturer"
-F 6 "ERJ-PA3F2001V" H 3550 5150 50  0001 C CNN "MNR"
+F 6 "ERJ-PA3F6801V" H 3550 5150 50  0001 C CNN "MNR"
 	1    3550 5150
 	1    0    0    -1  
 $EndComp
@@ -446,9 +446,9 @@ F 0 "R203" H 5059 5196 50  0000 L CNN
 F 1 "6k8" H 5059 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 5000 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 5000 5150 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/Panasonic/ERJ-PA3F6801V?qs=BzJM0faLVqWJZPQb%2FyZvrw%3D%3D" H 5000 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 5000 5150 50  0001 C CNN "Manufacturer"
-F 6 "ERJ-PA3F2001V" H 5000 5150 50  0001 C CNN "MNR"
+F 6 "ERJ-PA3F6801V" H 5000 5150 50  0001 C CNN "MNR"
 	1    5000 5150
 	1    0    0    -1  
 $EndComp
@@ -534,9 +534,9 @@ F 0 "R204" H 6509 5196 50  0000 L CNN
 F 1 "6k8" H 6509 5105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 5150 50  0001 C CNN
 F 3 "https://www.mouser.at/datasheet/2/315/AOA0000C331-1141874.pdf" H 6450 5150 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/667-ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "Order"
+F 4 "https://www.mouser.at/ProductDetail/Panasonic/ERJ-PA3F6801V?qs=BzJM0faLVqWJZPQb%2FyZvrw%3D%3D" H 6450 5150 50  0001 C CNN "Order"
 F 5 "Panasonic" H 6450 5150 50  0001 C CNN "Manufacturer"
-F 6 "ERJ-PA3F2001V" H 6450 5150 50  0001 C CNN "MNR"
+F 6 "ERJ-PA3F6801V" H 6450 5150 50  0001 C CNN "MNR"
 	1    6450 5150
 	1    0    0    -1  
 $EndComp
