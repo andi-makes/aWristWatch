@@ -368,13 +368,13 @@ F 3 "" H 1350 2500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1350 2500 1350 2450
-Text HLabel 7050 3100 2    50   Output ~ 0
-OUT_D+
 Text HLabel 6250 3100 0    50   Output ~ 0
+OUT_D+
+Text HLabel 7050 3100 2    50   Output ~ 0
 OUT_D-
-Text HLabel 7050 3300 2    50   Input ~ 0
-IN_D+
 Text HLabel 6250 3300 0    50   Input ~ 0
+IN_D+
+Text HLabel 7050 3300 2    50   Input ~ 0
 IN_D-
 $Comp
 L power:PWR_FLAG #FLG0102

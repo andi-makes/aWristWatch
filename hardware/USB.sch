@@ -15,9 +15,9 @@ Comment4 ""
 $EndDescr
 Text HLabel 3700 1250 0    50   Input ~ 0
 VBUS
-Text HLabel 3100 2150 0    50   Input ~ 0
-D+
 Text HLabel 3650 2250 0    50   Input ~ 0
+D+
+Text HLabel 3100 2150 0    50   Input ~ 0
 D-
 $Comp
 L Device:C_Small C702
@@ -363,9 +363,9 @@ Text HLabel 6050 1950 2    50   Input ~ 0
 RX
 Text HLabel 6050 2150 2    50   Input ~ 0
 CTS
-Text Label 4350 2150 0    50   ~ 0
-CHIP_D+
 Text Label 4350 2250 0    50   ~ 0
+CHIP_D+
+Text Label 4350 2150 0    50   ~ 0
 CHIP_D-
 Wire Wire Line
 	4150 2150 4650 2150
