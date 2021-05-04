@@ -139,7 +139,7 @@ namespace zol {
             using namespace zol::check_types;
             static_assert(bit < width<typename reg::type_t>(),
                           "Bitnumber out of bounds");
-            return reg::set_bit(bit);
+            reg::set_bit(bit);
         }
 
         bit_rs() = delete;
