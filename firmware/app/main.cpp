@@ -33,6 +33,10 @@ int main() {
     interrupt::enable();
     RTC::enable();
 
+    if (RTC::isr::WUTF::read()) {
+        RTC::isr::WUTF::clear();
+    }
+
     while (true) {
     }
 }
