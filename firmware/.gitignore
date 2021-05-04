@@ -3,3 +3,5 @@ build*
 .vscode/*
 !.vscode/tasks.json
 analyzers
+CMakeCache.txt
+CMakeFiles
