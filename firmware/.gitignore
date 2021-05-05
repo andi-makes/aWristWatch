@@ -5,3 +5,4 @@ build*
 analyzers
 CMakeCache.txt
 CMakeFiles
+.gdbinit
