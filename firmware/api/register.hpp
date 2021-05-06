@@ -38,11 +38,11 @@ namespace zol {
     /// @tparam address ... Address of the register
     template<std::unsigned_integral type, addr_t address>
     class reg {
-        constexpr static type or_together(type n) { return n; }
+        constexpr static type or_together(type n) { return type(1U << n); }
 
         template<std::unsigned_integral... T>
         constexpr static type or_together(type n, T... m) {
-            return n | or_together(m...);
+            return type(1U << n) | or_together(m...);
         }
 
     public:

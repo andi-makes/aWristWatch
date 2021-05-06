@@ -18,6 +18,8 @@ void SystemInit() {
 }
 
 int main() {
+    RTC::enable();
+
     if (!RTC::is_initialized()) {
         aww::sm::set_state(aww::sm::STATE::EDIT_HRS);
         RTC::set_time_and_date(0, 0, 0, 1, 1, 0x21);
@@ -31,7 +33,10 @@ int main() {
     input::setup();
 
     interrupt::enable();
-    RTC::enable();
+
+    if (RTC::isr::WUTF::read()) {
+        RTC::isr::WUTF::clear();
+    }
 
     while (true) {
     }
