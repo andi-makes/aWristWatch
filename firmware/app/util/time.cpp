@@ -17,6 +17,9 @@ void time::load() {
     while (RTC::isr::RSF::read() == 0) {
     }
     const auto time{ RTC::TR::get_reg() };
+    RTC::isr::RSF::clear();
+    while (RTC::isr::RSF::read() == 0) {
+    }
     const auto date{ RTC::DR::get_reg() };
 
     hrs = bcd_to_num((time & 0x3F0000U) >> 16U);

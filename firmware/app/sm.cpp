@@ -14,15 +14,14 @@ namespace aww::sm {
     STATE get_state() { return state; }
 
     void exec(const bool half_second) {
-        auto raw_time{ display::bcd_to_raw(
-            (aww::bcd::num_to_bcd(time::hrs) & 0xF0U) >> 4U,
-            aww::bcd::num_to_bcd(time::hrs) & 0xFU,
-            (aww::bcd::num_to_bcd(time::min) & 0xF0U) >> 4U,
-            aww::bcd::num_to_bcd(time::min) & 0xFU) };
-
         switch (state) {
         case STATE::DISPLAY_TIME: {
             time::load();
+            auto raw_time = display::bcd_to_raw(
+                (aww::bcd::num_to_bcd(time::hrs) & 0xF0U) >> 4U,
+                aww::bcd::num_to_bcd(time::hrs) & 0xFU,
+                (aww::bcd::num_to_bcd(time::min) & 0xF0U) >> 4U,
+                aww::bcd::num_to_bcd(time::min) & 0xFU);
             if (half_second) {
                 display::fill_buffer(raw_time | display::DP2);
             } else {
