@@ -245,7 +245,6 @@ namespace aww::sm {
                                      (display::brightness / 10U) % 10U,
                                      display::brightness % 10U);
             display::add_point(display::DP3 | display::DP4);
-            display::update_brightness();
         } break;
         }
         // Consume inputs, fixes input top/bottom bug

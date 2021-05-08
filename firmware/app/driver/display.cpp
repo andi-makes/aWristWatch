@@ -19,6 +19,13 @@ void SPI1_IRQHandler() {
         SPI1::CR1::clear_bit(SPI1::SPE);    // Disable SPI
         display::le::set_bit(low);
         display::le::set_bit(high);
+        if (display::ison) {
+            display::oe::set_mode(gpio::MODE::ALTERNATE);
+            LPTIM1::CMP::set_reg(display::brightness & 0xFFU);
+        } else {
+            display::oe::set_mode(gpio::MODE::OUTPUT);
+            display::oe::set_bit(high);
+        }
     }
     scnd = !scnd;
 }
@@ -28,33 +35,13 @@ uint8_t display::brightness{ 1 };
 bool display::ison{ true };
 
 void display::on() {
-    oe::set_mode(gpio::MODE::ALTERNATE);
-    LPTIM1::CMP::set_reg(brightness & 0xFFU);
     ison = true;
 }
 
 void display::off() {
-    oe::set_mode(gpio::MODE::OUTPUT);
-    oe::set_bit(high);
     ison = false;
     display::fill_buffer_bcd(10U, 10U, 10U, 10U);
     display::send();
-}
-
-void display::update_brightness() {
-    if (!ison) {
-        return;
-    }
-    if (brightness == 0xFF) {
-        oe::set_mode(gpio::MODE::OUTPUT);
-        oe::set_bit(low);
-    } else if (brightness == 0) {
-        oe::set_mode(gpio::MODE::OUTPUT);
-        oe::set_bit(high);
-    } else {
-        oe::set_mode(gpio::MODE::ALTERNATE);
-        LPTIM1::CMP::set_reg(brightness & 0xFFU);
-    }
 }
 
 void display::setup() {
@@ -85,5 +72,7 @@ void display::setup() {
 
 void display::send() {
     SPI1::DR::set_reg(static_cast<SPI1::DR::type_t>(buffer & 0xFFFFU));
+    oe::set_mode(gpio::MODE::OUTPUT);
+    oe::set_bit(high);
     SPI1::CR1::set_bit(SPI1::SPE);    // Enable SPI
 }
