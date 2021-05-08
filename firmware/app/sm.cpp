@@ -248,5 +248,8 @@ namespace aww::sm {
             display::update_brightness();
         } break;
         }
+        // Consume inputs, fixes input top/bottom bug
+        input::is_down();
+        input::is_up();
     }
 }
