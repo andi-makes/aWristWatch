@@ -37,6 +37,8 @@ void display::off() {
     oe::set_mode(gpio::MODE::OUTPUT);
     oe::set_bit(high);
     ison = false;
+    display::fill_buffer_bcd(10U, 10U, 10U, 10U);
+    display::send();
 }
 
 void display::update_brightness() {
@@ -71,15 +73,6 @@ void display::setup() {
     clk::set_mode(gpio::MODE::ALTERNATE);
     sdi::set_mode(gpio::MODE::ALTERNATE);
     mdi::set_mode(gpio::MODE::ALTERNATE);
-
-    // SPI1::CR1::set_bit(SPI1::DFF);
-    // SPI1::CR1::set_bit(SPI1::SSI);
-    // SPI1::CR1::set_bit(SPI1::SSM);
-    // SPI1::CR1::set_bit(SPI1::LSBFIRST);
-    // SPI1::CR1::and_reg(~SPI1::BR_MASK);	   // Fast SPI, smallest prescaler
-    // SPI1::CR1::set_bit(SPI1::MSTR);
-    // SPI1::CR1::clear_bit(SPI1::CPHA);
-    // SPI1::CR1::clear_bit(SPI1::CPOL);
 
     SPI1::CR1::clear_reg();
     SPI1::CR1::set_bit(
