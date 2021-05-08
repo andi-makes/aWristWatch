@@ -21,7 +21,7 @@ void SPI1_IRQHandler() {
         display::le::set_bit(high);
         if (display::ison) {
             display::oe::set_mode(gpio::MODE::ALTERNATE);
-            LPTIM1::CMP::set_reg(display::brightness & 0xFFU);
+            LPTIM1::CMP::set_reg(display::brightness);
         } else {
             display::oe::set_mode(gpio::MODE::OUTPUT);
             display::oe::set_bit(high);
@@ -50,7 +50,8 @@ void display::setup() {
     LPTIM1::power_on();
 
     LPTIM1::set(lptim::cr::ENABLE, true);    // Enable the LPTIM1
-    LPTIM1::ARR::set_reg(656U);    // Set top limit of PWM (656 ~= 50Hz)
+    // LPTIM1::ARR::set_reg(656U);    // Set top limit of PWM (656 ~= 50Hz)
+    LPTIM1::ARR::set_reg(99U);
     LPTIM1::set(lptim::cr::CNTSTRT, true);    // Start the PWM in continous mode
 
     oe::set_alternate_function(gpio::AF::AF2);
