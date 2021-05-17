@@ -50,6 +50,7 @@ if(ENABLE_ANALYZERS)
                 --extra-arg=-I${CMAKE_SYSROOT}/include
                 --extra-arg=-I${CMAKE_SYSROOT}/include/c++/10.2.1
                 --extra-arg=-I${CMAKE_SYSROOT}/include/c++/10.2.1/arm-none-eabi/thumb/v6-m/nofp/
+                --extra-arg=-Wno-unknown-warning-option
                 BYPRODUCTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clang-tidy.yml
                 COMMENT "Checking project with clang-tidy..."
             )

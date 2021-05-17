@@ -14,11 +14,11 @@ unsigned int time::hrs{ 0 }, time::min{ 0 }, time::day{ 1 }, time::mon{ 1 },
 
 void time::load() {
     using namespace aww::bcd;
-    while (RTC::isr::RSF::read() == 0) {
+    while (!RTC::isr::RSF::read()) {
     }
     const auto time{ RTC::TR::get_reg() };
     RTC::isr::RSF::clear();
-    while (RTC::isr::RSF::read() == 0) {
+    while (!RTC::isr::RSF::read()) {
     }
     const auto date{ RTC::DR::get_reg() };
 
