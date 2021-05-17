@@ -22,7 +22,6 @@ struct display {
     static uint8_t brightness;
     static void off();
     static void on();
-    static void update_brightness();
 
     static bool ison;
     static bool is_on() { return ison; }
