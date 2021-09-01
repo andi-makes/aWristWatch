@@ -48,10 +48,6 @@ void RTC_Wakeup_Timer() {
     /// Counter which is used to create the bool `half_second`
     static int half_second_counter{ 0 };
 
-    // If in standby, do nothing.
-    if (aww::stby::in_stby()) {
-        return;
-    }
     // If not in standby mode, increment standby counter
     aww::stby::tick();
 
