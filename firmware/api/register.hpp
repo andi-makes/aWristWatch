@@ -8,28 +8,17 @@ namespace zol {
     template<typename T>
     concept Register = requires {
         typename T::type_t;
-        { T::get_address() }
-        ->std::same_as<addr_t>;
-        { T::get_reg() }
-        ->std::same_as<volatile typename T::type_t&>;
-        { T::set_bit(0U) }
-        ->std::same_as<void>;
-        { T::get_bit(0) }
-        ->std::same_as<bool>;
-        { T::clear_bit(0U) }
-        ->std::same_as<void>;
-        { T::toggle_bit(0U) }
-        ->std::same_as<void>;
-        { T::set_reg(0) }
-        ->std::same_as<void>;
-        { T::clear_reg() }
-        ->std::same_as<void>;
-        { T::or_reg(0) }
-        ->std::same_as<void>;
-        { T::and_reg(0) }
-        ->std::same_as<void>;
-        { T::toggle_reg(0) }
-        ->std::same_as<void>;
+        { T::get_address() } -> std::same_as<addr_t>;
+        { T::get_reg() } -> std::same_as<volatile typename T::type_t&>;
+        { T::set_bit(0U) } -> std::same_as<void>;
+        { T::get_bit(0) } -> std::same_as<bool>;
+        { T::clear_bit(0U) } -> std::same_as<void>;
+        { T::toggle_bit(0U) } -> std::same_as<void>;
+        { T::set_reg(0) } -> std::same_as<void>;
+        { T::clear_reg() } -> std::same_as<void>;
+        { T::or_reg(0) } -> std::same_as<void>;
+        { T::and_reg(0) } -> std::same_as<void>;
+        { T::toggle_reg(0) } -> std::same_as<void>;
     };
 
     /// @brief Static Register Wrapper class

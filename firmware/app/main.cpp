@@ -1,15 +1,15 @@
 #include "driver/bat.hpp"
 #include "driver/display.hpp"
 #include "driver/input.hpp"
-#include "util/stby.hpp"
 #include "sm.hpp"
+#include "util/stby.hpp"
 
 #include <chip/gpio.hpp>
 #include <chip/interrupts.hpp>
+#include <chip/pwr.hpp>
 #include <chip/rtc.hpp>
 #include <chip/spi.hpp>
 #include <chip/syscfg.hpp>
-#include <chip/pwr.hpp>
 
 // cppcheck-suppress unusedFunction
 void SystemInit() {
@@ -43,17 +43,17 @@ int main() {
     while (true) {
         if (aww::stby::in_stby()) {
             using SCR = zol::reg<uint32_t, 0xE000ED10>;
-            SCR::or_reg(1<<2); // Set sleepdeep bit
-            PWR::CR::set_bit(uint8_t(PWR::cr::CWWUF)); // Clear WUF bit
-            PWR::CR::clear_bit(1U); // Clear PDDS Bit
-            RCC::cfgr::STOPWUCK::write(false); // MSI as wakeup clock
+            SCR::or_reg(1 << 2);                          // Set sleepdeep bit
+            PWR::CR::set_bit(uint8_t(PWR::cr::CWWUF));    // Clear WUF bit
+            PWR::CR::clear_bit(1U);                       // Clear PDDS Bit
+            RCC::cfgr::STOPWUCK::write(false);            // MSI as wakeup clock
 
             RTC::disable_write_protect();
             RTC::cr::WUTIE::write(off);
             RTC::cr::WUTE::write(off);
             // RTC::cr::WUTE::write(off); // Disable Wakup Timer
             while (RTC::isr::WUTWF::read() == 0) {    // WUTWF
-            } // Make sure there is no interrupt pending
+            }    // Make sure there is no interrupt pending
             asm("wfi");
             RTC::cr::WUTE::write(on);
             RTC::cr::WUTIE::write(on);
