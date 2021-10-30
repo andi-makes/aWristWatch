@@ -34,6 +34,10 @@ int main() {
     display::setup();
     input::setup();
 
+    // Setup Stop mode
+    using SCR = zol::reg<uint32_t, 0xE000ED10>;
+    PWR::CR::set_bit(uint8_t(PWR::cr::LPSDSR));
+
     interrupt::enable();
 
     if (RTC::isr::WUTF::read()) {
@@ -42,7 +46,7 @@ int main() {
 
     while (true) {
         if (aww::stby::in_stby()) {
-            using SCR = zol::reg<uint32_t, 0xE000ED10>;
+//            using SCR = zol::reg<uint32_t, 0xE000ED10>;
             SCR::or_reg(1 << 2);                          // Set sleepdeep bit
             PWR::CR::set_bit(uint8_t(PWR::cr::CWWUF));    // Clear WUF bit
             PWR::CR::clear_bit(1U);                       // Clear PDDS Bit

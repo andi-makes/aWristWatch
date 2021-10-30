@@ -1,4 +1,6 @@
 bin
+connect
+upload
 build*
 .vscode/*
 !.vscode/tasks.json
