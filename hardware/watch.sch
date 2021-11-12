@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 6
 Title "aWristWatch"
 Date "2021-04-05"
 Rev "3"
@@ -59,8 +59,6 @@ F4 "CC2" I L 3900 3450 50
 F5 "5V@500mA" O R 5100 3150 50 
 F6 "IN_D+" I L 3900 3900 50 
 F7 "IN_D-" I L 3900 3700 50 
-F8 "OUT_D+" O R 5100 3350 50 
-F9 "OUT_D-" O R 5100 3450 50 
 $EndSheet
 $Sheet
 S 5300 3950 900  500 
@@ -80,21 +78,6 @@ F2 "5V" I L 6500 4250 50
 F3 "VBAT" I L 6500 4350 50 
 F4 "V_DISP" O R 7800 4350 50 
 F5 "3V3" O R 7800 4250 50 
-$EndSheet
-$Sheet
-S 6500 3050 1300 900 
-U 605DA130
-F0 "Microcontroller Circuitry" 50
-F1 "Microcontroller.sch" 50
-F2 "LE" O R 7800 3350 50 
-F3 "CLK" O R 7800 3250 50 
-F4 "MOSI" O R 7800 3150 50 
-F5 "OE" O R 7800 3450 50 
-F6 "BAT_SENSE" I L 6500 3750 50 
-F7 "TX" O L 6500 3250 50 
-F8 "RX" I L 6500 3150 50 
-F9 "CTS" I L 6500 3350 50 
-F10 "RTS" O L 6500 3450 50 
 $EndSheet
 Wire Wire Line
 	3900 3150 3850 3150
@@ -116,20 +99,6 @@ F 6 "DX07S016JA1R1500" H 3200 3750 50  0001 C CNN "MNR"
 	1    3200 3750
 	1    0    0    -1  
 $EndComp
-$Sheet
-S 5300 3050 900  700 
-U 605F7522
-F0 "USB" 50
-F1 "USB.sch" 50
-F2 "VBUS" I L 5300 3150 50 
-F3 "D+" I L 5300 3350 50 
-F4 "D-" I L 5300 3450 50 
-F5 "5V" O R 6200 3650 50 
-F6 "TX" O R 6200 3150 50 
-F7 "RTS" O R 6200 3350 50 
-F8 "RX" I R 6200 3250 50 
-F9 "CTS" I R 6200 3450 50 
-$EndSheet
 Wire Wire Line
 	3800 3650 3850 3650
 Wire Wire Line
@@ -153,14 +122,6 @@ Connection ~ 3850 3900
 Wire Wire Line
 	3850 3900 3850 3950
 Wire Wire Line
-	5300 3150 5100 3150
-Wire Wire Line
-	5100 3450 5300 3450
-Wire Wire Line
-	5300 3350 5100 3350
-Wire Wire Line
-	6200 3650 6300 3650
-Wire Wire Line
 	6300 3650 6300 4250
 Wire Wire Line
 	6300 4250 6200 4250
@@ -175,14 +136,6 @@ Wire Wire Line
 Wire Wire Line
 	6300 4250 6500 4250
 Connection ~ 6300 4250
-Wire Wire Line
-	6200 3450 6500 3450
-Wire Wire Line
-	6500 3350 6200 3350
-Wire Wire Line
-	6200 3250 6500 3250
-Wire Wire Line
-	6500 3150 6200 3150
 Wire Wire Line
 	7800 3150 8000 3150
 Wire Wire Line
@@ -244,4 +197,21 @@ F 3 "~" H 3550 4800 50  0001 C CNN
 	1    3550 4800
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	6050 3150 6050 3650
+Wire Wire Line
+	5100 3150 6050 3150
+Wire Wire Line
+	6050 3650 6300 3650
+$Sheet
+S 6500 3050 1300 900 
+U 605DA130
+F0 "Microcontroller Circuitry" 50
+F1 "Microcontroller.sch" 50
+F2 "LE" O R 7800 3350 50 
+F3 "CLK" O R 7800 3250 50 
+F4 "MOSI" O R 7800 3150 50 
+F5 "OE" O R 7800 3450 50 
+F6 "BAT_SENSE" I L 6500 3750 50 
+$EndSheet
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 7
+Sheet 6 6
 Title "aWristWatch"
 Date "2021-04-05"
 Rev "3"
@@ -323,110 +323,22 @@ F 6 "KMR211GLFS" H 2150 4200 50  0001 C CNN "MNR"
 	1    2150 4200
 	0    -1   -1   0   
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 605DDD89
-P 2200 3000
-AR Path="/605DDD89" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/605DDD89" Ref="#PWR0144"  Part="1" 
-F 0 "#PWR0144" H 2200 2750 50  0001 C CNN
-F 1 "GND" H 2205 2827 50  0001 C CNN
-F 2 "" H 2200 3000 50  0001 C CNN
-F 3 "" H 2200 3000 50  0001 C CNN
-	1    2200 3000
-	1    0    0    -1  
-$EndComp
-Text Label 2700 2700 0    50   ~ 0
-SWDIO
-Text Label 2700 2800 0    50   ~ 0
-SWCLK
-$Comp
-L MCU_ST_STM32L0:STM32L011F4Px U?
-U 1 1 605DDD97
-P 2300 2200
-AR Path="/605DDD97" Ref="U?"  Part="1" 
-AR Path="/605DA130/605DDD97" Ref="U601"  Part="1" 
-F 0 "U601" H 1950 2850 50  0000 C CNN
-F 1 "STM32L011F4Px" H 2650 2850 50  0000 C CNN
-F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 1900 1500 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00206508.pdf" H 2300 2200 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/511-STM32L011F4P6TR" H 2300 2200 50  0001 C CNN "Order"
-F 5 "STMicroelectornics" H 2300 2200 50  0001 C CNN "Manufacturer"
-F 6 "STM32L011F4P6TR" H 2300 2200 50  0001 C CNN "MNR"
-	1    2300 2200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2200 1450 2200 1500
-Wire Wire Line
-	2300 1450 2300 1500
-Wire Wire Line
-	2250 1450 2300 1450
-Wire Wire Line
-	2250 1450 2200 1450
-Connection ~ 2250 1450
-$Comp
-L power:+3.3V #PWR?
-U 1 1 605DDDA2
-P 2250 1400
-AR Path="/605DDDA2" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/605DDDA2" Ref="#PWR0145"  Part="1" 
-F 0 "#PWR0145" H 2250 1250 50  0001 C CNN
-F 1 "+3.3V" H 2250 1550 50  0000 C CNN
-F 2 "" H 2250 1400 50  0001 C CNN
-F 3 "" H 2250 1400 50  0001 C CNN
-	1    2250 1400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2250 1400 2250 1450
-Text Notes 3000 2100 0    50   ~ 0
+Text Notes 7950 2350 0    50   ~ 0
 SPI Chip Select
-Text Notes 3000 2200 0    50   ~ 0
+Text Notes 7950 2450 0    50   ~ 0
 SPI Clock
-Text Notes 3000 2400 0    50   ~ 0
+Text Notes 5750 2400 2    50   ~ 0
 SPI MOSI
-Text Notes 3000 2500 0    50   ~ 0
+Text Notes 5750 2300 2    50   ~ 0
 PWM
-Text Label 2700 1700 0    50   ~ 0
+Text Label 6050 1650 2    50   ~ 0
 SW1
-Text Label 2700 2600 0    50   ~ 0
+Text Label 7650 1750 0    50   ~ 0
 SW2
-Text Label 1800 1700 2    50   ~ 0
-NRST
-Text Label 1800 2400 2    50   ~ 0
+Text Label 6050 1350 2    50   ~ 0
 XTAL1
-Text Label 1800 2500 2    50   ~ 0
+Text Label 6050 1450 2    50   ~ 0
 XTAL2
-$Comp
-L power:GND #PWR?
-U 1 1 605DDDC3
-P 1550 3100
-AR Path="/605DDDC3" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/605DDDC3" Ref="#PWR0146"  Part="1" 
-F 0 "#PWR0146" H 1550 2850 50  0001 C CNN
-F 1 "GND" H 1555 2927 50  0001 C CNN
-F 2 "" H 1550 3100 50  0001 C CNN
-F 3 "" H 1550 3100 50  0001 C CNN
-	1    1550 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 605DDDCA
-P 1550 3000
-AR Path="/605DDDCA" Ref="R?"  Part="1" 
-AR Path="/605DA130/605DDDCA" Ref="R602"  Part="1" 
-F 0 "R602" H 1609 3046 50  0000 L CNN
-F 1 "100k" H 1609 2955 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 1550 3000 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 1550 3000 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F100K" H 1550 3000 50  0001 C CNN "Order"
-F 5 "TE Connectivity / Holsworthy" H 1550 3000 50  0001 C CNN "Manufacturer"
-F 6 "CRGP0603F100K" H 1550 3000 50  0001 C CNN "MNR"
-	1    1550 3000
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:R_Small R601
 U 1 1 605E09D8
@@ -471,30 +383,16 @@ Wire Wire Line
 Wire Wire Line
 	2850 3950 2650 3950
 Connection ~ 2650 3950
-Text HLabel 2700 2100 2    50   Output ~ 0
+Text HLabel 7650 2350 2    50   Output ~ 0
 LE
-Text HLabel 2700 2200 2    50   Output ~ 0
+Text HLabel 7650 2450 2    50   Output ~ 0
 CLK
-Text HLabel 2700 2400 2    50   Output ~ 0
+Text HLabel 6050 2350 0    50   Output ~ 0
 MOSI
-Text HLabel 2700 2500 2    50   Output ~ 0
+Text HLabel 6050 2250 0    50   Output ~ 0
 OE
-Text HLabel 2700 1800 2    50   Input ~ 0
+Text HLabel 6050 1550 0    50   Input ~ 0
 BAT_SENSE
-Wire Wire Line
-	1550 2800 1800 2800
-Wire Wire Line
-	1550 2800 1550 2900
-Text HLabel 2700 1900 2    50   Output ~ 0
-TX
-Text HLabel 2700 2000 2    50   Input ~ 0
-RX
-Text HLabel 2700 2300 2    50   Input ~ 0
-CTS
-Text Label 1800 2800 2    50   ~ 0
-BOOT0
-Text HLabel 1800 2700 0    50   Output ~ 0
-RTS
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J601
 U 1 1 605EA1C2
@@ -552,4 +450,66 @@ Wire Wire Line
 Wire Wire Line
 	3950 2900 4000 2900
 NoConn ~ 4500 2900
+$Comp
+L watch:BT832 U1
+U 1 1 61900ECF
+P 6850 2250
+F 0 "U1" H 6850 3617 50  0000 C CNN
+F 1 "BT832" H 6850 3526 50  0000 C CNN
+F 2 "watch:BLEMODULE_BT832" H 6850 2250 50  0001 L BNN
+F 3 "" H 6850 2250 50  0001 L BNN
+F 4 "Manufacturer Recommendations" H 6850 2250 50  0001 L BNN "STANDARD"
+F 5 "FANSTEL" H 6850 2250 50  0001 L BNN "MANUFACTURER"
+F 6 "2.04" H 6850 2250 50  0001 L BNN "PARTREV"
+	1    6850 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 61905ED1
+P 7700 1100
+AR Path="/61905ED1" Ref="#PWR?"  Part="1" 
+AR Path="/605DA130/61905ED1" Ref="#PWR0144"  Part="1" 
+F 0 "#PWR0144" H 7700 950 50  0001 C CNN
+F 1 "+3.3V" H 7700 1250 50  0000 C CNN
+F 2 "" H 7700 1100 50  0001 C CNN
+F 3 "" H 7700 1100 50  0001 C CNN
+	1    7700 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 1100 7700 1150
+Wire Wire Line
+	7700 1150 7650 1150
+$Comp
+L power:GND #PWR?
+U 1 1 61906EDA
+P 7700 3400
+AR Path="/61906EDA" Ref="#PWR?"  Part="1" 
+AR Path="/605DA130/61906EDA" Ref="#PWR0145"  Part="1" 
+F 0 "#PWR0145" H 7700 3150 50  0001 C CNN
+F 1 "GND" H 7705 3227 50  0001 C CNN
+F 2 "" H 7700 3400 50  0001 C CNN
+F 3 "" H 7700 3400 50  0001 C CNN
+	1    7700 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 3400 7700 3350
+Wire Wire Line
+	7700 3350 7650 3350
+Text Label 5800 3150 0    50   ~ 0
+SWDIO
+Text Label 5800 3050 0    50   ~ 0
+SWCLK
+Wire Wire Line
+	5800 3050 6050 3050
+Wire Wire Line
+	6050 3150 5800 3150
+Text Label 7900 1850 2    50   ~ 0
+NRST
+Wire Wire Line
+	7900 1850 7650 1850
+Text HLabel 7650 1550 2    50   Output ~ 0
+LED-POWER
 $EndSCHEMATC

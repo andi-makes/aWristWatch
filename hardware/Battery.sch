@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 7
+Sheet 4 6
 Title "aWristWatch"
 Date "2021-04-05"
 Rev "3"
@@ -15,7 +15,7 @@ Comment4 ""
 $EndDescr
 Text HLabel 1500 1500 0    50   Input ~ 0
 VIN
-Text HLabel 7150 1800 2    50   Output ~ 0
+Text HLabel 5600 1800 2    50   Output ~ 0
 VBAT
 Wire Wire Line
 	3250 2000 3250 2050
@@ -154,109 +154,76 @@ Wire Wire Line
 $Comp
 L Device:Q_PMOS_GSD Q401
 U 1 1 60686379
-P 6200 1900
-F 0 "Q401" V 6542 1900 50  0000 C CNN
-F 1 "DMP2110UW-7" V 6451 1900 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6400 2000 50  0001 C CNN
-F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6200 1900 50  0001 C CNN
-F 4 "Diodes Incorporated" H 6200 1900 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6200 1900 50  0001 C CNN "Order"
-F 6 "DMP2110UW-7" H 6200 1900 50  0001 C CNN "MNR"
-	1    6200 1900
+P 6650 3250
+F 0 "Q401" V 6992 3250 50  0000 C CNN
+F 1 "DMP2110UW-7" V 6901 3250 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6850 3350 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6650 3250 50  0001 C CNN
+F 4 "Diodes Incorporated" H 6650 3250 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6650 3250 50  0001 C CNN "Order"
+F 6 "DMP2110UW-7" H 6650 3250 50  0001 C CNN "MNR"
+	1    6650 3250
 	0    1    -1   0   
 $EndComp
-Connection ~ 4750 1800
-$Comp
-L watch:TLV810E U403
-U 1 1 6068D817
-P 5750 2250
-F 0 "U403" H 5750 2525 50  0000 C CNN
-F 1 "TLV810E" H 5750 2434 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6150 2950 50  0001 C CNN
-F 3 "" H 6150 2950 50  0001 C CNN
-F 4 "Texas Instruments" H 5750 2250 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/Texas-Instruments/TLV810EA29DBZR?qs=OlC7AqGiEDn%2F4%252BrWzJaHww%3D%3D" H 5750 2250 50  0001 C CNN "Order"
-F 6 "TLV810EA29DBZR" H 5750 2250 50  0001 C CNN "MNR"
-	1    5750 2250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4750 1800 5350 1800
-Wire Wire Line
-	5400 2200 5350 2200
-Wire Wire Line
-	5350 2200 5350 1800
-Wire Wire Line
-	5400 2300 4750 2300
-Connection ~ 4750 2300
-Wire Wire Line
-	6100 2250 6200 2250
-Wire Wire Line
-	6200 2250 6200 2100
-Wire Wire Line
-	6000 1800 5350 1800
-Connection ~ 5350 1800
 $Comp
 L power:GND #PWR?
 U 1 1 606C5053
-P 6800 2400
+P 5250 2400
 AR Path="/606C5053" Ref="#PWR?"  Part="1" 
 AR Path="/6063DAC2/606C5053" Ref="#PWR0124"  Part="1" 
-F 0 "#PWR0124" H 6800 2150 50  0001 C CNN
-F 1 "GND" H 6805 2227 50  0001 C CNN
-F 2 "" H 6800 2400 50  0001 C CNN
-F 3 "" H 6800 2400 50  0001 C CNN
-	1    6800 2400
+F 0 "#PWR0124" H 5250 2150 50  0001 C CNN
+F 1 "GND" H 5255 2227 50  0001 C CNN
+F 2 "" H 5250 2400 50  0001 C CNN
+F 3 "" H 5250 2400 50  0001 C CNN
+	1    5250 2400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6800 2150 6800 2200
-Connection ~ 6800 2150
+	5250 2150 5250 2200
+Connection ~ 5250 2150
 Wire Wire Line
-	6800 2100 6800 2150
+	5250 2100 5250 2150
 $Comp
 L Device:R_Small R?
 U 1 1 606C505F
-P 6800 2300
+P 5250 2300
 AR Path="/606C505F" Ref="R?"  Part="1" 
 AR Path="/6063DAC2/606C505F" Ref="R405"  Part="1" 
-F 0 "R405" H 6859 2346 50  0000 L CNN
-F 1 "47k" H 6859 2255 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2300 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2300 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2300 50  0001 C CNN "Order"
-F 5 "TE Connectivity / Holsworthy" H 6800 2300 50  0001 C CNN "Manufacturer"
-F 6 "CRGP0603F47K" H 6800 2300 50  0001 C CNN "MNR"
-	1    6800 2300
+F 0 "R405" H 5309 2346 50  0000 L CNN
+F 1 "47k" H 5309 2255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5250 2300 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 5250 2300 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 5250 2300 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 5250 2300 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F47K" H 5250 2300 50  0001 C CNN "MNR"
+	1    5250 2300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R?
 U 1 1 606C5066
-P 6800 2000
+P 5250 2000
 AR Path="/606C5066" Ref="R?"  Part="1" 
 AR Path="/6063DAC2/606C5066" Ref="R404"  Part="1" 
-F 0 "R404" H 6859 2046 50  0000 L CNN
-F 1 "47k" H 6859 1955 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 2000 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 6800 2000 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 6800 2000 50  0001 C CNN "Order"
-F 5 "TE Connectivity / Holsworthy" H 6800 2000 50  0001 C CNN "Manufacturer"
-F 6 "CRGP0603F47K" H 6800 2000 50  0001 C CNN "MNR"
-	1    6800 2000
+F 0 "R404" H 5309 2046 50  0000 L CNN
+F 1 "47k" H 5309 1955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5250 2000 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/418/5/NG_DS_9-1773463-9_A-1358566.pdf" H 5250 2000 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/279-CRGP0603F47K" H 5250 2000 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 5250 2000 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F47K" H 5250 2000 50  0001 C CNN "MNR"
+	1    5250 2000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6400 1800 6800 1800
+	5250 1800 5250 1900
 Wire Wire Line
-	6800 1800 6800 1900
-Wire Wire Line
-	6800 1800 6950 1800
-Connection ~ 6800 1800
-Text HLabel 7150 2150 2    50   Output ~ 0
+	5250 1800 5400 1800
+Connection ~ 5250 1800
+Text HLabel 5600 2150 2    50   Output ~ 0
 VBAT_HALF
 Wire Wire Line
-	6800 2150 7150 2150
+	5250 2150 5600 2150
 Wire Wire Line
 	1600 1700 1550 1700
 $Comp
@@ -403,15 +370,18 @@ I_real_green = (5V - 2.1V) / 2k7 = 1,07mA
 $Comp
 L power:PWR_FLAG #FLG0105
 U 1 1 606AB429
-P 6950 1800
-F 0 "#FLG0105" H 6950 1875 50  0001 C CNN
-F 1 "PWR_FLAG" H 6950 1973 50  0000 C CNN
-F 2 "" H 6950 1800 50  0001 C CNN
-F 3 "~" H 6950 1800 50  0001 C CNN
-	1    6950 1800
+P 5400 1800
+F 0 "#FLG0105" H 5400 1875 50  0001 C CNN
+F 1 "PWR_FLAG" H 5400 1973 50  0000 C CNN
+F 2 "" H 5400 1800 50  0001 C CNN
+F 3 "~" H 5400 1800 50  0001 C CNN
+	1    5400 1800
 	1    0    0    -1  
 $EndComp
-Connection ~ 6950 1800
+Connection ~ 5400 1800
 Wire Wire Line
-	6950 1800 7150 1800
+	5400 1800 5600 1800
+Wire Wire Line
+	4750 1800 5250 1800
+Connection ~ 4750 1800
 $EndSCHEMATC

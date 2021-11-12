@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 7
+Sheet 3 6
 Title "aWristWatch"
 Date "2021-04-05"
 Rev "3"
@@ -236,7 +236,7 @@ F 6 "DMN6140L-13" H 5000 2300 50  0001 C CNN "MNR"
 	1    5000 2300
 	0    -1   -1   0   
 $EndComp
-Text HLabel 7350 2750 2    50   Output ~ 0
+Text HLabel 6300 2750 2    50   Output ~ 0
 5V@500mA
 Wire Wire Line
 	3650 2750 4500 2750
@@ -283,36 +283,12 @@ Wire Wire Line
 Wire Wire Line
 	3000 2200 2100 2200
 Connection ~ 3000 2200
-Connection ~ 5850 2750
 Wire Wire Line
 	5500 2750 5850 2750
 Wire Wire Line
 	5850 2750 5850 2200
 Wire Wire Line
 	5200 2200 5850 2200
-$Comp
-L Power_Protection:USBLC6-2SC6 U301
-U 1 1 605F9EDA
-P 6650 3200
-F 0 "U301" H 6400 3550 50  0000 C CNN
-F 1 "USBLC6-2SC6" H 7000 3550 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 6650 2700 50  0001 C CNN
-F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 6850 3550 50  0001 C CNN
-F 4 "STMicroelectornics" H 6650 3200 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/STMicroelectronics/USBLC6-2SC6?qs=po45yt2pPpu%2FhNIlwQdTlg%3D%3D" H 6650 3200 50  0001 C CNN "Order"
-F 6 "USBLC6-2SC6" H 6650 3200 50  0001 C CNN "MNR"
-	1    6650 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7350 2750 7100 2750
-Wire Wire Line
-	6650 2750 6650 2800
-Wire Wire Line
-	5850 2750 6650 2750
-Connection ~ 6650 2750
-Wire Wire Line
-	5550 3600 6650 3600
 $Comp
 L Device:Ferrite_Bead_Small FB301
 U 1 1 60600B0B
@@ -368,28 +344,23 @@ F 3 "" H 1350 2500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1350 2500 1350 2450
-Text HLabel 6250 3100 0    50   Output ~ 0
-OUT_D+
-Text HLabel 7050 3100 2    50   Output ~ 0
-OUT_D-
-Text HLabel 6250 3300 0    50   Input ~ 0
-IN_D+
-Text HLabel 7050 3300 2    50   Input ~ 0
-IN_D-
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 606A9573
-P 7100 2750
-F 0 "#FLG0102" H 7100 2825 50  0001 C CNN
-F 1 "PWR_FLAG" H 7100 2923 50  0000 C CNN
-F 2 "" H 7100 2750 50  0001 C CNN
-F 3 "~" H 7100 2750 50  0001 C CNN
-	1    7100 2750
+P 6050 2750
+F 0 "#FLG0102" H 6050 2825 50  0001 C CNN
+F 1 "PWR_FLAG" H 6050 2923 50  0000 C CNN
+F 2 "" H 6050 2750 50  0001 C CNN
+F 3 "~" H 6050 2750 50  0001 C CNN
+	1    6050 2750
 	1    0    0    -1  
 $EndComp
-Connection ~ 7100 2750
-Wire Wire Line
-	7100 2750 6650 2750
 Text Notes 3350 3250 0    50   ~ 0
 C1: 50V X7R
+Wire Wire Line
+	5850 2750 6050 2750
+Connection ~ 5850 2750
+Connection ~ 6050 2750
+Wire Wire Line
+	6050 2750 6300 2750
 $EndSCHEMATC

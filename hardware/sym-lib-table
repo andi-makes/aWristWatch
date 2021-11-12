@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name watch)(type Legacy)(uri ${KIPRJMOD}/watch.lib)(options "")(descr ""))
+  (lib (name BT832)(type Legacy)(uri /home/andi/Downloads/BT832.lib)(options "")(descr ""))
 )
