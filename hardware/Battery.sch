@@ -152,20 +152,6 @@ Wire Wire Line
 Wire Wire Line
 	2950 2300 3250 2300
 $Comp
-L Device:Q_PMOS_GSD Q401
-U 1 1 60686379
-P 6650 3250
-F 0 "Q401" V 6992 3250 50  0000 C CNN
-F 1 "DMP2110UW-7" V 6901 3250 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 6850 3350 50  0001 C CNN
-F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 6650 3250 50  0001 C CNN
-F 4 "Diodes Incorporated" H 6650 3250 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 6650 3250 50  0001 C CNN "Order"
-F 6 "DMP2110UW-7" H 6650 3250 50  0001 C CNN "MNR"
-	1    6650 3250
-	0    1    -1   0   
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 606C5053
 P 5250 2400

@@ -259,20 +259,62 @@ Text HLabel 750  2050 0    50   Input ~ 0
 VBAT
 Wire Wire Line
 	750  2050 1450 2050
-Text HLabel 3350 1600 2    50   Output ~ 0
+Text HLabel 5700 1600 2    50   Output ~ 0
 V_DISP
 Text HLabel 4650 2000 2    50   Output ~ 0
-3V3
+VuC
 Wire Wire Line
 	4400 2000 4650 2000
 Wire Wire Line
 	3250 1600 3250 2000
-Wire Wire Line
-	3350 1600 3250 1600
 NoConn ~ 2050 2350
 Wire Wire Line
 	1850 2250 2050 2250
 Wire Wire Line
 	1850 2250 1850 2700
 NoConn ~ 2750 2200
+Text HLabel 5350 2200 0    50   Input ~ 0
+LED_CTRL
+$Comp
+L Device:Q_PMOS_GSD Q?
+U 1 1 61A64800
+P 5400 1700
+AR Path="/6063DAC2/61A64800" Ref="Q?"  Part="1" 
+AR Path="/605CEFBE/61A64800" Ref="Q2"  Part="1" 
+F 0 "Q2" V 5742 1700 50  0000 C CNN
+F 1 "DMP2110UW-7" V 5651 1700 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 5600 1800 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/DMP2110UW.pdf" H 5400 1700 50  0001 C CNN
+F 4 "Diodes Incorporated" H 5400 1700 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Diodes-Incorporated/DMP2110UW-7?qs=bZr6mbWTK5lZsAURvLPe3w%3D%3D" H 5400 1700 50  0001 C CNN "Order"
+F 6 "DMP2110UW-7" H 5400 1700 50  0001 C CNN "MNR"
+	1    5400 1700
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 61A94055
+P 5400 2050
+AR Path="/61A94055" Ref="R?"  Part="1" 
+AR Path="/605CEFBE/61A94055" Ref="R1"  Part="1" 
+F 0 "R1" H 5459 2096 50  0000 L CNN
+F 1 "1k" H 5459 2005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5400 2050 50  0001 C CNN
+F 3 "~" H 5400 2050 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/TE-Connectivity-Holsworthy/CRGP0603F1K0?qs=sGAEpiMZZMtlubZbdhIBIOInyB5Ysv8sRTd2oyB6aAs%3D" H 5400 2050 50  0001 C CNN "Order"
+F 5 "TE Connectivity / Holsworthy" H 5400 2050 50  0001 C CNN "Manufacturer"
+F 6 "CRGP0603F1K0" H 5400 2050 50  0001 C CNN "MNR"
+	1    5400 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 2200 5400 2200
+Wire Wire Line
+	5400 2200 5400 2150
+Wire Wire Line
+	5400 1950 5400 1900
+Wire Wire Line
+	5700 1600 5600 1600
+Wire Wire Line
+	3250 1600 5200 1600
 $EndSCHEMATC

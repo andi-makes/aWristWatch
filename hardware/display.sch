@@ -244,32 +244,6 @@ Wire Wire Line
 	2250 4950 2100 4950
 Wire Wire Line
 	2100 4950 2100 5000
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60642ED7
-P 2650 4350
-AR Path="/60642ED7" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642ED7" Ref="#PWR0105"  Part="1" 
-F 0 "#PWR0105" H 2650 4200 50  0001 C CNN
-F 1 "+3.3V" H 2650 4500 50  0000 C CNN
-F 2 "" H 2650 4350 50  0001 C CNN
-F 3 "" H 2650 4350 50  0001 C CNN
-	1    2650 4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60642EDD
-P 1900 4100
-AR Path="/60642EDD" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EDD" Ref="#PWR0106"  Part="1" 
-F 0 "#PWR0106" H 1900 3950 50  0001 C CNN
-F 1 "+3.3V" H 1900 4250 50  0000 C CNN
-F 2 "" H 1900 4100 50  0001 C CNN
-F 3 "" H 1900 4100 50  0001 C CNN
-	1    1900 4100
-	1    0    0    -1  
-$EndComp
 Text Label 2100 4550 0    50   ~ 0
 SDI
 Text Label 2100 4650 0    50   ~ 0
@@ -310,19 +284,6 @@ F 5 "STMicroelectornics" H 4100 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 4100 5050 50  0001 C CNN "Part Number"
 F 7 "STP08DP05TTR" H 4100 5050 50  0001 C CNN "MNR"
 	1    4100 5050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60642EF9
-P 4100 4350
-AR Path="/60642EF9" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642EF9" Ref="#PWR0107"  Part="1" 
-F 0 "#PWR0107" H 4100 4200 50  0001 C CNN
-F 1 "+3.3V" H 4100 4500 50  0000 C CNN
-F 2 "" H 4100 4350 50  0001 C CNN
-F 3 "" H 4100 4350 50  0001 C CNN
-	1    4100 4350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -399,19 +360,6 @@ F 7 "STP08DP05TTR" H 5550 5050 50  0001 C CNN "MNR"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR?
-U 1 1 60642F21
-P 5550 4350
-AR Path="/60642F21" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F21" Ref="#PWR0110"  Part="1" 
-F 0 "#PWR0110" H 5550 4200 50  0001 C CNN
-F 1 "+3.3V" H 5550 4500 50  0000 C CNN
-F 2 "" H 5550 4350 50  0001 C CNN
-F 3 "" H 5550 4350 50  0001 C CNN
-	1    5550 4350
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 60642F27
 P 5550 5750
@@ -484,19 +432,6 @@ F 5 "STMicroelectornics" H 7000 5050 50  0001 C CNN "Manufacturer"
 F 6 "STP08DP05TTR" H 7000 5050 50  0001 C CNN "Part Number"
 F 7 "STP08DP05TTR" H 7000 5050 50  0001 C CNN "MNR"
 	1    7000 5050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60642F49
-P 7000 4350
-AR Path="/60642F49" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60642F49" Ref="#PWR0113"  Part="1" 
-F 0 "#PWR0113" H 7000 4200 50  0001 C CNN
-F 1 "+3.3V" H 7000 4500 50  0000 C CNN
-F 2 "" H 7000 4350 50  0001 C CNN
-F 3 "" H 7000 4350 50  0001 C CNN
-	1    7000 4350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -587,19 +522,6 @@ F 3 "" H 3400 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR?
-U 1 1 606457AF
-P 3400 4100
-AR Path="/606457AF" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/606457AF" Ref="#PWR0117"  Part="1" 
-F 0 "#PWR0117" H 3400 3950 50  0001 C CNN
-F 1 "+3.3V" H 3400 4250 50  0000 C CNN
-F 2 "" H 3400 4100 50  0001 C CNN
-F 3 "" H 3400 4100 50  0001 C CNN
-	1    3400 4100
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C?
 U 1 1 60646EB1
 P 4850 4200
@@ -626,19 +548,6 @@ F 1 "GND" H 4855 4127 50  0001 C CNN
 F 2 "" H 4850 4300 50  0001 C CNN
 F 3 "" H 4850 4300 50  0001 C CNN
 	1    4850 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60646EBD
-P 4850 4100
-AR Path="/60646EBD" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60646EBD" Ref="#PWR0119"  Part="1" 
-F 0 "#PWR0119" H 4850 3950 50  0001 C CNN
-F 1 "+3.3V" H 4850 4250 50  0000 C CNN
-F 2 "" H 4850 4100 50  0001 C CNN
-F 3 "" H 4850 4100 50  0001 C CNN
-	1    4850 4100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -670,35 +579,14 @@ F 3 "" H 6300 4300 50  0001 C CNN
 	1    6300 4300
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 60647DBB
-P 6300 4100
-AR Path="/60647DBB" Ref="#PWR?"  Part="1" 
-AR Path="/60633D5C/60647DBB" Ref="#PWR0121"  Part="1" 
-F 0 "#PWR0121" H 6300 3950 50  0001 C CNN
-F 1 "+3.3V" H 6300 4250 50  0000 C CNN
-F 2 "" H 6300 4100 50  0001 C CNN
-F 3 "" H 6300 4100 50  0001 C CNN
-	1    6300 4100
-	1    0    0    -1  
-$EndComp
-Text HLabel 1800 4550 0    50   Input ~ 0
+Text HLabel 1500 4550 0    50   Input ~ 0
 SDI
-Text HLabel 1800 4650 0    50   Input ~ 0
+Text HLabel 1500 4650 0    50   Input ~ 0
 CLK
-Text HLabel 1800 4750 0    50   Input ~ 0
+Text HLabel 1500 4750 0    50   Input ~ 0
 LE
-Text HLabel 1800 5550 0    50   Input ~ 0
+Text HLabel 1500 5550 0    50   Input ~ 0
 OE
-Wire Wire Line
-	1800 4550 2250 4550
-Wire Wire Line
-	1800 4650 2250 4650
-Wire Wire Line
-	1800 4750 2250 4750
-Wire Wire Line
-	1800 5550 2250 5550
 Text Label 3300 4550 2    50   ~ 0
 S1_G
 Wire Wire Line
@@ -911,10 +799,8 @@ Wire Wire Line
 	2350 3450 2100 3450
 Wire Wire Line
 	2100 3550 2350 3550
-Text HLabel 2100 2400 0    50   Input ~ 0
+Text HLabel 1500 2400 0    50   Input ~ 0
 V_DISP
-Wire Wire Line
-	2100 2400 3050 2400
 Wire Wire Line
 	7400 2400 7400 3450
 Wire Wire Line
@@ -937,4 +823,55 @@ Text Notes 3300 6850 0    50   ~ 0
 Also buy 4x 3k9, because 3mA is technically outside of the specified current range.
 Text Notes 5200 6400 0    50   ~ 0
 Needs either 116mA or 180mA
+Text HLabel 1500 3850 0    50   Input ~ 0
+POWER_IN
+Wire Wire Line
+	7000 3850 7000 4350
+Wire Wire Line
+	6300 4100 6300 3850
+Wire Wire Line
+	1500 3850 1900 3850
+Connection ~ 6300 3850
+Wire Wire Line
+	6300 3850 7000 3850
+Wire Wire Line
+	4850 4100 4850 3850
+Connection ~ 4850 3850
+Wire Wire Line
+	4850 3850 5550 3850
+Wire Wire Line
+	3400 4100 3400 3850
+Connection ~ 3400 3850
+Wire Wire Line
+	3400 3850 4100 3850
+Wire Wire Line
+	1900 3850 1900 4100
+Connection ~ 1900 3850
+Wire Wire Line
+	1900 3850 2650 3850
+Wire Wire Line
+	2650 4350 2650 3850
+Connection ~ 2650 3850
+Wire Wire Line
+	2650 3850 3400 3850
+Wire Wire Line
+	4100 4350 4100 3850
+Connection ~ 4100 3850
+Wire Wire Line
+	4100 3850 4850 3850
+Wire Wire Line
+	5550 4350 5550 3850
+Connection ~ 5550 3850
+Wire Wire Line
+	5550 3850 6300 3850
+Wire Wire Line
+	1500 2400 3050 2400
+Wire Wire Line
+	1500 5550 2250 5550
+Wire Wire Line
+	1500 4750 2250 4750
+Wire Wire Line
+	1500 4650 2250 4650
+Wire Wire Line
+	1500 4550 2250 4550
 $EndSCHEMATC

@@ -16,59 +16,46 @@ $EndDescr
 $Comp
 L Device:C_Small C?
 U 1 1 605DDCF4
-P 3700 1600
+P 6100 1200
 AR Path="/605DDCF4" Ref="C?"  Part="1" 
 AR Path="/605DA130/605DDCF4" Ref="C605"  Part="1" 
-F 0 "C605" H 3792 1646 50  0000 L CNN
-F 1 "10u" H 3792 1555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 3700 1600 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 3700 1600 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 3700 1600 50  0001 C CNN "Order"
-F 5 "Samsung Electro-Mechanics" H 3700 1600 50  0001 C CNN "Manufacturer"
-F 6 "CL10B106MQ8NRNC" H 3700 1600 50  0001 C CNN "MNR"
-	1    3700 1600
+F 0 "C605" H 6192 1246 50  0000 L CNN
+F 1 "10u" H 6192 1155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6100 1200 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/585/MLCC-1837944.pdf" H 6100 1200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/187-CL10B106MQ8NRNC" H 6100 1200 50  0001 C CNN "Order"
+F 5 "Samsung Electro-Mechanics" H 6100 1200 50  0001 C CNN "Manufacturer"
+F 6 "CL10B106MQ8NRNC" H 6100 1200 50  0001 C CNN "MNR"
+	1    6100 1200
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C_Small C?
 U 1 1 605DDCFB
-P 4150 1600
+P 6550 1200
 AR Path="/605DDCFB" Ref="C?"  Part="1" 
 AR Path="/605DA130/605DDCFB" Ref="C606"  Part="1" 
-F 0 "C606" H 4242 1646 50  0000 L CNN
-F 1 "100n" H 4242 1555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4150 1600 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4150 1600 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4150 1600 50  0001 C CNN "Order"
-F 5 "KEMET" H 4150 1600 50  0001 C CNN "Manufacturer"
-F 6 "C0603C104M4RACTU" H 4150 1600 50  0001 C CNN "MNR"
-	1    4150 1600
+F 0 "C606" H 6642 1246 50  0000 L CNN
+F 1 "100n" H 6642 1155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6550 1200 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 6550 1200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 6550 1200 50  0001 C CNN "Order"
+F 5 "KEMET" H 6550 1200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 6550 1200 50  0001 C CNN "MNR"
+	1    6550 1200
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 605DDD01
-P 4150 1800
+P 6550 1400
 AR Path="/605DDD01" Ref="#PWR?"  Part="1" 
 AR Path="/605DA130/605DDD01" Ref="#PWR0139"  Part="1" 
-F 0 "#PWR0139" H 4150 1550 50  0001 C CNN
-F 1 "GND" H 4155 1627 50  0001 C CNN
-F 2 "" H 4150 1800 50  0001 C CNN
-F 3 "" H 4150 1800 50  0001 C CNN
-	1    4150 1800
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 605DDD07
-P 4150 1400
-AR Path="/605DDD07" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/605DDD07" Ref="#PWR0140"  Part="1" 
-F 0 "#PWR0140" H 4150 1250 50  0001 C CNN
-F 1 "+3.3V" H 4150 1550 50  0000 C CNN
-F 2 "" H 4150 1400 50  0001 C CNN
-F 3 "" H 4150 1400 50  0001 C CNN
-	1    4150 1400
+F 0 "#PWR0139" H 6550 1150 50  0001 C CNN
+F 1 "GND" H 6555 1227 50  0001 C CNN
+F 2 "" H 6550 1400 50  0001 C CNN
+F 3 "" H 6550 1400 50  0001 C CNN
+	1    6550 1400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -139,17 +126,17 @@ Wire Wire Line
 $Comp
 L Device:C_Small C?
 U 1 1 605DDD2B
-P 4600 1600
+P 7000 1200
 AR Path="/605DDD2B" Ref="C?"  Part="1" 
 AR Path="/605DA130/605DDD2B" Ref="C607"  Part="1" 
-F 0 "C607" H 4692 1646 50  0000 L CNN
-F 1 "100n" H 4692 1555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4600 1600 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 4600 1600 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 4600 1600 50  0001 C CNN "Order"
-F 5 "KEMET" H 4600 1600 50  0001 C CNN "Manufacturer"
-F 6 "C0603C104M4RACTU" H 4600 1600 50  0001 C CNN "MNR"
-	1    4600 1600
+F 0 "C607" H 7092 1246 50  0000 L CNN
+F 1 "100n" H 7092 1155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7000 1200 50  0001 C CNN
+F 3 "https://www.mouser.at/datasheet/2/212/KEM_C1002_X7R_SMD-1102033.pdf" H 7000 1200 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/80-C0603C104M4R" H 7000 1200 50  0001 C CNN "Order"
+F 5 "KEMET" H 7000 1200 50  0001 C CNN "Manufacturer"
+F 6 "C0603C104M4RACTU" H 7000 1200 50  0001 C CNN "MNR"
+	1    7000 1200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -205,16 +192,16 @@ AR Path="/605DA130/605DDD4A" Ref="SW601"  Part="1"
 F 0 "SW601" V 996 4152 50  0000 R CNN
 F 1 "SW_Push" V 905 4152 50  0000 R CNN
 F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2" H 950 4400 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/60/kmr2-1841878.pdf" H 950 4400 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/611-KMR211G-LFS" V 950 4200 50  0001 C CNN "Order"
-F 5 "C&K" H 950 4200 50  0001 C CNN "Manufacturer"
-F 6 "KMR211GLFS" H 950 4200 50  0001 C CNN "MNR"
+F 3 "https://www.mouser.at/datasheet/2/910/448_TAC2-3-1571418.pdf" H 950 4400 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/Diptronics/TAC-35N-V-T-R?qs=MLItCLRbWsxLaFNtnMEtJQ==" V 950 4200 50  0001 C CNN "Order"
+F 5 "Diptronics" H 950 4200 50  0001 C CNN "Manufacturer"
+F 6 "TAC-35N-V-T/R" H 950 4200 50  0001 C CNN "MNR"
 	1    950  4200
 	0    -1   -1   0   
 $EndComp
-Text Label 4800 2800 2    50   ~ 0
+Text Label 8450 1350 2    50   ~ 0
 SWCLK
-Text Label 3750 2800 0    50   ~ 0
+Text Label 7400 1350 0    50   ~ 0
 NRST
 Text Label 600  2300 0    50   ~ 0
 XTAL1
@@ -236,31 +223,29 @@ Connection ~ 950  2600
 Wire Wire Line
 	1300 2600 1300 2550
 Wire Wire Line
-	4150 1800 4150 1750
+	6550 1400 6550 1350
 Wire Wire Line
-	4150 1750 3700 1750
+	6550 1350 6100 1350
 Wire Wire Line
-	3700 1750 3700 1700
-Connection ~ 4150 1750
+	6100 1350 6100 1300
+Connection ~ 6550 1350
 Wire Wire Line
-	4150 1750 4150 1700
+	6550 1350 6550 1300
 Wire Wire Line
-	4150 1750 4600 1750
+	6550 1350 7000 1350
 Wire Wire Line
-	4600 1750 4600 1700
+	7000 1350 7000 1300
 Wire Wire Line
-	4150 1400 4150 1450
+	6550 1050 6100 1050
 Wire Wire Line
-	4150 1450 3700 1450
+	6100 1050 6100 1100
+Connection ~ 6550 1050
 Wire Wire Line
-	3700 1450 3700 1500
-Connection ~ 4150 1450
+	6550 1050 6550 1100
 Wire Wire Line
-	4150 1450 4150 1500
+	6550 1050 7000 1050
 Wire Wire Line
-	4150 1450 4600 1450
-Wire Wire Line
-	4600 1450 4600 1500
+	7000 1050 7000 1100
 Wire Wire Line
 	2400 4450 2650 4450
 Connection ~ 2400 4450
@@ -316,28 +301,28 @@ AR Path="/605DA130/605DDD83" Ref="SW602"  Part="1"
 F 0 "SW602" V 2196 4152 50  0000 R CNN
 F 1 "SW_Push" V 2105 4152 50  0000 R CNN
 F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2" H 2150 4400 50  0001 C CNN
-F 3 "https://www.mouser.at/datasheet/2/60/kmr2-1841878.pdf" H 2150 4400 50  0001 C CNN
-F 4 "https://www.mouser.at/ProductDetail/611-KMR211G-LFS" V 2150 4200 50  0001 C CNN "Order"
-F 5 "C&K" H 2150 4200 50  0001 C CNN "Manufacturer"
-F 6 "KMR211GLFS" H 2150 4200 50  0001 C CNN "MNR"
+F 3 "https://www.mouser.at/datasheet/2/910/448_TAC2-3-1571418.pdf" H 2150 4400 50  0001 C CNN
+F 4 "https://www.mouser.at/ProductDetail/Diptronics/TAC-35N-V-T-R?qs=MLItCLRbWsxLaFNtnMEtJQ==" V 2150 4200 50  0001 C CNN "Order"
+F 5 "Diptronics" H 2150 4200 50  0001 C CNN "Manufacturer"
+F 6 "TAC-35N-V-T/R" H 2150 4200 50  0001 C CNN "MNR"
 	1    2150 4200
 	0    -1   -1   0   
 $EndComp
-Text Notes 7950 2350 0    50   ~ 0
+Text Notes 5500 2250 0    50   ~ 0
 SPI Chip Select
-Text Notes 7950 2450 0    50   ~ 0
+Text Notes 5500 2350 0    50   ~ 0
 SPI Clock
-Text Notes 5750 2400 2    50   ~ 0
+Text Notes 3300 2300 2    50   ~ 0
 SPI MOSI
-Text Notes 5750 2300 2    50   ~ 0
+Text Notes 3300 2200 2    50   ~ 0
 PWM
-Text Label 6050 1650 2    50   ~ 0
+Text Label 3600 1550 2    50   ~ 0
 SW1
-Text Label 7650 1750 0    50   ~ 0
+Text Label 5200 1650 0    50   ~ 0
 SW2
-Text Label 6050 1350 2    50   ~ 0
+Text Label 3600 1250 2    50   ~ 0
 XTAL1
-Text Label 6050 1450 2    50   ~ 0
+Text Label 3600 1350 2    50   ~ 0
 XTAL2
 $Comp
 L Device:R_Small R601
@@ -383,133 +368,119 @@ Wire Wire Line
 Wire Wire Line
 	2850 3950 2650 3950
 Connection ~ 2650 3950
-Text HLabel 7650 2350 2    50   Output ~ 0
+Text HLabel 5200 2250 2    50   Output ~ 0
 LE
-Text HLabel 7650 2450 2    50   Output ~ 0
+Text HLabel 5200 2350 2    50   Output ~ 0
 CLK
-Text HLabel 6050 2350 0    50   Output ~ 0
+Text HLabel 3600 2250 0    50   Output ~ 0
 MOSI
-Text HLabel 6050 2250 0    50   Output ~ 0
+Text HLabel 3600 2150 0    50   Output ~ 0
 OE
-Text HLabel 6050 1550 0    50   Input ~ 0
+Text HLabel 3600 1450 0    50   Input ~ 0
 BAT_SENSE
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J601
 U 1 1 605EA1C2
-P 4200 2800
-F 0 "J601" H 4250 3117 50  0000 C CNN
-F 1 "SWD" H 4250 3026 50  0000 C CNN
-F 2 "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" H 4200 2800 50  0001 C CNN
-F 3 "~" H 4200 2800 50  0001 C CNN
-F 4 "Mill-Max" H 4200 2800 50  0001 C CNN "Manufacturer"
-F 5 "https://www.mouser.at/ProductDetail/Mill-Max/855-22-006-10-001101?qs=mPCt1EmoOdSJhsMqOzcHKA%3D%3D" H 4200 2800 50  0001 C CNN "Order"
-F 6 "855-22-006-10-001101" H 4200 2800 50  0001 C CNN "MNR"
-	1    4200 2800
+P 7850 1350
+F 0 "J601" H 7900 1667 50  0000 C CNN
+F 1 "SWD" H 7900 1576 50  0000 C CNN
+F 2 "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" H 7850 1350 50  0001 C CNN
+F 3 "~" H 7850 1350 50  0001 C CNN
+F 4 "Mill-Max" H 7850 1350 50  0001 C CNN "Manufacturer"
+F 5 "https://www.mouser.at/ProductDetail/Mill-Max/855-22-006-10-001101?qs=mPCt1EmoOdSJhsMqOzcHKA%3D%3D" H 7850 1350 50  0001 C CNN "Order"
+F 6 "855-22-006-10-001101" H 7850 1350 50  0001 C CNN "MNR"
+	1    7850 1350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3750 2800 4000 2800
-Text Label 4800 2700 2    50   ~ 0
+	7400 1350 7650 1350
+Text Label 8450 1250 2    50   ~ 0
 SWDIO
 Wire Wire Line
-	4500 2800 4800 2800
+	8150 1350 8450 1350
 Wire Wire Line
-	4500 2700 4800 2700
-$Comp
-L power:+3.3V #PWR?
-U 1 1 605EF2A1
-P 3750 2650
-AR Path="/605EF2A1" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/605EF2A1" Ref="#PWR0147"  Part="1" 
-F 0 "#PWR0147" H 3750 2500 50  0001 C CNN
-F 1 "+3.3V" H 3750 2800 50  0000 C CNN
-F 2 "" H 3750 2650 50  0001 C CNN
-F 3 "" H 3750 2650 50  0001 C CNN
-	1    3750 2650
-	1    0    0    -1  
-$EndComp
+	8150 1250 8450 1250
 Wire Wire Line
-	3750 2650 3750 2700
-Wire Wire Line
-	3750 2700 4000 2700
+	7400 1250 7650 1250
 $Comp
 L power:GND #PWR?
 U 1 1 605F06C3
-P 3950 2950
+P 7600 1500
 AR Path="/605F06C3" Ref="#PWR?"  Part="1" 
 AR Path="/605DA130/605F06C3" Ref="#PWR0150"  Part="1" 
-F 0 "#PWR0150" H 3950 2700 50  0001 C CNN
-F 1 "GND" H 3955 2777 50  0001 C CNN
-F 2 "" H 3950 2950 50  0001 C CNN
-F 3 "" H 3950 2950 50  0001 C CNN
-	1    3950 2950
+F 0 "#PWR0150" H 7600 1250 50  0001 C CNN
+F 1 "GND" H 7605 1327 50  0001 C CNN
+F 2 "" H 7600 1500 50  0001 C CNN
+F 3 "" H 7600 1500 50  0001 C CNN
+	1    7600 1500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3950 2950 3950 2900
+	7600 1500 7600 1450
 Wire Wire Line
-	3950 2900 4000 2900
-NoConn ~ 4500 2900
+	7600 1450 7650 1450
+NoConn ~ 8150 1450
 $Comp
 L watch:BT832 U1
 U 1 1 61900ECF
-P 6850 2250
-F 0 "U1" H 6850 3617 50  0000 C CNN
-F 1 "BT832" H 6850 3526 50  0000 C CNN
-F 2 "watch:BLEMODULE_BT832" H 6850 2250 50  0001 L BNN
-F 3 "" H 6850 2250 50  0001 L BNN
-F 4 "Manufacturer Recommendations" H 6850 2250 50  0001 L BNN "STANDARD"
-F 5 "FANSTEL" H 6850 2250 50  0001 L BNN "MANUFACTURER"
-F 6 "2.04" H 6850 2250 50  0001 L BNN "PARTREV"
-	1    6850 2250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR?
-U 1 1 61905ED1
-P 7700 1100
-AR Path="/61905ED1" Ref="#PWR?"  Part="1" 
-AR Path="/605DA130/61905ED1" Ref="#PWR0144"  Part="1" 
-F 0 "#PWR0144" H 7700 950 50  0001 C CNN
-F 1 "+3.3V" H 7700 1250 50  0000 C CNN
-F 2 "" H 7700 1100 50  0001 C CNN
-F 3 "" H 7700 1100 50  0001 C CNN
-	1    7700 1100
+P 4400 2150
+F 0 "U1" H 4400 3517 50  0000 C CNN
+F 1 "BT832" H 4400 3426 50  0000 C CNN
+F 2 "watch:BLEMODULE_BT832" H 4400 2150 50  0001 L BNN
+F 3 "" H 4400 2150 50  0001 L BNN
+F 4 "Manufacturer Recommendations" H 4400 2150 50  0001 L BNN "STANDARD"
+F 5 "FANSTEL" H 4400 2150 50  0001 L BNN "MANUFACTURER"
+F 6 "2.04" H 4400 2150 50  0001 L BNN "PARTREV"
+	1    4400 2150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7700 1100 7700 1150
-Wire Wire Line
-	7700 1150 7650 1150
+	5250 1050 5200 1050
 $Comp
 L power:GND #PWR?
 U 1 1 61906EDA
-P 7700 3400
+P 5250 3300
 AR Path="/61906EDA" Ref="#PWR?"  Part="1" 
 AR Path="/605DA130/61906EDA" Ref="#PWR0145"  Part="1" 
-F 0 "#PWR0145" H 7700 3150 50  0001 C CNN
-F 1 "GND" H 7705 3227 50  0001 C CNN
-F 2 "" H 7700 3400 50  0001 C CNN
-F 3 "" H 7700 3400 50  0001 C CNN
-	1    7700 3400
+F 0 "#PWR0145" H 5250 3050 50  0001 C CNN
+F 1 "GND" H 5255 3127 50  0001 C CNN
+F 2 "" H 5250 3300 50  0001 C CNN
+F 3 "" H 5250 3300 50  0001 C CNN
+	1    5250 3300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7700 3400 7700 3350
+	5250 3300 5250 3250
 Wire Wire Line
-	7700 3350 7650 3350
-Text Label 5800 3150 0    50   ~ 0
+	5250 3250 5200 3250
+Text Label 3350 3050 0    50   ~ 0
 SWDIO
-Text Label 5800 3050 0    50   ~ 0
+Text Label 3350 2950 0    50   ~ 0
 SWCLK
 Wire Wire Line
-	5800 3050 6050 3050
+	3350 2950 3600 2950
 Wire Wire Line
-	6050 3150 5800 3150
-Text Label 7900 1850 2    50   ~ 0
+	3600 3050 3350 3050
+Text Label 5450 1750 2    50   ~ 0
 NRST
 Wire Wire Line
-	7900 1850 7650 1850
-Text HLabel 7650 1550 2    50   Output ~ 0
-LED-POWER
+	5450 1750 5200 1750
+Text HLabel 5200 1450 2    50   Output ~ 0
+LED_POWER_CTL
+Text HLabel 7500 900  2    50   Input ~ 0
+VIN
+Wire Wire Line
+	7500 900  7400 900 
+Wire Wire Line
+	5250 900  5250 1050
+Wire Wire Line
+	6550 900  6550 1050
+Connection ~ 6550 900 
+Wire Wire Line
+	6550 900  5250 900 
+Wire Wire Line
+	7400 900  7400 1250
+Connection ~ 7400 900 
+Wire Wire Line
+	7400 900  6550 900 
 $EndSCHEMATC

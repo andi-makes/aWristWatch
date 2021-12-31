@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name watch)(type Legacy)(uri ${KIPRJMOD}/watch.lib)(options "")(descr ""))
-  (lib (name BT832)(type Legacy)(uri /home/andi/Downloads/BT832.lib)(options "")(descr ""))
+  (lib (name BT832)(type Legacy)(uri /mnt/d/projects/aWristWatch/hardware/BT832.lib)(options "")(descr ""))
+  (lib (name MC3479)(type Legacy)(uri ${KIPRJMOD}/MC3479.lib)(options "")(descr ""))
 )
